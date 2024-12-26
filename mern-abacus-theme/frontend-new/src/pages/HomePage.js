@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/about.css';
+import '../styles/global.css';
 import '../assets/images/logo.jpeg';
 
 const HomePage = () => {
@@ -13,13 +14,21 @@ const HomePage = () => {
             "Ideas Converge and Possibilities Unfold"
           </h1>
           <p>Navigating the Future, One Innovation at a Time</p>
-          <button className='contact_but'>Contact Us!!</button>
+          <div className='button'><button className='theme'>Innovate, Integrate, Inspire: ABACUS'24</button><button className='contact_but'>Contact Us!!</button></div>
           </div>
           <div className='div2'>
-            <img
+          <img className='des-1'
+              src={require('../assets/images/Untitled_design__3_-removebg-preview.png')}
+              alt="Abacus Logo"
+         />
+          {/* <img className='des-2'
+              src={require('../assets/images/design-2.png')}
+              alt="Abacus Logo"
+         /> */}
+            <img className='logo'
               src={require('../assets/images/logo.jpeg')}
               alt="Abacus Logo"
-            />
+         />
           </div>
         </div>
         <div className="about">
