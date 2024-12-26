@@ -1,62 +1,64 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import abacus_img from "../assets/images/abacus_logo.png";
-import {FaHome} from "react-icons/fa";
+import abacus_img from "../assets/images/logo.jpeg";
+
 const Navbar = () => {
-  //   const [active, SetActive] = useState("home");
-  //   //SetActive("home");
-  //   console.log(active);
   return (
-    <div className="flex justify-between px-5 py-2  text-zinc-200 bg-gray-900">
+    <div className="fixed top-0 w-full flex justify-between px-5 py-2 text-white bg-black shadow-2xl z-20">
       <div className="flex flex-row rounded-lg">
-        <Link>
+        <a href="#home">
           <img
             src={abacus_img}
             alt="abacus-image"
             className="h-14 w-14 mx-auto"
           />
-        </Link>
-        <h1 className="my-auto hover:bg-gray-200">Abacus 2025</h1>
+        </a>
+        <h1 className="my-auto hover:bg-gray-700">Abacus 2025</h1>
       </div>
       <div className="text-md font-semibold my-auto">
         <a
           href="#home"
-          className="p-2 hover:text-gray-200 hover:bg-gray-700 rounded-md"
+          className="p-2 hover:text-gray-300 hover:bg-gray-800 rounded-md"
         >
           /home
         </a>
-        <Link
-          to="#about"
-          className="p-2 hover:text-gray-200 hover:bg-gray-700 rounded-md"
+        <a
+          href="#about"
+          className="p-2 hover:text-gray-300 hover:bg-gray-800 rounded-md"
         >
           /about
-        </Link>
+        </a>
         <a
           href="#sponsors"
-          className="p-2 hover:text-gray-200 hover:bg-gray-700 rounded-md"
+          className="p-2 hover:text-gray-300 hover:bg-gray-800 rounded-md"
         >
-         /sponsors
+          /sponsors
         </a>
-        <Link
-          to="#events"
-          className="p-2 hover:text-gray-200 hover:bg-gray-700 rounded-md"
+        <a
+          href="#events"
+          className="p-2 hover:text-gray-300 hover:bg-gray-800 rounded-md"
         >
           /events
-        </Link>
-        <Link
-          to="#workshops"
-          className="p-2 hover:text-gray-200 hover:bg-gray-700 rounded-md"
+        </a>
+        <a
+          href="#developers"
+          className="p-2 hover:text-gray-300 hover:bg-gray-800 rounded-md"
         >
-         /workshops
-        </Link>
-        <Link
-          to="#login"
-          className="p-2 hover:text-gray-200 hover:bg-gray-700 rounded-md"
+          /developers
+        </a>
+        <a
+          href="#workshops"
+          className="p-2 hover:text-gray-300 hover:bg-gray-800 rounded-md"
+        >
+          /workshops
+        </a>
+        <a
+          href="#login"
+          className="p-2 hover:text-gray-300 hover:bg-gray-800 rounded-md"
         >
           /login
-        </Link>
+        </a>
       </div>
     </div>
   );
 };
+
 export default Navbar;

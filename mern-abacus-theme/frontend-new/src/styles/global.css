@@ -1,17 +1,7 @@
-*{
-    /* background-color: #F0F0F0; */
-    font-family: "Montserrat"
-    
+* {
+  /* background-color: #f0f0f0; */
+  font-family: "Montserrat";
+
+  overflow-x: hidden;
 }
 
-.main .heading{
-    font-size: 40px;
-}
-
-.main img{
-    height:50px;
-    width:50px;
-}
-    
-      
-  
