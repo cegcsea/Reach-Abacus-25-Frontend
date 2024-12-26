@@ -7,6 +7,7 @@ const HomePage = () => {
   return (
     <div>
       <div className="main">
+       
         <div className='initial'>
           <div className='div1' >
           <h1 className="heading">
@@ -31,8 +32,18 @@ const HomePage = () => {
          />
           </div>
         </div>
+        <h2>Abacus-2025</h2>
+        
+         
         <div className="about">
-          <h2>abacus-2025</h2>
+          <div className='first'>
+          <img
+              src={require('../assets/images/logo.jpeg')}
+              alt="Abacus Logo"
+            />
+          
+          </div>
+          <div className='second'>
           <p>
             The conglomeration of the brightest minds enhancing the
             participant’s knowledge and creative potentials. The 3-day annual
@@ -43,14 +54,13 @@ const HomePage = () => {
             innovation. This year, Abacus is back offline on a grander scale
             with an innovative edge to all the events.
           </p>
-          <button>Read More</button>
-          <div>
-            <img
-              src={require('../assets/images/logo.jpeg')}
-              alt="Abacus Logo"
-            />
+          <button className='button'>Read More</button>
           </div>
         </div>
+        <img className='border'
+              src={require('../assets/images/border.png')}
+              alt="Abacus Logo"
+            />
       </div>
 
       {/* Developers Section */}
