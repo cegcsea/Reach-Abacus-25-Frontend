@@ -1,0 +1,242 @@
+
+.main .heading {
+    font-size: 40px;
+  }
+
+  .main{
+  
+     position: relative;
+  }
+
+  .main .initial {
+    display: flex;
+    height: 100vh;
+    padding:20px;
+    padding-left:40px;
+    align-items: center;
+    justify-content: center;
+   
+  }
+  .border
+  {
+    position: absolute;
+    bottom:00px;
+    left:0px;
+
+  }
+  .main .initial div {
+    flex: 1;
+  }
+  
+  .main .initial .div2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  .div2 .logo{
+     
+    width:320px;
+    height:320px;
+    border-left:50px solid black;
+    border-right:20px solid black;
+    border-top:10px solid black;
+    border-bottom:40px solid black;
+    border-radius: 50%;
+    z-index:100;
+    
+  }
+  .initial .button{
+    border-collapse: collapse;
+  }
+
+  .initial .theme{
+    padding:10px 20px;
+    background-color: #f0f0f0;
+    color: black;
+    font-size: 15px;
+    border:1px solid black;
+    border-right: 1px solid #f0f0f0;
+
+  }
+  
+  .initial .contact_but{
+      padding:10px 30px;
+      background-color: black;
+      color:#f0f0f0;
+      font-size:15px;
+      cursor: pointer;
+      border:1px solid black;
+  }
+
+  .initial .des-1 {
+    position: absolute;
+  right:0px;
+    width:50em;
+    height:30em;
+    background-color: #f0f0f0;
+  }
+
+  .initial .des-2 {
+    position: absolute;
+   right:10px;
+   top:9px;
+    width:14em;
+    height:15em;
+    transform: rotate(180deg);
+  
+  }
+ 
+  .about{
+    height: 100vh;
+    padding:20px;
+    padding-left:40px;
+    display: flex;
+   
+  }
+  .about .first{
+    display: flex;
+    
+    align-items: top;
+  }
+
+  .about .first img{
+    width:540px;
+    height:480px;
+  }
+
+  .about .second {
+    padding-right: 40px;
+    font-size: 20px;
+    line-height: 40px;
+  }
+  .about div{
+    flex:1;
+  }
+  .main h2{
+    padding-left: 40px;
+  }
+
+  .about .button{
+    padding:10px 30px;
+    background-color: black;
+    color:#f0f0f0;
+    font-size:15px;
+    cursor: pointer;
+    border:1px solid black;
+    cursor: pointer;
+  }
+
+  .main .border{
+    
+    height:250px;
+    width:1500px;
+  }
+
+  @media (max-width:1800px)
+  {
+    .border{
+      visibility: hidden;
+
+    }
+  }
+
+  @media(max-width:1400px)
+  {
+    .main .des-1{
+      visibility: hidden;
+    }
+  }
+
+  @media(max-width:1050px)
+  {
+    .main .initial{
+      height:auto;
+      flex-direction: column;
+    }
+    .main .initial .logo{
+      visibility: hidden;
+      width: 0;
+      height:0;
+    }
+    .about{
+      height:auto;
+      flex-direction: column;
+
+    }
+    
+  }
+
+  @media (max-width:594px) {
+    .main .initial .logo{
+      height:15em;
+     width:15em; 
+     visibility: visible;
+    }
+    .about .first img{
+      visibility: hidden;
+      height:0;
+      width:0;
+    }
+    .main .initial .contact_but{
+      background-color: black;
+      color:#f0f0f0;
+      font-size:13px;
+      cursor: pointer;
+      border:1px solid black;
+    }
+    .initial .theme{
+      background-color: #f0f0f0;
+      color: black;
+      font-size: 13px;
+      border:1px solid black;
+    
+  
+    }
+
+    .button{
+      margin-bottom: 20px;
+    }
+
+   .about p{
+    font-size:14px;
+    line-height: 25px;
+   }
+  }
+
+
+
+  @media (max-width:522px) {
+
+    .main .initial .heading{
+      font-size:30px;
+      
+    }
+  
+   
+    .main .initial .contact_but{
+      padding:10px;
+      background-color: black;
+      color:#f0f0f0;
+      font-size:13px;
+      cursor: pointer;
+      border:1px solid black;
+    }
+    .initial .theme{
+      padding:10px;
+      background-color: #f0f0f0;
+      color: black;
+      font-size: 13px;
+      border:1px solid black;
+    
+  
+    }
+
+    .button{
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+   
+  }
