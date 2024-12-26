@@ -1,0 +1,44 @@
+.main .heading {
+    font-size: 40px;
+  }
+  
+  .main img {
+    height: 50px;
+    width: 50px;
+  }
+  
+  .main .initial {
+    display: flex;
+    height: 100vh;
+    padding:20px;
+    align-items: center;
+    justify-content: center;
+  }
+  .main .initial div {
+    flex: 1;
+  }
+  
+  .main .initial .div2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .div2 img {
+     
+    width:20em;
+    height:20em;
+    border-left:50px solid black;
+    border-right:20px solid black;
+    border-top:10px solid black;
+    border-bottom:40px solid black;
+    border-radius: 50%;
+    
+  }
+  
+  .initial .contact_but{
+      padding:10px 30px;
+      background-color: black;
+      color:#f0f0f0;
+      font-size:20px;
+  }

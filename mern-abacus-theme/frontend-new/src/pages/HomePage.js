@@ -1,21 +1,23 @@
 import React from 'react';
-import '../styles/global.css';
-import '../assets/images/abacus_logo.png';
+import '../styles/about.css';
+import '../assets/images/logo.jpeg';
 
 const HomePage = () => {
   return (
     <div>
       <div className="main">
-        <div>
+        <div className='initial'>
+          <div className='div1' >
           <h1 className="heading">
             ABACUS'24
             "Ideas Converge and Possibilities Unfold"
           </h1>
-          <h3>Navigating the Future, One Innovation at a Time</h3>
-          <button>Contact Us!!</button>
-          <div>
+          <p>Navigating the Future, One Innovation at a Time</p>
+          <button className='contact_but'>Contact Us!!</button>
+          </div>
+          <div className='div2'>
             <img
-              src={require('../assets/images/abacus_logo.png')}
+              src={require('../assets/images/logo.jpeg')}
               alt="Abacus Logo"
             />
           </div>
@@ -35,7 +37,7 @@ const HomePage = () => {
           <button>Read More</button>
           <div>
             <img
-              src={require('../assets/images/abacus_logo.png')}
+              src={require('../assets/images/logo.jpeg')}
               alt="Abacus Logo"
             />
           </div>
