@@ -66,13 +66,18 @@ const HomePage = () => {
           </div>
         </div>
         <img
-          className="border"
+          className="w-[96em] h-[24em]"
           src={require("../assets/images/border.png")}
           alt="Abacus Logo"
         />
       </div>
-      <div id="sponsors">
+      <div className="bg-[#f0f0f0]" >
         <Sponsors />
+        <img
+          className="w-[96em] h-[24em] "
+          src={require("../assets/images/border.png")}
+          alt="Abacus Logo"
+        />
       </div>
       {/* Developers Section */}
       <div className="developers bg-[#f0f0f0]" id="developers">
