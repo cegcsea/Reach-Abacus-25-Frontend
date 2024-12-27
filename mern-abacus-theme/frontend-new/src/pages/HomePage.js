@@ -62,7 +62,7 @@ const HomePage = () => {
           <div className="div2">
             <img
               className="des-1"
-              src={require('../assets/images/Untitled_design__3_-removebg-preview.png')}
+              src={require('../assets/images/Untitled design (6).png')}
               alt="Abacus Logo"
             />
             <img
