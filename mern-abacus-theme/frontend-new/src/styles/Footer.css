@@ -1,6 +1,6 @@
 .footer {
-    background-color: #333;
-    color: #fff;
+    background-color: white;
+    color: #333;
     padding: 20px;
     text-align: center;
 }
@@ -34,11 +34,14 @@
 }
 /* Footer Container */
 .footer {
+    background-color: #fff;
+    border: 1px solid #ddd;
     border-top: 1px solid rgba(171, 178, 191, 0.4);
     padding: 2rem 1.5rem;
-    background-color: rgba(41, 45, 51, 0.9);
-    color: rgba(171, 178, 191, 1);
+   /* background-color: grey; */
+  /*  color: rgba(171, 178, 191, 1); */
     font-family: Arial, sans-serif;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
 /* Header Section */
@@ -46,7 +49,8 @@
     display: flex;
     align-items: center;
     margin-bottom: 1.5rem;
-    color: white;
+  /*  color: white; */
+    color: #333;
     font-size: 1.5rem;
 }
 
@@ -57,7 +61,8 @@
 }
 
 .footer .head h1 span:first-child {
-    color: #c778dd;
+   /* color: #c778dd; */
+    color: #333;
     font-weight: bold;
 }
 
@@ -81,6 +86,7 @@
     border: 1px solid rgba(171, 178, 191, 0.4);
     border-radius: 5px;
     overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
 .locatehead {
@@ -134,6 +140,7 @@
     border: 1px solid rgba(171, 178, 191, 0.4);
     padding: 1.5rem;
     border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
 .phonehead {
@@ -150,7 +157,9 @@
 /* Email Box */
 .email-box {
     text-align: center;
-    color: rgba(171, 178, 191, 1);
+ /*   color: rgba(171, 178, 191, 1); */
+     color:#333;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
 .email-box p {
@@ -159,7 +168,7 @@
 }
 
 .email-box a {
-    color: #c778dd;
+    color: #333;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -173,12 +182,14 @@
     border: 1px solid rgba(171, 178, 191, 0.4);
     padding: 1.5rem;
     border-radius: 5px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
 .querybox div {
     margin-bottom: 1rem;
     font-size: 1rem;
     color: white;
+    resize:none;
 }
 
 .querybox form {
@@ -195,17 +206,19 @@
     background-color: rgba(41, 45, 51, 0.7);
     color: white;
     font-size: 1rem;
+    resize:none;
 }
 
 .querybox input::placeholder, .querybox textarea::placeholder {
-    color: rgba(171, 178, 191, 0.7);
+    /* color: rgba(171, 178, 191, 0.7);  */
+    color: #333;
 }
 
 .querybox button {
     padding: 0.75rem;
     border: none;
     border-radius: 5px;
-    background-color: #c778dd;
+    background-color: black;
     color: white;
     font-size: 1rem;
     cursor: pointer;
