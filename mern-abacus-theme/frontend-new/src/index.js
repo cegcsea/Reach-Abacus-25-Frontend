@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import HomePage from './pages/HomePage'
+import HomePage from './pages/HomePage';
+import Footer from './components/Footer'; 
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
