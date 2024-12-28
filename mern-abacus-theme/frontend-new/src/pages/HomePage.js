@@ -49,13 +49,13 @@ const HomePage = () => {
       <div className="main">
         <div className="initial">
           <div className="div1">
-            <h1 className="heading">
+            <h1 className="heading ">
               ABACUS'24
               "Ideas Converge and Possibilities Unfold"
             </h1>
-            <p>Navigating the Future, One Innovation at a Time</p>
+            <p className='press-start-2p'>Navigating the Future, One Innovation at a Time</p>
             <div className="button">
-              <button className="theme">Innovate, Integrate, Inspire: ABACUS'24</button>
+              <button className="theme ">Innovate, Integrate, Inspire: ABACUS'24</button>
               <button className="contact_but">Contact Us!!</button>
             </div>
           </div>
@@ -78,7 +78,7 @@ const HomePage = () => {
             <img src={require('../assets/images/logo.jpeg')} alt="Abacus Logo" />
           </div>
           <div className="second">
-            <p>
+            <p className='vt323-regular'>
               The conglomeration of the brightest minds enhancing the
               participant’s knowledge and creative potentials. The 3-day annual
               symposium showcases 15+ events and flagship contests of crystal
