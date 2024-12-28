@@ -42,7 +42,7 @@ const Sponsors = () => {
         ))}
       </div>
       <div className=" w-[100%] flex justify-center mt-4">
-        <button className="bg-black text-[#f0f0f0] rounded-lg p-2 font-semibold  hover:text-gray-950 hover:bg-[#f0f0f0] border border-solid border-black transition delay-50 ease-linear">
+        <button className="bg-black text-[#f0f0f0] rounded-none p-2 font-sm hover:font-semibold  hover:text-gray-950 hover:bg-[#f0f0f0] border border-solid border-black transition delay-50 ease-linear">
           Read More{" "}
         </button>
       </div>
