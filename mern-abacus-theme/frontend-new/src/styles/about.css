@@ -104,6 +104,7 @@
   .about .first img{
     width:540px;
     height:480px;
+    border-radius: 4%;
   }
 
   .about .second {
@@ -202,6 +203,16 @@
    .about p{
     font-size:14px;
     line-height: 25px;
+    
+   }
+   .about{
+    padding-top: 0;
+   }
+   .main h2{
+    margin-bottom: 0;
+   }
+   .about .second{
+    padding-right: 0;
    }
   }
 
