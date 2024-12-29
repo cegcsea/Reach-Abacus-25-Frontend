@@ -104,7 +104,7 @@ const HomePage = () => {
           </div>
         </div>
         <img
-          className="w-[96em] h-[24em]"
+          className="w-[96em] h-[18em]"
           src={require("../assets/images/border.png")}
           alt="Abacus Logo"
         />
@@ -112,7 +112,7 @@ const HomePage = () => {
       <div className="bg-[#f0f0f0]" id="sponsors">
         <Sponsors/>
         <img
-          className="w-[96em] h-[24em] "
+          className="w-[96em] h-[18em] "
           src={require("../assets/images/border.png")}
           alt="Abacus Logo"
         />
