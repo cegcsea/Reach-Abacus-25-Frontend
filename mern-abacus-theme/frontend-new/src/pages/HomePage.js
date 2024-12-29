@@ -104,7 +104,7 @@ const HomePage = () => {
           </div>
         </div>
         <img
-          className="border"
+          className="w-[96em] h-[24em]"
           src={require("../assets/images/border.png")}
           alt="Abacus Logo"
         />

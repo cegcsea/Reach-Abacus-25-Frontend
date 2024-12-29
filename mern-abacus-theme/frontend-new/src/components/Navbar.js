@@ -54,7 +54,7 @@ const Navbar = () => {
       <div
         className={`flex lg:space-x-4 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row  lg:h-auto transition-transform duration-300 ease-in-out ${
           isMenuOpen
-            ? "block transform translate-x-0 bg-gradient-to-r from-gray-950 via-gray-800 via-gray-700 to-gray-950 lg:bg-transparent fixed top-0 left-0 w-full h-full"
+            ? "block transform translate-x-0 bg-gradient-to-r from-gray-950 via-gray-800 via-gray-700 to-gray-950 lg:bg-transparent fixed top-0 left-0 w-screen h-screen"
             : "transform -translate-x-full hidden lg:block my-auto"
         }`}
       >
