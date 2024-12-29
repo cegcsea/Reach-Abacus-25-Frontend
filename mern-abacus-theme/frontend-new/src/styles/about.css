@@ -32,7 +32,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
+    z-index: 10;
   }
   
   .div2 .logo{
@@ -44,7 +44,7 @@
     border-top:10px solid black;
     border-bottom:40px solid black;
     border-radius: 50%;
-    z-index:100;
+    z-index:10;
     
   }
   .initial .button{

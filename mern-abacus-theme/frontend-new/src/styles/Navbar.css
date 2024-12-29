@@ -1,0 +1,57 @@
+.animated-border-box,
+.animated-border-box-glow {
+  overflow: hidden;
+  z-index: 0;
+  border-radius: 20px; 
+}
+.animated-border-box:before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  width: 200%;
+  height: 200%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: conic-gradient(
+    transparent 0%,
+    #f0f0f0 25%,
+    transparent 50%,
+    #f0f0f0 75%,
+    transparent 100%
+  );
+  animation: rotate 4s linear infinite; 
+}
+
+.animated-border-box:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  background: #292a2e;
+  border-radius: 10px; 
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+.center-box {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1d1e22;
+}
