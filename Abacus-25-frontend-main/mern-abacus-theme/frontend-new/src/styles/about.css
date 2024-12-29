@@ -1,0 +1,134 @@
+
+.main .heading {
+    font-size: 40px;
+  }
+
+  .main{
+  
+     position: relative;
+  }
+
+  .main .initial {
+    display: flex;
+    height: 100vh;
+    padding:20px;
+    padding-left:40px;
+    align-items: center;
+    justify-content: center;
+   
+  }
+  .border
+  {
+    position: absolute;
+    bottom:00px;
+    left:0px;
+
+  }
+  .main .initial div {
+    flex: 1;
+  }
+  
+  .main .initial .div2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  .div2 .logo{
+     
+    width:20em;
+    height:20em;
+    border-left:50px solid black;
+    border-right:20px solid black;
+    border-top:10px solid black;
+    border-bottom:40px solid black;
+    border-radius: 50%;
+    z-index:100;
+    
+  }
+  .initial .button{
+    border-collapse: collapse;
+  }
+
+  .initial .theme{
+    padding:10px 20px;
+    background-color: #f0f0f0;
+    color: black;
+    font-size: 15px;
+    border:1px solid black;
+    border-right: 1px solid #f0f0f0;
+
+  }
+  
+  .initial .contact_but{
+      padding:10px 30px;
+      background-color: black;
+      color:#f0f0f0;
+      font-size:15px;
+      cursor: pointer;
+      border:1px solid black;
+  }
+
+  .initial .des-1 {
+    position: absolute;
+  right:0px;
+    width:50em;
+    height:30em;
+    background-color: #f0f0f0;
+  }
+
+  .initial .des-2 {
+    position: absolute;
+   right:10px;
+   top:9px;
+    width:14em;
+    height:15em;
+    transform: rotate(180deg);
+  
+  }
+ 
+  .about{
+    height: 100vh;
+    padding:20px;
+    padding-left:40px;
+    display: flex;
+   
+  }
+  .about .first{
+    display: flex;
+    
+    align-items: top;
+  }
+
+  .about .first img{
+    width:35em;
+    height:30em;
+  }
+
+  .about .second {
+    padding-right: 40px;
+    font-size: 20px;
+    line-height: 40px;
+  }
+  .about div{
+    flex:1;
+  }
+  .main h2{
+    padding-left: 40px;
+  }
+
+  .about .button{
+    padding:10px 30px;
+    background-color: black;
+    color:#f0f0f0;
+    font-size:15px;
+    cursor: pointer;
+    border:1px solid black;
+  }
+
+  .main .border{
+    
+    height:250px;
+    width:1500px;
+  }
