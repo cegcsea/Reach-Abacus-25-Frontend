@@ -140,7 +140,7 @@ const HomePage = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button>LinkedIn ↔</button>
+              <button>↔ LinkedIn ↔</button>
             </a>
           </div>
           <div className="developer-card">
@@ -156,7 +156,7 @@ const HomePage = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button>LinkedIn ↔</button>
+              <button>↔ LinkedIn ↔</button>
             </a>
           </div>
 
