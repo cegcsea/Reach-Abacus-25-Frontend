@@ -28,9 +28,9 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
   return (
     <div
-      className={`fixed  w-screen flex flex-row justify-between lg:px-6 lg:py-3 text-white bg-gradient-to-r from-gray-950 via-gray-800 via-gray-700 to-gray-950 shadow-2xl z-50 
-        ${isMenuOpen ? " overflow-y-scroll " : "visible"}
-      `}
+      className={`fixed top-0 left-0 w-screen flex flex-row justify-between py-3 lg:px-5 lg:py-2  text-white bg-gradient-to-r from-gray-950 via-gray-800 via-gray-700 to-gray-950 shadow-2xl z-50 
+      ${isMenuOpen ? " overflow-hidden " : "visible"}
+    `}
     >
       <div
         className={`flex flex-row rounded-lg mx-4   delay-200 transform ease-in-out ${
@@ -76,8 +76,8 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
       <div
         className={`flex lg:space-x-4 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row  lg:h-auto transition-transform duration-300 ease-in-out ${
           isMenuOpen
-            ? "block transform translate-x-0 bg-gradient-to-r from-gray-950 via-gray-800 via-gray-700 to-gray-950 lg:bg-transparent fixed top-10 left-0  w-[70%] h-[40%] mx-[15%] mt-[15%] rounded-2xl"
-            : "transform -translate-x-full hidden lg:block my-auto absolute"
+            ? "block transform translate-x-0 bg-gradient-to-r from-gray-950 via-gray-800 via-gray-700 to-gray-950 lg:bg-transparent fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl"
+            : "transform -translate-x-full hidden lg:block my-auto"
         }`}
       >
         <button
