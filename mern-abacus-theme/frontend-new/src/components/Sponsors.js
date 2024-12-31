@@ -12,15 +12,15 @@ const Sponsors = () => {
   ];
 
   return (
-    <div className="bg-[#181720] font-serif p-6" id="sponsors">
+    <div className="bg-black font-serif p-6" id="sponsors">
       <h1 className="text-4xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden ">
         Sponsors
       </h1>
-      <div className="flex flex-col justify-between lg:flex-row mx-auto overflow-clip bg-[#181720] w-[100%]">
+      <div className="flex flex-col justify-between lg:flex-row mx-auto overflow-clip bg-black w-[100%]">
         {sponsors.map((sponsor, index) => (
           <div
             key={index}
-            className=" bg-[#181720] bg-gradient-to-br from-[#000000] via-[#180e3b] to-[#2e244b]  text-[#f0f0f0] shadow-lg rounded-lg py-4 px-1 flex flex-col items-center transition-transform transform hover:scale-95 hover:shadow-2xl overflow-hidden border border-transparent mx-auto lg:w-[32%] w-[90%]  animated-border-box ease-in-out transition border border-solid  border-2 shadow-md shadow-[#d2c4fdba] m-3"
+            className=" bg-[#181720] bg-gradient-to-br from-[#000000] via-[#180e3b] to-[#2e244b]  text-[#f0f0f0] shadow-lg rounded-lg py- px-2 flex flex-col items-center transition-transform transform hover:scale-95 hover:shadow-2xl overflow-hidden border border-transparent mx-auto lg:w-[32%] w-[90%]  animated-border-box ease-in-out transition border border-solid  border-2 shadow-md shadow-[#d2c4fdba] m-3"
           >
             <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-[#d2c4fdba] to-transparent animate-glow "></div>
             <p className="text-xl text-gray-300 text-center z-10 font-bold ">
@@ -34,6 +34,7 @@ const Sponsors = () => {
                 alt={sponsor.name}
                 className="w-full h-32 object-cover mb-4 rounded-2xl z-10 p-2 m-2"
               />
+              {/* <div class="absolute inset-0 bg-gray-200 mix-blend-multiply"></div> */}
             </div>
             <div class="border-t-2 border-b-2 border-gray-400 h-1 w-[90%]"></div>
 

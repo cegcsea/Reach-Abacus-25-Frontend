@@ -1,7 +1,8 @@
 
 /* Global font styles */
-body {
+* {
   font-family: "Montserrat", sans-serif; /* Default font */
   overflow-x: hidden;
+  box-sizing: border-box;
 }
 
