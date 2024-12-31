@@ -20,7 +20,7 @@
   .border1
   {
     position: absolute;
-    bottom:0px;
+    bottom:00px;
     left:0px;
 
   }
@@ -37,8 +37,8 @@
   
   .div2 .logo{
      
-    width:20em;
-    height:20em;
+    width:320px;
+    height:320px;
     border-left:50px solid black;
     border-right:20px solid black;
     border-top:10px solid black;
@@ -90,10 +90,9 @@
  
   .about{
     /* height: 100vh; */
-    padding-top:10px;
+    padding:20px;
     padding-left:40px;
     display: flex;
-    margin: 0;
    
   }
   .about .first{
@@ -103,8 +102,9 @@
   }
 
   .about .first img{
-    width:35em;
-    height:30em;
+    width:540px;
+    height:480px;
+    border-radius: 4%;
   }
 
   .about .second {
@@ -126,10 +126,128 @@
     font-size:15px;
     cursor: pointer;
     border:1px solid black;
+    cursor: pointer;
   }
 
   .main .border{
     
     height:250px;
     width:1500px;
+  }
+
+  @media (max-width:1800px)
+  {
+    .border1{
+      visibility: hidden;
+
+    }
+  }
+
+  @media(max-width:1400px)
+  {
+    .main .des-1{
+      visibility: hidden;
+    }
+  }
+
+  @media(max-width:1050px)
+  {
+    .main .initial{
+      height:auto;
+      flex-direction: column;
+    }
+    .main .initial .logo{
+      visibility: hidden;
+      width: 0;
+      height:0;
+    }
+    .about{
+      height:auto;
+      flex-direction: column;
+
+    }
+    
+  }
+
+  @media (max-width:594px) {
+    .main .initial .logo{
+      height:15em;
+     width:15em; 
+     visibility: visible;
+    }
+    .about .first img{
+      visibility: hidden;
+      height:0;
+      width:0;
+    }
+    .main .initial .contact_but{
+      background-color: black;
+      color:#f0f0f0;
+      font-size:13px;
+      cursor: pointer;
+      border:1px solid black;
+    }
+    .initial .theme{
+      background-color: #f0f0f0;
+      color: black;
+      font-size: 13px;
+      border:1px solid black;
+    
+  
+    }
+
+    .button{
+      margin-bottom: 20px;
+    }
+
+   .about p{
+    font-size:14px;
+    line-height: 25px;
+    
+   }
+   .about{
+    padding-top: 0;
+   }
+   .main h2{
+    margin-bottom: 0;
+   }
+   .about .second{
+    padding-right: 0;
+   }
+  }
+
+
+
+  @media (max-width:522px) {
+
+    .main .initial .heading{
+      font-size:30px;
+      
+    }
+  
+   
+    .main .initial .contact_but{
+      padding:10px;
+      background-color: black;
+      color:#f0f0f0;
+      font-size:13px;
+      cursor: pointer;
+      border:1px solid black;
+    }
+    .initial .theme{
+      padding:10px;
+      background-color: #f0f0f0;
+      color: black;
+      font-size: 13px;
+      border:1px solid black;
+    
+  
+    }
+
+    .button{
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+   
   }
