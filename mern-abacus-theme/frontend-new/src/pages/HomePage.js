@@ -25,7 +25,7 @@ const developers = [
     name: "Viswesswar",
     role: "//Backend Developer",
     src: HariniImage,
-    linkedin: "https://linkedin.com/in/viswesswar",
+    linkedin: "https://www.linkedin.com/in/visvesswaram/",
   },
   {
     name: "Lakshay",
@@ -37,6 +37,7 @@ const developers = [
 
 const HomePage = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handlePrev = () => {
     setCurrentIndex(
@@ -51,9 +52,16 @@ const HomePage = () => {
   return (
     <div>
       {/* Main Section */}
-      <div className="main  bg-[#f0f0f0]">
-        <Navbar/>
-        <div className="initial" id="home">
+      <div
+        className={`main  bg-[#f0f0f0] ${isMenuOpen ? " blur-0 " : "visible"}`}
+      >
+        <div className={`relative z-50 top-0 left-0 ${isMenuOpen ? "  " : ""}`}>
+          <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+        </div>
+        <div
+          className={`initial ${isMenuOpen ? " blur-lg" : "visible"}`}
+          id="home"
+        >
           <div className="div1">
             <h1 className="heading ">
               ABACUS'24 "Ideas Converge and Possibilities Unfold"
@@ -82,7 +90,10 @@ const HomePage = () => {
           </div>
         </div>
         <h2>Abacus-2025</h2>
-        <div className="about">
+        <div
+          className={`about ${isMenuOpen ? " blur-lg" : "visible"}`}
+          id="about"
+        >
           <div className="first">
             <img
               src={require("../assets/images/logo.jpeg")}
@@ -109,8 +120,11 @@ const HomePage = () => {
           alt="Abacus Logo"
         />
       </div>
-      <div className="bg-[#f0f0f0]" id="sponsors">
-        <Sponsors/>
+      <div
+        className={`bg-[#f0f0f0] ${isMenuOpen ? " blur-lg" : "visible"}`}
+        id="sponsors"
+      >
+        <Sponsors />
         <img
           className="w-[96em] h-[18em] "
           src={require("../assets/images/border.png")}
@@ -118,7 +132,7 @@ const HomePage = () => {
         />
       </div>
       {/* Developers Section */}
-      <div className="developers" id="developers">
+      <div className="developers max-w-full" id="developers">
         <h2>#developers</h2>
         <div className="developers-carousel">
           {/* Previous Button */}
@@ -137,22 +151,6 @@ const HomePage = () => {
             <p>{developers[currentIndex].role}</p>
             <a
               href={developers[currentIndex].linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button>LinkedIn ↔</button>
-            </a>
-          </div>
-          <div className="developer-card">
-            <img
-              src={developers[(currentIndex + 1) % developers.length].src}
-              alt={developers[(currentIndex + 1) % developers.length].name}
-              className="developer-photo"
-            />
-            <h3>{developers[(currentIndex + 1) % developers.length].name}</h3>
-            <p>{developers[(currentIndex + 1) % developers.length].role}</p>
-            <a
-              href={developers[(currentIndex + 1) % developers.length].linkedin}
               target="_blank"
               rel="noopener noreferrer"
             >

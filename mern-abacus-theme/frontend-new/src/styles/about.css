@@ -24,6 +24,12 @@
     left:0px;
 
   }
+
+  .initial
+{
+  max-width: 100%;
+}
+
   .main .initial div {
     flex: 1;
   }
@@ -155,6 +161,7 @@
     .main .initial{
       height:auto;
       flex-direction: column;
+      width: screen;
     }
     .main .initial .logo{
       visibility: hidden;
@@ -221,7 +228,8 @@
   @media (max-width:522px) {
 
     .main .initial .heading{
-      font-size:30px;
+      margin-top: 5rem;
+      font-size:25px;
       
     }
   
@@ -243,6 +251,8 @@
     
   
     }
+
+    
 
     .button{
       display: flex;
