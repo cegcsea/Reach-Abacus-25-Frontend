@@ -67,15 +67,20 @@
   z-index: 10;
 }
 
-.div2 .logo{
-   
-  width:280px;
-  height:280px;
-
-
-  z-index:10;
-  
+.div2 .logo {
+  width: 280px;
+  height: 280px;
+  z-index: 10;
 }
+
+.initial {
+  max-width: 100%;
+}
+
+.main .initial div {
+  flex: 1;
+}
+
 
 .div1{
   background-image: url('../assets/images/download.png');
@@ -332,38 +337,99 @@ filter:drop-shadow(0 0 10px #fffdef)
 }
 
 
-
 @media (max-width:522px) {
 
-  .main .initial .heading{
-    font-size:30px;
-    
+  .main .initial .heading {
+    font-size: 30px;
   }
 
- 
-  .main .initial .contact_but{
-    padding:10px;
+  .main .initial .contact_but {
+    padding: 10px;
     background-color: black;
-    color:#f0f0f0;
-    font-size:13px;
+    color: #f0f0f0;
+    font-size: 13px;
     cursor: pointer;
-    border:1px solid black;
+    border: 1px solid black;
   }
-  .initial .theme{
-    padding:10px;
+
+  .initial .theme {
+    padding: 10px;
     background-color: #f0f0f0;
     color: black;
     font-size: 13px;
-    border:1px solid black;
-  
-
+    border: 1px solid black;
   }
 
-  .button{
+  .button {
     display: flex;
     margin-bottom: 20px;
   }
-
- 
 }
 
+@media (max-width:1800px) {
+  .border1 {
+    visibility: hidden;
+  }
+}
+
+@media(max-width:1400px) {
+  .main .des-1 {
+    visibility: hidden;
+  }
+}
+
+@media(max-width:1050px) {
+  .main .initial {
+    height: auto;
+    flex-direction: column;
+    width: screen;
+  }
+
+  .main .initial .logo {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+
+  .about {
+    height: auto;
+    flex-direction: column;
+  }
+}
+
+@media (max-width:594px) {
+  .main .initial .logo {
+    height: 15em;
+    width: 15em;
+    visibility: visible;
+  }
+
+  .about .first img {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+
+  .main .initial .contact_but {
+    background-color: black;
+    color: #f0f0f0;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1px solid black;
+  }
+
+  .initial .theme {
+    background-color: #f0f0f0;
+    color: black;
+    font-size: 13px;
+    border: 1px solid black;
+  }
+}
+
+@media (max-width:522px) {
+
+  .main .initial .heading {
+    margin-top: 5rem;
+    font-size: 25px;
+  }
+}
