@@ -154,7 +154,23 @@ const HomePage = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button>LinkedIn ↔</button>
+              <button>↔ LinkedIn ↔</button>
+            </a>
+          </div>
+          <div className="developer-card">
+            <img
+              src={developers[(currentIndex + 1) % developers.length].src}
+              alt={developers[(currentIndex + 1) % developers.length].name}
+              className="developer-photo"
+            />
+            <h3>{developers[(currentIndex + 1) % developers.length].name}</h3>
+            <p>{developers[(currentIndex + 1) % developers.length].role}</p>
+            <a
+              href={developers[(currentIndex + 1) % developers.length].linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button>↔ LinkedIn ↔</button>
             </a>
           </div>
 
