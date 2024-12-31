@@ -1,23 +1,7 @@
 
 /* Global font styles */
 body {
-  font-family: "Montserrat", sans-serif; 
-  background-color: #f0f0f0;
+  font-family: "Montserrat", sans-serif; /* Default font */
   overflow-x: hidden;
 }
 
-.vt323-regular {
-  /* font-family: "VT323", monospace; */
-  font-weight: 400;
-  font-size:25px;
-}
-
-.press-start-2p {
-  /* font-family: "Press Start 2P", cursive; */
-  font-weight: 400;
-}
-
-
-h1, h2, h3 {
-  /* font-family: "Press Start 2P", cursive; */
-}
