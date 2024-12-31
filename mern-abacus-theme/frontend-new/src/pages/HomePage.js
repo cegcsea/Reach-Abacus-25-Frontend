@@ -52,36 +52,37 @@ const HomePage = () => {
     <div>
       {/* Main Section */}
       <div className="main  bg-[#f0f0f0]">
-        <Navbar/>
+        <Navbar />
         <div className="initial" id="home">
           <div className="div1">
-            <h1 className="heading ">
-              ABACUS'24 "Ideas Converge and Possibilities Unfold"
-            </h1>
-            <p className="press-start-2p">
-              Navigating the Future, One Innovation at a Time
-            </p>
-            <div className="button">
-              <button className="theme ">
-                Innovate, Integrate, Inspire: ABACUS'24
-              </button>
-              <button className="contact_but">Contact Us!!</button>
+            <div className="para">
+              <h1 className="heading ">
+                ABACUS'24 "Ideas Converge and Possibilities Unfold"
+              </h1>
+              <p className="pres">
+                Navigating the Future, One Innovation at a Time
+              </p>
+
+              <div class="button-container">
+                <button class="glow-button">Contact Us!!</button>
+              </div>
             </div>
           </div>
-          <div className="div2">
-            <img
-              className="des-1"
-              src={require("../assets/images/Untitled design (6).png")}
-              alt="Abacus Logo"
-            />
-            <img
-              className="logo"
-              src={require("../assets/images/logo.jpeg")}
-              alt="Abacus Logo"
-            />
+          <div className="new">
+            <div className="div2">
+              <img
+                className="logo"
+                src={require("../assets/images/logo copy.png")}
+                alt="Abacus Logo"
+              />
+              <div className="home_bgcircle1__MiYGt"></div>
+            </div>
+            <button className="theme ">
+              Innovate, Integrate, Inspire: ABACUS'24
+            </button>
           </div>
         </div>
-        <h2>Abacus-2025</h2>
+        <h2 className="h2">Abacus-2025</h2>
         <div className="about">
           <div className="first">
             <img
@@ -100,7 +101,7 @@ const HomePage = () => {
               innovation. This year, Abacus is back offline on a grander scale
               with an innovative edge to all the events.
             </p>
-            <button className="button">Read More</button>
+            <button className=".but">Read More</button>
           </div>
         </div>
         <img
@@ -110,7 +111,7 @@ const HomePage = () => {
         />
       </div>
       <div className="bg-[#f0f0f0]" id="sponsors">
-        <Sponsors/>
+        <Sponsors />
         <img
           className="w-[96em] h-[18em] "
           src={require("../assets/images/border.png")}

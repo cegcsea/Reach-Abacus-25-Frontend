@@ -2,22 +2,6 @@
 /* Global font styles */
 body {
   font-family: "Montserrat", sans-serif; /* Default font */
-  background-color: #f0f0f0;
   overflow-x: hidden;
 }
 
-.vt323-regular {
-  font-family: "VT323", monospace;
-  font-weight: 400;
-  font-size:25px;
-}
-
-.press-start-2p {
-  font-family: "Press Start 2P", cursive;
-  font-weight: 400;
-}
-
-
-h1, h2, h3 {
-  font-family: "Press Start 2P", cursive; /* Use this font for specific headings if needed */
-}
