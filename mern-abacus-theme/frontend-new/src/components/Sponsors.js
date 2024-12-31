@@ -12,17 +12,17 @@ const Sponsors = () => {
   ];
 
   return (
-    <div className="bg-[#f0f0f0] p-6" id="sponsors">
-      <h1 className="text-4xl font-bold text-black text-center mb-8 overflow-hidden">
+    <div className="bg-[#181720] font-serif p-6" id="sponsors">
+      <h1 className="text-4xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden ">
         Sponsors
       </h1>
-      <div className="flex flex-col justify-between lg:flex-row mx-auto overflow-clip bg-[#f0f0f0] w-[100%]">
+      <div className="flex flex-col justify-between lg:flex-row mx-auto overflow-clip bg-[#181720] w-[100%]">
         {sponsors.map((sponsor, index) => (
           <div
             key={index}
-            className=" bg-black text-[#f0f0f0] shadow-lg rounded-lg p-4 flex flex-col items-center transition-transform transform hover:scale-95 hover:shadow-2xl overflow-hidden border border-transparent mx-auto lg:w-[33%] w-[90%] m-2 animated-border-box ease-in-out transition"
+            className=" bg-[#181720] bg-gradient-to-br from-[#000000] via-[#180e3b] to-[#2e244b]  text-[#f0f0f0] shadow-lg rounded-lg py-4 px-1 flex flex-col items-center transition-transform transform hover:scale-95 hover:shadow-2xl overflow-hidden border border-transparent mx-auto lg:w-[32%] w-[90%]  animated-border-box ease-in-out transition border border-solid  border-2 shadow-md shadow-[#d2c4fdba] m-3"
           >
-            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-gray-500 to-transparent animate-glow "></div>
+            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-[#d2c4fdba] to-transparent animate-glow "></div>
             <p className="text-xl text-gray-300 text-center z-10 font-bold ">
               {sponsor.desc}
             </p>
@@ -42,7 +42,7 @@ const Sponsors = () => {
         ))}
       </div>
       <div className=" w-[100%] flex justify-center mt-4">
-        <button className="bg-black text-[#f0f0f0] rounded-none p-5 font-sm hover:font-semibold  hover:text-gray-950 hover:bg-[#f0f0f0] border border-solid border-black transition delay-50 ease-linear">
+        <button className="bg-[#6c4bd1] bg-gradient-to-b from-[#8157ff] via-[#7751eb] via-[#7251df] via-[#6b4fc7] to-[#b09ee6f1] font-semibold text-white rounded-3xl py-3 px-4 hover:font-bold border border-solid border-black transition delay-50 ease-linear">
           Read More{" "}
         </button>
       </div>

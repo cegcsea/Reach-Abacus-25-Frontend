@@ -51,9 +51,9 @@ const HomePage = () => {
   return (
     <div>
       {/* Main Section */}
-      <div className="main  bg-[#f0f0f0]">
+      <div className="main  bg-[#181720] text-gray-300">
         {isMenuOpen && (
-          <div className="fixed inset-0 backdrop-blur-md bg-black bg-opacity-50 z-40"></div>
+          <div className="fixed inset-0 backdrop-blur-md bg-[#181720] bg-opacity-50 z-40"></div>
         )}
         <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
         <div className="initial scroll-mt-28" id="home">
@@ -112,7 +112,7 @@ const HomePage = () => {
           alt="Abacus Logo"
         />
       </div>
-      <div className="bg-[#f0f0f0] scroll-mt-28" id="sponsors">
+      <div className="bg-[#181720] scroll-mt-28" id="sponsors">
         <Sponsors />
         <img
           className="w-[96em] h-[18em] "

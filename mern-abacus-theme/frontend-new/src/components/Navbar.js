@@ -24,12 +24,12 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   //     document.body.classList.remove("overflow-hidden");
   //   }
   // }, [isMenuOpen]);
-  
 
   return (
     <div
-      className={`fixed top-0 left-0 w-screen flex flex-row justify-between  lg:px-5 lg:py-2  text-white bg-gradient-to-r from-gray-950 via-gray-800 via-gray-700 to-gray-950 shadow-2xl z-50 
-      ${isMenuOpen ? " overflow-hidden " : "visible"}
+      className={`fixed top-0 left-0 w-screen flex flex-row justify-between  lg:px-5 lg:py-2  text-white  bg-[#181720] shadow-2xl z-50 border-b-2 border-b-gray-600 
+      
+        ${isMenuOpen ? " overflow-hidden " : "visible"}
     `}
     >
       <div
@@ -76,7 +76,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
       <div
         className={`flex lg:space-x-4 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row  lg:h-auto transition-transform duration-300 ease-in-out ${
           isMenuOpen
-            ? "block transform translate-x-0 bg-gradient-to-r from-gray-950 via-gray-800 via-gray-700 to-gray-950 lg:bg-transparent fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl"
+            ? "block transform translate-x-0 bg-gradient-to-r bg-[#181720] via-gray-800  to-gray-60 lg:bg-transparent fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl"
             : "transform -translate-x-full hidden lg:block my-auto"
         }`}
       >
@@ -102,7 +102,11 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         {navItems.map((item) => (
           <button
             key={item.name}
-            className="relative group overflow-hidden rounded-xl m-2 lg:m-0"
+            className={`relative group overflow-hidden rounded-xl m-2 lg:m-0 ${
+              active === item.name
+                ? "bg-gradient-to-b from-[#8157ff] via-[#7751eb] via-[#7251df] via-[#6b4fc7] to-[#b09ee6f1]"
+                : ""
+            }`}
             onClick={() => {
               setActive(item.name);
               setIsMenuOpen(false);
@@ -112,7 +116,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               href={`#${item.name}`}
               className={`p-2 rounded-xl transition-all duration-300 ${
                 active === item.name
-                  ? "bg-white text-black hover:text-black"
+                  ? "bg-white text-black hover:text-black "
                   : "text-gray-300 hover:text-white"
               }`}
             >
