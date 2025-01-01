@@ -17,14 +17,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // useEffect(() => {
-  //   if (isMenuOpen) {
-  //     document.body.classList.add("overflow-hidden");
-  //   } else {
-  //     document.body.classList.remove("overflow-hidden");
-  //   }
-  // }, [isMenuOpen]);
-
   return (
     <div
       className={`fixed top-0 left-0 w-screen flex flex-row justify-between  lg:px-5 lg:py-2  text-white bg-gradient-to-b from-[#625687] via-[#6e5ba6] to-[#6852aa] bg-black shadow-2xl z-50 border-b-2 border-b-gray-600 
@@ -33,7 +25,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
     `}
     >
       <div
-        className={`flex flex-row rounded-lg mx-4   delay-200 transform ease-in-out ${
+        className={`flex flex-row rounded-lg mx-4 delay-200 transform ease-in-out ${
           isMenuOpen ? " hidden " : "visible"
         }`}
       >
