@@ -1,4 +1,5 @@
 import "../styles/about.css";
+import TypewritingButton from "./TypewritingButton";
 const Home = () => {
   return (
     <>

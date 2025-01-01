@@ -43,4 +43,3 @@ const TypewritingButton = () => {
 };
 
 export default TypewritingButton;
->>>>>>> 48b9be74b410e13c1fc0c38b23d0e363ddbc0b6e

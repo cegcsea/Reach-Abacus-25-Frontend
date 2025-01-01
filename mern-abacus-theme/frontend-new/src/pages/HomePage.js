@@ -10,6 +10,7 @@ import Home from "../components/Home";
 import Developers from "../components/Developers";
 import Footer from "../components/Footer";
 
+
 const HomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
