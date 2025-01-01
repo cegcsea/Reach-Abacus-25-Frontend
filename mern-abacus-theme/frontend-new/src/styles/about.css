@@ -1,33 +1,36 @@
+
 .main .heading {
+  font-weight: bold;
   font-size: 40px;
   margin-bottom: 20px;
+  overflow-y: hidden;
 }
 
 .main{
-
    position: relative;
-  
-
+   width: 100%;
+   max-width: 100%; /* Ensure no unintentional limiting */
+   box-sizing: border-box;
+   padding:0;
 }
 
 .main .initial {
   display: flex;
   height: 100vh;
+  overflow-y: hidden;
   padding:20px;
   padding-left:40px;
   align-items: center;
   justify-content: center;
   background-color: black;
   color:white;
- 
 }
+
 .border1
 {
   position: absolute;
   bottom:00px;
   left:0px;
-
-  
 }
 @keyframes rotate-dots {
   0% {
@@ -55,6 +58,8 @@
 
 .main .initial div {
   flex: 1;
+  overflow-y: hidden;
+
 }
 
 .main .initial .div2 {
@@ -66,6 +71,9 @@
   z-index: 10;
 }
 
+.button-container{
+  padding:2px;
+}
 .div2 .logo{
    
   width:280px;
@@ -74,6 +82,7 @@
 
   z-index:10;
   
+
 }
 
 .div1{
@@ -85,15 +94,16 @@ align-items: center;
 }
 
 .initial .theme{
-  animation: ohyeah 2s infinite;
   color: white;
   font-size: 26px;
   font-weight: 400;
   text-align: center;
   text-decoration: none;
-  font-family: 'Rubik Vinyl', sans-serif;
 }
 
+.button-container{
+  padding:15px;
+}
 
 .glow-button {
   margin-top: 20px;
@@ -173,7 +183,7 @@ right:0px;
   padding-left:40px;
   display: flex;
  color: white;
- /* height:100vh; */
+ height:100vh;
 }
 .about .first{
   display: flex;
@@ -182,21 +192,17 @@ right:0px;
 }
 
 .about .first img{
-  width:400px;
-  height:400px;
+  width:540px;
+  height:480px;
   border-radius: 4%;
-  margin-left: 100px;
 }
 
 .about .second {
-  position: relative;
-  background-position: center;  /* Centers the image horizontally and vertically */
-  background-size: contain;     /* Ensures the image covers the entire element */
-  background-repeat: no-repeat;
+  padding:10px;
  color:white;
   font-size: 20px;
-  margin-top: 35px ;
   line-height: 40px;
+  padding-left: 30px;
 }
 
 .about .second::before {
@@ -283,6 +289,26 @@ filter:drop-shadow(0 0 10px #fffdef)
 
 @media (max-width:594px) {
 
+  .button-container{
+    margin-bottom: 40px;
+  }
+  .home_bgcircle1__MiYGt{
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url(../assets/images/image.png);
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 360px;
+    position: absolute;
+    top: 28%;
+    width: 360px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .main .initial .logo{
     height:15em;
    width:15em; 
@@ -293,6 +319,9 @@ filter:drop-shadow(0 0 10px #fffdef)
     height:0;
     width:0;
   }
+  .h2{
+    font-size:35px;
+  }
   .main .initial .contact_but{
     background-color: black;
     color:#f0f0f0;
@@ -301,11 +330,14 @@ filter:drop-shadow(0 0 10px #fffdef)
     border:1px solid black;
   }
   .initial .theme{
-    background-color: black;
     color: black;
-    font-size: 13px;
-    font-family: 'Monsterrat',sans-serif;
-    border:1px solid black;
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    padding:10px;
+    background-color: white;
+    margin-top:20px;
   }
 
   .button{
@@ -332,9 +364,27 @@ filter:drop-shadow(0 0 10px #fffdef)
 
 @media (max-width:522px) {
 
+  
   .main .initial .heading{
     font-size:30px;
     
+  }
+  
+  .home_bgcircle1__MiYGt{
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url(../assets/images/image.png);
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 340px;
+    position: absolute;
+    top: 23%;
+    width: 340px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
  
@@ -352,6 +402,7 @@ filter:drop-shadow(0 0 10px #fffdef)
     color: black;
     font-size: 13px;
     border:1px solid black;
+    z-index: 100;
   
 
   }
@@ -363,3 +414,46 @@ filter:drop-shadow(0 0 10px #fffdef)
 
  
 }
+
+@media (max-width:480px)
+{
+  .home_bgcircle1__MiYGt{
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url(../assets/images/image.png);
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 340px;
+    position: absolute;
+    top: 24%;
+    width: 340px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.logo{
+  margin-top: 10px;
+}
+
+
+}
+
+
+@media (max-width:480px)
+{
+  .home_bgcircle1__MiYGt{
+    height: 340px;
+    position: absolute;
+    top: 26%;
+    width: 340px;
+    margin-top: 20px;
+  }
+
+  .logo{
+margin-top: 20px;
+  }
+
+}
+
