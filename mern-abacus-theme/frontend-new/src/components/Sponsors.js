@@ -13,9 +13,10 @@ const Sponsors = () => {
 
   return (
     <div className="bg-black font-serif p-6" id="sponsors">
-      <h1 className="text-4xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden ">
+      <h1 className="text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#7245ad]">
         Sponsors
       </h1>
+
       <div className="flex flex-col justify-between lg:flex-row mx-auto overflow-clip bg-black w-[100%]">
         {sponsors.map((sponsor, index) => (
           <div

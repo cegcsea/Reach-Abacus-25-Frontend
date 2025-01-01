@@ -15,7 +15,7 @@ const developers = [
     linkedin: "https://linkedin.com/in/sivanipriya",
   },
   {
-    name: "Viswesswar",
+    name: "Visvesswar",
     role: "//Backend Developer",
     src: HariniImage,
     linkedin: "https://linkedin.com/in/visvesswaram",
@@ -40,7 +40,7 @@ const Developers = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % developers.length);
   };
   return (
-    <div className="developers bg-black" id="developers">
+    <div className="developers" id="developers">
       <h2>#developers</h2>
       <div className="developers-carousel">
         {/* Previous Button */}

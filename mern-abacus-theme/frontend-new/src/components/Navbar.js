@@ -19,7 +19,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-screen flex flex-row justify-between  lg:px-5 lg:py-2  text-white bg-gradient-to-b from-[#625687] via-[#6e5ba6] to-[#6852aa] bg-black shadow-2xl z-50 border-b-2 border-b-gray-600 
+      className={`fixed top-0 left-0 w-screen flex flex-row justify-between lg:px-5 lg:py-2  text-white bg-gradient-to-b from-[#625687] via-[#6e5ba6] to-[#6852aa] bg-black shadow-2xl z-50 border-b-2 border-b-gray-600 
       
         ${isMenuOpen ? " overflow-hidden " : "visible"}
     `}
@@ -66,7 +66,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
       </button>
 
       <div
-        className={`flex lg:space-x-4 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row  lg:h-auto transition-transform duration-300 ease-in-out ${
+        className={`flex lg:space-x-4 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row  lg:h-auto transition-transform duration-300 ease-in-out px-4 ${
           isMenuOpen
             ? "block transform translate-x-0 bg-gradient-to-b from-[#c1b2f1cb] via-[#4c3f76] to-[#4f3c8a] lg:bg-transparent fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl"
             : "transform -translate-x-full hidden lg:block my-auto"
