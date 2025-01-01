@@ -361,6 +361,12 @@ filter:drop-shadow(0 0 10px #fffdef)
  .about .second{
   padding-left:0;
  }
+ .second button{
+  margin-left:10px;
+ }
+ .theme{
+  z-index: 10;
+ }
 }
 
 
