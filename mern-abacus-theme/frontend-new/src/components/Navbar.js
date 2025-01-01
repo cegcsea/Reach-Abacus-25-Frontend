@@ -19,7 +19,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-screen flex flex-row justify-between lg:px-5 lg:py-2  text-white bg-gradient-to-b from-[#625687] via-[#6e5ba6] to-[#6852aa] bg-black shadow-2xl z-50 border-b-2 border-b-gray-600 
+      className={`fixed top-0 left-0 w-screen flex flex-row justify-between lg:px-5 lg:py-2  text-white bg-gradient-to-b from-[#8664d6] via-[#8268c7] to-[#7853e9] bg-black shadow-2xl z-50 border-b-2 border-b-gray-600 
       
         ${isMenuOpen ? " overflow-hidden " : "visible"}
     `}
