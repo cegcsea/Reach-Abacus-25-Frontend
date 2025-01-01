@@ -12,17 +12,18 @@ const Sponsors = () => {
   ];
 
   return (
-    <div className="bg-[#f0f0f0] p-6" id="sponsors">
-      <h1 className="text-4xl font-bold text-black text-center mb-8 overflow-hidden">
+    <div className="bg-black font-serif p-6" id="sponsors">
+      <h1 className="text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#7245ad]">
         Sponsors
       </h1>
-      <div className="flex flex-col justify-between lg:flex-row mx-auto overflow-clip bg-[#f0f0f0] w-[100%]">
+
+      <div className="flex flex-col justify-between lg:flex-row mx-auto overflow-clip bg-black w-[100%]">
         {sponsors.map((sponsor, index) => (
           <div
             key={index}
-            className=" bg-black text-[#f0f0f0] shadow-lg rounded-lg p-4 flex flex-col items-center transition-transform transform hover:scale-95 hover:shadow-2xl overflow-hidden border border-transparent mx-auto lg:w-[33%] w-[90%] m-2 animated-border-box ease-in-out transition"
+            className=" bg-[#181720] bg-gradient-to-br from-[#000000] via-[#180e3b] to-[#2e244b]  text-[#f0f0f0] shadow-lg rounded-lg py- px-2 flex flex-col items-center transition-transform transform hover:scale-95 hover:shadow-2xl overflow-hidden border border-transparent mx-auto lg:w-[32%] w-[90%]  animated-border-box ease-in-out transition border border-solid  border-2 shadow-md shadow-[#d2c4fdba] m-3 p-6"
           >
-            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-gray-500 to-transparent animate-glow "></div>
+            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-[#d2c4fdba] to-transparent animate-glow "></div>
             <p className="text-xl text-gray-300 text-center z-10 font-bold ">
               {sponsor.desc}
             </p>
@@ -34,6 +35,7 @@ const Sponsors = () => {
                 alt={sponsor.name}
                 className="w-full h-32 object-cover mb-4 rounded-2xl z-10 p-2 m-2"
               />
+              {/* <div class="absolute inset-0 bg-gray-200 mix-blend-multiply"></div> */}
             </div>
             <div class="border-t-2 border-b-2 border-gray-400 h-1 w-[90%]"></div>
 
@@ -42,7 +44,7 @@ const Sponsors = () => {
         ))}
       </div>
       <div className=" w-[100%] flex justify-center mt-4">
-        <button className="bg-black text-[#f0f0f0] rounded-none p-5 font-sm hover:font-semibold  hover:text-gray-950 hover:bg-[#f0f0f0] border border-solid border-black transition delay-50 ease-linear">
+        <button className="my-5 px-6 py-4 bg-gradient-to-br from-indigo-600 to-purple-600 text-white font-bold rounded-full shadow-lg hover:shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-shadow focus:outline-none focus:shadow-[0_0_15px_rgba(255,223,47,0.8)]">
           Read More{" "}
         </button>
       </div>

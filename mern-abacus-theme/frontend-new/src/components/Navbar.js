@@ -17,23 +17,15 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // useEffect(() => {
-  //   if (isMenuOpen) {
-  //     document.body.classList.add("overflow-hidden");
-  //   } else {
-  //     document.body.classList.remove("overflow-hidden");
-  //   }
-  // }, [isMenuOpen]);
-  
-
   return (
     <div
-      className={`fixed top-0 left-0 w-screen flex flex-row justify-between  lg:px-5 lg:py-2  text-white bg-gradient-to-r from-gray-950 via-gray-800 via-gray-700 to-gray-950 shadow-2xl z-50 
-      ${isMenuOpen ? " overflow-hidden " : "visible"}
+      className={`fixed top-0 left-0 w-screen flex flex-row justify-between lg:px-5 lg:py-2  text-white bg-gradient-to-b from-[#625687] via-[#6e5ba6] to-[#6852aa] bg-black shadow-2xl z-50 border-b-2 border-b-gray-600 
+      
+        ${isMenuOpen ? " overflow-hidden " : "visible"}
     `}
     >
       <div
-        className={`flex flex-row rounded-lg mx-4   delay-200 transform ease-in-out ${
+        className={`flex flex-row rounded-lg mx-4 delay-200 transform ease-in-out ${
           isMenuOpen ? " hidden " : "visible"
         }`}
       >
@@ -45,7 +37,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           />
         </a>
         <a href="#home" className="my-auto">
-          <h1 className="hover:text-gray-950 hover:bg-white font-semibold rounded-xl mx-2 p-2 cursor-pointer">
+          <h1 className="hover:text-gray-950 text-2xl font-semibold rounded-xl mx-2 p-1 cursor-pointer">
             Abacus 2025
           </h1>
         </a>
@@ -74,9 +66,9 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
       </button>
 
       <div
-        className={`flex lg:space-x-4 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row  lg:h-auto transition-transform duration-300 ease-in-out ${
+        className={`flex lg:space-x-4 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row  lg:h-auto transition-transform duration-300 ease-in-out px-4 ${
           isMenuOpen
-            ? "block transform translate-x-0 bg-gradient-to-r from-gray-950 via-gray-800 via-gray-700 to-gray-950 lg:bg-transparent fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl"
+            ? "block transform translate-x-0 bg-gradient-to-b from-[#c1b2f1cb] via-[#4c3f76] to-[#4f3c8a] lg:bg-transparent fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl"
             : "transform -translate-x-full hidden lg:block my-auto"
         }`}
       >
@@ -102,7 +94,11 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         {navItems.map((item) => (
           <button
             key={item.name}
-            className="relative group overflow-hidden rounded-xl m-2 lg:m-0"
+            className={`relative group overflow-hidden rounded-xl font-semibold m-2 lg:m-0 ${
+              active === item.name
+                ? "bg-gradient-to-b from-[#8157ff] via-[#7751eb] via-[#7251df] via-[#6b4fc7] to-[#b09ee6f1]"
+                : ""
+            }`}
             onClick={() => {
               setActive(item.name);
               setIsMenuOpen(false);
@@ -112,7 +108,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               href={`#${item.name}`}
               className={`p-2 rounded-xl transition-all duration-300 ${
                 active === item.name
-                  ? "bg-white text-black hover:text-black"
+                  ? "bg-white text-black hover:text-black "
                   : "text-gray-300 hover:text-white"
               }`}
             >
