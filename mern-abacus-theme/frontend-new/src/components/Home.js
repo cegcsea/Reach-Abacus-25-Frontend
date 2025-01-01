@@ -3,8 +3,7 @@ import TypewritingButton from "./TypewritingButton";
 const Home = () => {
   return (
     <>
-    
-            <div className="initial" id="home">
+       <div className="initial" id="home">
           <div className="div1">
             <div className="para">
               <h1 className="heading ">
@@ -32,13 +31,14 @@ const Home = () => {
 
           </div>
         </div>
-                   <h2 className="h2">Abacus-2025</h2>
+        <>
+        <h2 className="h2 scroll-mt-36 mt-8" id="about">Abacus-2025</h2>
         <div className="about">
           <div className="first">
             <img
               src={require("../assets/images/logo.jpeg")}
               alt="Abacus Logo"
-            />
+              />
           </div>
           <div className="second">
             <p className="vt323-regular">
@@ -54,11 +54,8 @@ const Home = () => {
             <button className=".but">Read More</button>
           </div>
         </div>
-        <img
-          className="w-[96em] h-[18em]"
-          src={require("../assets/images/border.png")}
-          alt="Abacus Logo"
-        />
+        </>
+        
     
     
       </>

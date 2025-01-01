@@ -183,7 +183,7 @@ right:0px;
   padding-left:40px;
   display: flex;
  color: white;
- height:100vh;
+ /* height:100vh; */
 }
 .about .first{
   display: flex;
