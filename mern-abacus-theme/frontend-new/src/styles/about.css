@@ -411,7 +411,7 @@ filter:drop-shadow(0 0 10px #fffdef)
     color: black;
     font-size: 13px;
     border:1px solid black;
-    z-index: 100;
+    z-index: 10;
   
 
   }

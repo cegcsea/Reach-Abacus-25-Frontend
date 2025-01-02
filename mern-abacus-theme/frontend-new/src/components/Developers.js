@@ -81,6 +81,22 @@ const Developers = () => {
             <button>↔ LinkedIn ↔</button>
           </a>
         </div>
+        {/* <div className="developer-card">
+          <img
+            src={developers[(currentIndex + 2) % developers.length].src}
+            alt={developers[(currentIndex + 2) % developers.length].name}
+            className="developer-photo"
+          />
+          <h3>{developers[(currentIndex + 2) % developers.length].name}</h3>
+          <p>{developers[(currentIndex + 2) % developers.length].role}</p>
+          <a
+            href={developers[(currentIndex + 2) % developers.length].linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button>↔ LinkedIn ↔</button>
+          </a>
+        </div> */}
 
         {/* Next Button */}
         <div className="carousel-button right" onClick={handleNext}>
