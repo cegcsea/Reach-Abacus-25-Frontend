@@ -2,7 +2,6 @@ import "../styles/Footer.css";
 import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa';
 import { CiLinkedin } from 'react-icons/ci';
 
-
 const Footer = () => {
   return (
     <div class="footer">
