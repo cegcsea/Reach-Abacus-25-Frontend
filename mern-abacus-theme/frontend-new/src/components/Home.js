@@ -25,7 +25,7 @@ const Home = () => {
               src={require("../assets/images/logo copy.png")}
               alt="Abacus Logo"
             />
-            <div className="home_bgcircle1__MiYGt sm:!my-30 md:!my-72 xl:!my-14"></div>
+            <div className="home_bgcircle1__MiYGt sm:!my-30 md:!my-72  xl:!my-10"></div>
           </div>
           <TypewritingButton />
         </div>
