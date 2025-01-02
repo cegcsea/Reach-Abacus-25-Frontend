@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "../styles/about.css";
 import "../styles/global.css";
-import { Bubble } from "../components/Bubble";
+//import { Bubble } from "../components/Bubble";
 import "../assets/images/logo.jpeg";
-import { bubbles } from "../constants/bubbles";
+//import { bubbles } from "../constants/bubbles";
 import Navbar from "../components/Navbar";
 import Sponsors from "../components/Sponsors";
 import Home from "../components/Home";
@@ -23,13 +23,13 @@ const HomePage = () => {
           <Bubble key={index} {...bubble} />
         ))}
       </div> */}
-      <div className="main bg-transparent">
+      <div className="main bg-transparent scroll-mt-20">
         {isMenuOpen && (
           <div className="fixed inset-0 backdrop-blur-md bg-transparent bg-opacity-50 z-40"></div>
         )}
         <Home />
       </div>
-      <div className="scroll-mt-12 mt-16" id="sponsors">
+      <div className="mt-16 scroll-mt-20" id="sponsors">
         <Sponsors />
       </div>
       {/* Developers Section */}

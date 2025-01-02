@@ -1,12 +1,20 @@
 import { useState } from "react";
 import abacus_img from "../assets/images/logo.jpeg";
-import { AiFillHome,AiOutlineLogin } from "react-icons/ai";
+import { AiFillHome, AiOutlineLogin } from "react-icons/ai";
 import { FaInfoCircle, FaHandshake, FaTools } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
 
 const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const [active, setActive] = useState("home");
-  //const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const handleScroll = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const yOffset = -70;  
+      const yPosition =
+        element.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: yPosition, behavior: "smooth" });
+    }
+  };
 
   const navItems = [
     { name: "home", label: " Home", icon: <AiFillHome /> },
@@ -68,14 +76,14 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         </svg>
       </button>
       <div
-        className={`flex lg:space-x-2 lg:mx-4 lg:py-2 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row lg:h-auto transition-transform duration-300 ease-in-out px-4 lg:bg-gradient-to-b lg:from-[#9a7be0] lg:via-[#886fcd] lg:to-[#8869e2] rounded-3xl z-50 ${
+        className={`flex lg:space-x-2 lg:mx-2 lg:py-2 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row lg:h-auto transition-transform duration-300 ease-in-out px-4 lg:bg-gradient-to-b lg:from-[#9a7be0] lg:via-[#886fcd] lg:to-[#8869e2] rounded-3xl z-50 ${
           isMenuOpen
             ? "block transform translate-x-0 bg-gradient-to-b from-[#aa95edcb] via-[#6d59ab] to-[#4f3c8a]  fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl "
             : "transform -translate-x-full hidden lg:block my-auto"
         }`}
       >
         <button
-          className="absolute top-5 right-5 lg:hidden text-white z-10"
+          className="absolute top-5 right-5 lg:hidden text-white "
           onClick={toggleMenu}
         >
           <svg
@@ -98,7 +106,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             key={item.name}
             className={`relative group overflow-hidden rounded-xl font-semibold m-2 lg:m-0${
               active === item.name
-                ? "bg-gradient-to-b from-[#8157ff] via-[#7751eb] via-[#7251df] via-[#6b4fc7] to-[#b09ee6f1]"
+                ? "bg-gradient-to-b from-[#8157ff]  via-[#6b4fc7] to-[#b09ee6f1]"
                 : ""
             }`}
             onClick={() => {
@@ -114,12 +122,16 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               }`}
             >
               <div className="my-auto bg-transparent">{item.icon}</div>
-              <a
-                href={`#${item.name}`}
-                className={`px-1 rounded-xl transition-all duration-300 `}
+              <button
+                className={`px-1 rounded-xl transition-all duration-300 cursor-pointer`}
+                onClick={() => {
+                  handleScroll(item.name);
+                  setActive(item.name);
+                  setIsMenuOpen(false);
+                }}
               >
                 {item.label}
-              </a>
+              </button>
             </div>
             <span className="absolute left-0 bottom-0 h-1 w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
           </button>
