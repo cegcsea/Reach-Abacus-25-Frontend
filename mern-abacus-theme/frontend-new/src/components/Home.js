@@ -108,7 +108,7 @@ const Home = () => {
               with an innovative edge to all the events.
             </p>
             <motion.button
-              className=".but !my-8 !mx-auto xl:!mx-0 lg:w-[20%]"
+              className=".but !my-8 !mx-auto xl:!mx-0 lg:w-[23%]"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
