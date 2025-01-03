@@ -34,10 +34,10 @@ const Home = () => {
           animate="visible"
         >
           <div className="para">
-            <h1 className="heading text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#7245ad]">
+            <h1 className="heading text-center">
               ABACUS'24 "Ideas Converge and Possibilities Unfold"
             </h1>
-            <p className="pres text-center">
+            <p className="pres text-center text-white">
               Navigating the Future, One Innovation at a Time
             </p>
 
