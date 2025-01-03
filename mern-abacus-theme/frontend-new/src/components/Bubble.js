@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export const Bubble = ({ delay, duration, size, left }) => (
   <motion.div
-    className="absolute rounded-full bg-[#473863] backdrop-blur-sm"
+    className="absolute rounded-lg bg-[#473863] backdrop-blur-sm z-0"
     style={{
       left: `${left}%`,
       width: size,

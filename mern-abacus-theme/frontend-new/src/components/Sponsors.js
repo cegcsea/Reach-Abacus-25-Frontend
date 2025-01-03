@@ -12,8 +12,8 @@ const Sponsors = () => {
   ];
 
   return (
-    <div className="bg-black font-serif p-6" id="sponsors">
-      <h1 className="text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#7245ad]">
+    <div className="bg-black font-serif p-6 mb-3" id="sponsors">
+      <h1 className="my-5 text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#7245ad]">
         Sponsors
       </h1>
 
@@ -44,7 +44,7 @@ const Sponsors = () => {
         ))}
       </div>
       <div className=" w-[100%] flex justify-center mt-4">
-        <button className="my-5 px-6 py-4 bg-gradient-to-br from-indigo-600 to-purple-600 text-white font-bold rounded-full shadow-lg hover:shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-shadow focus:outline-none focus:shadow-[0_0_15px_rgba(255,223,47,0.8)]">
+        <button className="mt-10 mb-6 px-6 py-4 bg-gradient-to-br from-indigo-600 to-purple-600 text-white font-bold rounded-full shadow-lg hover:shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-shadow focus:outline-none focus:shadow-[0_0_15px_rgba(255,223,47,0.8)]">
           Read More{" "}
         </button>
       </div>

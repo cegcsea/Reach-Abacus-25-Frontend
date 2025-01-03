@@ -9,7 +9,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const handleScroll = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      const yOffset = -70;  
+      const yOffset = -70;
       const yPosition =
         element.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ top: yPosition, behavior: "smooth" });
@@ -110,6 +110,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
                 : ""
             }`}
             onClick={() => {
+              handleScroll(item.name);
               setActive(item.name);
               setIsMenuOpen(false);
             }}
@@ -124,11 +125,11 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               <div className="my-auto bg-transparent">{item.icon}</div>
               <button
                 className={`px-1 rounded-xl transition-all duration-300 cursor-pointer`}
-                onClick={() => {
-                  handleScroll(item.name);
-                  setActive(item.name);
-                  setIsMenuOpen(false);
-                }}
+                // onClick={() => {
+                //   handleScroll(item.name);
+                //   setActive(item.name);
+                //   setIsMenuOpen(false);
+                // }}
               >
                 {item.label}
               </button>

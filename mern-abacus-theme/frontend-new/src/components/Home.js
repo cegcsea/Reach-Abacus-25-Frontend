@@ -1,49 +1,103 @@
 import "../styles/about.css";
 import TypewritingButton from "./TypewritingButton";
+import { motion } from "framer-motion";
+
+// Animation Variants
+const fadeInVariant = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 1 } },
+};
+
+const slideFromLeft = {
+  hidden: { x: "-100%", opacity: 0 },
+  visible: { x: 0, opacity: 1, transition: { duration: 1 } },
+};
+
+const slideFromRight = {
+  hidden: { x: "100%", opacity: 0 },
+  visible: { x: 0, opacity: 1, transition: { duration: 1 } },
+};
+
 const Home = () => {
   return (
-    <div className="scroll-mt-20">
-      <div className="initial" id="home">
-        <div className="div1">
+    <motion.div
+      className="scroll-mt-20"
+      initial="hidden"
+      animate="visible"
+      variants={fadeInVariant}
+    >
+      <motion.div className="initial !mb-10" id="home">
+        <motion.div
+          className="div1"
+          variants={fadeInVariant}
+          initial="hidden"
+          animate="visible"
+        >
           <div className="para">
-            <h1 className="heading ">
+            <h1 className="heading text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#7245ad]">
               ABACUS'24 "Ideas Converge and Possibilities Unfold"
             </h1>
-            <p className="pres">
+            <p className="pres text-center">
               Navigating the Future, One Innovation at a Time
             </p>
 
-            <div class="button-container">
-              <button class="glow-button">Contact Us!!</button>
+            <div className="button-container text-center">
+              <motion.button
+                className="glow-button"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                Contact Us!!
+              </motion.button>
             </div>
           </div>
-        </div>
-        <div className="new">
-          <div className="div2 !my-24">
+        </motion.div>
+        <motion.div className="new">
+          <motion.div
+            className="div2 !my-24"
+            variants={fadeInVariant}
+            initial="hidden"
+            animate="visible"
+          >
             <img
               className="logo"
               src={require("../assets/images/logo copy.png")}
               alt="Abacus Logo"
             />
-            <div className="home_bgcircle1__MiYGt sm:!my-30 md:!my-72  xl:!my-10"></div>
-          </div>
+            <div className="home_bgcircle1__MiYGt sm:!my-28 md:!my-68 xl:!my-8 lg:!my-60"></div>
+          </motion.div>
           <TypewritingButton />
-        </div>
-      </div>
-      <>
-        <h2 className="h2 scroll-mt-36 mt-8 lg:mx-20 !mx-10" id="about">
+        </motion.div>
+      </motion.div>
+      <motion.div className="about-section">
+        <motion.h2
+          className="h2 scroll-mt-36 lg:!mt-16 lg:mx-20 !mx-10 text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#7245ad]"
+          id="about"
+          variants={fadeInVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           Abacus-2025
-        </h2>
-        <div className="about bg-transparent overflow-hidden ">
-          <div className="first">
+        </motion.h2>
+        <motion.div
+          className="about bg-transparent overflow-hidden"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <motion.div className="first" variants={slideFromLeft}>
             <img
               src={require("../assets/images/logo.jpeg")}
               alt="Abacus Logo"
-              className="h-[35%] w-[60%] mx-auto lg:mx-20 lg:h-[85%] lg:w-[65%]"
+              className="h-[0] w-[0] mx-auto lg:mx-20 lg:h-[85%] lg:w-[65%]"
             />
-          </div>
-          <div className="second py-10 ">
-            <p className="text-white text-justify ">
+          </motion.div>
+          <motion.div
+            className="second py-10 flex flex-col"
+            variants={slideFromRight}
+          >
+            <p className="text-white text-justify">
               The conglomeration of the brightest minds enhancing the
               participant’s knowledge and creative potentials. The 3-day annual
               symposium showcases 15+ events and flagship contests of crystal
@@ -53,14 +107,18 @@ const Home = () => {
               innovation. This year, Abacus is back offline on a grander scale
               with an innovative edge to all the events.
             </p>
-            <button className=".but !my-8 !mx-24 ">Read More</button>
-            {/* <button className="my-5 px-6 py-4 bg-gradient-to-br from-indigo-600 to-purple-600 text-white font-bold rounded-full shadow-lg hover:shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-shadow focus:outline-none focus:shadow-[0_0_15px_rgba(255,223,47,0.8)]">
-          Read More{" "}
-        </button> */}
-          </div>
-        </div>
-      </>
-    </div>
+            <motion.button
+              className=".but !my-8 !mx-auto lg:!mx-0 w-[20%]"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              Read More
+            </motion.button>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 };
+
 export default Home;
