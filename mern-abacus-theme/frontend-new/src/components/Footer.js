@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className="footer">
     <div className="footer-container">
-        <h1 className="footer-heading !text-4xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#7245ad]">CONTACTS</h1> 
+        <h1 className="footer-heading text-2xl lg:!text-4xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#7245ad]">CONTACTS</h1> 
         {/* <!-- Added heading --> */}
 
         {/* <!-- Column for Locate and Media --> */}

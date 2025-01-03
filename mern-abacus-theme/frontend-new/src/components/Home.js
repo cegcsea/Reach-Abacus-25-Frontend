@@ -64,14 +64,14 @@ const Home = () => {
               src={require("../assets/images/logo copy.png")}
               alt="Abacus Logo"
             />
-            <div className="home_bgcircle1__MiYGt sm:!my-28 md:!my-68 xl:!my-8 lg:!my-60"></div>
+            <div className="home_bgcircle1__MiYGt !my-52 md:!my-68 xl:!my-8 lg:!my-68"></div>
           </motion.div>
           <TypewritingButton />
         </motion.div>
       </motion.div>
       <motion.div className="about-section">
         <motion.h2
-          className="h2 scroll-mt-36 lg:!mt-16 lg:mx-20 !mx-10 text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#7245ad]"
+          className="h2 scroll-mt-36 lg:!mt-16 lg:mx-20 !mx-auto text-2xl lg:text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#7245ad]"
           id="about"
           variants={fadeInVariant}
           initial="hidden"
@@ -90,7 +90,7 @@ const Home = () => {
             <img
               src={require("../assets/images/logo.jpeg")}
               alt="Abacus Logo"
-              className="h-[0] w-[0] mx-auto lg:mx-20 lg:h-[85%] lg:w-[65%]"
+              className="h-[0] w-[0] !mx-auto lg:mx-20 lg:h-[35%] lg:w-[45%] xl:h-[85%] xl:w-[65%] "
             />
           </motion.div>
           <motion.div
@@ -108,7 +108,7 @@ const Home = () => {
               with an innovative edge to all the events.
             </p>
             <motion.button
-              className=".but !my-8 !mx-auto lg:!mx-0 w-[20%] "
+              className=".but !my-8 !mx-auto xl:!mx-0 lg:w-[20%]"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >

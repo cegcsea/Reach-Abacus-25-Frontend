@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 
 const TypewritingButton = () => {
   const [displayedText, setDisplayedText] = useState("");
-  const fullText = "Innovate, Integrate, Inspire: ABACUS'24";
+  const fullText = "Innovate, Integrate, Inspire: ABACUS'25";
   const indexRef = useRef(0); // Use a ref to store the index
   const typingIntervalRef = useRef(null); // Ref to store the interval ID
 
@@ -19,8 +19,8 @@ const TypewritingButton = () => {
 
         // Clear the text after a delay and restart typing
         setTimeout(() => {
-          setDisplayedText(""); // Reset the displayed text
-          indexRef.current = 0; // Reset the index
+          setDisplayedText(" "); // Reset the displayed text
+          indexRef.current = -1; // Reset the index
           startTyping(); // Restart the typing animation
         }, 1000); // Delay before restarting (1 second)
       }
