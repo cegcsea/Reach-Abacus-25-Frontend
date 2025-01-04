@@ -30,7 +30,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-screen flex flex-row justify-between  lg:px-5 lg:py-2  text-white bg-gradient-to-b from-[#8664d6] via-[#8268c7] to-[#7853e9] bg-black shadow-2xl z-50 border-b-2 border-b-gray-600 
+      className={`fixed top-0 left-0 w-screen flex flex-row justify-between  lg:px-5 lg:py-2  text-white bg-gradient-to-b from-[#702b2b] via-[#bd1414] to-[#8a1818] bg-black shadow-2xl z-50 border-b-2 border-b-gray-600 
           
         ${isMenuOpen ? " overflow-hidden " : "visible"}
     `}
@@ -76,9 +76,9 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         </svg>
       </button>
       <div
-        className={`flex lg:space-x-2 lg:mx-2 lg:py-2 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row lg:h-auto transition-transform duration-300 ease-in-out px-4 lg:bg-gradient-to-b lg:from-[#9a7be0] lg:via-[#886fcd] lg:to-[#8869e2] rounded-3xl z-50 ${
+        className={`flex lg:space-x-2 lg:mx-2 lg:py-2 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row lg:h-auto transition-transform duration-300 ease-in-out px-4 lg:bg-gradient-to-b lg:from-[#702b2b] lg:via-[#bb0606] lg:to-[#702b2b] rounded-3xl z-50 ${
           isMenuOpen
-            ? "block transform translate-x-0 bg-gradient-to-b from-[#aa95edcb] via-[#6d59ab] to-[#4f3c8a]  fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl "
+            ? "block transform translate-x-0 bg-gradient-to-b from-[#E0115F] via-[#E0115F] to-[#E0115F]  fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl "
             : "transform -translate-x-full hidden lg:block my-auto"
         }`}
       >
@@ -106,7 +106,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             key={item.name}
             className={`relative group overflow-hidden rounded-xl font-semibold m-2 lg:m-0${
               active === item.name
-                ? "bg-gradient-to-b from-[#8157ff]  via-[#6b4fc7] to-[#b09ee6f1]"
+                ? "bg-gradient-to-b from-[#E0115F]  via-[#E0115F] to-[#E0115F]"
                 : ""
             }`}
             onClick={() => {
