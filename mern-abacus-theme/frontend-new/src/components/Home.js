@@ -43,7 +43,10 @@ const Home = () => {
 
             <div className="button-container text-center">
               <motion.button
+
                 className="mt-10 mb-6 px-6 py-4 bg-gradient-to-br from-red-300 via-red-500 to-red-800 text-white font-bold rounded-full shadow-lg hover:shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-shadow focus:outline-none focus:shadow-[0_0_15px_rgba(255,223,47,0.8)]"
+
+
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -108,7 +111,7 @@ const Home = () => {
               with an innovative edge to all the events.
             </p>
             <motion.button
-              className=".but !my-8 !mx-auto xl:!mx-0 lg:w-[20%]"
+              className=".but !my-8 !mx-auto xl:!mx-0 lg:w-[23%]"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
