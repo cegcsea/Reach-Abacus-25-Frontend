@@ -8,9 +8,10 @@ import TechnicalPage from "./pages/TechnicalPage";
 import PreEvent from "./pages/PreEvent";
 import NonTechnicalPage from "./pages/NonTechnicalPage";
 import Workshops from "./pages/Workshops";
+import IndividualWorkshops from "./pages/IndividualWorkshops";
 const App = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [active, setActive] = useState("home");
+  const [isMenuOpen, setIsMenuOpen] = useState(false); /* need to the userContext*/
+  const [active, setActive] = useState("home"); /* need to to the userContext*/
   return (
     <BrowserRouter>
       <Navbar
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/about" element={<HomePage />} />
         <Route path="/sponsors" element={<HomePage />} />
         <Route path="/workshops" element={<Workshops />} />
+        <Route path="/workshops/:id" element={<IndividualWorkshops />} />
         <Route path="/login" element={<HomePage />} />
         <Route path="/register" element={<HomePage />} />
         <Route path="/events" element={<EventPage />} />{" "}

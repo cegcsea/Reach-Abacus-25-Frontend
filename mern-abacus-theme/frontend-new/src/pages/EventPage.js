@@ -20,7 +20,7 @@ const EventPage = ({ isMenuOpen }) => {
         </div>
         <div class="card__container">
           <article class="card__article">
-            <img src={img1} alt="image" class="card__img" />
+            <img src={img1} alt={`${img1}`} class="card__img" />
 
             <div class="card__data">
               <h1 class="card__title">Technical Events</h1>
@@ -31,7 +31,7 @@ const EventPage = ({ isMenuOpen }) => {
           </article>
 
           <article class="card__article">
-            <img src={img2} alt="image" class="card__img" />
+            <img src={img2} alt={`${img2}`} class="card__img" />
 
             <div class="card__data">
               <h2 class="card__title">Non Technical Events</h2>
@@ -42,7 +42,7 @@ const EventPage = ({ isMenuOpen }) => {
           </article>
 
           <article class="card__article">
-            <img src={img3} alt="image" class="card__img" />
+            <img src={img3} alt={`${img3}`} class="card__img" />
 
             <div class="card__data">
               <h2 class="card__title">Pre Events</h2>
