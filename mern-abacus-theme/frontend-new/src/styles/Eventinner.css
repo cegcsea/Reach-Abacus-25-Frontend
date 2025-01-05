@@ -1,0 +1,182 @@
+/* Global Styles */
+body {
+    font-family: "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Black background */
+    color: #f4f4f4; /* Light text color for contrast */
+}
+
+/* Heading Style */
+.heading {
+    margin-top: 2rem; /* Top margin */
+    font-size: 3rem; /* Heading size */
+    font-weight: bold; /* Bold text */
+    color: #fcfcfc; /* White text */
+    text-align: center;
+    padding-block: 5rem; /* Vertical padding */
+    padding-bottom: 40px;
+    text-shadow: 6px 2px 4px #ff0000; /* Red shadow for the text */
+}
+
+/* Content Container Styles */
+.content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 30px;
+    max-width: 1000px;
+    background-color: #1a1a1a; /* Dark gray background for content */
+    border: 2px solid #ff6f61; /* Red border */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0px 4px 15px rgba(255, 0, 0, 0.3); /* Slight red shadow around the box */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect on content container */
+.content-container:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 6px 20px rgba(255, 0, 0, 0.5); /* Glow effect on hover */
+}
+
+/* Image Styling */
+.content-container img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 12px;
+    margin-right: 20px;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3); /* Red glow around image */
+}
+
+/* Text Container Styling */
+.text-container {
+    flex: 1;
+    padding: 20px;
+    color: #f4f4f4; /* Light text color */
+    text-align: left;
+}
+
+/* Title Styling */
+.text-container h1 {
+    font-size: 2.5rem;
+    color: #ff6f61; /* Red color for titles */
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Paragraph Styling */
+.text-container p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #dddddd; /* Light gray text for description */
+    margin-bottom: 20px;
+}
+
+/* Link Styling */
+.read-more {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ff6f61; /* Red link color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect on the link */
+.read-more:hover {
+    color: #ffffff; /* White on hover */
+}
+
+/* Reverse Layout for Even Index */
+.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Media Queries for Responsive Layout */
+
+/* For Medium Screens (Tablets) */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .content-container img {
+        margin-right: 0;
+        margin-bottom: 20px;
+        max-width: 80%;
+    }
+
+    .text-container {
+        padding: 15px;
+    }
+
+    .heading {
+        font-size: 2.5rem; /* Smaller heading on medium screens */
+    }
+}
+
+/* For Small Screens (Mobile Devices) */
+@media (max-width: 480px) {
+    .content-container img {
+        max-width: 100%;
+    }
+
+    .text-container h1 {
+        font-size: 1.8rem; /* Smaller title on mobile */
+    }
+
+    .text-container p {
+        font-size: 1rem; /* Smaller description text */
+    }
+
+    .heading {
+        font-size: 2rem; /* Smaller heading on small devices */
+    }
+}
+.gl-button {
+
+    cursor: pointer;
+    background: linear-gradient(135deg, #6a5acd, #8a2be2);
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 10px rgba(138, 43, 226, 0.6);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    transition: all 0.1s ease-in-out;
+  }
+  
+  .gl-button:hover {
+    display: block;
+    filter: drop-shadow(0 0 5px #fffdef);
+  }
+  /*hh*/
+  
+  /* Content Container Styles */
+.content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin: 20px 0;
+  background-color: #1a1a1a; /* Dark gray background for content */
+  border: 2px solid #ff6f61; /* Red border */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0px 4px 15px rgba(255, 0, 0, 0.3); /* Slight red shadow around the box */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Reverse Layout for Even Index */
+.reverse {
+  margin-left: auto; /* Move the container to the right side */
+}
+.out{
+    padding:30px;
+    text-align: center;
+    margin: auto;
+}
