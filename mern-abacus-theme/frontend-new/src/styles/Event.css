@@ -1,0 +1,258 @@
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: black;
+  color: var(--text-color);
+  text-align: center;
+  width:100%;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/*=============== CARD ===============*/
+.card {
+  display: grid;
+  place-items: center;
+  margin-inline: 1.5rem;
+  padding-block: 5rem;
+  width: 100%;
+ 
+}
+
+.card__container {
+  display: grid;
+  row-gap: 3.5rem;
+}
+
+.card__article {
+  position: relative;
+  overflow: hidden;
+}
+
+.card__img {
+  width: 328px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.card__data {
+  width: 280px;
+  background-color: var(--container-color);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+
+.card__description {
+  display: block;
+  font-size: var(--small-font-size);
+  margin-bottom: .25rem;
+}
+
+.card__title {
+  font-size: var(--h2-font-size);
+  font-weight: 500;
+  color: var(--title-color);
+  margin-bottom: .75rem;
+}
+
+.card__button {
+  text-decoration: none;
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  color: var(--first-color);
+}
+
+.card__button:hover {
+  text-decoration: underline;
+}
+
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 340px) {
+  .card {
+    margin-inline: 1rem;
+  }
+
+  .card__data {
+    width: 250px;
+    padding: 1rem;
+  }
+}
+
+/* For medium devices */
+@media screen and (min-width: 768px) {
+  .card__container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1120px) {
+  .card {
+    height: 90vh;
+  }
+
+  .card__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .card__img {
+    width: 348px;
+  }
+  .card__data {
+    width: 316px;
+    padding-inline: 2.5rem;
+  }
+}
+
+.contact_details {
+  display: grid;
+  row-gap: 1rem;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  margin: auto;
+  width: 50%;
+  border: 1px solid #ddd;
+  background-color: #1e1e22;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+
+.head h3 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #f1f1f1;
+}
+
+.head p {
+  font-size: 16px;
+  color: #bbb;
+}
+
+.names {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.names div {
+  border: 1px solid #333;
+  background-color: #2a2a2f;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+
+.names div p {
+  margin: 5px 0;
+  color: #fff;
+}
+
+.names div p a {
+  color:#ffcccc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.names div p a:hover {
+  text-decoration: underline;
+}
+
+
+@media ( max-width:680px ) {
+  .contact_details{
+    width:80%;
+  }
+  
+}
+.card__data {
+  width: 280px;
+  background-color: #eaeaea;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: 0; /* Make it visible by default */
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Default position */
+  transition: none; /* Remove animations */
+  
+}
+
+/* Remove hover effects for the card */
+.card__article:hover .card__data,
+.card__article:hover {
+  animation: none;
+  overflow: initial;
+}
+
+/* Updated hover effects for the card */
+.card__article {
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.card__article {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card__article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card__data {
+  width: 280px;
+  background-color: #eaeaea;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.15);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%; /* Center align */
+  transform: translateX(-50%);
+  margin-inline: auto;
+  opacity: 1; /* Fully visible by default */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card__article:hover .card__data {
+  transform: translateX(-50%) translateY(-10px); /* Slight upward movement */
+  background-color: #d4d4d4; /* Optional hover background color change */
+}
+
