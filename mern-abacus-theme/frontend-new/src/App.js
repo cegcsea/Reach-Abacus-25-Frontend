@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import HomePage from "./pages/HomePage";
-import EventPage from "./pages/EventPage"; // Import EventPage
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import EventPage from "./pages/EventPage"; // Import EventPage
+import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar";
+import TechnicalPage from "./pages/TechnicalPage";
+import PreEvent from "./pages/PreEvent";
+import NonTechnicalPage from "./pages/NonTechnicalPage";
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [active, setActive] = useState("home");
@@ -22,6 +25,9 @@ const App = () => {
         <Route path="/login" element={<HomePage />} />
         <Route path="/register" element={<HomePage />} />
         <Route path="/events" element={<EventPage />} />{" "}
+        <Route path="/technical-events" element={<TechnicalPage />} />
+        <Route path="/non-technical-events" element={<NonTechnicalPage />} />
+        <Route path="/pre-events" element={<PreEvent />} />
       </Routes>
     </BrowserRouter>
   );
