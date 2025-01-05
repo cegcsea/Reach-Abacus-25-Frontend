@@ -21,9 +21,7 @@ const HomePage = ({isMenuOpen}) => {
         ))}
       </div> */}
       <div className="main bg-transparent scroll-mt-20">
-        {isMenuOpen && (
-          <div className="fixed inset-0 backdrop-blur-md bg-transparent bg-opacity-50 z-40"></div>
-        )}
+        
         <Home />
       </div>
       <div className="mt-16 scroll-mt-20" id="sponsors">

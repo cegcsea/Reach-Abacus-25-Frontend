@@ -1,63 +1,60 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import "../styles/global.css"; // Import global styles
-import '../styles/Event.css'
-import img1 from '../assets/images/landscape-1.jpg';
-import img2 from '../assets/images/landscape-2.jpg';
-import img3 from '../assets/images/landscape-3.jpg';
-import Contact from '../components/Contact';
-const EventPage = ({isMenuOpen}) => {
-
+import React from "react";
+import { Link } from "react-router-dom";
+// import "../styles/global.css";
+import "../styles/Event.css";
+import img1 from "../assets/images/landscape-1.jpg";
+import img2 from "../assets/images/landscape-2.jpg";
+import img3 from "../assets/images/landscape-3.jpg";
+import Contact from "../components/Contact";
+const EventPage = ({ isMenuOpen }) => {
   return (
-    <div className="bg-black">
+    <div className="">
       {/* Main Section with Navbar */}
-      {/* <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} active=/>  */}
-      
+
       {/* Main content goes here */}
-      <div className="main bg-transparent scroll-mt-20">
-        {isMenuOpen && (
-          <div className="fixed inset-0 backdrop-blur-md bg-transparent bg-opacity-50 z-40"></div>
-        )}  
-    
+      <div className="main bg-transparent scroll-mt-20"></div>
+
+      <div className="card">
+        <div className="event">
+          <h1>Events</h1>
         </div>
-       
-        <div className="card">
-        <div className='event'><h1>Events</h1></div>
-         <div class="card__container">
-            <article class="card__article">
-               <img src={img1} alt="image" class="card__img"/>
+        <div class="card__container">
+          <article class="card__article">
+            <img src={img1} alt="image" class="card__img" />
 
-               <div class="card__data">
-                  <h1 class="card__title">Technical Events</h1>
-                  <Link to="/technical-events" className="card__button">Read More</Link>
-               </div>
-            </article>
+            <div class="card__data">
+              <h1 class="card__title">Technical Events</h1>
+              <Link to="/technical-events" className="card__button">
+                Read More
+              </Link>
+            </div>
+          </article>
 
-            <article class="card__article">
-               <img src={img2} alt="image" class="card__img"/>
+          <article class="card__article">
+            <img src={img2} alt="image" class="card__img" />
 
-               <div class="card__data">
+            <div class="card__data">
+              <h2 class="card__title">Non Technical Events</h2>
+              <Link to="/non-technical-events" className="card__button">
+                Read More
+              </Link>
+            </div>
+          </article>
 
-                  <h2 class="card__title">Non Technical Events</h2>
-                  <Link to="/non-technical-events" className="card__button">Read More</Link>
-               </div>
-            </article>
+          <article class="card__article">
+            <img src={img3} alt="image" class="card__img" />
 
-            <article class="card__article">
-               <img src={img3} alt="image" class="card__img"/>
-
-               <div class="card__data">
-                  <h2 class="card__title">Pre Events</h2>
-                  <Link to="/pre-events" className="card__button">Read More</Link>
-               </div>
-            </article>
-         </div>
+            <div class="card__data">
+              <h2 class="card__title">Pre Events</h2>
+              <Link to="/pre-events" className="card__button">
+                Read More
+              </Link>
+            </div>
+          </article>
+        </div>
       </div>
-  <Contact />
-      </div>
-      
-
-  
+      <Contact />
+    </div>
   );
 };
 

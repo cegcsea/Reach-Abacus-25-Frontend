@@ -1,7 +1,8 @@
 import React from 'react'
 
-export const NonTechnicalPage = () => {
+const NonTechnicalPage = () => {
   return (
     <div>NonTechnicalPage</div>
   )
 }
+export default NonTechnicalPage;
