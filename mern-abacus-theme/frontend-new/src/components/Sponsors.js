@@ -13,7 +13,7 @@ const Sponsors = () => {
 
   return (
     <div className="bg-black font-serif p-6 mb-3" id="sponsors">
-      <h1 className="my-5 text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#7245ad]">
+      <h1 className="my-5 text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#c03e3e]">
         Sponsors
       </h1>
 
@@ -21,9 +21,9 @@ const Sponsors = () => {
         {sponsors.map((sponsor, index) => (
           <div
             key={index}
-            className=" bg-[#181720] bg-gradient-to-br from-[#000000] via-[#180e3b] to-[#2e244b]  text-[#f0f0f0] shadow-lg rounded-lg py- px-2 flex flex-col items-center transition-transform transform hover:scale-95 hover:shadow-2xl overflow-hidden border border-transparent mx-auto lg:w-[32%] w-[90%]  animated-border-box ease-in-out transition border border-solid  border-2 shadow-md shadow-[#d2c4fdba] m-3 p-6"
+            className=" bg-[#181720] bg-gradient-to-br from-[#000000] via-[#5a1414] to-[#bc4040]  text-[#f0f0f0] shadow-lg rounded-lg py- px-2 flex flex-col items-center transition-transform transform hover:scale-95 hover:shadow-2xl overflow-hidden border border-transparent mx-auto lg:w-[32%] w-[90%]  animated-border-box ease-in-out transition border border-solid  border-2 shadow-md shadow-[#d2c4fdba] m-3 p-6"
           >
-            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-[#d2c4fdba] to-transparent animate-glow "></div>
+            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-[#e1b5b5] to-transparent animate-glow "></div>
             <p className="text-xl text-gray-300 text-center z-10 font-bold ">
               {sponsor.desc}
             </p>
@@ -44,7 +44,7 @@ const Sponsors = () => {
         ))}
       </div>
       <div className=" w-[100%] flex justify-center mt-4">
-        <button className="mt-10 mb-6 px-6 py-4 bg-gradient-to-br from-indigo-600 to-purple-600 text-white font-bold rounded-full shadow-lg hover:shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-shadow focus:outline-none focus:shadow-[0_0_15px_rgba(255,223,47,0.8)]">
+        <button className="mt-10 mb-6 px-6 py-4 bg-gradient-to-br from-red-300 via-red-500 to-red-800 text-white font-bold rounded-full shadow-lg hover:shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-shadow focus:outline-none focus:shadow-[0_0_15px_rgba(255,223,47,0.8)]">
           Read More{" "}
         </button>
       </div>

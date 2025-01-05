@@ -74,7 +74,7 @@ const Home = () => {
       </motion.div>
       <motion.div className="about-section">
         <motion.h2
-          className="h2 scroll-mt-36 lg:!mt-16 lg:mx-20 !mx-auto text-2xl lg:text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#7245ad]"
+          className="h2 scroll-mt-36 lg:!mt-16 lg:mx-20 !mx-auto text-2xl lg:text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#c03e3e]"
           id="about"
           variants={fadeInVariant}
           initial="hidden"

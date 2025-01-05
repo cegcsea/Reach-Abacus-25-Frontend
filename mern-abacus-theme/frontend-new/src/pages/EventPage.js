@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
-import Navbar from '../components/Navbar'; // Import Navbar component
+import React from 'react';
 import "../styles/global.css"; // Import global styles
 import '../styles/Event.css'
 import img1 from '../assets/images/landscape-1.jpg';
 import img2 from '../assets/images/landscape-2.jpg';
 import img3 from '../assets/images/landscape-3.jpg';
 
-const EventPage = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Define the state for the menu
+const EventPage = ({isMenuOpen}) => {
 
   return (
     <div className="bg-black">
       {/* Main Section with Navbar */}
-      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} /> 
+      {/* <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} active=/>  */}
       
       {/* Main content goes here */}
       <div className="main bg-transparent scroll-mt-20">

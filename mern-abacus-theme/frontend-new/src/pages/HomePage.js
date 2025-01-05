@@ -1,23 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/about.css";
 import "../styles/global.css";
 //import { Bubble } from "../components/Bubble";
 import "../assets/images/logo.jpeg";
 //import { bubbles } from "../constants/bubbles";
-import Navbar from "../components/Navbar";
 import Sponsors from "../components/Sponsors";
 import Home from "../components/Home";
 import Developers from "../components/Developers";
 import Footer from "../components/Footer";
 
 
-const HomePage = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+const HomePage = ({isMenuOpen}) => {
   return (
     <div className="bg-black">
       {/* Main Section */}
-      <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      {/* <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} active={active} setActive={setActive}/> */}
       {/* <div className="pointer-events-none fixed inset-0 overflow-hidden">
         {bubbles.map((bubble, index) => (
           <Bubble key={index} {...bubble} />

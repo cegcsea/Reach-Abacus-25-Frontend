@@ -24,7 +24,7 @@ img {
 .card {
   display: grid;
   place-items: center;
-  margin-inline: 1.5rem;
+  /* margin-inline: 1.5rem; */
   padding-block: 5rem;
   width: 100%;
  
