@@ -5,7 +5,7 @@ import placement from '../assets/Reach/placement.svg'
 import MERN_300 from '../assets/Reach/300.jpg';
 import ML_150 from '../assets/Reach/150.jpg';
 
-export const workshops = [
+export const workshopsReach = [
     {
         title: "MERN Stack Development",
         to: "mernstackdev",
@@ -40,6 +40,31 @@ export const workshops = [
         prerequistes: "No prior machine learning experience is required. Just bring your curiosity, and let's make the most of this short but impactful ML adventure!",
     },
 ]
+
+export   const workshops = [
+    {
+      id: 1,
+      title: "Rapid Development with AI",
+      image: "https://via.placeholder.com/150",
+      description: "Conducted by experts in the field.",
+      to: "/ai-development",
+    },
+    {
+      id: 2,
+      title: "Gen AI Unleashed",
+      image: "https://via.placeholder.com/150",
+      description: "Explore the potential of Generative AI.",
+      to: "/gen-ai",
+    },
+    {
+      id: 3,
+      title: "Building a Cloud Home",
+      image: "https://via.placeholder.com/150",
+      description: "Learn to create your own cloud environment.",
+      to: "/cloud-home",
+    },
+  ];
+
 
 export const sessions = [
     {

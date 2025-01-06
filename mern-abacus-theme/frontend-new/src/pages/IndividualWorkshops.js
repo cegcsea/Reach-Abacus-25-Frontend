@@ -5,6 +5,8 @@ import { workshops } from '../constants/workshops';
 const IndividualWorkshops = () => {
     const id=useParams();
     const workshop= workshops.find((ws)=>ws.to===id);
+    console.log(workshop);
+    //alert("entered individual details page");
   return (
     <div>
         <div className='p-5 sm:py-8 sm:px-10 flex gap-3 flex-col'>

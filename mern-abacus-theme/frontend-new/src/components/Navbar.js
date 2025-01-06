@@ -81,7 +81,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen,active,setActive }) => {
       <div
         className={`flex lg:space-x-2 lg:mx-2 lg:py-2 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row lg:h-auto transition-transform duration-300 ease-in-out px-4 lg:bg-gradient-to-b lg:from-[#b03131] lg:via-[#6e0808] lg:to-[#b03131] rounded-3xl z-50 ${
           isMenuOpen
-            ? "block transform translate-x-0 bg-gradient-to-b from-[#cb5656] via-[#7d1c1c] to-[#b62121]  fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl "
+            ? "block transform translate-x-0 bg-gradient-to-b from-[#cb3d3d] via-[#8a1818] to-[#cb3d3d]  fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl "
             : "transform -translate-x-full hidden lg:block my-auto"
         }`}
       >

@@ -11,7 +11,8 @@ import Workshops from "./pages/Workshops";
 import IndividualWorkshops from "./pages/IndividualWorkshops";
 import NoviceInit from "./pages/EventIndividual/NoviceInit";
 const App = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); /* need to the userContext*/
+  const [isMenuOpen, setIsMenuOpen] =
+    useState(false); /* need to the userContext*/
   const [active, setActive] = useState("home"); /* need to to the userContext*/
   return (
     <BrowserRouter>
@@ -22,14 +23,14 @@ const App = () => {
         setActive={setActive}
       />
       {isMenuOpen && (
-          <div className="fixed inset-0 backdrop-blur-md bg-transparent bg-opacity-50 z-40"></div>
-        )}
+        <div className="fixed inset-0 backdrop-blur-md bg-transparent bg-opacity-50 z-40"></div>
+      )}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<HomePage />} />
         <Route path="/sponsors" element={<HomePage />} />
         <Route path="/workshops" element={<Workshops />} />
-        <Route path="/workshops/:id" element={<IndividualWorkshops />} />
+        <Route path="/workshop/:id" element={<IndividualWorkshops />} />
         <Route path="/login" element={<HomePage />} />
         <Route path="/register" element={<HomePage />} />
         <Route path="/events" element={<EventPage />} />{" "}
