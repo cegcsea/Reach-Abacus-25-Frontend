@@ -8,6 +8,7 @@ import TechnicalPage from "./pages/TechnicalPage";
 import PreEvent from "./pages/PreEvent";
 import NonTechnicalPage from "./pages/NonTechnicalPage";
 import Workshops from "./pages/Workshops";
+import NoviceInit from "./pages/EventIndividual/NoviceInit";
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [active, setActive] = useState("home");
@@ -33,6 +34,7 @@ const App = () => {
         <Route path="/technical-events" element={<TechnicalPage />} />
         <Route path="/non-technical-events" element={<NonTechnicalPage />} />
         <Route path="/pre-events" element={<PreEvent />} />
+        <Route path="/EventIndividual/NoviceInit" element={<NoviceInit />} />
       </Routes>
     </BrowserRouter>
   );

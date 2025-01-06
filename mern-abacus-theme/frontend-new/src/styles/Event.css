@@ -52,7 +52,6 @@ img {
 }
 
 .card__title {
-  text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.6);
 font-weight: bold;
   font-size: var(--h2-font-size);
   font-weight: 500;
@@ -60,15 +59,16 @@ font-weight: bold;
   margin-bottom: .75rem;
   color: #fcfcfc;
     text-align: center;
-    text-shadow: 2px 3px 3px #ff0000;
     color:black;
+    
 }
 
 .card__button {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ff6f61; /* Red link color */
   text-decoration: none;
-  font-size: var(--small-font-size);
-  font-weight: 500;
-  color: var(--first-color);
+  transition: color 0.3s ease;
 }
 
 .card__button:hover {
