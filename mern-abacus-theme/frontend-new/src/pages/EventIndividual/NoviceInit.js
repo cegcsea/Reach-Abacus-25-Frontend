@@ -69,6 +69,7 @@ const NoviceInit = () => {
                 <div className="round-card">
                   <h3>Round 1</h3>
                   <p><strong>Rolling Event (30 minutes)</strong></p>
+                  <p><strong>What to expect?</strong> Exciting coding scenarios.</p>
                   <p><strong>Location:</strong> Second Floor Lab, DCSE</p>
                   <p><strong>Date:</strong> 22 March 2024</p>
                   <p><strong>Duration:</strong> 9:00 AM to 1:30 PM</p>
@@ -76,6 +77,7 @@ const NoviceInit = () => {
                 <div className="round-card">
                   <h3>Round 2</h3>
                   <p><strong>Coding Challenges</strong></p>
+                  <p><strong>What to expect?</strong> Advanced problem-solving tasks.</p>
                   <p><strong>Location:</strong> Ground Floor Lab, DCSE</p>
                   <p><strong>Date:</strong> 22 to 23 March 2024</p>
                   <p><strong>Duration:</strong> 9:00 PM to 6:00 AM</p>
