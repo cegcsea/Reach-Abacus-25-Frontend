@@ -55,12 +55,11 @@ const Workshops = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Card 1 */}
-          <div 
-            style={{ backgroundColor: burgundy, borderColor: burgundy }} 
-            className="text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow border-2"
-          >
-            <h3 style={{ borderBottomColor: burgundy }} className="text-xl font-semibold mb-4 border-b-2 pb-4"># Rapid Development with AI</h3>
-            <div className="mb-4 border-b-2 border-burgundy pb-4">
+          <div className="bg-gradient-to-b from-[#4b0b14] via-[#5b0e26] to-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow border-2 border-[#4b0b14]">
+            <h3 className="text-xl font-semibold mb-4 border-b-2 pb-4" style={{ borderBottomColor: burgundy }}>
+              # Rapid Development with AI
+            </h3>
+            <div className="mb-4">
               <img
                 src="https://via.placeholder.com/150"
                 alt="Workshop 1"
@@ -70,13 +69,13 @@ const Workshops = () => {
             <p className="text-lg font-medium pt-4">// Conducted by experts from</p>
           </div>
 
+
           {/* Card 2 */}
-          <div 
-            style={{ backgroundColor: burgundy, borderColor: burgundy }} 
-            className="text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow border-2"
-          >
-            <h3 style={{ borderBottomColor: burgundy }} className="text-xl font-semibold mb-4 border-b-2 pb-4"># Gen AI unleashed</h3>
-            <div className="mb-4 border-b-2 border-burgundy pb-4">
+          <div className="bg-gradient-to-b from-[#4b0b14] via-[#5b0e26] to-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow border-2 border-[#4b0b14]">
+            <h3 className="text-xl font-semibold mb-4 border-b-2 pb-4" style={{ borderBottomColor: burgundy }}>
+              # Gen AI unleashed
+            </h3>
+            <div className="mb-4">
               <img
                 src="https://via.placeholder.com/150"
                 alt="Workshop 2"
@@ -87,15 +86,14 @@ const Workshops = () => {
           </div>
 
           {/* Card 3 */}
-          <div 
-            style={{ backgroundColor: burgundy, borderColor: burgundy }} 
-            className="text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow border-2"
-          >
-            <h3 style={{ borderBottomColor: burgundy }} className="text-xl font-semibold mb-4 border-b-2 pb-4"># Building a cloud home</h3>
-            <div className="mb-4 border-b-2 border-burgundy pb-4">
+          <div className="bg-gradient-to-b from-[#4b0b14] via-[#5b0e26] to-black text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow border-2 border-[#4b0b14]">
+            <h3 className="text-xl font-semibold mb-4 border-b-2 pb-4" style={{ borderBottomColor: burgundy }}>
+            # Building a cloud home
+            </h3>
+            <div className="mb-4">
               <img
                 src="https://via.placeholder.com/150"
-                alt="Workshop 3"
+                alt="Workshop 2"
                 className="w-full h-48 object-cover rounded-md"
               />
             </div>
