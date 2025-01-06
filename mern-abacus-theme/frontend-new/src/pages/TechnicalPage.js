@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/Eventinner.css";
 import img1 from "../assets/images/events pic/1.png";
-import img2 from "../assets/images/events pic/2.png";
+
 import Contact from "../components/Contact";
+import { Link } from "react-router-dom"; // Import Link from React Router
 
 
 const TechnicalPage = () => {
@@ -15,21 +16,25 @@ const TechnicalPage = () => {
       title: "#Novice.Init()",
       description: "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
       image: img1, // Replace with your image path
+       path: "/EventIndividual/NoviceInit",
     },
     {
       title: "#Another Event",
       description: "A DBMS challenge that combines theoretical knowledge with practical application. The first round involves DBMS-based multiple-choice questions (MCQs), testing participants' understanding of database concepts. Successful participants advance to Round 2, a hands-on SQL coding challenge, where they apply their skills to solve real-world database problems.",
       image: img1, // Replace with your image path
+       path: "/EventIndividual/NoviceInit",
     },
     {
         title: "#Novice.Init()",
         description: "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
-        image: img1, // Replace with your image path
+        image: img1, // Replace with your image path,
+         path: "/EventIndividual/NoviceInit",
       },
       {
         title: "#Another Event",
         description: "A DBMS challenge that combines theoretical knowledge with practical application. The first round involves DBMS-based multiple-choice questions (MCQs), testing participants' understanding of database concepts. Successful participants advance to Round 2, a hands-on SQL coding challenge, where they apply their skills to solve real-world database problems.",
-        image: img1, // Replace with your image path
+        image: img1, // Replace with your image path,
+         path: "/EventIndividual/NoviceInit",
       },
     // Add more events here
   ];
@@ -47,7 +52,12 @@ const TechnicalPage = () => {
     <div className="text-container">
       <h1>{event.title}</h1>
       <p>{event.description}</p>
-      <a href="#" className="mt-10 mb-6 px-6 py-4 bg-gradient-to-br from-red-300 via-red-500 to-red-800 text-white font-bold rounded-full shadow-lg hover:shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-shadow focus:outline-none focus:shadow-[0_0_15px_rgba(255,223,47,0.8)]">Read More &lt;~&gt;</a>
+      <Link
+                  to={event.path} // Dynamic link to the event's detailed page
+                  className="mt-10 mb-6 px-6 py-4 bg-gradient-to-br from-red-300 via-red-500 to-red-800 text-white font-bold rounded-full shadow-lg hover:shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-shadow focus:outline-none focus:shadow-[0_0_15px_rgba(255,223,47,0.8)]"
+                >
+                  Read More &lt;~&gt;
+                </Link>
     </div>
   </div>
   
