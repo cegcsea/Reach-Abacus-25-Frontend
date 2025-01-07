@@ -1,96 +1,65 @@
-// import React from "react";
-// import { workshops } from "../constants/workshops";
-// import { useNavigate } from "react-router-dom";
-
-// const Workshops = () => {
-//     const navigate=useNavigate();
-//   return (
-//     <div className="text-white font-semibold text-3xl mt-40">
-//       <h1 className="text-5xl overflow-hidden items-start  lg:mx-0 w-[100%] ">
-//         Workshops
-//       </h1>
-//       <div className="flex flex-col xl:flex-row flex-wrap mt-10">
-//         {workshops.map((workshop, index) => (
-//           <div
-//             key={index}
-//             className="border border-solid border-red-900 w-[70%] lg:w-[45%]  xl:h-auto my-3 mx-auto bg-gradient-to-br from-[#421919] via-[#7d1a1a] to-[#460d0d] p-5 rounded-xl overflow-hidden flex flex-col "
-//           >
-//             <img
-//               src={workshop.image}
-//               alt={`${workshop.title}`}
-//               className="object-contain border-solid border-[#b5b1b1] border-[3px] my-2 rounded-lg h-[150px] md:h-[250px] lg:h-[70%]"
-//             />
-
-//             <h1 className="flex items-center justify-center text-xl font-bold text-center mt-3 overflow-hidden">
-//               {workshop.title}
-//             </h1>
-//             <button className="bg-white rounded-xl text-sm md:text-xl text-red-600 w-[70%] mt-4 xl:w-[30%] mx-auto overflow-hidden xl:p-3 py-auto " onClick={()=>{navigate(`${workshop.to}`)}}>
-//               Read More {`<~>`}
-//             </button>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Workshops;
-
 import React from "react";
-import { FaPhoneAlt } from "react-icons/fa"; // Importing the Font Awesome Phone icon
+import { FaPhoneAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { workshops } from "../constants/workshops";
+import { workshopsReach as workshops } from "../constants/workshops";
+import Contact from "../components/Contact";
 const Workshops = () => {
   const navigate = useNavigate();
   const burgundy = "#800020";
   const white = "#fff";
 
-  // List of workshops as objects
-
-  // Contact details as an object
-  const contact = {
-    name: "Gautham",
-    phone: "+1 234 567 890",
-  };
+  const contacts = [
+    {
+      id: 1,
+      name: "Gautham",
+      phone: "+1 234 567 890",
+    },
+    {
+      id: 2,
+      name: "Ganesh",
+      phone: "+1 234 567 890",
+    },
+  ];
 
   return (
-    <div className="bg-black min-h-screen flex justify-center items-center py-8">
-      <div className="w-full max-w-7xl px-4">
-        {/* Title */}
+    <div className="bg-black min-h-screen flex justify-center items-center pt-8 ">
+      <div className="w-full max-w-7xl px-4 ">
         <h2
           style={{ color: white }}
-          className="text-3xl font-semibold mt-16 mb-8 text-center"
+          className="my-5 mt-20 text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#c03e3e]"
         >
           Workshops
         </h2>
 
-        {/* Workshop Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-8">
           {workshops.map((workshop) => (
             <div
               key={workshop.id}
-              className="bg-gradient-to-b from-[#4b0b14] via-[#870f17] to-[#280306] text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow border-2 border-[#4b0b14]"
+              className=" bg-[#1d1d1d] text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow "
             >
               <h3
                 className="text-xl font-semibold mb-4 border-b-2 pb-4"
-                style={{ borderBottomColor: burgundy }}
+                // style={{ borderBottomColor: burgundy }}
               >
                 # {workshop.title}
               </h3>
-              <div className="mb-4">
+              <div className="">
                 <img
                   src={workshop.image}
                   alt={`Workshop ${workshop.id}`}
-                  className="w-full h-48 object-cover rounded-md"
+                  className="w-full h-48 object-contain rounded-md hover:bg-[#303030]"
+                  onClick={() => {
+                    navigate(`${workshop.to}`);
+                  }}
                 />
               </div>
-              <p className="text-lg font-medium pt-4">
-                {workshop.description}
-              </p>
+              <p className="text-lg font-medium pt-4">{workshop.description}</p>
               <button
-                className="bg-white rounded-xl text-sm md:text-xl text-red-600 w-[70%] mt-4 xl:w-[30%] mx-auto overflow-hidden xl:p-3 py-auto"
+                // className="border-solid bg-black rounded-lg p-2 hover:bg-[#a92d2d] flex justify-start mx-auto"
+                // className="text-red-500 font-bold text-base no-underline transition-colors duration-300 ease-in-out hover:underline"
+                className="my-3 px-4 py-2 bg-gradient-to-br from-red-300 via-red-500 to-red-800 text-white font-bold rounded-full shadow-lg hover:shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-shadow focus:outline-none focus:shadow-[0_0_15px_rgba(255,223,47,0.8)]"
                 onClick={() => {
-                  navigate(workshop.to);
+                  navigate(`${workshop.to}`);
                 }}
               >
                 Read More {`<~>`}
@@ -99,39 +68,37 @@ const Workshops = () => {
           ))}
         </div>
 
-        {/* Centered Contact Box */}
-        <div className="bg-[#8a1818d4] flex flex-col  text-white p-6 rounded-lg shadow-lg mt-12 mx-auto lg:w-[40%] border-2">
+        {/* <div className="bg-[#1d1d1d] flex flex-col  text-white p-6 rounded-lg shadow-lg mt-12 mx-auto lg:w-[50%] ">
           <h2
             style={{ textAlign: "left", color: white }}
-            className="text-2xl font-semibold mb-4"
+            className="text-xl font-semibold mb-4"
           >
             # Contact
           </h2>
           <h3
             style={{ textAlign: "left", color: white }}
-            className="text-xl font-semibold mb-4 text-center"
+            className="text-lg font-semibold mb-4 text-center"
           >
             For Queries Regarding Workshops
           </h3>
 
-          <div className="flex items-center justify-between gap-4">
-            {/* Name Box */}
-            <div className="bg-black text-white px-2 lg:px-4 py-2 rounded-md mx-auto">
-              {contact.name}
-            </div>
-
-            {/* Phone Box */}
+          <div className="flex flex-row !justify-between ">
             <div className="flex items-center gap-2 mx-auto">
+              <div className="bg-black text-white px-2 lg:px-4 py-2 rounded-md ">
+                {contact.name}
+              </div>
               <div className="bg-black text-white px-2 lg:px-4 py-2 rounded-md">
                 {contact.phone}
               </div>
 
-              {/* Call Icon Box */}
               <div className="bg-black text-white p-2 rounded-full">
                 <FaPhoneAlt size={20} />
               </div>
             </div>
           </div>
+        </div> */}
+        <div className="mt-10">
+          <Contact contacts={contacts} />
         </div>
       </div>
     </div>
@@ -139,5 +106,3 @@ const Workshops = () => {
 };
 
 export default Workshops;
-
-

@@ -47,21 +47,21 @@ export   const workshops = [
       title: "Rapid Development with AI",
       image: "https://via.placeholder.com/150",
       description: "Conducted by experts in the field.",
-      to: "/ai-development",
+      to: "ai-development",
     },
     {
       id: 2,
       title: "Gen AI Unleashed",
       image: "https://via.placeholder.com/150",
       description: "Explore the potential of Generative AI.",
-      to: "/gen-ai",
+      to: "gen-ai",
     },
     {
       id: 3,
       title: "Building a Cloud Home",
       image: "https://via.placeholder.com/150",
       description: "Learn to create your own cloud environment.",
-      to: "/cloud-home",
+      to: "cloud-home",
     },
   ];
 

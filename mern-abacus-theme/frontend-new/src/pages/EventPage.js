@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { EventContacts } from "../constants/events";
 // import "../styles/global.css";
 import "../styles/Event.css";
 import img1 from "../assets/images/landscape-1.jpg";
@@ -53,7 +54,7 @@ const EventPage = ({ isMenuOpen }) => {
           </article>
         </div>
       </div>
-      <Contact />
+      <Contact contacts={EventContacts}/>
     </div>
   );
 };
