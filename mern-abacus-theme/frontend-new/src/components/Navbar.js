@@ -25,7 +25,12 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen,active,setActive }) => {
       icon: <FaTools />,
       path: "/workshops",
     },
-    { name: "login", label: "Login", icon: <AiOutlineLogin />, path: "/login" },
+    {
+      name: "auth",
+      label: "Login / Register",
+      icon: <AiOutlineLogin />,
+      path: "/auth",
+    },
   ];
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
