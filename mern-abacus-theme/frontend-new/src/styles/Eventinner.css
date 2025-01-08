@@ -46,7 +46,7 @@ body {
     width: 100%;
     max-width: 300px;
     border-radius: 12px;
-    margin-right: 20px;
+    /* margin-right: 20px; */
     box-shadow: 0 0 8px rgba(255, 0, 0, 0.3); /* Red glow around image */
 }
 
