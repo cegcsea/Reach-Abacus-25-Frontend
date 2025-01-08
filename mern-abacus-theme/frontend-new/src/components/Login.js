@@ -10,7 +10,7 @@ const Login = ({ setIsLogin }) => {
   };
 
   return (
-    <div className="login-container">
+    <div className="login-container ">
       <div className="login-box">
         <div className="login-toggle">
           <button className="active-tab">Login</button>

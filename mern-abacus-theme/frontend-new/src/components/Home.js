@@ -67,7 +67,7 @@ const Home = () => {
               src={require("../assets/images/logo copy.png")}
               alt="Abacus Logo"
             />
-            <div className="home_bgcircle1__MiYGt !my-52 md:!my-68 xl:!my-8 lg:!my-68"></div>
+            <div className="home_bgcircle1__MiYGt !my-[340px] md:!my-68 xl:!my-8 lg:!my-68"></div>
           </motion.div>
           <TypewritingButton />
         </motion.div>

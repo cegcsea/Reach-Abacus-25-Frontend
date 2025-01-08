@@ -10,6 +10,7 @@ import NonTechnicalPage from "./pages/NonTechnicalPage";
 import Workshops from "./pages/Workshops";
 import IndividualWorkshops from "./pages/IndividualWorkshops";
 import NoviceInit from "./pages/EventIndividual/NoviceInit";
+import AuthPage from "./pages/AuthPage";
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] =
     useState(false); /* need to the userContext*/
@@ -38,6 +39,8 @@ const App = () => {
         <Route path="/non-technical-events" element={<NonTechnicalPage />} />
         <Route path="/pre-events" element={<PreEvent />} />
         <Route path="/EventIndividual/NoviceInit" element={<NoviceInit />} />
+        <Route path="/auth" element={<AuthPage />} />
+        
       </Routes>
     </BrowserRouter>
   );

@@ -1,8 +1,6 @@
-import React from 'react'
+import React from "react";
 
 const NonTechnicalPage = () => {
-  return (
-    <div>NonTechnicalPage</div>
-  )
-}
+  return <div>NonTechnicalPage</div>;
+};
 export default NonTechnicalPage;

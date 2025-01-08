@@ -154,16 +154,16 @@
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1.2px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); */
     transition: background 0.6s ease, box-shadow 0.6s ease;
     margin-top: 20px;
 }
 
 /* Button hover effect */
-.developer-card button:hover {
+/* .developer-card button:hover {
     background: linear-gradient(135deg, rgba(60, 7, 112, 0.5), rgba(90, 23, 132, 0.5)); 
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
-}
+} */
 
 
 

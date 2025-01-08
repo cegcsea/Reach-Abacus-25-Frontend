@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/Eventinner.css";
 import img1 from "../assets/images/events pic/1.png";
+import { EventContacts } from "../constants/events";
 
 import Contact from "../components/Contact";
 import { Link } from "react-router-dom"; // Import Link from React Router
@@ -73,7 +74,7 @@ const TechnicalPage = () => {
           ))}
         </div>
       </div>
-      <Contact />
+      <Contact contacts={EventContacts}/>
     </div>
   );
 };

@@ -74,20 +74,21 @@ const Developers = () => {
         <div className="developers-carousel">
           {/* Map through currentDevelopers */}
           {currentDevelopers.map((developer, index) => (
-            <div key={index} className="developer-card">
+            <div key={index} className="developer-card ">
               <img
                 src={developer.src}
                 alt={developer.name}
-                className="developer-photo"
+                className="developer-photo "
               />
-              <h3>{developer.name}</h3>
-              <p>{developer.role}</p>
+              <h3 className="overflow-hidden">{developer.name}</h3>
+              <p className="overflow-hidden">{developer.role}</p>
               <a
                 href={developer.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
+                className="overflow-hidden "
               >
-                <button>↔ LinkedIn ↔</button>
+                <button className="overflow-hidden hover:!bg-[#693939]">↔ LinkedIn ↔</button>
               </a>
             </div>
           ))}
