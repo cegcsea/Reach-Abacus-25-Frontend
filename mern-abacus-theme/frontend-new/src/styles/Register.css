@@ -109,7 +109,7 @@
 /* Media query for mobile screens */
 @media (max-width: 768px) {
     .register-container {
-        padding-top: 90px;
+        padding-top: 110px;
         padding-left: 15px;
         padding-right: 15px;
     }
@@ -123,4 +123,39 @@
         box-shadow: 0px 4px 10px rgba(169, 169, 169, 0.6);
     }
 
+}
+
+/* Media query for iPad view (portrait and landscape) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .register-container {
+      padding-top: 105px;
+      padding-left: 30px;
+      padding-right: 30px;
+  }
+
+  .register-box {
+      width: 360px;
+      max-width: 480px;
+      padding: 1.8rem;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(169, 169, 169, 0.7);
+  }
+
+  .register-title {
+      font-size: 1.6rem;
+  }
+
+  .register-input {
+      font-size: 0.9rem;
+      padding: 0.7rem;
+  }
+
+  .register-button {
+      font-size: 0.95rem;
+      padding: 0.7rem;
+  }
+
+  .forgot-password {
+      font-size: 0.85rem;
+  }
 }
