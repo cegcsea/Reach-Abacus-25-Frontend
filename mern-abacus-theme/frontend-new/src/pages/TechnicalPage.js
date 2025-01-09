@@ -10,6 +10,19 @@ const TechnicalPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const index = 1; // Define the variable before using it
   console.log(index); // Use it after definition
+  
+  const contacts = [
+    {
+      id: 1,
+      name: "Gautham",
+      phone: "+1 234 567 890",
+    },
+    {
+      id: 2,
+      name: "Ganesh",
+      phone: "+1 234 567 890",
+    },
+  ];
   const events = [
     {
       title: "#Novice.Init()",
@@ -73,7 +86,7 @@ const TechnicalPage = () => {
           ))}
         </div>
       </div>
-      <Contact />
+      <Contact contacts={contacts}  />
     </div>
   );
 };

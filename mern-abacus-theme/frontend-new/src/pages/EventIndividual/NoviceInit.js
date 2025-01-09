@@ -20,7 +20,7 @@ const NoviceInit = () => {
             alt="Event"
             className="event-image"
           />
-          <div className="content">
+          <div className="content" style={{ textAlign: "left",color: "#fff",}}>
             <div className="tabs">
               <button
                 onClick={() => handleTabClick('description')}
@@ -43,7 +43,7 @@ const NoviceInit = () => {
             </div>
 
             {activeTab === 'description' && (
-              <div>
+              <div className='par'>
                 <p>
                   An all-night Coding Extravaganza featuring diverse challenges in DSA, fostering
                   teamwork and endurance. Participants collaborate across different CS domains, tackling
@@ -55,7 +55,7 @@ const NoviceInit = () => {
             )}
 
             {activeTab === 'internship' && (
-              <div className="internship-content">
+              <div className="internship-content para">
                 <p><strong>Top 3 of the event will get internship opportunities!</strong></p>
                 <div className="logo-container">
                   <img src={img2} alt="RootQuotient" className="logo" />
@@ -65,7 +65,7 @@ const NoviceInit = () => {
             )}
 
             {activeTab === 'rounds' && (
-              <div className="rounds-content">
+              <div className="rounds-content para">
                 <div className="round-card">
                   <h3>Round 1</h3>
                   <p><strong>Rolling Event (30 minutes)</strong></p>
