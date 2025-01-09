@@ -54,11 +54,10 @@
 
 /* Frosted glass card with purple tint */
 .developer-card {
-    background: #6e0808cb;
+    background: linear-gradient(to bottom, #800020, #000000);
     color: #fff;
     position: relative;
     border-radius: 15px;
-    padding: 30px;
     width: 350px;
     height: 350px;
     text-align: center;
@@ -71,9 +70,9 @@
     align-items: center;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-
-
 
 /* Moving border effect */
 .developer-card::before {
@@ -95,9 +94,11 @@
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(0.95);
     }
+
     100% {
         transform: scale(1);
     }
@@ -144,7 +145,7 @@
 
 /* Button styling */
 .developer-card button {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(209, 209, 209, 0.2)); 
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(209, 209, 209, 0.2));
     color: #fff;
     padding: 10px 11px;
     border: none;
@@ -160,8 +161,8 @@
 }
 
 /* Button hover effect */
-/* .developer-card button:hover {
-    background: linear-gradient(135deg, rgba(60, 7, 112, 0.5), rgba(90, 23, 132, 0.5)); 
+.developer-card button:hover {
+    background: linear-gradient(135deg, rgba(128, 0, 32, 0.8), rgba(100, 0, 25, 0.8));
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
 } */
 
@@ -174,7 +175,7 @@
     transform: translateY(-50%);
     font-size: 1.5rem;
     color: #fff;
-    background: linear-gradient(90deg, #3b365d, #6c4bd1);
+    background: linear-gradient(90deg, #800020, #b03a56);
     width: 50px;
     height: 50px;
     display: flex;
@@ -190,7 +191,7 @@
 
 .carousel-button:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(90deg, #3b365d, #6c4bd1);
+    background: linear-gradient(90deg, #800020, #9e1b32);
 }
 
 .carousel-button.left {
@@ -212,22 +213,28 @@
     .developers-carousel {
         gap: 20px;
     }
+
     .developer-card {
         width: 22%;
         padding: 20px;
     }
+
     .developer-card h3 {
         font-size: 22px;
     }
+
     .developer-card p {
         font-size: 0.9rem;
     }
+
     .developer-card img {
         width: 100px;
         height: 100px;
     }
+
     .carousel-button {
-        display: flex; /* Ensure the carousel buttons are visible */
+        display: flex;
+        /* Ensure the carousel buttons are visible */
     }
 }
 
@@ -305,6 +312,7 @@
     .developer-card:nth-child(3) {
         display: none;
     }
+
     .developer-card:nth-child(4) {
         display: none;
     }
@@ -317,7 +325,8 @@
         color: #fff;
         cursor: pointer;
         z-index: 10;
-        display: flex; /* Ensure the carousel buttons are visible */
+        display: flex;
+        /* Ensure the carousel buttons are visible */
     }
 
     .carousel-button.left {
@@ -361,9 +370,11 @@
     .developer-card:nth-child(2) {
         display: none;
     }
+
     .developer-card:nth-child(3) {
         display: none;
     }
+
     .developer-card:nth-child(4) {
         display: none;
     }
@@ -376,7 +387,8 @@
         color: #fff;
         cursor: pointer;
         z-index: 10;
-        display: flex; /* Ensure the carousel buttons are visible */
+        display: flex;
+        /* Ensure the carousel buttons are visible */
     }
 
     .carousel-button.left {
