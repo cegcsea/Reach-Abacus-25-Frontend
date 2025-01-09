@@ -21,7 +21,7 @@ const NoviceInit = () => {
             className="event-image"
           />
           <div className="content ">
-            <div className="tabs !w-[90%] mx-auto text-sm lg:text-md lg:p-auto">
+            <div className="tabs  mx-auto text-sm lg:text-md lg:p-auto">
               <button
                 onClick={() => handleTabClick('description')}
                 className={activeTab === 'description justify-center !text-[5px]' ? 'active' : ''}
@@ -55,18 +55,18 @@ const NoviceInit = () => {
             )}
 
             {activeTab === 'internship' && (
-              <div className="internship-content sm:!mx-4">
+              <div className="internship-content !mx-4">
                 <p><strong>Top 3 of the event will get internship opportunities!</strong></p>
-                <div className="logo-container flex flex-col">
-                  <img src={img2} alt="RootQuotient" className="logo mx-auto" />
-                  <p className="logo-text mx-auto">ROOTQUOTIENT</p>
+                <div className="logo-container">
+                  <img src={img2} alt="RootQuotient" className="logo" />
+                  <p className="logo-text">ROOTQUOTIENT</p>
                 </div>
               </div>
             )}
 
             {activeTab === 'rounds' && (
-              <div className="rounds-content !mx-4">
-                <div className="round-card ">
+              <div className="rounds-content">
+                <div className="round-card">
                   <h3>Round 1</h3>
                   <p><strong>Rolling Event (30 minutes)</strong></p>
                   <p><strong>What to expect?</strong> Exciting coding scenarios.</p>
@@ -84,7 +84,7 @@ const NoviceInit = () => {
                 </div>
               </div>
             )}
-            <button className="register-button !mx-auto">Registrations Closed &lt;~&gt;</button>
+            <button className="register-button ">Registrations Closed &lt;~&gt;</button>
           </div>
         </div>
       </div>
