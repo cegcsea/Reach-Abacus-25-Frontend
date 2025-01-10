@@ -20,11 +20,11 @@ const NoviceInit = () => {
             alt="Event"
             className="event-image"
           />
-          <div className="content ">
-            <div className="tabs  mx-auto text-sm lg:text-md lg:p-auto">
+          <div className="content" style={{ color: "#fff" }}>
+            <div className="tabs mx-auto text-sm lg:text-md lg:p-auto">
               <button
                 onClick={() => handleTabClick('description')}
-                className={activeTab === 'description justify-center !text-[5px]' ? 'active' : ''}
+                className={activeTab === 'description' ? 'active' : ''}
               >
                 Description &lt;~&gt;
               </button>
@@ -43,7 +43,7 @@ const NoviceInit = () => {
             </div>
 
             {activeTab === 'description' && (
-              <div className='!mx-8  text-justify'>
+              <div className="par !mx-8 text-justify">
                 <p>
                   An all-night Coding Extravaganza featuring diverse challenges in DSA, fostering
                   teamwork and endurance. Participants collaborate across different CS domains, tackling
@@ -65,7 +65,7 @@ const NoviceInit = () => {
             )}
 
             {activeTab === 'rounds' && (
-              <div className="rounds-content">
+              <div className="rounds-content para">
                 <div className="round-card">
                   <h3>Round 1</h3>
                   <p><strong>Rolling Event (30 minutes)</strong></p>
@@ -84,7 +84,9 @@ const NoviceInit = () => {
                 </div>
               </div>
             )}
-            <button className="register-button ">Registrations Closed &lt;~&gt;</button>
+            <div className="but">
+              <button className="register-button">Registrations Closed &lt;~&gt;</button>
+            </div>
           </div>
         </div>
       </div>

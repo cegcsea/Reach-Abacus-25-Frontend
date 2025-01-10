@@ -2,9 +2,9 @@
 .login-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding-top: 200px;
+    align-items: center;
     min-height: 100vh;
+    padding-top: 75px;
     background-color: #000000;
     background-size: cover;
     background-position: center;
@@ -157,19 +157,54 @@
 
 /* Media query for mobile screens */
 @media (max-width: 768px) {
-    .login-container {
-        padding-top: 90px;
+    /* .login-container {
+        padding-top: 110px;
         padding-left: 15px;
         padding-right: 15px;
-    }
+    } */
 
     .login-box {
-        width: 90%;
+        width: 100%;
         max-width: 320px;
         margin: 0 auto;
-        padding: 1.2rem;
+        /* padding: 1.2rem; */
         border-radius: 10px;
         box-shadow: 0px 4px 10px rgba(169, 169, 169, 0.6);
     }
 
+}
+
+/* Media query for iPad view (portrait and landscape) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* .login-container {
+        padding-top: 105px;
+        padding-left: 30px;
+        padding-right: 30px;
+    } */
+
+    .login-box {
+        width: 360px;
+        max-width: 480px;
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0px 4px 12px rgba(169, 169, 169, 0.7);
+    }
+
+    .login-title {
+        font-size: 1.6rem;
+    }
+
+    .login-input {
+        font-size: 0.9rem;
+        padding: 0.7rem;
+    }
+
+    .login-button {
+        font-size: 0.95rem;
+        padding: 0.7rem;
+    }
+
+    .forgot-password {
+        font-size: 0.85rem;
+    }
 }
