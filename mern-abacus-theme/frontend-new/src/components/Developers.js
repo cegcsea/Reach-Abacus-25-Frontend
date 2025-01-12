@@ -3,7 +3,7 @@ import "../styles/developer.css";
 import React, { useState, useEffect } from "react";
 const developers = [
   {
-    name: "Harini Natarajan",
+    name: "Harini",
     role: "//Frontend Developer",
     src: HariniImage,
     linkedin: "https://linkedin.com/in/harini",
