@@ -11,6 +11,7 @@ import Workshops from "./pages/Workshops";
 import IndividualWorkshops from "./pages/IndividualWorkshops";
 import NoviceInit from "./pages/EventIndividual/NoviceInit";
 import AuthPage from "./pages/AuthPage";
+import UserProfile from "./pages/About";
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] =
     useState(false); /* need to the userContext*/
@@ -28,7 +29,7 @@ const App = () => {
       )}
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<HomePage />} />
+        <Route path="/about" element={<UserProfile />} />
         <Route path="/sponsors" element={<HomePage />} />
         <Route path="/workshops" element={<Workshops />} />
         <Route path="/workshops/:id" element={<IndividualWorkshops />} />

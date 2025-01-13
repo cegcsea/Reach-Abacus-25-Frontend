@@ -7,8 +7,8 @@ const UserProfile = () => {
         id: "",
         name: "",
         email: "",
-        registeredEvents: [],
-        registeredWorkshops: [],
+        registeredEvents: ["event1","event2"],
+        registeredWorkshops: ["Workshops1","Workshops2"],
     };
 
     const navigate = useNavigate();
@@ -31,7 +31,7 @@ const UserProfile = () => {
                     <p><strong>Email:</strong> {user.email}</p>
                 </div>
 
-                <div className="user-content">
+                <div className="user-content flex flex-col lg:flex-row">
                     {/* Registered Events Section */}
                     <div className="user-section events">
                         <h3>Registered Events</h3>
@@ -44,7 +44,7 @@ const UserProfile = () => {
                         ) : (
                             <p>
                                 <button onClick={() => navigateTo("events")}>
-                                    Register for Events
+                                    Click here to Register for Events
                                 </button>
                             </p>
                         )}
@@ -62,7 +62,7 @@ const UserProfile = () => {
                         ) : (
                             <p>
                                 <button onClick={() => navigateTo("workshops")}>
-                                    Register for Workshops
+                                    Click here to Register for Workshops
                                 </button>
                             </p>
                         )}
