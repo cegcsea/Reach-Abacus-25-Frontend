@@ -16,8 +16,8 @@ const Footer = () => {
                 <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.37518444508!2d80.23412206399604!3d13.011763417518218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52679f6aaaaaab%3A0x90dc1b9c54311d4b!2sDepartment%20Of%20Computer%20Science%20and%20Engineering!5e0!3m2!1sen!2sin!4v1659372958426!5m2!1sen!2sin"
                     title="Map"
-                    class="map"
-                    allowfullscreen=""
+                    className="map"
+                    allowFullScreen=""
                     loading="lazy"></iframe>
                 <p>College of Engineering Guindy, (CEG - Anna University), Chennai 600028</p>
             </div>

@@ -1,29 +1,29 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
-import { server } from "../main";
+// import { server } from "../main";
+const server = "http://localhost:3001";
 
 const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   const [btnLoading, setBtnLoading] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isAuth, setIsAuth] = useState(false);
-
-  // User Login
-  async function login(email, password, navigate) {
+  async function login({ email, password }, navigate) {
     setBtnLoading(true);
     try {
-      const response = await axios.post(`${server}/api/user/login`, {
+      const response = await axios.post(`${server}/user/login`, {
         email,
         password,
       });
       const data = response.data;
-      setUser(data.exists);
+      setUser(data.user);
       toast.success(data.message);
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.exists));
+      console.log(data);
+      localStorage.setItem("abacustoken", data.token);
+      localStorage.setItem("abacususer", JSON.stringify(data.user));
       setIsAuth(true);
       navigate("/");
     } catch (error) {
@@ -34,34 +34,66 @@ export const UserContextProvider = ({ children }) => {
     }
   }
 
-  // User Registration
-  async function register(name, email, password, navigate) {
+  async function getRegistrationLink({ email }, navigate) {
     setBtnLoading(true);
+    console.log(email, typeof email);
     try {
-      const response = await axios.post(`${server}/api/user/register`, {
-        name,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        `${server}/user/get-registration-link`,
+        { email }
+      );
       const data = response.data;
       toast.success(data.message);
       localStorage.setItem("activationToken", data.activationToken);
-      navigate("/verify");
+      navigate(`/register/${email}/${data.token}`);
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message || "Registration failed");
+    } finally {
+      setBtnLoading(false);
+    }
+  }
+  // User Registration
+  async function register(formData, navigate) {
+    setBtnLoading(true);
+    try {
+      const response = await axios.post(
+        `${server}/user/register/${formData.email}/${formData.token}`,
+        {
+          name: formData.name,
+          email: formData.email,
+          token: formData.token, // If token is required
+          college: formData.college,
+          //hostCollege: formData.hostCollege,
+          accomodation: formData.accomodation,
+          dept: formData.dept,
+          year: formData.year,
+          mobile: formData.mobile,
+          password: formData.password,
+        }
+      );
+      const data = response.data;
+      toast.success(data.message);
+      localStorage.setItem("activationToken", data.activationToken);
+      navigate("/");
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Registration failed");
     } finally {
       setBtnLoading(false);
     }
   }
 
   // Forgot Password
-  async function forgotPassword(email) {
+  async function forgotPassword({ email }) {
     setBtnLoading(true);
     try {
-      const response = await axios.post(`${server}/api/user/forgot-password`, {
-        email,
-      });
+      const response = await axios.post(
+        `${server}/user/get-password-reset-link`,
+        {
+          email,
+        }
+      );
       const data = response.data;
+      console.log(data);
       toast.success(data.message);
     } catch (error) {
       toast.error(error.response.data.message);
@@ -71,18 +103,27 @@ export const UserContextProvider = ({ children }) => {
   }
 
   // Reset Forgotten Password
-  async function forgotPasswordReset(token, newPassword) {
+  async function forgotPasswordReset(
+    userId,
+    token,
+    newPassword,
+    confirmPassword,
+    navigate
+  ) {
     setBtnLoading(true);
     try {
       const response = await axios.post(
-        `${server}/api/user/reset-password`,
+        `${server}/user/reset-password/${userId}/${token}`,
         {
-          token,
-          newPassword,
+          newPassword: newPassword,
+          confirmPassword: confirmPassword,
+          userId: userId,
+          token: token,
         }
       );
       const data = response.data;
       toast.success(data.message);
+      navigate("/login");
     } catch (error) {
       toast.error(error.response.data.message);
     } finally {
@@ -91,14 +132,15 @@ export const UserContextProvider = ({ children }) => {
   }
 
   // Change Password
-  async function changePassword(oldPassword, newPassword) {
+  async function changePassword(password, newPassword, navigate) {
     setBtnLoading(true);
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("abacustoken");
+    console.log(token);
     try {
-      const response = await axios.post(
-        `${server}/api/user/change-password`,
+      const response = await axios.put(
+        `${server}/user/change-password`,
         {
-          oldPassword,
+          password,
           newPassword,
         },
         {
@@ -107,6 +149,7 @@ export const UserContextProvider = ({ children }) => {
       );
       const data = response.data;
       toast.success(data.message);
+      navigate("/login");
     } catch (error) {
       toast.error(error.response.data.message);
     } finally {
@@ -116,12 +159,13 @@ export const UserContextProvider = ({ children }) => {
 
   // Fetch User Profile
   async function profile() {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("abacustoken");
     try {
-      const { data } = await axios.get(`${server}/api/user/profile`, {
+      const { data } = await axios.get(`${server}/user/profile`, {
         headers: { token },
       });
-      setUser(data.userData);
+      console.log(data.data);
+      setUser(data.data);
     } catch (error) {
       console.log(error);
     }
@@ -130,7 +174,7 @@ export const UserContextProvider = ({ children }) => {
   // Update User Profile
   async function updateProfile(updatedData) {
     setBtnLoading(true);
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("abacustoken");
     try {
       const response = await axios.put(
         `${server}/api/user/profile/update`,
@@ -149,13 +193,11 @@ export const UserContextProvider = ({ children }) => {
 
   // Post Query
   async function postQuery(queryData) {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("abacustoken");
     try {
-      const response = await axios.post(
-        `${server}/api/user/query`,
-        queryData,
-        { headers: { token } }
-      );
+      const response = await axios.post(`${server}/user/query`, queryData, {
+        headers: { token },
+      });
       const data = response.data;
       toast.success(data.message);
     } catch (error) {
@@ -166,7 +208,7 @@ export const UserContextProvider = ({ children }) => {
   // Event Registration
   async function eventRegister(eventId) {
     setBtnLoading(true);
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("abacustoken");
     try {
       const response = await axios.post(
         `${server}/api/events/register`,
@@ -185,7 +227,7 @@ export const UserContextProvider = ({ children }) => {
   // Get Events
   async function getEvents() {
     try {
-      const { data } = await axios.get(`${server}/api/events`);
+      const { data } = await axios.get(`${server}/events`);
       return data.events;
     } catch (error) {
       console.log(error);
@@ -196,7 +238,7 @@ export const UserContextProvider = ({ children }) => {
   // Workshop Registration
   async function workshopRegister(workshopId) {
     setBtnLoading(true);
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("abacustoken");
     try {
       const response = await axios.post(
         `${server}/api/workshops/register`,
@@ -215,7 +257,7 @@ export const UserContextProvider = ({ children }) => {
   // Get Workshops
   async function getWorkshops() {
     try {
-      const { data } = await axios.get(`${server}/api/workshops`);
+      const { data } = await axios.get(`${server}/workshops`);
       return data.workshops;
     } catch (error) {
       console.log(error);
@@ -225,7 +267,7 @@ export const UserContextProvider = ({ children }) => {
 
   // Verify Workshop Payment Details
   async function verifyWorkshopPaymentDetails(workshopId) {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("abacustoken");
     try {
       const response = await axios.post(
         `${server}/api/workshops/verify-payment`,
@@ -241,7 +283,7 @@ export const UserContextProvider = ({ children }) => {
 
   // Upload Workshop Payment Screenshot
   async function workshopPaymentScreenshot(workshopId, screenshotFile) {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("abacustoken");
     const formData = new FormData();
     formData.append("workshopId", workshopId);
     formData.append("paymentScreenshot", screenshotFile);
@@ -264,38 +306,18 @@ export const UserContextProvider = ({ children }) => {
     }
   }
 
-  // Fetch User if Token Exists
-  async function fetchUser() {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      setLoading(false);
-      return;
-    }
-
-    try {
-      const { data } = await axios.get(`${server}/api/user/profile`, {
-        headers: { token },
-      });
-      setIsAuth(true);
-      setUser(data.userData);
-      localStorage.setItem("user", JSON.stringify(data.userData));
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  }
-
   useEffect(() => {
-    const savedUser = localStorage.getItem("user");
+    const savedUser = localStorage.getItem("abacususer");
+
     if (savedUser) {
-      setUser(JSON.parse(savedUser));
+      const parsedUser = JSON.parse(savedUser); // Parse the saved user
+      console.log(parsedUser); // Debugging: Ensure the user is valid JSON
+      setUser(parsedUser);
       setIsAuth(true);
       setLoading(false);
-      fetchUser();
-    } else {
-      fetchUser();
     }
+
+    //fetchUser(); // Always fetch the user to ensure the latest data is shown
   }, []);
 
   return (
@@ -309,6 +331,7 @@ export const UserContextProvider = ({ children }) => {
         login,
         loading,
         register,
+        getRegistrationLink,
         forgotPassword,
         forgotPasswordReset,
         changePassword,

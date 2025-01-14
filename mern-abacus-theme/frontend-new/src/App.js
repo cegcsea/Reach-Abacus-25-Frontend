@@ -11,7 +11,11 @@ import Workshops from "./pages/Workshops";
 import IndividualWorkshops from "./pages/IndividualWorkshops";
 import NoviceInit from "./pages/EventIndividual/NoviceInit";
 import AuthPage from "./pages/AuthPage";
-import UserProfile from "./pages/About";
+import Profile from "./pages/Profile";
+import RegisterDetails from "./pages/RegisterDetails";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
+import ChangePassword from "./pages/ChangePassword";
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] =
     useState(false); /* need to the userContext*/
@@ -29,19 +33,21 @@ const App = () => {
       )}
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<UserProfile />} />
+        <Route path="/about" element={<Profile />} />
         <Route path="/sponsors" element={<HomePage />} />
         <Route path="/workshops" element={<Workshops />} />
         <Route path="/workshops/:id" element={<IndividualWorkshops />} />
         <Route path="/login" element={<HomePage />} />
-        <Route path="/register" element={<HomePage />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
+        <Route path="/change-password" element={<ChangePassword />} />
+        <Route path="/register/:email/:token" element={<RegisterDetails />} />
         <Route path="/events" element={<EventPage />} />{" "}
         <Route path="/technical-events" element={<TechnicalPage />} />
         <Route path="/non-technical-events" element={<NonTechnicalPage />} />
         <Route path="/pre-events" element={<PreEvent />} />
         <Route path="/EventIndividual/NoviceInit" element={<NoviceInit />} />
         <Route path="/auth" element={<AuthPage />} />
-        
       </Routes>
     </BrowserRouter>
   );

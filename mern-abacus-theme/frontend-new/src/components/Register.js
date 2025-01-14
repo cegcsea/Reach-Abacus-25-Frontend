@@ -1,7 +1,18 @@
-import React from "react";
+import React,{useState} from "react";
 import "../styles/Register.css";
+import { UserData } from "../context/userContext";
 
 const Register = ({ setIsLogin }) => {
+    const { getRegistrationLink } = UserData();
+    const [email, setEmail] = useState("");
+  
+    const handleEmailChange = (e) => setEmail(e.target.value);
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      getRegistrationLink({ email });
+    }
+  
   return (
     <div className="register-container">
       <div className="register-box">
@@ -17,15 +28,17 @@ const Register = ({ setIsLogin }) => {
         <p className="text-center text-gray-400 mb-4">
           After registering, a verification link will be sent to your email.
         </p>
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <input
             type="email"
             placeholder="Email"
             className="register-input"
+            onChange={handleEmailChange}
           />
           <button
             type="submit"
             className="register-button"
+            
           >
             Register
           </button>
