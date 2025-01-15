@@ -3,6 +3,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { workshopsReach as workshops } from "../constants/workshops";
 import Contact from "../components/Contact";
+import Session from "../components/Session";
 const Workshops = () => {
   const navigate = useNavigate();
   const burgundy = "#800020";
@@ -67,36 +68,7 @@ const Workshops = () => {
             </div>
           ))}
         </div>
-
-        {/* <div className="bg-[#1d1d1d] flex flex-col  text-white p-6 rounded-lg shadow-lg mt-12 mx-auto lg:w-[50%] ">
-          <h2
-            style={{ textAlign: "left", color: white }}
-            className="text-xl font-semibold mb-4"
-          >
-            # Contact
-          </h2>
-          <h3
-            style={{ textAlign: "left", color: white }}
-            className="text-lg font-semibold mb-4 text-center"
-          >
-            For Queries Regarding Workshops
-          </h3>
-
-          <div className="flex flex-row !justify-between ">
-            <div className="flex items-center gap-2 mx-auto">
-              <div className="bg-black text-white px-2 lg:px-4 py-2 rounded-md ">
-                {contact.name}
-              </div>
-              <div className="bg-black text-white px-2 lg:px-4 py-2 rounded-md">
-                {contact.phone}
-              </div>
-
-              <div className="bg-black text-white p-2 rounded-full">
-                <FaPhoneAlt size={20} />
-              </div>
-            </div>
-          </div>
-        </div> */}
+            <Session/>
         <div className="mt-10">
           <Contact contacts={contacts} />
         </div>

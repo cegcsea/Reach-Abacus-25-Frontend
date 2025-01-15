@@ -16,6 +16,7 @@ import RegisterDetails from "./pages/RegisterDetails";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import ChangePassword from "./pages/ChangePassword";
+import UpdateProfile from "./pages/UpdateProfile";
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] =
     useState(false); /* need to the userContext*/
@@ -33,14 +34,15 @@ const App = () => {
       )}
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/sponsors" element={<HomePage />} />
         <Route path="/workshops" element={<Workshops />} />
         <Route path="/workshops/:id" element={<IndividualWorkshops />} />
         <Route path="/login" element={<HomePage />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
-        <Route path="/change-password" element={<ChangePassword />} />
+        <Route path="/profile/change-password" element={<ChangePassword />} />
+        <Route path="/profile/update" element={<UpdateProfile />} />
         <Route path="/register/:email/:token" element={<RegisterDetails />} />
         <Route path="/events" element={<EventPage />} />{" "}
         <Route path="/technical-events" element={<TechnicalPage />} />

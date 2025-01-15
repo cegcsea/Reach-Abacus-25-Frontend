@@ -11,6 +11,10 @@ export const UserContextProvider = ({ children }) => {
   const [btnLoading, setBtnLoading] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isAuth, setIsAuth] = useState(false);
+  // const [auth, setAuth] = useState(false);
+  const [userEvents, setUserEvents] = useState([]);
+  const [userWorkshops, setUserWorkshops] = useState([]);
+  const [session, setSession] = useState([]);
   async function login({ email, password }, navigate) {
     setBtnLoading(true);
     try {
@@ -164,26 +168,31 @@ export const UserContextProvider = ({ children }) => {
       const { data } = await axios.get(`${server}/user/profile`, {
         headers: { token },
       });
-      console.log(data.data);
+      //console.log(data.data);
       setUser(data.data);
+      setIsAuth(true);
+      setUserWorkshops(data.user.workshopPayments);
+      //console.log(user);
     } catch (error) {
       console.log(error);
     }
   }
 
   // Update User Profile
-  async function updateProfile(updatedData) {
+  async function updateProfile(updatedData, navigate) {
     setBtnLoading(true);
+    console.log("updateData:" + updatedData.year);
     const token = localStorage.getItem("abacustoken");
     try {
       const response = await axios.put(
-        `${server}/api/user/profile/update`,
+        `${server}/user/update-profile`,
         updatedData,
         { headers: { token } }
       );
       const data = response.data;
       setUser(data.updatedUser);
       toast.success(data.message);
+      navigate("/profile");
     } catch (error) {
       toast.error(error.response.data.message);
     } finally {
@@ -211,7 +220,7 @@ export const UserContextProvider = ({ children }) => {
     const token = localStorage.getItem("abacustoken");
     try {
       const response = await axios.post(
-        `${server}/api/events/register`,
+        `${server}/user/events/register`,
         { eventId },
         { headers: { token } }
       );
@@ -226,11 +235,22 @@ export const UserContextProvider = ({ children }) => {
 
   // Get Events
   async function getEvents() {
+    const token = localStorage.getItem("abacustoken");
     try {
-      const { data } = await axios.get(`${server}/events`);
-      return data.events;
+      // Fetch events data from server
+      const { data } = await axios.get(`${server}/user/get-events`, {
+        headers: { token },
+      });
+      console.log("Events data:", data.events);
+
+      // Set user events data
+      setUserEvents(data.events.events);
     } catch (error) {
-      console.log(error);
+      console.error("Error fetching events:", error);
+      console.error(
+        "Error response:",
+        error.response ? error.response.data : "No response data"
+      );
       toast.error("Error fetching events");
     }
   }
@@ -241,7 +261,7 @@ export const UserContextProvider = ({ children }) => {
     const token = localStorage.getItem("abacustoken");
     try {
       const response = await axios.post(
-        `${server}/api/workshops/register`,
+        `${server}/user/workshops/register`,
         { workshopId },
         { headers: { token } }
       );
@@ -256,11 +276,25 @@ export const UserContextProvider = ({ children }) => {
 
   // Get Workshops
   async function getWorkshops() {
+    const token = localStorage.getItem("abacustoken");
     try {
-      const { data } = await axios.get(`${server}/workshops`);
-      return data.workshops;
+      // Fetch workshop data from server
+      const { data } = await axios.get(`${server}/user/get-workshops`, {
+        headers: { token },
+      });
+      console.log("Workshops data:", data.data);
+      //console.log("User workshop payments:", data.user);
+
+      // Set session and user workshop data
+      setSession(data.data.workshops);
+      //setUserWorkshops(data.user.workshopPayments);
     } catch (error) {
-      console.log(error);
+      // Handle error
+      console.error("Error fetching events:", error);
+      console.error(
+        "Error response:",
+        error.response ? error.response.data : "No response data"
+      );
       toast.error("Error fetching workshops");
     }
   }
@@ -270,7 +304,7 @@ export const UserContextProvider = ({ children }) => {
     const token = localStorage.getItem("abacustoken");
     try {
       const response = await axios.post(
-        `${server}/api/workshops/verify-payment`,
+        `${server}/user/workshops/verify-payment`,
         { workshopId },
         { headers: { token } }
       );
@@ -290,7 +324,7 @@ export const UserContextProvider = ({ children }) => {
 
     try {
       const response = await axios.post(
-        `${server}/api/workshops/payment-screenshot`,
+        `${server}/workshops/payment-screenshot`,
         formData,
         {
           headers: {
@@ -305,19 +339,59 @@ export const UserContextProvider = ({ children }) => {
       toast.error(error.response.data.message);
     }
   }
+  async function handleLogout() {
+    localStorage.removeItem("abacususer");
+    localStorage.removeItem("abacustoken");
+    setIsAuth(false);
+    setUserEvents([]);
+    setUser({});
+    setUserWorkshops([]);
+  }
 
-  useEffect(() => {
-    const savedUser = localStorage.getItem("abacususer");
+  // useEffect(() => {
+  //   const savedUser = localStorage.getItem("abacususer");
 
-    if (savedUser) {
-      const parsedUser = JSON.parse(savedUser); // Parse the saved user
-      console.log(parsedUser); // Debugging: Ensure the user is valid JSON
-      setUser(parsedUser);
-      setIsAuth(true);
-      setLoading(false);
+  //   // If user is found in localStorage
+  //   if (savedUser) {
+  //     const parsedUser = JSON.parse(savedUser);
+  //     console.log("parseduser:", parsedUser); // Debugging: Ensure user data is valid JSON
+  //     setUser(parsedUser);
+  //     setIsAuth(true);
+  //   }
+
+  //   // Start loading and fetch data
+  //   setLoading(true);
+  //   profile().then(); // Fetch profile data
+  //   getEvents(); // Fetch events
+  //   getWorkshops(); // Fetch workshops
+  // }, []);
+  async function refreshauth() {
+    const token = localStorage.getItem("abacususer");
+    if (token) {
+      profile();
+      // .then((data) => {
+      //   setAuth(true);
+      //   setUser(data.user);
+      //   setUserWorkshops(data.user.workshopPayments);
+      // })
+      // .catch((error) => {});
+      getEvents()
+        .then((data) => {
+          setUserEvents(data.events.events);
+        })
+        .catch((error) => {});
+      getWorkshops()
+        .then((data) => {
+          setSession(data.workshops.workshops);
+        })
+        .catch((error) => {});
+    } else {
+      setIsAuth(false);
+      setUser({});
     }
-
-    //fetchUser(); // Always fetch the user to ensure the latest data is shown
+  }
+  useEffect(() => {
+    refreshauth();
   }, []);
 
   return (
@@ -328,8 +402,9 @@ export const UserContextProvider = ({ children }) => {
         isAuth,
         setIsAuth,
         btnLoading,
-        login,
         loading,
+        login,
+        handleLogout,
         register,
         getRegistrationLink,
         forgotPassword,
@@ -342,6 +417,7 @@ export const UserContextProvider = ({ children }) => {
         getEvents,
         workshopRegister,
         getWorkshops,
+        refreshauth,
         verifyWorkshopPaymentDetails,
         workshopPaymentScreenshot,
       }}
@@ -349,6 +425,7 @@ export const UserContextProvider = ({ children }) => {
       {children}
       <Toaster />
     </UserContext.Provider>
+
   );
 };
 
