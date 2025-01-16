@@ -49,8 +49,6 @@ const App = () => {
         <Route path="/events" element={<EventPage />} />{" "}
         <Route path="/technical-events" element={<TechnicalPage />} />
         <Route path="/" element={<EventPage />} />
-      
-        <Route path="/EventIndividual/NoviceInit" element={<NoviceInit />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/EventIndividual/:id" element={<NoviceInit />} />
 

@@ -1,37 +1,58 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../../styles/Intern.css";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import Contact from "../../components/Contact.js";
 import img4 from "../../assets/images/internship.png";
-
+import { events } from "../../constants/events.js";
+import { UserData } from "../../context/userContext.js";
 
 const NoviceInit = () => {
   const navigate = useNavigate();
-  const location = useLocation(); // Get the location object to extract the state
-  const { event } = location.state || {}; // Get the event from location.state
+  const location = useLocation();
+  const { id } = useParams(); // Ensure the route has a dynamic :id parameter
+  const { userEvents, isAuth, eventRegister } = UserData();
+  //const selectedEvent = events.find((event) => event.to === id);
+  const allEvents = events.flatMap((category) => category.event);
 
-  const [activeTab, setActiveTab] = useState("description"); // Active tab for description, internship, or rounds
+  const selectedEvent = allEvents.find((event) => {
+    //console.log(`Checking event:`, event.to, "Expected:", id,event.to === id);
+    return event.to === id;
+  });
 
-  // Ensure that selectedEvent is found
-  if (!event) {
+  const [activeTab, setActiveTab] = useState("description");
+  if (!selectedEvent) {
     return (
-      <h1 style={{ textAlign: "center", color: "#fff" }}>Event Not Found</h1>
+      <h1 style={{ textAlign: "center", color: "#fff" }} className="my-32">
+        Event Not Found {typeof id}
+      </h1>
     );
   }
+
+  // Check if the user is already registered for this event
+  const isRegistered = (userEvents || []).some(
+    (event) => event.eventName === selectedEvent.title
+  );
 
   // Handle tab switching
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
 
+  // Handle event registration
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    console.log(typeof(selectedEvent.id));
+    eventRegister({ eventId: Number(selectedEvent.id) });
+  };
+
   return (
     <div>
       <h1 style={{ textAlign: "center", color: "#fff" }} className="heading">
-        {event.title}
+        {selectedEvent.title}
       </h1>
       <div className="middle-section">
         <div className="content-container">
-          <img src={event.image } alt="Event" className="event-image" />
+          <img src={selectedEvent.image} alt="Event" className="event-image" />
           <div className="content" style={{ color: "#fff" }}>
             <div className="tabs mx-auto text-sm lg:text-md lg:p-auto">
               <button
@@ -40,7 +61,7 @@ const NoviceInit = () => {
               >
                 Description &lt;~&gt;
               </button>
-              {event.intern && event.intern.length > 0 && (
+              {selectedEvent.intern?.length > 0 && (
                 <button
                   onClick={() => handleTabClick("internship")}
                   className={activeTab === "internship" ? "active" : ""}
@@ -48,7 +69,6 @@ const NoviceInit = () => {
                   Internship &lt;~&gt;
                 </button>
               )}
-
               <button
                 onClick={() => handleTabClick("rounds")}
                 className={activeTab === "rounds" ? "active" : ""}
@@ -60,23 +80,23 @@ const NoviceInit = () => {
             {/* Description Tab */}
             {activeTab === "description" && (
               <div className="par !mx-8 text-justify">
-                <p>{event.description}</p>
+                <p>{selectedEvent.description}</p>
                 <p>
-                  <strong>Team members:</strong> {event.team || "N/A"}
+                  <strong>Team members:</strong> {selectedEvent.team || "N/A"}
                 </p>
                 <p>
-                  <strong>Prize:</strong> {event.prize || "N/A"}
+                  <strong>Prize:</strong> {selectedEvent.prize || "N/A"}
                 </p>
               </div>
             )}
 
             {/* Internship Tab */}
-            {activeTab === "internship" && event.intern?.length > 0 && (
+            {activeTab === "internship" && selectedEvent.intern?.length > 0 && (
               <div className="internship-content !mx-4">
                 <p>
-                  <strong>{event.intern.no_of_team}</strong>
+                  <strong>{selectedEvent.intern.no_of_team}</strong>
                 </p>
-                {event.intern.map((intern, index) => (
+                {selectedEvent.intern.map((intern, index) => (
                   <div key={index} className="intern-container">
                     <img
                       src={img4}
@@ -89,10 +109,10 @@ const NoviceInit = () => {
               </div>
             )}
 
-            {/* Rounds Tab - Dynamically display rounds */}
-            {activeTab === "rounds" && event.rounds?.length > 0 && (
+            {/* Rounds Tab */}
+            {activeTab === "rounds" && selectedEvent.rounds?.length > 0 && (
               <div className="rounds-content para">
-                {event.rounds.map((round, index) => (
+                {selectedEvent.rounds.map((round, index) => (
                   <div className="round-card" key={index}>
                     <h3>{round.title}</h3>
                     <p>
@@ -112,19 +132,35 @@ const NoviceInit = () => {
               </div>
             )}
 
-            {/* Registration Button */}
-            <button
-              className="reg-button "
-              onClick={() => navigate("/login")} // Example route, adjust to your app's registration route
-            >
-              Register{"<"}~{">"}
-            </button>
+            {isAuth && (
+              <button
+                className="m-3 w-fit border border-[#c72727] px-4 py-2 text-white duration-150 hover:bg-[#fb525233]"
+                onClick={handleRegister}
+              >
+                Register{"<"}~{">"}
+              </button>
+            )}
+            {!isAuth && (
+              <button
+                className="m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]"
+                onClick={() => navigate("/login")}
+              >
+                Login to Register{"<"}~{">"}
+              </button>
+            )}
+            {isRegistered && (
+              <p className="p-2 w-full sm:w-fit flex justify-center items-center text-white text-lg font-semibold text-gray border rounded-lg border-gray-700 bg-slate-800">
+                <span className="text-lime-400">/*</span>
+                &nbsp;Already registered for this event!&nbsp;
+                <span className="text-lime-400">*/</span>
+              </p>
+            )}
           </div>
         </div>
       </div>
-      {/* Ensure that contacts is an array before passing to Contact component */}
-      {event.contact && event.contact.length > 0 && (
-        <Contact contacts={event.contact} />
+
+      {selectedEvent.contact?.length > 0 && (
+        <Contact contacts={selectedEvent.contact} />
       )}
     </div>
   );

@@ -226,7 +226,7 @@ export const UserContextProvider = ({ children }) => {
     try {
       const response = await axios.post(
         `${server}/user/event-register`,
-        { eventId },
+        eventId ,
         { headers: { token } }
       );
       const data = response.data;
