@@ -41,29 +41,29 @@ export const workshopsReach = [
     },
 ]
 
-export   const workshops = [
-    {
-      id: 1,
-      title: "Rapid Development with AI",
-      image: "https://via.placeholder.com/150",
-      description: "Conducted by experts in the field.",
-      to: "ai-development",
-    },
-    {
-      id: 2,
-      title: "Gen AI Unleashed",
-      image: "https://via.placeholder.com/150",
-      description: "Explore the potential of Generative AI.",
-      to: "gen-ai",
-    },
-    {
-      id: 3,
-      title: "Building a Cloud Home",
-      image: "https://via.placeholder.com/150",
-      description: "Learn to create your own cloud environment.",
-      to: "cloud-home",
-    },
-  ];
+// export   const abacusWorkshops = [
+//     {
+//       id: 1,
+//       title: "Rapid Development with AI",
+//       image: "https://via.placeholder.com/150",
+//       description: "Conducted by experts in the field.",
+//       to: "ai-development",
+//     },
+//     {
+//       id: 2,
+//       title: "Gen AI Unleashed",
+//       image: "https://via.placeholder.com/150",
+//       description: "Explore the potential of Generative AI.",
+//       to: "gen-ai",
+//     },
+//     {
+//       id: 3,
+//       title: "Building a Cloud Home",
+//       image: "https://via.placeholder.com/150",
+//       description: "Learn to create your own cloud environment.",
+//       to: "cloud-home",
+//     },
+//   ];
 
 
 export const sessions = [

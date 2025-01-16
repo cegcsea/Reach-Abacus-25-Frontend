@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
 import image from "../assets/Reach/placement.svg";
 import { UserData } from "../context/userContext.js";
 import { useNavigate } from "react-router-dom";
 import { FaLocationDot } from "react-icons/fa6";
 
 function Session() {
-  const { handleWorkshopRegister, isAuth, user, session } = UserData();
+  const { freeWorkshopRegister, isAuth, user, session } = UserData();
   const navigate = useNavigate();
 
   const handleRegister = (code) => {
-    handleWorkshopRegister({ workshopId: code });
+    freeWorkshopRegister({ workshopId: code });
   };
 
   const isRegistered = (session || []).some(
@@ -20,8 +20,9 @@ function Session() {
     <div>
       <div className="p-5 sm:py-8 sm:px-10 flex gap-3 flex-col ">
         <h1 className="text-4xl lg:text-5xl md:text-4xl sm:text-3xl text-white overflow-hidden">
-         
-          <span className="[text-shadow:6px_2px_4px_#c03e3e] text-5xl font-bold text-[#fcfcfc] text-center">Session</span>
+          <span className="[text-shadow:6px_2px_4px_#c03e3e] text-5xl font-bold text-[#fcfcfc] text-center">
+            Session
+          </span>
         </h1>
       </div>
       <div className="px-2 sm:px-0 !p-0 !m-0 ">

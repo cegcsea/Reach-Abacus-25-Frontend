@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 //Context
 export const LoaderContext = React.createContext();
@@ -17,3 +17,4 @@ export const LoaderProvider = ({ children }) => {
     </LoaderContext.Provider>
   );
 };
+export const LoaderData = () => useContext(LoaderContext);

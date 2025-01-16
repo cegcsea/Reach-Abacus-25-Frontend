@@ -17,6 +17,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import ChangePassword from "./pages/ChangePassword";
 import UpdateProfile from "./pages/UpdateProfile";
+import Dashboard from "./pages/Dashboard/Dashboard";
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] =
     useState(false); /* need to the userContext*/
@@ -35,6 +36,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/sponsors" element={<HomePage />} />
         <Route path="/workshops" element={<Workshops />} />
         <Route path="/workshops/:id" element={<IndividualWorkshops />} />

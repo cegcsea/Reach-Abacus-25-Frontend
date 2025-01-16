@@ -97,7 +97,7 @@ export const UserContextProvider = ({ children }) => {
         }
       );
       const data = response.data;
-      console.log(data);
+      //console.log(data);
       toast.success(data.message);
     } catch (error) {
       toast.error(error.response.data.message);
@@ -139,7 +139,7 @@ export const UserContextProvider = ({ children }) => {
   async function changePassword(password, newPassword, navigate) {
     setBtnLoading(true);
     const token = localStorage.getItem("abacustoken");
-    console.log(token);
+    //console.log(token);
     try {
       const response = await axios.put(
         `${server}/user/change-password`,
@@ -171,7 +171,7 @@ export const UserContextProvider = ({ children }) => {
       //console.log(data.data);
       setUser(data.data);
       setIsAuth(true);
-      setUserWorkshops(data.user.workshopPayments);
+      setUserWorkshops(data.data.workshops);
       //console.log(user);
     } catch (error) {
       console.log(error);
@@ -181,7 +181,7 @@ export const UserContextProvider = ({ children }) => {
   // Update User Profile
   async function updateProfile(updatedData, navigate) {
     setBtnLoading(true);
-    console.log("updateData:" + updatedData.year);
+    //console.log("updateData:" + updatedData.year);
     const token = localStorage.getItem("abacustoken");
     try {
       const response = await axios.put(
@@ -241,12 +241,12 @@ export const UserContextProvider = ({ children }) => {
       const { data } = await axios.get(`${server}/user/get-events`, {
         headers: { token },
       });
-      console.log("Events data:", data.events);
+      //console.log("Events data:", data.events);
 
       // Set user events data
       setUserEvents(data.events.events);
     } catch (error) {
-      console.error("Error fetching events:", error);
+      //console.error("Error fetching events:", error);
       console.error(
         "Error response:",
         error.response ? error.response.data : "No response data"
@@ -256,16 +256,17 @@ export const UserContextProvider = ({ children }) => {
   }
 
   // Workshop Registration
-  async function workshopRegister(workshopId) {
+  async function freeWorkshopRegister({ workshopId }) {
     setBtnLoading(true);
     const token = localStorage.getItem("abacustoken");
     try {
       const response = await axios.post(
-        `${server}/user/workshops/register`,
+        `${server}/user/workshop-register`,
         { workshopId },
         { headers: { token } }
       );
       const data = response.data;
+      console.log(data);
       toast.success(data.message);
     } catch (error) {
       toast.error(error.response.data.message);
@@ -282,11 +283,12 @@ export const UserContextProvider = ({ children }) => {
       const { data } = await axios.get(`${server}/user/get-workshops`, {
         headers: { token },
       });
-      console.log("Workshops data:", data.data);
+      //console.log("Workshops data:", data.data);
       //console.log("User workshop payments:", data.user);
 
       // Set session and user workshop data
       setSession(data.data.workshops);
+      //console.log(data.data.workshops);
       //setUserWorkshops(data.user.workshopPayments);
     } catch (error) {
       // Handle error
@@ -368,13 +370,14 @@ export const UserContextProvider = ({ children }) => {
   async function refreshauth() {
     const token = localStorage.getItem("abacususer");
     if (token) {
-      profile();
-      // .then((data) => {
-      //   setAuth(true);
-      //   setUser(data.user);
-      //   setUserWorkshops(data.user.workshopPayments);
-      // })
-      // .catch((error) => {});
+      profile()
+        .then((data) => {
+          setIsAuth(true);
+          // console.log(data);
+          // setUser(data.user);
+          // setUserWorkshops(data.user.workshopPayments);
+        })
+        .catch((error) => {});
       getEvents()
         .then((data) => {
           setUserEvents(data.events.events);
@@ -392,7 +395,14 @@ export const UserContextProvider = ({ children }) => {
   }
   useEffect(() => {
     refreshauth();
+    console.log(user);
   }, []);
+  useEffect(() => {
+    console.log(user);
+    console.log(userEvents);
+    console.log(userWorkshops);
+    console.log(session);
+  }, [user]);
 
   return (
     <UserContext.Provider
@@ -415,7 +425,7 @@ export const UserContextProvider = ({ children }) => {
         postQuery,
         eventRegister,
         getEvents,
-        workshopRegister,
+        freeWorkshopRegister,
         getWorkshops,
         refreshauth,
         verifyWorkshopPaymentDetails,
@@ -425,7 +435,6 @@ export const UserContextProvider = ({ children }) => {
       {children}
       <Toaster />
     </UserContext.Provider>
-
   );
 };
 

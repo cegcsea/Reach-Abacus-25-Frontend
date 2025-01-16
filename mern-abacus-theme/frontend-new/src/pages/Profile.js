@@ -21,7 +21,7 @@ const Profile = () => {
       events: "/events",
       workshops: "/workshops",
       update: "/profile/update",
-      dashboard: "/",
+      dashboard: "/dashboard",
       "change-password": "/profile/change-password",
     };
 

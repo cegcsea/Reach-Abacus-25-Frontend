@@ -68,7 +68,7 @@ const Workshops = () => {
             </div>
           ))}
         </div>
-            <Session/>
+        <Session />
         <div className="mt-10">
           <Contact contacts={contacts} />
         </div>
