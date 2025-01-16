@@ -1,16 +1,51 @@
-import OSPC from '../assets/Reach/OSPC.png';
-import ReverseCoding from '../assets/Reach/ReverseCoding.png';
-import UIUX from '../assets/Reach/UI UX.png';
-import GeekQuiz from '../assets/Reach/Geek_Quiz.png';
+import img1 from "../assets/images/landscape-1.jpg";
+import img2 from "../assets/images/landscape-2.jpg"; // Example images
+import img3 from "../assets/images/landscape-3.jpg";
+import img4 from "../assets/images/internship.png";
 
+// Contacts for the EventPage
+export const EventContacts = [
+  {
+    id: 1,
+    name: "Gautham",
+    phone: "+1 234 567 890",
+  },
+  {
+    id: 2,
+    name: "Ganesh",
+    phone: "+1 234 567 890",
+  },
+  {
+    id: 3,
+    name: "Gautham",
+    phone: "+1 234 567 890",
+  },
+  {
+    id: 4,
+    name: "Ganesh",
+    phone: "+1 234 567 890",
+  },
+];
+
+// List of events
 export const events = [
-    {
-        title: "Geek_Quiz",
-        team: "Two or three members",
-        code: 2401,
-        body: 'Engage in a captivating quiz, battling wits in math, science, and logic. Thought-provoking questions challenge analytical abilities, showcasing expertise in numbers, science, and reasoning.',
-        tag: "Technical Events are twinkle twinkle little star",
-        to: "geekquiz",
+  {
+    title: "Technical Events",
+    image: img1, // Event image
+     event :[
+        {
+          id:"hello",
+          title: "hello",
+          description:
+            "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
+          image: img1, // Replace with your image path
+          path: "/EventIndividual/NoviceInit",
+        
+            team: "Two or three members",
+            gctDate: "19 February 2024",
+            psnaDate: "22 February 2024",
+            prize: "Rs 1k+",
+            to: "geekquiz",
         rounds: [
             {
                 title: "Round 1",
@@ -19,94 +54,226 @@ export const events = [
                 time: "01:30 PM to 04:00 PM",
                 venue: "Main Building Room No 238"
             },
+            {
+              title: "Round 2",
+              content: "MCQ pen and paper event",
+              duration: "30 minutes",
+              time: "01:30 PM to 04:00 PM",
+              venue: "Main Building Room No 238"
+          },
         ],
-        gctDate: "19 February 2024",
-        psnaDate: "22 February 2024",
-        image: GeekQuiz,
-        prize: "Rs 1k+"
-    },
-    {
-        title: "OSPC",
-        team: "One or two members",
-        code: 2402,
-        body: 'A programming contest where the convergence of ingenious minds tackling intricate coding conundrums! Engage in a contest where participants navigate challenges featuring complex data structures and algorithms.',
-        tag: "Technical Events are twinkle twinkle little star",
-        to: "ospc",
+        contact:[{
+          id: 1,
+          name: "Gautham",
+          phone: "+1 234 567 890",
+        },
+        {
+          id: 2,
+          name: "Ganesh",
+          phone: "+1 234 567 890",
+        },],
+        intern:[{
+          
+          no_of_team:"Top 3 will get opportunitues",
+
+          name:"Amazon",
+          image:img4,
+        }]
+          
+        },
+        {
+          id:"second",
+          title: "second",
+          description:
+            "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
+          image: img1, // Replace with your image path
+          path: "/EventIndividual/NoviceInit",
+        
+            team: "Two or three members",
+            gctDate: "19 February 2024",
+            psnaDate: "22 February 2024",
+            prize: "Rs 1k+",
+            to: "geekquiz",
         rounds: [
             {
                 title: "Round 1",
                 content: "MCQ pen and paper event",
                 duration: "30 minutes",
-                time: "9:00 AM to 12:00 PM",
-                venue: "Cse Department, 2nd Floor, Room 211"
+                time: "01:30 PM to 04:00 PM",
+                venue: "Main Building Room No 238"
             },
-            {
-                title: "Round 2",
-                content: "Hackerrank Test",
-                duration: "90 minutes",
-                time: "01:30 PM to 03:00 PM",
-                venue: "Cse Department, 2nd Floor, Room 211"
-            },
+            
+          
         ],
-        gctDate: "20 February 2024",
-        psnaDate: "23 February 2024",
-        image: OSPC,
-        prize: "Rs 1k+"
-    },
-    {
-        title: "DesignSprint",
-        team: "One member",
-        code: 2403,
-        body: 'Dive into the ultimate design competition, where creativity meets functionality. Elevate user experiences, push UI boundaries, and showcase your prowess in crafting seamless, innovative designs.',
-        tag: "Technical Events are twinkle twinkle little star",
-        to: "uiux",
+        contact:[{
+          id: 1,
+          name: "Gautham",
+          phone: "+1 234 567 890",
+        },
+        {
+          id: 2,
+          name: "Ganesh",
+          phone: "+1 234 567 890",
+        },
+        {
+          id: 3,
+          name: "Ganesh",
+          phone: "+1 234 567 890",
+        },],
+        intern:[]
+        },
+        {
+          id:"third",
+          title: "third",
+          description:
+            "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
+          image: img1, // Replace with your image path
+          path: "/EventIndividual/NoviceInit",
+        
+            team: "Two or three members",
+            gctDate: "19 February 2024",
+            psnaDate: "22 February 2024",
+            prize: "Rs 1k+",
+            to: "geekquiz",
         rounds: [
             {
                 title: "Round 1",
-                content: "Design the required problem statement in canva or any software, rolling event",
-                duration: "60 minutes",
-                time: "9:00 AM to 12:00 PM",
-                venue: "Cse Department, 2nd Floor, Room 209"
-            },
-        ],
-        gctDate: "20 February 2024",
-        psnaDate: "23 February 2024",
-        image: UIUX,
-        prize: "Rs 1k+"
-    },
-    {
-        title: "Reverse_Coding",
-        team: "One or two members",
-        code: 2404,
-        body: 'Participants receive an executable file that takes input and produces output. Their challenge is to reverse engineer the solution by analyzing the given input-output pairs.',
-        tag: "Technical Events are twinkle twinkle little star",
-        to: "reversecoding",
-        rounds: [
-            {
-                title: "Round 1",
-                content: "Write logic/code for the given input-output sequence, offline, pen-paper round, rolling event",
+                content: "MCQ pen and paper event",
                 duration: "30 minutes",
-                time: "9:00 AM to 12:00 PM",
-                venue: "Cse Department, 2nd Floor, Room 210"
+                time: "01:30 PM to 04:00 PM",
+                venue: "Main Building Room No 238"
             },
-            {
-                title: "Round 2",
-                content: "Run executable files and deduce the code",
-                duration: "90 minutes",
-                time: "01:30 PM to 03:00 PM",
-                venue: "Cse Department, 2nd Floor, Room 210"
-            },
+           
         ],
-        gctDate: "20 February 2024",
-        psnaDate: "23 February 2024",
-        image: ReverseCoding,
-        prize: "Rs 1k+"
-    },
-];
-
-export const EventContacts = [
-  { id: 1, name: "Navaneeth", phone: "+91 9042142160" },
-  { id: 2, name: "Gautham", phone: "+91 9876543210" },
-  { id: 3, name: "Arjun", phone: "+91 8765432109" },
-  { id: 4, name: "Priya", phone: "+91 7654321098" },
+        contact:[{
+          id: 1,
+          name: "Gautham",
+          phone: "+1 234 567 890",
+        },
+        {
+          id: 2,
+          name: "Ganesh",
+          phone: "+1 234 567 890",
+        },
+        {
+          id: 3,
+          name: "Ganesh",
+          phone: "+1 234 567 890",
+        },]
+        },
+        {
+          title: "hello",
+          description:
+            "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
+          image: img1, // Replace with your image path
+          path: "/EventIndividual/NoviceInit",
+        
+            team: "Two or three members",
+            gctDate: "19 February 2024",
+            psnaDate: "22 February 2024",
+            prize: "Rs 1k+",
+            to: "geekquiz",
+        rounds: [
+            {
+                title: "Round 1",
+                content: "MCQ pen and paper event",
+                duration: "30 minutes",
+                time: "01:30 PM to 04:00 PM",
+                venue: "Main Building Room No 238"
+            },
+           
+        ],
+        contact:[{
+          id: 1,
+          name: "Gautham",
+          phone: "+1 234 567 890",
+        },
+        {
+          id: 2,
+          name: "Ganesh",
+          phone: "+1 234 567 890",
+        },
+        {
+          id: 3,
+          name: "Ganesh",
+          phone: "+1 234 567 890",
+        },]
+        },
+        // Add more events here
+      ],
+    path: "/technical-events", // Path to the event page
+  },
+  {
+    title: "Non Technical Events",
+    image: img2, // Event image
+    event :[
+        {
+          title: "hi",
+          description:
+            "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
+          image: img1, // Replace with your image path
+          path: "/EventIndividual/NoviceInit",
+        },
+        {
+          title: "#Another Event",
+          description:
+            "A DBMS challenge that combines theoretical knowledge with practical application. The first round involves DBMS-based multiple-choice questions (MCQs), testing participants' understanding of database concepts. Successful participants advance to Round 2, a hands-on SQL coding challenge, where they apply their skills to solve real-world database problems.",
+          image: img1, // Replace with your image path
+          path: "/EventIndividual/NoviceInit",
+        },
+        {
+          title: "#Novice.Init()",
+          description:
+            "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
+          image: img1, // Replace with your image path,
+          path: "/EventIndividual/NoviceInit",
+        },
+        {
+          title: "#Another Event",
+          description:
+            "A DBMS challenge that combines theoretical knowledge with practical application. The first round involves DBMS-based multiple-choice questions (MCQs), testing participants' understanding of database concepts. Successful participants advance to Round 2, a hands-on SQL coding challenge, where they apply their skills to solve real-world database problems.",
+          image: img1, // Replace with your image path,
+          path: "/EventIndividual/NoviceInit",
+        },
+    ],
+        // Add more events h
+    path: "/technical-events", // Path to the event page
+  },
+  {
+    title: "Pre Events",
+    image: img3, // Event image
+    event :[
+        {
+          title: "#Novice.Init()",
+          description:
+            "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
+          image: img1, // Replace with your image path
+          path: "/EventIndividual/NoviceInit",
+        },
+        {
+          title: "#Another Event",
+          description:
+            "A DBMS challenge that combines theoretical knowledge with practical application. The first round involves DBMS-based multiple-choice questions (MCQs), testing participants' understanding of database concepts. Successful participants advance to Round 2, a hands-on SQL coding challenge, where they apply their skills to solve real-world database problems.",
+          image: img1, // Replace with your image path
+          path: "/EventIndividual/NoviceInit",
+        },
+        {
+          title: "#Novice.Init()",
+          description:
+            "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
+          image: img1, // Replace with your image path,
+          path: "/EventIndividual/NoviceInit",
+        },
+        {
+          title: "#Another Event",
+          description:
+            "A DBMS challenge that combines theoretical knowledge with practical application. The first round involves DBMS-based multiple-choice questions (MCQs), testing participants' understanding of database concepts. Successful participants advance to Round 2, a hands-on SQL coding challenge, where they apply their skills to solve real-world database problems.",
+          image: img1, // Replace with your image path,
+          path: "/EventIndividual/NoviceInit",
+        },
+        // Add more events h
+    ],
+    path: "/technical-events", // Path to the event page
+  },
+  // Add more events as needed
 ];
