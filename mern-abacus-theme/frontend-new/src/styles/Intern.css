@@ -25,6 +25,7 @@ body {
     text-align: center;
     background-color: #1a1a1a;
     margin: auto;
+    margin-bottom: 40px;
     width: 100%;
  }
   
@@ -76,7 +77,6 @@ body {
   .content {
     max-width: 600px;
     text-align: left;
-    padding: 0 25px;
   }
   .para{
     
@@ -109,8 +109,8 @@ body {
   }
   
   /* Register Button */
-  .register-button {
-    margin-top: 20px;
+  .reg-button {
+    margin: 20px;
     background-color: #ff4d4d;
     color: #ffffff;
     padding: 10px 20px;
@@ -172,7 +172,6 @@ body {
   @media(max-width:420px)
   {
     .par{
-      padding: 0 15px;
       font-size: 15px;
     }
   }

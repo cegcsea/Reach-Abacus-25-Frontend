@@ -5,8 +5,6 @@ import EventPage from "./pages/EventPage"; // Import EventPage
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar";
 import TechnicalPage from "./pages/TechnicalPage";
-import PreEvent from "./pages/PreEvent";
-import NonTechnicalPage from "./pages/NonTechnicalPage";
 import Workshops from "./pages/Workshops";
 import IndividualWorkshops from "./pages/IndividualWorkshops";
 import NoviceInit from "./pages/EventIndividual/NoviceInit";
@@ -48,10 +46,12 @@ const App = () => {
         <Route path="/register/:email/:token" element={<RegisterDetails />} />
         <Route path="/events" element={<EventPage />} />{" "}
         <Route path="/technical-events" element={<TechnicalPage />} />
-        <Route path="/non-technical-events" element={<NonTechnicalPage />} />
-        <Route path="/pre-events" element={<PreEvent />} />
+        <Route path="/" element={<EventPage />} />
+      
         <Route path="/EventIndividual/NoviceInit" element={<NoviceInit />} />
         <Route path="/auth" element={<AuthPage />} />
+        <Route path="/EventIndividual/:id" element={<NoviceInit />} />
+
       </Routes>
     </BrowserRouter>
   );
