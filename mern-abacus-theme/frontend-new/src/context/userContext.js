@@ -203,10 +203,15 @@ export const UserContextProvider = ({ children }) => {
   // Post Query
   async function postQuery(queryData) {
     const token = localStorage.getItem("abacustoken");
+    console.log(queryData);
     try {
-      const response = await axios.post(`${server}/user/query`, queryData, {
-        headers: { token },
-      });
+      const response = await axios.post(
+        `${server}/user/post-query`,
+        queryData,
+        {
+          headers: { token },
+        }
+      );
       const data = response.data;
       toast.success(data.message);
     } catch (error) {
@@ -220,7 +225,7 @@ export const UserContextProvider = ({ children }) => {
     const token = localStorage.getItem("abacustoken");
     try {
       const response = await axios.post(
-        `${server}/user/events/register`,
+        `${server}/user/event-register`,
         { eventId },
         { headers: { token } }
       );
@@ -302,31 +307,30 @@ export const UserContextProvider = ({ children }) => {
   }
 
   // Verify Workshop Payment Details
-  async function verifyWorkshopPaymentDetails(workshopId) {
+  async function verifyWorkshopPaymentDetails(paymentData) {
     const token = localStorage.getItem("abacustoken");
     try {
       const response = await axios.post(
-        `${server}/user/workshops/verify-payment`,
-        { workshopId },
+        `${server}/user/verify-workshop-payment-details`,
+        paymentData,
         { headers: { token } }
       );
-      const data = response.data;
-      toast.success(data.message);
-    } catch (error) {
-      toast.error(error.response.data.message);
+      const { message, data: payment } = response.data;
+
+      return { message, payment };
+    } catch (err) {
+      if (err.response) throw err.response.data.message;
+      throw err;
     }
   }
 
   // Upload Workshop Payment Screenshot
-  async function workshopPaymentScreenshot(workshopId, screenshotFile) {
+  async function workshopPaymentScreenshot({ payment, formData }) {
     const token = localStorage.getItem("abacustoken");
-    const formData = new FormData();
-    formData.append("workshopId", workshopId);
-    formData.append("paymentScreenshot", screenshotFile);
 
     try {
       const response = await axios.post(
-        `${server}/workshops/payment-screenshot`,
+        `${server}/user/workshop-payment-screenshot/${payment.id}`,
         formData,
         {
           headers: {
@@ -335,12 +339,42 @@ export const UserContextProvider = ({ children }) => {
           },
         }
       );
-      const data = response.data;
-      toast.success(data.message);
-    } catch (error) {
-      toast.error(error.response.data.message);
+      const { message } = response.data;
+
+      return { message };
+    } catch (err) {
+      if (err.response) throw err.response.data.message;
+      throw err;
     }
   }
+
+  const handleVerifyWorkshopPayment = (data, navigate) => {
+    toast.promise(
+      verifyWorkshopPaymentDetails({
+        workshopId: data.workshopId,
+        paymentMobile: data.paymentMobile,
+        transactionId: data.transactionId,
+      }).then((responsesData) => {
+        workshopPaymentScreenshot({
+          payment: responsesData.payment,
+          formData: data.formData,
+        });
+      }),
+      {
+        loading: "Verifying...",
+        success: (screenshotData) => {
+          refreshauth();
+          navigate(`/workshops`);
+          return "Payment Details will be verified shortly!";
+        },
+
+        error: (err) => {
+          return typeof err == "object" ? err.message : err;
+        },
+      }
+    );
+  };
+
   async function handleLogout() {
     localStorage.removeItem("abacususer");
     localStorage.removeItem("abacustoken");
@@ -350,23 +384,6 @@ export const UserContextProvider = ({ children }) => {
     setUserWorkshops([]);
   }
 
-  // useEffect(() => {
-  //   const savedUser = localStorage.getItem("abacususer");
-
-  //   // If user is found in localStorage
-  //   if (savedUser) {
-  //     const parsedUser = JSON.parse(savedUser);
-  //     console.log("parseduser:", parsedUser); // Debugging: Ensure user data is valid JSON
-  //     setUser(parsedUser);
-  //     setIsAuth(true);
-  //   }
-
-  //   // Start loading and fetch data
-  //   setLoading(true);
-  //   profile().then(); // Fetch profile data
-  //   getEvents(); // Fetch events
-  //   getWorkshops(); // Fetch workshops
-  // }, []);
   async function refreshauth() {
     const token = localStorage.getItem("abacususer");
     if (token) {
@@ -393,6 +410,7 @@ export const UserContextProvider = ({ children }) => {
       setUser({});
     }
   }
+
   useEffect(() => {
     refreshauth();
     console.log(user);
@@ -428,8 +446,7 @@ export const UserContextProvider = ({ children }) => {
         freeWorkshopRegister,
         getWorkshops,
         refreshauth,
-        verifyWorkshopPaymentDetails,
-        workshopPaymentScreenshot,
+        handleVerifyWorkshopPayment,
       }}
     >
       {children}

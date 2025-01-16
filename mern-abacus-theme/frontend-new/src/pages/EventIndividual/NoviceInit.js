@@ -8,7 +8,8 @@ import { UserData } from "../../context/userContext.js";
 
 const NoviceInit = () => {
   const navigate = useNavigate();
-  const { id } = useParams();
+  //const { id } = useParams();
+  const id=""
   const [activeTab, setActiveTab] = useState("description"); // description, internship, or rounds
   const { userEvents, isAuth, eventRegister } = UserData();
 

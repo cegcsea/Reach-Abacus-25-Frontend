@@ -18,6 +18,7 @@ import ResetPassword from "./pages/ResetPassword";
 import ChangePassword from "./pages/ChangePassword";
 import UpdateProfile from "./pages/UpdateProfile";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Payment from "./pages/Payment";
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] =
     useState(false); /* need to the userContext*/
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/sponsors" element={<HomePage />} />
         <Route path="/workshops" element={<Workshops />} />
         <Route path="/workshops/:id" element={<IndividualWorkshops />} />
+        <Route path='/workshops/:id/payment' element={<Payment />} />
         <Route path="/login" element={<HomePage />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
