@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import Login from "../components/Login";
 import Register from "../components/Register";
-
+import { LoaderData } from "../context/loaderContext";
+import Loader from "../components/Loader/Loader";
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
+  const { isLoading } = LoaderData();
 
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="bg-black flex items-center justify-center my-auto h-[100%]">
       {isLogin ? (

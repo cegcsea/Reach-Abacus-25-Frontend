@@ -39,7 +39,7 @@ export const events = [
         description:
           "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
         image: img1, // Replace with your image path
-        path: "/EventIndividual/geekquiz1",
+        path: "/events/geekquiz1",
 
         team: "Two or three members",
         gctDate: "19 February 2024",
@@ -89,7 +89,7 @@ export const events = [
         description:
           "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
         image: img1, // Replace with your image path
-        path: "/EventIndividual/geekquiz2",
+        path: "/events/geekquiz2",
 
         team: "Two or three members",
         gctDate: "19 February 2024",
@@ -169,7 +169,7 @@ export const events = [
         description:
           "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
         image: img1, // Replace with your image path
-        path: "/EventIndividual/geekquiz4",
+        path: "/events/geekquiz4",
 
         team: "Two or three members",
         gctDate: "19 February 2024",
@@ -205,7 +205,7 @@ export const events = [
       },
       // Add more events here
     ],
-    path: "/technical-events", // Path to the event page
+    path: "/events/technical", // Path to the event page
   },
   {
     title: "Non Technical Events",
@@ -217,7 +217,7 @@ export const events = [
         description:
           "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
         image: img1, // Replace with your image path
-        path: "/EventIndividual/geekquiz",
+        path: "/events/geekquiz",
       },
       {
         id: 5,
@@ -225,11 +225,11 @@ export const events = [
         description:
           "A DBMS challenge that combines theoretical knowledge with practical application. The first round involves DBMS-based multiple-choice questions (MCQs), testing participants' understanding of database concepts. Successful participants advance to Round 2, a hands-on SQL coding challenge, where they apply their skills to solve real-world database problems.",
         image: img1, // Replace with your image path
-        path: "/EventIndividual/NoviceInit",
+        path: "/events/NoviceInit",
       },
     ],
     // Add more events h
-    path: "/technical-events", // Path to the event page
+    path: "/events/technical", // Path to the event page
   },
   {
     title: "Pre Events",
@@ -241,7 +241,7 @@ export const events = [
         description:
           "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
         image: img1, // Replace with your image path
-        path: "/EventIndividual/NoviceInit",
+        path: "/events/NoviceInit",
       },
       {
         id: 7,
@@ -249,10 +249,10 @@ export const events = [
         description:
           "A DBMS challenge that combines theoretical knowledge with practical application. The first round involves DBMS-based multiple-choice questions (MCQs), testing participants' understanding of database concepts. Successful participants advance to Round 2, a hands-on SQL coding challenge, where they apply their skills to solve real-world database problems.",
         image: img1, // Replace with your image path
-        path: "/EventIndividual/NoviceInit",
+        path: "/events/NoviceInit",
       },
     ],
-    path: "/technical-events", // Path to the event page
+    path: "/events/technical", // Path to the event page
   },
   // Add more events as needed
 ];

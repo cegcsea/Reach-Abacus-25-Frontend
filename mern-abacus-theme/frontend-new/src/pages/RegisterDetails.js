@@ -3,7 +3,8 @@ import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { UserData } from "../context/userContext";
-
+import { LoaderData } from "../context/loaderContext";
+import Loader from "../components/Loader/Loader";
 function RegisterDetails() {
   const { email, token } = useParams();
   const navigate = useNavigate();
@@ -87,7 +88,11 @@ function RegisterDetails() {
       navigate
     );
   };
+  const { isLoading } = LoaderData();
 
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="mt-16 flex justify-center items-center py-10 sm:px-0 px-4 bg-[#1d1d1d] gap-5">
       <div className="querybox flex flex-col gap-7 w-full sm:w-2/5 border border-[#c53939] text-white p-5 sm:p-10 bg-[#1d1d1d]">

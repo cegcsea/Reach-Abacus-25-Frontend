@@ -1,12 +1,14 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import { LoaderData } from "./loaderContext";
 // import { server } from "../main";
 const server = "http://localhost:3001";
 
 const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
+  const { setIsLoading } = LoaderData();
   const [user, setUser] = useState({});
   const [btnLoading, setBtnLoading] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -15,8 +17,13 @@ export const UserContextProvider = ({ children }) => {
   const [userEvents, setUserEvents] = useState([]);
   const [userWorkshops, setUserWorkshops] = useState([]);
   const [session, setSession] = useState([]);
+  const [isMenuOpen, setIsMenuOpen] =
+    useState(false); /* need to the userContext*/
+  const [active, setActive] = useState("home"); /* need to to the userContext*/
+
   async function login({ email, password }, navigate) {
     setBtnLoading(true);
+    setIsLoading(true);
     try {
       const response = await axios.post(`${server}/user/login`, {
         email,
@@ -35,12 +42,14 @@ export const UserContextProvider = ({ children }) => {
       toast.error(error.response.data.message);
     } finally {
       setBtnLoading(false);
+      setIsLoading(false);
     }
   }
 
   async function getRegistrationLink({ email }, navigate) {
     setBtnLoading(true);
-    console.log(email, typeof email);
+    setIsLoading(true);
+    //console.log(email, typeof email);
     try {
       const response = await axios.post(
         `${server}/user/get-registration-link`,
@@ -54,11 +63,13 @@ export const UserContextProvider = ({ children }) => {
       toast.error(error.response?.data?.message || "Registration failed");
     } finally {
       setBtnLoading(false);
+      setIsLoading(false);
     }
   }
   // User Registration
   async function register(formData, navigate) {
     setBtnLoading(true);
+    setIsLoading(true);
     try {
       const response = await axios.post(
         `${server}/user/register/${formData.email}/${formData.token}`,
@@ -83,12 +94,14 @@ export const UserContextProvider = ({ children }) => {
       toast.error(error.response?.data?.message || "Registration failed");
     } finally {
       setBtnLoading(false);
+      setIsLoading(false);
     }
   }
 
   // Forgot Password
   async function forgotPassword({ email }) {
     setBtnLoading(true);
+    setIsLoading(true);
     try {
       const response = await axios.post(
         `${server}/user/get-password-reset-link`,
@@ -103,6 +116,7 @@ export const UserContextProvider = ({ children }) => {
       toast.error(error.response.data.message);
     } finally {
       setBtnLoading(false);
+      setIsLoading(false);
     }
   }
 
@@ -115,6 +129,7 @@ export const UserContextProvider = ({ children }) => {
     navigate
   ) {
     setBtnLoading(true);
+    setIsLoading(true);
     try {
       const response = await axios.post(
         `${server}/user/reset-password/${userId}/${token}`,
@@ -132,12 +147,14 @@ export const UserContextProvider = ({ children }) => {
       toast.error(error.response.data.message);
     } finally {
       setBtnLoading(false);
+      setIsLoading(false);
     }
   }
 
   // Change Password
   async function changePassword(password, newPassword, navigate) {
     setBtnLoading(true);
+    setIsLoading(true);
     const token = localStorage.getItem("abacustoken");
     //console.log(token);
     try {
@@ -158,6 +175,7 @@ export const UserContextProvider = ({ children }) => {
       toast.error(error.response.data.message);
     } finally {
       setBtnLoading(false);
+      setIsLoading(false);
     }
   }
 
@@ -181,6 +199,7 @@ export const UserContextProvider = ({ children }) => {
   // Update User Profile
   async function updateProfile(updatedData, navigate) {
     setBtnLoading(true);
+    setIsLoading(true);
     //console.log("updateData:" + updatedData.year);
     const token = localStorage.getItem("abacustoken");
     try {
@@ -197,13 +216,14 @@ export const UserContextProvider = ({ children }) => {
       toast.error(error.response.data.message);
     } finally {
       setBtnLoading(false);
+      setIsLoading(false);
     }
   }
 
   // Post Query
   async function postQuery(queryData) {
     const token = localStorage.getItem("abacustoken");
-    console.log(queryData);
+    //console.log(queryData);
     try {
       const response = await axios.post(
         `${server}/user/post-query`,
@@ -222,11 +242,12 @@ export const UserContextProvider = ({ children }) => {
   // Event Registration
   async function eventRegister(eventId) {
     setBtnLoading(true);
+    setIsLoading(true);
     const token = localStorage.getItem("abacustoken");
     try {
       const response = await axios.post(
         `${server}/user/event-register`,
-        eventId ,
+        eventId,
         { headers: { token } }
       );
       const data = response.data;
@@ -235,6 +256,7 @@ export const UserContextProvider = ({ children }) => {
       toast.error(error.response.data.message);
     } finally {
       setBtnLoading(false);
+      setIsLoading(false);
     }
   }
 
@@ -256,13 +278,14 @@ export const UserContextProvider = ({ children }) => {
         "Error response:",
         error.response ? error.response.data : "No response data"
       );
-      toast.error("Error fetching events");
+      //toast.error("Error fetching events");
     }
   }
 
   // Workshop Registration
   async function freeWorkshopRegister({ workshopId }) {
     setBtnLoading(true);
+    setIsLoading(true);
     const token = localStorage.getItem("abacustoken");
     try {
       const response = await axios.post(
@@ -271,12 +294,13 @@ export const UserContextProvider = ({ children }) => {
         { headers: { token } }
       );
       const data = response.data;
-      console.log(data);
+      //console.log(data);
       toast.success(data.message);
     } catch (error) {
       toast.error(error.response.data.message);
     } finally {
       setBtnLoading(false);
+      setIsLoading(false);
     }
   }
 
@@ -302,7 +326,7 @@ export const UserContextProvider = ({ children }) => {
         "Error response:",
         error.response ? error.response.data : "No response data"
       );
-      toast.error("Error fetching workshops");
+      //toast.error("Error fetching workshops");
     }
   }
 
@@ -416,10 +440,11 @@ export const UserContextProvider = ({ children }) => {
     console.log(user);
   }, []);
   useEffect(() => {
-    console.log(user);
-    console.log(userEvents);
-    console.log(userWorkshops);
-    console.log(session);
+    console.log("active", active);
+    console.log("user:", user);
+    console.log("userevents", userEvents);
+    console.log("user workshops", userWorkshops);
+    console.log("sessions", session);
   }, [user]);
 
   return (
@@ -447,6 +472,10 @@ export const UserContextProvider = ({ children }) => {
         getWorkshops,
         refreshauth,
         handleVerifyWorkshopPayment,
+        active,
+        setActive,
+        isMenuOpen,
+        setIsMenuOpen,
       }}
     >
       {children}

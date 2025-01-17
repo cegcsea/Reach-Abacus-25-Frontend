@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 import { EventContacts, events } from "../constants/events"; // Import the events array
 import "../styles/Event.css";
 import Contact from "../components/Contact";
-
+import { LoaderData } from "../context/loaderContext";
+import Loader from "../components/Loader/Loader";
 const EventPage = () => {
+  const { isLoading } = LoaderData();
+
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div>
       <div className="main bg-transparent scroll-mt-20"></div>

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { UserData } from "../context/userContext";
 import { useNavigate, useParams } from "react-router-dom";
-
+import { LoaderData } from "../context/loaderContext";
+import Loader from "../components/Loader/Loader";
 const ResetPassword = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { forgotPasswordReset } = UserData();
@@ -61,7 +62,11 @@ const ResetPassword = () => {
       );
     }
   };
+  const { isLoading } = LoaderData();
 
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="login-container">
       <div className="login-box">

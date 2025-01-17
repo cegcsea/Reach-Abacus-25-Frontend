@@ -3,7 +3,6 @@ import {
   FaInstagram,
   FaFacebook,
   FaWhatsapp,
-  FaMailBulk,
 } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
 import { useState } from "react";

@@ -5,7 +5,8 @@ import Contact from "../../components/Contact.js";
 import img4 from "../../assets/images/internship.png";
 import { events } from "../../constants/events.js";
 import { UserData } from "../../context/userContext.js";
-
+import { LoaderData } from "../../context/loaderContext.js";
+import Loader from "../../components/Loader/Loader.jsx";
 const NoviceInit = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -41,10 +42,14 @@ const NoviceInit = () => {
   // Handle event registration
   const handleRegister = async (e) => {
     e.preventDefault();
-    console.log(typeof(selectedEvent.id));
+    console.log(typeof selectedEvent.id);
     eventRegister({ eventId: Number(selectedEvent.id) });
   };
+  const { isLoading } = LoaderData();
 
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div>
       <h1 style={{ textAlign: "center", color: "#fff" }} className="heading">

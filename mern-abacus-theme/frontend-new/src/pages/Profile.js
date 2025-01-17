@@ -5,13 +5,14 @@ import { UserData } from "../context/userContext";
 import { FaLocationDot } from "react-icons/fa6";
 import { TbHanger } from "react-icons/tb";
 //import devrloper from "../assets/Hero/profile.png";
-
+import { LoaderData } from "../context/loaderContext";
+import Loader from "../components/Loader/Loader";
 const Profile = () => {
   const { profile, user } = UserData(); // Get the profile method and user data from context
 
   useEffect(() => {
     profile(); // Fetch the profile when the component mounts
-    console.log("profile:", user); // Debugging: Check the user data fetched
+    //console.log("profile:", user); // Debugging: Check the user data fetched
   }, []);
 
   const navigate = useNavigate();
@@ -28,7 +29,6 @@ const Profile = () => {
     navigate(routes[page]);
   };
 
-  
   // Fallback data if the user is undefined
   const fallbackUser = {
     id: "",
@@ -45,6 +45,11 @@ const Profile = () => {
   };
 
   const userData = user || fallbackUser;
+  const { isLoading } = LoaderData();
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="user-profile-container">
@@ -77,7 +82,10 @@ const Profile = () => {
               </ul>
             ) : (
               <p>
-                <button onClick={() => navigateTo("events")} className="hover:text-slate-100">
+                <button
+                  onClick={() => navigateTo("events")}
+                  className="hover:text-slate-100"
+                >
                   Click here to Register for Events
                 </button>
               </p>
@@ -95,7 +103,10 @@ const Profile = () => {
               </ul>
             ) : (
               <p>
-                <button onClick={() => navigateTo("workshops")} className="hover:text-slate-100">
+                <button
+                  onClick={() => navigateTo("workshops")}
+                  className="hover:text-slate-100"
+                >
                   Click here to Register for Workshops
                 </button>
               </p>
@@ -143,7 +154,6 @@ const Profile = () => {
               page: "change-password",
               className: "btn-password",
             },
-            
           ].map(({ label, page, onClick, className }) => (
             <button
               key={label}
@@ -156,7 +166,6 @@ const Profile = () => {
         </div>
 
         {/* Profile Image and Details */}
-        
       </div>
     </div>
   );

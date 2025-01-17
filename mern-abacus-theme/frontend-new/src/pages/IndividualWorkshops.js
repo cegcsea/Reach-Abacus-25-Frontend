@@ -4,29 +4,36 @@ import { workshopsReach as workshops } from "../constants/workshops";
 import { Link } from "react-router-dom";
 import { UserData } from "../context/userContext";
 import { FaInfo } from "react-icons/fa";
+import { LoaderData } from "../context/loaderContext";
+import Loader from "../components/Loader/Loader";
 const IndividualWorkshops = () => {
   const { id } = useParams();
-  const { userWorkshops, isAuth, workshopRegister } = UserData();
+  const { userWorkshops, isAuth } = UserData();
   const workshop = workshops.find((ws) => ws.to === id);
   const isPaidWorkshop = (userWorkshops || []).filter(
     (event) => event.workshopId === workshop.code
   );
   isPaidWorkshop.sort((a, b) => b.id - a.id);
-  console.log(isPaidWorkshop);
+  //console.log(isPaidWorkshop);
   const isRegistered = (userWorkshops || []).some(
     (event) => event.workshopId === workshop.code
   );
-  console.log(workshop, id);
+  //console.log(workshop, id);
   if (!workshop) {
     return <div className="text-white">Workshop not found!</div>;
   }
-
+  
   const colorFinder = (status) => {
     if (status === "PENDING") return "text-yellow-500";
     if (status === "SUCCESS") return "text-green-500";
     if (status === "FAILURE") return "text-red-400";
   };
+  
+  const { isLoading } = LoaderData();
 
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="lg:mt-24 mt-20 py-8 sm:px-10 flex gap-3 flex-col m-6 lg:m-10 bg-[#1d1d1d]">
       <p className="lg:text-4xl text-lg text-white overflow-hidden lg:ml-0 mx-auto">

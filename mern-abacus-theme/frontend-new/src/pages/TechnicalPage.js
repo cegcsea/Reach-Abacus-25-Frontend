@@ -1,21 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import { useLocation } from "react-router-dom"; // Import useLocation
 import "../styles/Eventinner.css";
-import img1 from "../assets/images/events pic/1.png";
+//import img1 from "../assets/images/events pic/1.png";
 import { EventContacts } from "../constants/events";
-
+import { LoaderData } from "../context/loaderContext";
+import Loader from "../components/Loader/Loader";
 import Contact from "../components/Contact";
 import { Link } from "react-router-dom"; // Import Link from React Router
 
 const TechnicalPage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const index = 1; // Define the variable before using it
-  console.log(index); // Use it after definition
+  //const index = 1; // Define the variable before using it
+  //console.log(index); // Use it after definition
   const location=useLocation();
   const { event } = location.state || {};
   
-   
+  const { isLoading } =LoaderData();
+
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="bg-black">
       <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { UserData } from "../context/userContext";
 import { useParams, useNavigate } from "react-router-dom";
-
+import { LoaderData } from "../context/loaderContext";
+import Loader from "../components/Loader/Loader";
 const Payment = () => {
   const navigate = useNavigate();
   const { handleVerifyWorkshopPayment } = UserData();
@@ -45,6 +46,11 @@ const Payment = () => {
       navigate
     );
   };
+  const { isLoading } = LoaderData();
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="flex flex-col items-center justify-center bg-black text-white p-5 relative mt-16 pt-6">

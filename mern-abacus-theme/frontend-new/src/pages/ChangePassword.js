@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { UserData } from "../context/userContext";
 import { useNavigate} from "react-router-dom";
 import toast from "react-hot-toast";
+import { LoaderData } from "../context/loaderContext";
+import Loader from "../components/Loader/Loader";
 const ChangePassword = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { changePassword } = UserData();
@@ -47,7 +49,7 @@ const ChangePassword = () => {
   // Submits the form data to the reset function
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("changepassword");
+    //console.log("changepassword");
     if (
       validatePassword(formData.password) &&
       formData.newPassword === formData.confirmPassword &&
@@ -62,6 +64,11 @@ const ChangePassword = () => {
         toast.error("The new password and confirm password fields should match");
     }
   };
+  const { isLoading } = LoaderData();
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="login-container">

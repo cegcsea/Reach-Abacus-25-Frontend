@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import toast from "react-hot-toast";
 import { UserData } from "../context/userContext";
-
+import { LoaderData } from "../context/loaderContext";
+import Loader from "../components/Loader/Loader";
 function UpdateProfile() {
   const navigate = useNavigate();
   const { updateProfile, user, profile } = UserData();
@@ -18,7 +18,7 @@ function UpdateProfile() {
 
   useEffect(() => {
     profile();
-    console.log("updateprofile:", user);
+    //console.log("updateprofile:", user);
   }, []);
 
   const optionsYear = [
@@ -41,7 +41,7 @@ function UpdateProfile() {
 
   const handleSelectChange = (name, value) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
-    console.log(name, formData.year);
+    //console.log(name, formData.year);
   };
 
   const handleChange = (event) => {
@@ -51,7 +51,7 @@ function UpdateProfile() {
   };
 
   const handleSubmit = async (e) => {
-    console.log(formData.year);
+    //console.log(formData.year);
     e.preventDefault();
     updateProfile(
       {
@@ -65,7 +65,11 @@ function UpdateProfile() {
       navigate
     );
   };
+  const { isLoading } = LoaderData();
 
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="mt-20 lg:mt-28 flex justify-center items-center py-10 sm:px-0 px-4 bg-[#1d1d1d] gap-5 ">
       <div className="querybox flex flex-col gap-7 w-full sm:w-2/5 border border-[#c53939] text-white p-5 sm:p-10 bg-[#1d1d1d]">

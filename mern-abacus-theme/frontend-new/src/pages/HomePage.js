@@ -8,9 +8,15 @@ import Sponsors from "../components/Sponsors";
 import Home from "../components/Home";
 import Developers from "../components/Developers";
 import Footer from "../components/Footer";
+import { LoaderData } from "../context/loaderContext";
+import Loader from "../components/Loader/Loader";
 
+const HomePage = ({ isMenuOpen }) => {
+  const { isLoading } = LoaderData();
 
-const HomePage = ({isMenuOpen}) => {
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="bg-black">
       {/* Main Section */}
@@ -21,7 +27,6 @@ const HomePage = ({isMenuOpen}) => {
         ))}
       </div> */}
       <div className="main bg-transparent scroll-mt-20">
-        
         <Home />
       </div>
       <div className="mt-16 scroll-mt-20" id="sponsors">

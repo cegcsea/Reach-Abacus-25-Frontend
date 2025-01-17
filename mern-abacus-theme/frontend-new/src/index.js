@@ -3,15 +3,15 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { UserContextProvider } from "./context/userContext";
-import {  LoaderProvider } from "./context/loaderContext";
+import { LoaderProvider } from "./context/loaderContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <UserContextProvider>
-      <LoaderProvider>
+    <LoaderProvider>
+      <UserContextProvider>
         <App />
-      </LoaderProvider>
-    </UserContextProvider>
+      </UserContextProvider>
+    </LoaderProvider>
   </React.StrictMode>
 );

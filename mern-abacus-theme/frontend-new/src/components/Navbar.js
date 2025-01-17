@@ -2,38 +2,87 @@ import abacus_img from "../assets/images/logo.jpeg";
 import { AiFillHome, AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
 import { FaInfoCircle, FaHandshake, FaTools } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { UserData } from "../context/userContext";
 import { useEffect } from "react";
 
-const Navbar = ({ isMenuOpen, setIsMenuOpen, active, setActive }) => {
+const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const navigate = useNavigate();
-  const { handleLogout, isAuth, refreshauth } = UserData();
+  const location = useLocation();
+  const { handleLogout, isAuth, refreshauth, active, setActive } = UserData();
 
   // All navigation items
   const navItems = [
     { name: "home", label: "Home", icon: <AiFillHome />, path: "/" },
-    { name: "sponsors", label: "Sponsors", icon: <FaHandshake />, path: "/sponsors" },
+    {
+      name: "sponsors",
+      label: "Sponsors",
+      icon: <FaHandshake />,
+      path: "/sponsors",
+    },
     { name: "events", label: "Events", icon: <MdEvent />, path: "/events" },
-    { name: "workshops", label: "Workshops", icon: <FaTools />, path: "/workshops" },
+    {
+      name: "workshops",
+      label: "Workshops",
+      icon: <FaTools />,
+      path: "/workshops",
+    },
   ];
 
   // Add conditional items based on `isAuth`
   const authItems = isAuth
     ? [
-        { name: "profile", label: "Profile", icon: <FaInfoCircle />, path: "/profile" },
-        { name: "logout", label: "Logout", icon: <AiOutlineLogout />, action: handleLogout },
+        {
+          name: "profile",
+          label: "Profile",
+          icon: <FaInfoCircle />,
+          path: "/profile",
+        },
+        {
+          name: "logout",
+          label: "Logout",
+          icon: <AiOutlineLogout />,
+          action: handleLogout,
+        },
       ]
     : [
-        { name: "auth", label: "Login / Register", icon: <AiOutlineLogin />, path: "/auth" },
+        {
+          name: "auth",
+          label: "Login / Register",
+          icon: <AiOutlineLogin />,
+          path: "/auth",
+        },
       ];
 
+  // useEffect(() => {
+  //   refreshauth();
+  //   setActive(location.pathname.substring(1));
+  //   if (location.pathname.substring(1) === "") {
+  //     setActive("home");
+  //   }
+  // }, []);
   useEffect(() => {
     refreshauth();
-  }, []);
+    // Extract the content between the first and second slash
+    const pathParts = location.pathname.split("/");
+    const activePath = pathParts[1] ? pathParts[1] : "home";
+
+    setActive(activePath);
+  }, [location.pathname]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleIcon = (item) => {
+    if (item.action) {
+      item.action(); // Call action if defined (e.g., logout)
+    }
+    if (item.path) {
+      navigate(item.path); // Navigate to the path if defined
+    }
+    setActive(item.name);
+    setIsMenuOpen(false);
   };
 
   return (
@@ -43,7 +92,11 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, active, setActive }) => {
       }`}
     >
       {/* Logo Section */}
-      <div className={`flex flex-row rounded-lg mx-4 delay-200 transform ease-in-out ${isMenuOpen ? "hidden" : "visible"}`}>
+      <div
+        className={`flex flex-row rounded-lg mx-4 delay-200 transform ease-in-out ${
+          isMenuOpen ? "hidden" : "visible"
+        }`}
+      >
         <a href="#home">
           <img
             src={abacus_img}
@@ -60,7 +113,9 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, active, setActive }) => {
 
       {/* Mobile Menu Toggle */}
       <button
-        className={`lg:hidden p-2 text-white ${isMenuOpen ? "hidden" : "visible"}`}
+        className={`lg:hidden p-2 text-white ${
+          isMenuOpen ? "hidden" : "visible"
+        }`}
         onClick={toggleMenu}
       >
         <svg
@@ -70,7 +125,12 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, active, setActive }) => {
           stroke="currentColor"
           className="w-6 h-6"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
         </svg>
       </button>
 
@@ -82,7 +142,10 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, active, setActive }) => {
             : "transform -translate-x-full hidden lg:block my-auto"
         }`}
       >
-        <button className="absolute top-5 right-5 lg:hidden text-white " onClick={toggleMenu}>
+        <button
+          className="absolute top-5 right-5 lg:hidden text-white "
+          onClick={toggleMenu}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -90,7 +153,12 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, active, setActive }) => {
             stroke="currentColor"
             className="w-6 h-6"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
 
@@ -103,16 +171,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen, active, setActive }) => {
                 ? "bg-gradient-to-b from-[#E0115F] via-[#E0115F] to-[#E0115F]"
                 : ""
             }`}
-            onClick={() => {
-              if (item.action) {
-                item.action(); // Call action if defined (e.g., logout)
-              }
-              if (item.path) {
-                navigate(item.path); // Navigate to the path if defined
-              }
-              setActive(item.name);
-              setIsMenuOpen(false);
-            }}
+            onClick={() => handleIcon(item)}
           >
             <div
               className={`flex flex-row px-2 ${

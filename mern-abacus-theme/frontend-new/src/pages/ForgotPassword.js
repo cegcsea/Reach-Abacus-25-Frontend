@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "../styles/Register.css";
 import { UserData } from "../context/userContext";
-
+import { LoaderData } from "../context/loaderContext";
+import Loader from "../components/Loader/Loader";
 const ForgotPassword = ({ setIsLogin }) => {
   const { forgotPassword } = UserData();
   const [email, setEmail] = useState("");
@@ -13,6 +14,11 @@ const ForgotPassword = ({ setIsLogin }) => {
     setEmail("");
     forgotPassword({ email });
   };
+  const { isLoading } = LoaderData();
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div className="register-container ">
@@ -31,7 +37,7 @@ const ForgotPassword = ({ setIsLogin }) => {
             className="register-input"
             onChange={handleEmailChange}
           />
-          <button type="submit" className="register-button" >
+          <button type="submit" className="register-button">
             Get password reset link!
           </button>
         </form>

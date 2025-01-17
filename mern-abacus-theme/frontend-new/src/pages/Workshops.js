@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { workshopsReach as workshops } from "../constants/workshops";
 import Contact from "../components/Contact";
 import Session from "../components/Session";
+import { LoaderData } from "../context/loaderContext";
+import Loader from "../components/Loader/Loader";
 const Workshops = () => {
   const navigate = useNavigate();
   const burgundy = "#800020";
@@ -21,7 +23,11 @@ const Workshops = () => {
       phone: "+1 234 567 890",
     },
   ];
+  const { isLoading } = LoaderData();
 
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="bg-black min-h-screen flex justify-center items-center pt-8 ">
       <div className="w-full max-w-7xl px-4 ">
