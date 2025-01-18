@@ -292,8 +292,17 @@ export const UserContextProvider = ({ children }) => {
         { workshopId },
         { headers: { token } }
       );
-      const data = response.data;
+      const { data } = response.data;
+      getWorkshops();
       //console.log(data);
+      setUserWorkshops((prevWorkshops) => [
+        ...prevWorkshops, // Spread the previous workshops
+        {
+          ...data.data, // Add the new workshop details
+          paymentStatus: null, // Set default payment status as null
+          paymentDetails: null, // Set payment details to null initially
+        },
+      ]);
       toast.success(data.message);
     } catch (error) {
       toast.error(error.response.data.message);
@@ -316,6 +325,7 @@ export const UserContextProvider = ({ children }) => {
 
       // Set session and user workshop data
       setSession(data.data.workshops);
+      //setUserWorkshops(data.data.workshops);
       //console.log(data.data.workshops);
       //setUserWorkshops(data.user.workshopPayments);
     } catch (error) {
@@ -338,15 +348,40 @@ export const UserContextProvider = ({ children }) => {
         paymentData,
         { headers: { token } }
       );
-      const { message, data: payment } = response.data;
+      // console.log(
+      //   response.data.data.workshopPayment,
+      //   response.data.message
+      // );
 
+      const message = response.data.message;
+      const payment = response.data.data.workshopPayment;
+      //console.log(paymentData.workshopId, payment.status, payment);
+      await freeWorkshopRegister({ workshopId: paymentData.workshopId });
+
+      // Now that the user is registered, update the userWorkshops state
+      setUserWorkshops((prevWorkshops) => {
+        return prevWorkshops.map((workshop) => {
+          console.log(workshop, payment);
+          if (workshop.workshopId === paymentData.workshopId) {
+            console.log("match found");
+            return {
+              ...workshop,
+              paymentStatus: payment.status, // Add the payment status
+              paymentDetails: payment, // Optionally store more payment details
+            };
+          }
+          return workshop;
+        });
+      });
       return { message, payment };
     } catch (err) {
       if (err.response) throw err.response.data.message;
       throw err;
     }
   }
-
+  useEffect(() => {
+    console.log("Updated userWorkshops:", userWorkshops);
+  }, [userWorkshops]);
   // Upload Workshop Payment Screenshot
   async function workshopPaymentScreenshot({ payment, formData }) {
     const token = localStorage.getItem("abacustoken");

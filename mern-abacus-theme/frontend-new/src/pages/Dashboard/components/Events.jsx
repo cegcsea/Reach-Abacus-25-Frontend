@@ -43,9 +43,9 @@ const Events = () => {
                 className="w-full object-cover"
               />
             </div>
-            <div className="w-full md:w-3/5 flex flex-col justify-center items-center">
+            <div className="w-full md:w-3/5 flex flex-col justify-center mt-10 items-center">
               <div>
-                <h2 className="text-white font-medium text-2xl border border-b border-x-0 border-t-0 p-3">
+                <h2 className="text-white font-medium text-2xl  border border-b border-x-0 border-t-0 p-3">
                   <span className="text-red-500">&#60;</span>
                   &nbsp;{title}&nbsp;
                   <span className="text-red-500">&#62;</span>
@@ -56,8 +56,8 @@ const Events = () => {
                     <Link to={`/events/${to}`}>Read More</Link>
                   </span>
                 </p>
-                <p className="p-2 m-3 text-center w-fit text-white text-sm md:text-lg font-semibold text-gray border rounded-lg border-gray-700 bg-slate-800/50">
-                  <span className="text-lime-400">/*</span>
+                <p className="p-2 m-3 text-center mx-auto w-fit text-white text-sm md:text-lg font-semibold text-gray border rounded-lg border-gray-700 bg-slate-800/50">
+                  <span className="text-lime-400 ">/*</span>
                   &nbsp;Registered for this event!&nbsp;
                   <span className="text-lime-400">*/</span>
                 </p>
@@ -80,7 +80,7 @@ const Events = () => {
                 className="w-full object-cover"
               />
             </div>
-            <div className="w-full md:w-3/5 flex flex-col justify-center items-center">
+            <div className="w-full md:w-3/5 flex flex-col justify-center mt-10 items-center">
               <div>
                 <h2 className="text-white font-medium text-2xl border border-b border-x-0 border-t-0 p-3">
                   <span className="text-red-500">&#60;</span>
@@ -93,7 +93,7 @@ const Events = () => {
                     <Link to={`/events/${to}`}>Read More</Link>
                   </span>
                 </p>
-                <p className="p-2 m-3 text-center w-fit text-white text-sm md:text-lg font-semibold text-gray border rounded-lg border-gray-700 bg-slate-800/50">
+                <p className="p-2 m-3 mx-auto text-center w-fit text-white text-sm md:text-lg font-semibold text-gray border rounded-lg border-gray-700 bg-slate-800/50">
                   <span className="text-red-400">/*</span>
                   &nbsp;Not Registered for this event!&nbsp;
                   <span className="text-red-400">*/</span>
@@ -103,9 +103,9 @@ const Events = () => {
           </div>
         );
       })}
-      <div className="w-full flex justify-end mt-5">
+      <div className="w-full flex justify-end mt-5 ">
         <button
-          className={`py-3 px-4 w-fit md:text-base text-xs text-white border border-red-600 hover:bg-red-700/40 duration-150`}
+          className={`py-3 px-4 w-fit md:text-base mx-auto text-xs text-white border border-red-600 hover:bg-red-700/40 duration-150`}
           onClick={() => navaigate("/events")}
         >
           Explore Events {"<"}~{">"}

@@ -34,6 +34,7 @@ const IndividualWorkshops = () => {
     console.log(workshop);
     console.log(isPaidWorkshop);
     console.log(isRegistered);
+    //console.log(userWorkshops[3].paymentStatus);
   });
   if (isLoading) {
     return <Loader />;
@@ -201,11 +202,13 @@ const IndividualWorkshops = () => {
           {renderContent()}
 
           <div className="flex justify-center gap-3">
-            {isAuth && !isRegistered && <Link to={`/workshops/${workshop.code}/payment`}>
-              <button className="m-3 w-fit border-[#b72222] border-[1.7px] px-4 py-2 text-white duration-150 hover:bg-[#9f232363]">
-                Register {"<"}~{">"}
-              </button>
-            </Link>}
+            {isAuth && !isRegistered && (
+              <Link to={`/workshops/${workshop.code}/payment`}>
+                <button className="m-3 w-fit border-[#b72222] border-[1.7px] px-4 py-2 text-white duration-150 hover:bg-[#9f232363]">
+                  Register {"<"}~{">"}
+                </button>
+              </Link>
+            )}
             {workshop.bulkBooking && (
               <Link to={workshop.bulkBooking.link} target="_blank">
                 <button className="m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-[#93dd7833]">
@@ -274,7 +277,7 @@ const IndividualWorkshops = () => {
           )}
 
           {!isAuth && (
-            <Link to="/login">
+            <Link to="/auth">
               <button className="m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]">
                 Login to Register {"<"}~{">"}
               </button>

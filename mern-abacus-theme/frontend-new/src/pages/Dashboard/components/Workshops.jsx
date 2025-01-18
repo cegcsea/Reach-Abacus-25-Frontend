@@ -56,7 +56,7 @@ const Workshops = () => {
                     <Link to={`/workshops/${to}`}>Read More</Link>
                   </span>
                 </p>
-                <p className="p-2 m-3 text-center w-fit text-white text-sm md:text-lg font-semibold  border rounded-lg border-gray-700 bg-black">
+                <p className="p-2 m-3 text-center mx-auto w-fit text-white text-sm md:text-lg font-semibold  border rounded-lg border-gray-700 bg-black">
                   <Link to={`/workshops/${to}`}>
                     <span className="text-red-400">/*</span>
                     &nbsp;Check your payment status!&nbsp;
@@ -95,7 +95,7 @@ const Workshops = () => {
                     <Link to={`/workshops/${to}`}>Read More</Link>
                   </span>
                 </p>
-                <p className="p-2 m-3 text-center w-fit text-white text-sm md:text-lg font-semibold  border rounded-lg border-gray-700 bg-black">
+                <p className="p-2 m-3 text-center mx-auto w-fit text-white text-sm md:text-lg font-semibold  border rounded-lg border-gray-700 bg-black">
                   <span className="text-red-400">/*</span>
                   &nbsp;Not Registered for this workshop!&nbsp;
                   <span className="text-red-400">*/</span>
@@ -126,7 +126,7 @@ const Workshops = () => {
                 <Link to={`/workshops`}>Read More</Link>
               </span>
             </p>
-            <p className="p-2 m-3 text-center w-fit text-white text-sm md:text-lg font-semibold text-gray-300 border rounded-lg border-gray-700 bg-black">
+            <p className="p-2 m-3 text-center w-fit mx-auto text-white text-sm md:text-lg font-semibold text-gray-300 border rounded-lg border-gray-700 bg-black">
               {registeredSession ? (
                 <>
                   <span className="text-green-400">/*</span>

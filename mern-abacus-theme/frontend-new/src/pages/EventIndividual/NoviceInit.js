@@ -154,7 +154,7 @@ const NoviceInit = () => {
               </button>
             )}
             {isRegistered && (
-              <p className="p-2 w-full sm:w-fit flex justify-center items-center text-white text-lg font-semibold text-gray border rounded-lg border-gray-700 bg-slate-800">
+              <p className="p-2 w-full sm:w-fit flex justify-center items-center text-white text-lg font-semibold text-gray border rounded-lg border-gray-700 bg-slate-800 mx-auto">
                 <span className="text-lime-400">/*</span>
                 &nbsp;Already registered for this event!&nbsp;
                 <span className="text-lime-400">*/</span>

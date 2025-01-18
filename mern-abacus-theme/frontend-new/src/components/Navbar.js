@@ -43,6 +43,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           label: "Logout",
           icon: <AiOutlineLogout />,
           action: handleLogout,
+          path: "/auth",
         },
       ]
     : [
