@@ -130,7 +130,7 @@ export const events = [
         description:
           "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
         image: img1, // Replace with your image path
-        path: "/EventIndividual/geekquiz3",
+        path: "/events/geekquiz3",
 
         team: "Two or three members",
         gctDate: "19 February 2024",

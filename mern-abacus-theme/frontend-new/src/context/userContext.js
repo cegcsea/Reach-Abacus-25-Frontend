@@ -4,7 +4,6 @@ import toast, { Toaster } from "react-hot-toast";
 import { LoaderData } from "./loaderContext";
 // import { server } from "../main";
 const server = "http://localhost:3001";
-
 const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
@@ -437,15 +436,15 @@ export const UserContextProvider = ({ children }) => {
 
   useEffect(() => {
     refreshauth();
-    console.log(user);
+    //console.log(user);
   }, []);
-  useEffect(() => {
-    console.log("active", active);
-    console.log("user:", user);
-    console.log("userevents", userEvents);
-    console.log("user workshops", userWorkshops);
-    console.log("sessions", session);
-  }, [user]);
+  // useEffect(() => {
+  //   console.log("active", active);
+  //   console.log("user:", user);
+  //   console.log("userevents", userEvents);
+  //   console.log("user workshops", userWorkshops);
+  //   console.log("sessions", session);
+  // }, [user]);
 
   return (
     <UserContext.Provider
@@ -475,6 +474,9 @@ export const UserContextProvider = ({ children }) => {
         active,
         setActive,
         isMenuOpen,
+        userEvents,
+        userWorkshops,
+        session,
         setIsMenuOpen,
       }}
     >

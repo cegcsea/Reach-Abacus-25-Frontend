@@ -5,7 +5,7 @@ import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 const Payment = () => {
   const navigate = useNavigate();
-  const { handleVerifyWorkshopPayment } = UserData();
+  const { handleVerifyWorkshopPayment,registerWorkshop } = UserData();
   const { id } = useParams();
   const [formData, setFormData] = useState({
     transactionId: "",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { workshopsReach as workshops } from "../constants/workshops";
@@ -13,24 +13,34 @@ const IndividualWorkshops = () => {
   const workshop = workshops.find((ws) => ws.to === id);
   const [activeTab, setActiveTab] = useState("description");
   const isPaidWorkshop = (userWorkshops || []).filter(
-    (event) => event.workshopId === workshop.code
+    (ws) => ws.workshopId === workshop.code
   );
   isPaidWorkshop.sort((a, b) => b.id - a.id);
   //console.log(isPaidWorkshop);
   const isRegistered = (userWorkshops || []).some(
-    (event) => event.workshopId === workshop.code
+    (ws) => ws.workshopId === workshop.code
   );
   //console.log(workshop, id);
-  if (!workshop) {
-    return <div className="text-white">Workshop not found!</div>;
-  }
-  
+
   const colorFinder = (status) => {
     if (status === "PENDING") return "text-yellow-500";
     if (status === "SUCCESS") return "text-green-500";
     if (status === "FAILURE") return "text-red-400";
   };
+  const { isLoading } = LoaderData();
 
+  useEffect(() => {
+    console.log(userWorkshops);
+    console.log(workshop);
+    console.log(isPaidWorkshop);
+    console.log(isRegistered);
+  });
+  if (isLoading) {
+    return <Loader />;
+  }
+  if (!workshop) {
+    return <div className="text-white">Workshop not found!</div>;
+  }
   const renderContent = () => {
     if (activeTab === "description") {
       return (
@@ -50,11 +60,12 @@ const IndividualWorkshops = () => {
                 <div className="bg-[#c53939] h-[3px] w-[20%] mx-2 my-auto"></div>
               </div>
               <ul className="list-disc list-inside text-md lg:text-lg text-justify text-[#aaa]">
-                {workshop.prerequisites.split(".").map((point, index) =>
-                  point.trim() && (
-                    <li key={index}>{point.trim()}</li>
-                  )
-                )}
+                {workshop.prerequisites
+                  .split(".")
+                  .map(
+                    (point, index) =>
+                      point.trim() && <li key={index}>{point.trim()}</li>
+                  )}
               </ul>
             </div>
           )}
@@ -70,12 +81,14 @@ const IndividualWorkshops = () => {
           <div className="border border-gray-300 rounded-lg p-3">
             <div className="flex flex-col items-center justify-center pb-4 mb-4">
               <img
-                src="path_to_image"  // Replace this with your speaker's image URL
+                src="path_to_image" // Replace this with your speaker's image URL
                 alt="Thiyagarajan Balasubramaniam"
                 className="w-[150px] h-[150px] mb-4 object-cover"
               />
               <div className="w-full border-b border-gray-300 mb-4"></div>
-              <p className="font-bold text-xl mb-2">Thiyagarajan Balasubramaniam</p>
+              <p className="font-bold text-xl mb-2">
+                Thiyagarajan Balasubramaniam
+              </p>
               <p className="text-lg mb-1">Senior Engineering Manager</p>
               <p className="text-lg">Walmart Global Tech India</p>
             </div>
@@ -89,14 +102,20 @@ const IndividualWorkshops = () => {
           <table className="table-auto w-full text-left border-collapse">
             <thead>
               <tr>
-                <th className="border-b-2 py-2 px-4 text-white bg-[#1d1d1d] font-medium">Details</th>
-                <th className="border-b-2 py-2 px-4 text-white bg-[#1d1d1d] font-medium">Information</th>
+                <th className="border-b-2 py-2 px-4 text-white bg-[#1d1d1d] font-medium">
+                  Details
+                </th>
+                <th className="border-b-2 py-2 px-4 text-white bg-[#1d1d1d] font-medium">
+                  Information
+                </th>
               </tr>
             </thead>
             <tbody>
               <tr className="bg-[#2e2e2e]">
                 <td className="border-b py-2 px-4 text-[#aaa]">Takeaways</td>
-                <td className="border-b py-2 px-4 text-[#aaa]">{info.certificate}</td>
+                <td className="border-b py-2 px-4 text-[#aaa]">
+                  {info.certificate}
+                </td>
               </tr>
               <tr className="bg-[#1d1d1d]">
                 <td className="border-b py-2 px-4 text-[#aaa]">Time</td>
@@ -112,7 +131,9 @@ const IndividualWorkshops = () => {
               </tr>
               <tr className="bg-[#2e2e2e]">
                 <td className="border-b py-2 px-4 text-[#aaa]">Entry Fee</td>
-                <td className="border-b py-2 px-4 text-[#aaa]">{info.entryFee}</td>
+                <td className="border-b py-2 px-4 text-[#aaa]">
+                  {info.entryFee}
+                </td>
               </tr>
             </tbody>
           </table>
@@ -145,28 +166,31 @@ const IndividualWorkshops = () => {
           {/* Tab buttons */}
           <div className="flex justify-center lg:justify-start gap-4 my-4">
             <button
-              className={`border px-1 py-2 text-white duration-150 ${activeTab === "description"
-                ? "bg-[#660000]"
-                : "border-[#8B0000] hover:bg-[#66000033]"
-                } mx-1 text-sm sm:text-base lg:text-lg`}
+              className={`border px-1 py-2 text-white duration-150 ${
+                activeTab === "description"
+                  ? "bg-[#660000]"
+                  : "border-[#8B0000] hover:bg-[#66000033]"
+              } mx-1 text-sm sm:text-base lg:text-lg`}
               onClick={() => setActiveTab("description")}
             >
               Description
             </button>
             <button
-              className={`border px-2 py-2 text-white duration-150 ${activeTab === "speakers"
-                ? "bg-[#660000]"
-                : "border-[#8B0000] hover:bg-[#66000033]"
-                } mx-2 text-sm sm:text-base lg:text-lg`}
+              className={`border px-2 py-2 text-white duration-150 ${
+                activeTab === "speakers"
+                  ? "bg-[#660000]"
+                  : "border-[#8B0000] hover:bg-[#66000033]"
+              } mx-2 text-sm sm:text-base lg:text-lg`}
               onClick={() => setActiveTab("speakers")}
             >
               Speakers
             </button>
             <button
-              className={`border px-2 py-2 text-white duration-150 ${activeTab === "more-info"
-                ? "bg-[#660000]"
-                : "border-[#8B0000] hover:bg-[#66000033]"
-                } mx-2 text-sm sm:text-base lg:text-lg`}
+              className={`border px-2 py-2 text-white duration-150 ${
+                activeTab === "more-info"
+                  ? "bg-[#660000]"
+                  : "border-[#8B0000] hover:bg-[#66000033]"
+              } mx-2 text-sm sm:text-base lg:text-lg`}
               onClick={() => setActiveTab("more-info")}
             >
               More Info
@@ -177,11 +201,11 @@ const IndividualWorkshops = () => {
           {renderContent()}
 
           <div className="flex justify-center gap-3">
-            <Link to={`/workshops/${workshop.code}/payment`}>
+            {isAuth && !isRegistered && <Link to={`/workshops/${workshop.code}/payment`}>
               <button className="m-3 w-fit border-[#b72222] border-[1.7px] px-4 py-2 text-white duration-150 hover:bg-[#9f232363]">
                 Register {"<"}~{">"}
               </button>
-            </Link>
+            </Link>}
             {workshop.bulkBooking && (
               <Link to={workshop.bulkBooking.link} target="_blank">
                 <button className="m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-[#93dd7833]">
@@ -192,7 +216,7 @@ const IndividualWorkshops = () => {
           </div>
 
           {/* Payment status sections */}
-          {isAuth && isRegistered && isPaidWorkshop.status === "PENDING" && (
+          {isAuth && isRegistered && (
             <>
               <button className="m-3 w-fit border border-[#ddb878] px-4 py-2 text-white duration-150 hover:bg-[#ddc27833]">
                 Paid for the workshop {"<"}~{">"}
@@ -243,7 +267,8 @@ const IndividualWorkshops = () => {
                 <span className="text-white bg-red-400 p-1 rounded-full">
                   <FaInfo />
                 </span>
-                There seems to be some error during your payment. Please initiate payment again!
+                There seems to be some error during your payment. Please
+                initiate payment again!
               </p>
             </>
           )}

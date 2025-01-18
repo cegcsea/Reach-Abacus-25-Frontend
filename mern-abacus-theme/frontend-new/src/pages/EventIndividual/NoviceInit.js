@@ -31,7 +31,7 @@ const NoviceInit = () => {
 
   // Check if the user is already registered for this event
   const isRegistered = (userEvents || []).some(
-    (event) => event.eventName === selectedEvent.title
+    (event) => event.eventName === selectedEvent.to
   );
 
   // Handle tab switching
@@ -137,7 +137,7 @@ const NoviceInit = () => {
               </div>
             )}
 
-            {isAuth && (
+            {isAuth && !isRegistered &&(
               <button
                 className="m-3 w-fit border border-[#c72727] px-4 py-2 text-white duration-150 hover:bg-[#fb525233]"
                 onClick={handleRegister}

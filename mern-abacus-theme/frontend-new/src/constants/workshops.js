@@ -86,6 +86,7 @@ export const workshopsReach = [
 
 export const sessions = [
     {
+        code:3,
         title: "Placement Session",
         image: placement,
         content: "Participate in focused sessions on interview techniques, enhancing your confidence and readiness for placement scenarios. Stay informed about current hiring trends and industry expectations, positioning yourself effectively during placement processes. Engage in simulated interview experiences, receiving valuable feedback to optimize your performance in real-world placements.",

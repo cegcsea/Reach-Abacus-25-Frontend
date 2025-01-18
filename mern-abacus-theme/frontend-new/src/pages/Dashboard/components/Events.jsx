@@ -1,30 +1,45 @@
 import { UserData } from "../../../context/userContext";
 import { events } from "../../../constants/events.js";
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Events = () => {
   const navaigate = useNavigate();
   const { userEvents } = UserData();
+  //const { userEvents, getEvents } = useContext(UserContext);
 
   const eventNames = (userEvents || []).map((event) => event.eventName);
 
-  const filteredEvents = events.filter((event) =>
-    eventNames.includes(event.title)
+  const allEvents = events.flatMap((category) => category.event);
+  const filteredEvents = allEvents.filter((event) =>
+    eventNames.includes(event.to)
   );
-  const notIncludedEvents = events.filter(
-    (event) => !eventNames.includes(event.title)
+  const notIncludedEvents = allEvents.filter(
+    (event) => !eventNames.includes(event.to)
   );
+
+  useEffect(() => {
+    console.log(userEvents);
+    console.log(eventNames);
+    console.log(filteredEvents);
+    console.log(notIncludedEvents);
+  }, [userEvents]);
+
+  //console.log(userEvents);
 
   return (
     <div className="flex flex-col gap-5">
-      {(filteredEvents || []).map((event,index) => {
-        let { title, body, image, to } = event;
+      {(filteredEvents || []).map((event, index) => {
+        let { title, description, image, to } = event;
         return (
-          <div className="card w-full flex md:flex-row flex-col border border-[#2F1B1B] bg-black" key={index}>
+          <div
+            className="card w-full flex md:flex-row flex-col border border-[#2F1B1B] bg-black"
+            key={index}
+          >
             <div className="w-full md:w-2/5 p-5 border border-r-0 border-b md:border-r md:border-y-0 border-l-0">
               <img
                 src={image}
-                alt="Event Image"
+                alt="Event Img"
                 className="w-full object-cover"
               />
             </div>
@@ -36,7 +51,7 @@ const Events = () => {
                   <span className="text-red-500">&#62;</span>
                 </h2>
                 <p className="text-[#e2e3e4] p-3 text-justify">
-                  {body.slice(0, 150)}...&nbsp;
+                  {(description||[]).slice(0, 150)}...&nbsp;
                   <span className="text-[#ABB2BF]">
                     <Link to={`/events/${to}`}>Read More</Link>
                   </span>
@@ -52,13 +67,16 @@ const Events = () => {
         );
       })}
       {notIncludedEvents.map((event) => {
-        let { title, body, image, to } = event;
+        let { title, description, image, to } = event;
         return (
-          <div className="card w-full flex md:flex-row flex-col border border-[#2F1B1B] bg-black" key={event.id}>
+          <div
+            className="card w-full flex md:flex-row flex-col border border-[#2F1B1B] bg-black"
+            key={event.id}
+          >
             <div className="w-full md:w-2/5 p-5 border border-r-0 border-b md:border-r md:border-y-0 border-l-0">
               <img
                 src={image}
-                alt="Event Image"
+                alt="Event Img"
                 className="w-full object-cover"
               />
             </div>
@@ -70,7 +88,7 @@ const Events = () => {
                   <span className="text-red-500">&#62;</span>
                 </h2>
                 <p className="text-[#e2e3e4] p-3 text-justify">
-                  {body.slice(0, 150)}...&nbsp;
+                  {(description || []).slice(0, 150)}...&nbsp;
                   <span className="text-[#ABB2BF]">
                     <Link to={`/events/${to}`}>Read More</Link>
                   </span>
