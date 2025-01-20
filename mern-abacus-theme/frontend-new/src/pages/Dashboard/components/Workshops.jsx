@@ -144,9 +144,9 @@ const Workshops = () => {
           </div>
         </div>
       </div>
-      <div className="w-full flex justify-end mt-5">
+      <div className="w-full mt-5 mx-auto">
         <button
-          className={`py-3 px-4 w-fit md:text-base text-xs text-white border border-red-600 hover:bg-red-700/40 duration-150`}
+          className={`py-3 px-4 w-fit md:text-base text-xs text-white border  border-red-600 hover:bg-red-700/40 duration-150`}
           onClick={() => navigate("/workshops")}
         >
           Explore Workshops {"<"}~{">"}

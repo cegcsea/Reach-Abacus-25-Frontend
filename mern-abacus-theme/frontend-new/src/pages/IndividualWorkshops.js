@@ -32,7 +32,7 @@ const IndividualWorkshops = () => {
   useEffect(() => {
     console.log(userWorkshops);
     console.log(workshop);
-    console.log(isPaidWorkshop);
+    console.log(isPaidWorkshop[0].paymentStatus);
     console.log(isRegistered);
     //console.log(userWorkshops[3].paymentStatus);
   });
@@ -219,62 +219,68 @@ const IndividualWorkshops = () => {
           </div>
 
           {/* Payment status sections */}
-          {isAuth && isRegistered && (
-            <>
-              <button className="m-3 w-fit border border-[#ddb878] px-4 py-2 text-white duration-150 hover:bg-[#ddc27833]">
-                Paid for the workshop {"<"}~{">"}
-              </button>
-              <p className="text-xl font-semibold text-white">
-                Status:&nbsp;
-                <span className={colorFinder(isPaidWorkshop.status)}>
-                  {isPaidWorkshop.status}
-                </span>
-              </p>
-              <p className="flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl">
-                <span className="text-white bg-red-400 p-1 rounded-full">
-                  <FaInfo />
-                </span>
-                Your payment will be reflected within 2 business days!
-              </p>
-            </>
-          )}
-
-          {isAuth && isRegistered && isPaidWorkshop.status === "SUCCESS" && (
-            <>
-              <button className="m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-lime-400/40">
-                Payment Verified! {"<"}~{">"}
-              </button>
-              <p className="text-xl font-semibold text-white">
-                Status:&nbsp;
-                <span className={colorFinder(isPaidWorkshop.status)}>
-                  {isPaidWorkshop.status}
-                </span>
-              </p>
-            </>
-          )}
-
-          {isAuth && isRegistered && isPaidWorkshop.status === "FAILURE" && (
-            <>
-              <Link to={`/workshops/${workshop.code}/payment`}>
-                <button className="m-3 w-fit border border-red-400 px-4 py-2 text-white duration-150 hover:bg-red-400/40">
-                  Pay Again! {"<"}~{">"}
+          {isAuth &&
+            isRegistered &&
+            isPaidWorkshop[0].paymentStatus === "PENDING" && (
+              <>
+                <button className="m-3 w-fit border border-[#ddb878] px-4 py-2 text-white duration-150 hover:bg-[#ddc27833]">
+                  Paid for the workshop {"<"}~{">"}
                 </button>
-              </Link>
-              <p className="text-xl font-semibold text-white">
-                Status:&nbsp;
-                <span className={colorFinder(isPaidWorkshop.status)}>
-                  {isPaidWorkshop.status}
-                </span>
-              </p>
-              <p className="flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl">
-                <span className="text-white bg-red-400 p-1 rounded-full">
-                  <FaInfo />
-                </span>
-                There seems to be some error during your payment. Please
-                initiate payment again!
-              </p>
-            </>
-          )}
+                <p className="text-xl font-semibold text-white">
+                  Status:&nbsp;
+                  <span className={colorFinder(isPaidWorkshop[0].paymentStatus)}>
+                    {isPaidWorkshop[0].paymentStatus}
+                  </span>
+                </p>
+                <p className="flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl">
+                  <span className="text-white bg-red-400 p-1 rounded-full">
+                    <FaInfo />
+                  </span>
+                  Your payment will be reflected within 2 business days!
+                </p>
+              </>
+            )}
+
+          {isAuth &&
+            isRegistered &&
+            isPaidWorkshop[0].paymentStatus === "SUCCESS" && (
+              <>
+                <button className="m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-lime-400/40">
+                  Payment Verified! {"<"}~{">"}
+                </button>
+                <p className="text-xl font-semibold text-white">
+                  Status:&nbsp;
+                  <span className={colorFinder(isPaidWorkshop[0].paymentStatus)}>
+                    {isPaidWorkshop[0].paymentStatus}
+                  </span>
+                </p>
+              </>
+            )}
+
+          {isAuth &&
+            isRegistered &&
+            isPaidWorkshop[0].paymentStatus === "FAILURE" && (
+              <>
+                <Link to={`/workshops/${workshop.code}/payment`}>
+                  <button className="m-3 w-fit border border-red-400 px-4 py-2 text-white duration-150 hover:bg-red-400/40">
+                    Pay Again! {"<"}~{">"}
+                  </button>
+                </Link>
+                <p className="text-xl font-semibold text-white">
+                  Status:&nbsp;
+                  <span className={colorFinder(isPaidWorkshop[0].paymentStatus)}>
+                    {isPaidWorkshop[0].paymentStatus}
+                  </span>
+                </p>
+                <p className="flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl">
+                  <span className="text-white bg-red-400 p-1 rounded-full">
+                    <FaInfo />
+                  </span>
+                  There seems to be some error during your payment. Please
+                  initiate payment again!
+                </p>
+              </>
+            )}
 
           {!isAuth && (
             <Link to="/auth">
