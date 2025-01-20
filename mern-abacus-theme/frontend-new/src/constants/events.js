@@ -35,11 +35,11 @@ export const events = [
     event: [
       {
         id: 1,
-        title: "hello",
+        title: "Pentacode",
         description:
-          "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
+          "A quiz challenge spanning five core Computer Science domains: Debugging, DSA, OOPs, CN, and DBMS. Solve a series of tasks to unlock hints and crack the final DSA problem.",
         image: img1, // Replace with your image path
-        path: "/events/geekquiz1",
+        path: "/EventIndividual/geekquiz1",
 
         team: "Two or three members",
         gctDate: "19 February 2024",
@@ -48,16 +48,18 @@ export const events = [
         to: "geekquiz1",
         rounds: [
           {
-            title: "Round 1",
-            content: "MCQ pen and paper event",
+            title: "Round 1 – Quiz Challenge",
+            content:
+              "Test your mettle in a quiz spanning five core Computer Science domains: Debugging, DSA, OOPs, CN, and DBMS. Showcase your expertise to advance!",
             duration: "30 minutes",
             time: "01:30 PM to 04:00 PM",
             venue: "Main Building Room No 238",
           },
           {
-            title: "Round 2",
-            content: "MCQ pen and paper event",
-            duration: "30 minutes",
+            title: "Round 2 – Decode the Pentacode",
+            content:
+              "Solve a challenging DSA problem with the help of hints unlocked from tasks in four other domains. Complete all tasks strategically to crack the final DSA problem and secure victory!",
+            duration: "45 minutes",
             time: "01:30 PM to 04:00 PM",
             venue: "Main Building Room No 238",
           },
@@ -85,11 +87,11 @@ export const events = [
       },
       {
         id: 2,
-        title: "second",
+        title: "ML - Conquer",
         description:
-          "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
-        image: img1, // Replace with your image path
-        path: "/events/geekquiz2",
+          "Test your skills in machine learning through a quiz and a hands-on model-building challenge. Answer questions and build an ML model to solve real-world problems.",
+        image: img1,
+        path: "/EventIndividual/geekquiz2",
 
         team: "Two or three members",
         gctDate: "19 February 2024",
@@ -98,9 +100,18 @@ export const events = [
         to: "geekquiz2",
         rounds: [
           {
-            title: "Round 1",
-            content: "MCQ pen and paper event",
+            title: "Round 1 – ML Conquer: Quiz Blitz",
+            content:
+              "Test your theoretical knowledge of machine learning algorithms, concepts, and applications in a fast-paced quiz. Answer quickly and accurately to secure your spot in the next round.",
             duration: "30 minutes",
+            time: "01:30 PM to 04:00 PM",
+            venue: "Main Building Room No 238",
+          },
+          {
+            title: "Round 2 – ML Conquer: Model Challenge",
+            content:
+              "Build a powerful ML model to solve a real-world problem. Showcase your coding skills, data analysis, and model optimization techniques to emerge as the ultimate ML conqueror.",
+            duration: "45 minutes",
             time: "01:30 PM to 04:00 PM",
             venue: "Main Building Room No 238",
           },
@@ -126,12 +137,11 @@ export const events = [
       },
       {
         id: 3,
-        title: "third",
+        title: "OSPC",
         description:
-          "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
+          "It's a fast-paced programming contest, where innovative minds come together to resolve challenges in the most complicated coding questions, involving data structures and algorithms.",
         image: img1, // Replace with your image path
-        path: "/events/geekquiz3",
-
+        path: "/EventIndividual/geekquiz3",
         team: "Two or three members",
         gctDate: "19 February 2024",
         psnaDate: "22 February 2024",
@@ -140,9 +150,16 @@ export const events = [
         rounds: [
           {
             title: "Round 1",
-            content: "MCQ pen and paper event",
+            content: "MCQ on Data Structures, Algorithms, and OOPs concepts",
             duration: "30 minutes",
-            time: "01:30 PM to 04:00 PM",
+            time: "01:30 PM to 02:00 PM",
+            venue: "Main Building Room No 238",
+          },
+          {
+            title: "Round 2",
+            content: "Solve challenging programming questions based on DSA and algorithms",
+            duration: "1 hour",
+            time: "02:30 PM to 03:30 PM",
             venue: "Main Building Room No 238",
           },
         ],
@@ -164,48 +181,48 @@ export const events = [
           },
         ],
       },
-      {
-        title: "hello",
-        description:
-          "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
-        image: img1, // Replace with your image path
-        path: "/events/geekquiz4",
+      // {
+      //   title: "hello",
+      //   description:
+      //     "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
+      //   image: img1, // Replace with your image path
+      //   path: "/EventIndividual/geekquiz4",
 
-        team: "Two or three members",
-        gctDate: "19 February 2024",
-        psnaDate: "22 February 2024",
-        prize: "Rs 1k+",
-        to: "geekquiz4",
-        rounds: [
-          {
-            title: "Round 1",
-            content: "MCQ pen and paper event",
-            duration: "30 minutes",
-            time: "01:30 PM to 04:00 PM",
-            venue: "Main Building Room No 238",
-          },
-        ],
-        contact: [
-          {
-            id: 1,
-            name: "Gautham",
-            phone: "+1 234 567 890",
-          },
-          {
-            id: 2,
-            name: "Ganesh",
-            phone: "+1 234 567 890",
-          },
-          {
-            id: 3,
-            name: "Ganesh",
-            phone: "+1 234 567 890",
-          },
-        ],
-      },
+      //   team: "Two or three members",
+      //   gctDate: "19 February 2024",
+      //   psnaDate: "22 February 2024",
+      //   prize: "Rs 1k+",
+      //   to: "geekquiz4",
+      //   rounds: [
+      //     {
+      //       title: "Round 1",
+      //       content: "MCQ pen and paper event",
+      //       duration: "30 minutes",
+      //       time: "01:30 PM to 04:00 PM",
+      //       venue: "Main Building Room No 238",
+      //     },
+      //   ],
+      //   contact: [
+      //     {
+      //       id: 1,
+      //       name: "Gautham",
+      //       phone: "+1 234 567 890",
+      //     },
+      //     {
+      //       id: 2,
+      //       name: "Ganesh",
+      //       phone: "+1 234 567 890",
+      //     },
+      //     {
+      //       id: 3,
+      //       name: "Ganesh",
+      //       phone: "+1 234 567 890",
+      //     },
+      //   ],
+      // },
       // Add more events here
     ],
-    path: "/events/technical", // Path to the event page
+    path: "/technical-events", // Path to the event page
   },
   {
     title: "Non Technical Events",
@@ -213,11 +230,18 @@ export const events = [
     event: [
       {
         id: 4,
-        title: "hi",
+        title: "Family Feud",
         description:
           "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
         image: img1, // Replace with your image path
-        path: "/events/geekquiz",
+        path: "/EventIndividual/geekquiz",
+        rules: `• Participants answer survey-based questions on topics like Books, Food, Movies, Lifestyle, and Technology. Responses are ranked (1 = most popular, 7 = least popular).
+              • Teams compete to guess the most popular answers.
+              • Buzzers decide who answers first.
+              • Correct guesses earn points based on the popularity ranking.
+              • Three consecutive wrong guesses result in negative points, and the chance passes to the other team.
+              • Each round includes 10 questions.
+              • Top 3 teams with the highest total scores win.`,
       },
       {
         id: 5,
@@ -225,11 +249,11 @@ export const events = [
         description:
           "A DBMS challenge that combines theoretical knowledge with practical application. The first round involves DBMS-based multiple-choice questions (MCQs), testing participants' understanding of database concepts. Successful participants advance to Round 2, a hands-on SQL coding challenge, where they apply their skills to solve real-world database problems.",
         image: img1, // Replace with your image path
-        path: "/events/NoviceInit",
+        path: "/EventIndividual/NoviceInit",
       },
     ],
     // Add more events h
-    path: "/events/technical", // Path to the event page
+    path: "/technical-events", // Path to the event page
   },
   {
     title: "Pre Events",
@@ -241,7 +265,7 @@ export const events = [
         description:
           "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
         image: img1, // Replace with your image path
-        path: "/events/NoviceInit",
+        path: "/EventIndividual/NoviceInit",
       },
       {
         id: 7,
@@ -249,10 +273,10 @@ export const events = [
         description:
           "A DBMS challenge that combines theoretical knowledge with practical application. The first round involves DBMS-based multiple-choice questions (MCQs), testing participants' understanding of database concepts. Successful participants advance to Round 2, a hands-on SQL coding challenge, where they apply their skills to solve real-world database problems.",
         image: img1, // Replace with your image path
-        path: "/events/NoviceInit",
+        path: "/EventIndividual/NoviceInit",
       },
     ],
-    path: "/events/technical", // Path to the event page
+    path: "/technical-events", // Path to the event page
   },
   // Add more events as needed
 ];
