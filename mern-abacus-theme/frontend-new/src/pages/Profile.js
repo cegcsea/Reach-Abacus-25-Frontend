@@ -7,13 +7,15 @@ import { TbHanger } from "react-icons/tb";
 //import devrloper from "../assets/Hero/profile.png";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
+import { workshopsReach } from "../constants/workshops";
 const Profile = () => {
-  const { profile, user } = UserData(); // Get the profile method and user data from context
+  const { profile, user, userEvents, userWorkshops } = UserData(); // Get the profile method and user data from context
 
-  useEffect(() => {
-    profile(); // Fetch the profile when the component mounts
-    //console.log("profile:", user); // Debugging: Check the user data fetched
-  }, []);
+  // useEffect(() => {
+  //   profile(); // Fetch the profile when the component mounts
+  //   console.log("profile:", userData.events,userData.workshops); // Debugging: Check the user data fetched
+  // }, [user]);
+  console.log(userEvents, userWorkshops, user);
 
   const navigate = useNavigate();
 
@@ -74,10 +76,10 @@ const Profile = () => {
           {/* Registered Events Section */}
           <div className="user-section events">
             <h3>Registered Events</h3>
-            {userData.registeredEvents?.length > 0 ? (
+            {userEvents.length > 0 ? (
               <ul>
-                {userData.registeredEvents.map((event, index) => (
-                  <li key={index}>{event}</li>
+                {userEvents.map((event, index) => (
+                  <li key={index}>{event.eventName}</li>
                 ))}
               </ul>
             ) : (
@@ -95,11 +97,16 @@ const Profile = () => {
           {/* Registered Workshops Section */}
           <div className="user-section workshops">
             <h3>Registered Workshops</h3>
-            {userData.registeredWorkshops?.length > 0 ? (
+            {userWorkshops?.length > 0 ? (
               <ul>
-                {userData.registeredWorkshops.map((workshop, index) => (
-                  <li key={index}>{workshop}</li>
-                ))}
+                {userWorkshops.map((workshop, index) => {
+                  const matchingWorkshop = workshopsReach.find(
+                    (ws) => ws.code === workshop.workshopId
+                  );
+                  return matchingWorkshop ? (
+                    <li key={index}>{matchingWorkshop.title}</li>
+                  ) : null;
+                })}
               </ul>
             ) : (
               <p>

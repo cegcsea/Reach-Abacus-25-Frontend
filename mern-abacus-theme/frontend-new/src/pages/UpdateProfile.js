@@ -6,6 +6,8 @@ import Loader from "../components/Loader/Loader";
 function UpdateProfile() {
   const navigate = useNavigate();
   const { updateProfile, user, profile } = UserData();
+
+  const { isLoading } = LoaderData();
   const [btnLoading, setBtnLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: user.name,
@@ -16,10 +18,21 @@ function UpdateProfile() {
     //accomodation: user.accomodation,
   });
 
+  console.log(user);
   useEffect(() => {
-    profile();
-    //console.log("updateprofile:", user);
-  }, []);
+    setFormData({
+      name: user.name,
+      college: user.college,
+      dept: user.dept,
+      year: user.year,
+      mobile: user.mobile,
+      //accomodation: user.accomodation,
+    });
+  },[user]);
+  // useEffect(() => {
+  //   profile();
+  //   //console.log("updateprofile:", user);
+  // }, []);
 
   const optionsYear = [
     { label: "First year", value: "1" },
@@ -65,7 +78,6 @@ function UpdateProfile() {
       navigate
     );
   };
-  const { isLoading } = LoaderData();
 
   if (isLoading) {
     return <Loader />;

@@ -185,7 +185,7 @@ export const UserContextProvider = ({ children }) => {
       const { data } = await axios.get(`${server}/user/profile`, {
         headers: { token },
       });
-      console.log(data.data);
+      //console.log(data.data);
       setUser(data.data);
       setIsAuth(true);
       // setUserWorkshops((prevWorkshops) => {
@@ -440,7 +440,7 @@ export const UserContextProvider = ({ children }) => {
   // useEffect(() => {
   //   console.log("Updated userWorkshops:", userWorkshops);
   // }, [userWorkshops]);
-  
+
   // Upload Workshop Payment Screenshot
   async function workshopPaymentScreenshot({ payment, formData }) {
     const token = localStorage.getItem("abacustoken");
