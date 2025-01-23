@@ -39,7 +39,7 @@ export const events = [
         description:
           "A quiz challenge spanning five core Computer Science domains: Debugging, DSA, OOPs, CN, and DBMS. Solve a series of tasks to unlock hints and crack the final DSA problem.",
         image: img1, // Replace with your image path
-        path: "/EventIndividual/geekquiz1",
+        path: "/events/geekquiz1",
 
         team: "Two or three members",
         gctDate: "19 February 2024",
@@ -91,7 +91,7 @@ export const events = [
         description:
           "Test your skills in machine learning through a quiz and a hands-on model-building challenge. Answer questions and build an ML model to solve real-world problems.",
         image: img1,
-        path: "/EventIndividual/geekquiz2",
+        path: "/events/geekquiz2",
 
         team: "Two or three members",
         gctDate: "19 February 2024",
@@ -141,7 +141,7 @@ export const events = [
         description:
           "It's a fast-paced programming contest, where innovative minds come together to resolve challenges in the most complicated coding questions, involving data structures and algorithms.",
         image: img1, // Replace with your image path
-        path: "/EventIndividual/geekquiz3",
+        path: "/events/geekquiz3",
         team: "Two or three members",
         gctDate: "19 February 2024",
         psnaDate: "22 February 2024",
@@ -157,7 +157,8 @@ export const events = [
           },
           {
             title: "Round 2",
-            content: "Solve challenging programming questions based on DSA and algorithms",
+            content:
+              "Solve challenging programming questions based on DSA and algorithms",
             duration: "1 hour",
             time: "02:30 PM to 03:30 PM",
             venue: "Main Building Room No 238",
@@ -186,7 +187,7 @@ export const events = [
       //   description:
       //     "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
       //   image: img1, // Replace with your image path
-      //   path: "/EventIndividual/geekquiz4",
+      //   path: "/events/geekquiz4",
 
       //   team: "Two or three members",
       //   gctDate: "19 February 2024",
@@ -222,7 +223,7 @@ export const events = [
       // },
       // Add more events here
     ],
-    path: "/technical-events", // Path to the event page
+    path: "/events/technical-events", // Path to the event page
   },
   {
     title: "Non Technical Events",
@@ -234,7 +235,7 @@ export const events = [
         description:
           "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
         image: img1, // Replace with your image path
-        path: "/EventIndividual/geekquiz",
+        path: "/events/geekquiz4",
         rules: `• Participants answer survey-based questions on topics like Books, Food, Movies, Lifestyle, and Technology. Responses are ranked (1 = most popular, 7 = least popular).
               • Teams compete to guess the most popular answers.
               • Buzzers decide who answers first.
@@ -242,6 +243,7 @@ export const events = [
               • Three consecutive wrong guesses result in negative points, and the chance passes to the other team.
               • Each round includes 10 questions.
               • Top 3 teams with the highest total scores win.`,
+        to: "geekquiz4",
       },
       {
         id: 5,
@@ -249,11 +251,12 @@ export const events = [
         description:
           "A DBMS challenge that combines theoretical knowledge with practical application. The first round involves DBMS-based multiple-choice questions (MCQs), testing participants' understanding of database concepts. Successful participants advance to Round 2, a hands-on SQL coding challenge, where they apply their skills to solve real-world database problems.",
         image: img1, // Replace with your image path
-        path: "/EventIndividual/NoviceInit",
+        path: "/events/geekquiz5",
+        to: "geekquiz5",
       },
     ],
     // Add more events h
-    path: "/technical-events", // Path to the event page
+    path: "/events/technical-events", // Path to the event page
   },
   {
     title: "Pre Events",
@@ -265,7 +268,8 @@ export const events = [
         description:
           "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
         image: img1, // Replace with your image path
-        path: "/EventIndividual/NoviceInit",
+        path: "/events/geekquiz6",
+        to: "geekquiz6",
       },
       {
         id: 7,
@@ -273,10 +277,11 @@ export const events = [
         description:
           "A DBMS challenge that combines theoretical knowledge with practical application. The first round involves DBMS-based multiple-choice questions (MCQs), testing participants' understanding of database concepts. Successful participants advance to Round 2, a hands-on SQL coding challenge, where they apply their skills to solve real-world database problems.",
         image: img1, // Replace with your image path
-        path: "/EventIndividual/NoviceInit",
+        path: "/events/geekquiz7",
+        to: "geekquiz7",
       },
     ],
-    path: "/technical-events", // Path to the event page
+    path: "/events/technical-events", // Path to the event page
   },
   // Add more events as needed
 ];

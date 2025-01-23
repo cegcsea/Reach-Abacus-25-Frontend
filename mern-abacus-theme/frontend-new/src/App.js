@@ -59,7 +59,7 @@ const App = () => {
           <Route path="/profile/update" element={<UpdateProfile />} />
           <Route path="/register/:email/:token" element={<RegisterDetails />} />
           <Route path="/events" element={<EventPage />} />{" "}
-          <Route path="/events/technical" element={<TechnicalPage />} />
+          <Route path="/events/technical-events" element={<TechnicalPage />} />
           <Route path="/" element={<EventPage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/events/:id" element={<NoviceInit />} />

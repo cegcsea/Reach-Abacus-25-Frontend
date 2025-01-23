@@ -29,13 +29,13 @@ const IndividualWorkshops = () => {
   };
   const { isLoading } = LoaderData();
 
-  useEffect(() => {
-    console.log(userWorkshops);
-    console.log(workshop);
-    console.log(isPaidWorkshop[0].paymentStatus);
-    console.log(isRegistered);
-    //console.log(userWorkshops[3].paymentStatus);
-  });
+  // useEffect(() => {
+  //   console.log(userWorkshops);
+  //   console.log(workshop);
+  //   console.log(isPaidWorkshop[0].paymentStatus);
+  //   console.log(isRegistered);
+  //   //console.log(userWorkshops[3].paymentStatus);
+  // });
   if (isLoading) {
     return <Loader />;
   }

@@ -412,7 +412,7 @@ export const UserContextProvider = ({ children }) => {
       // );
 
       const message = response.data.message;
-      const payment = response.data.data.workshopPayment;
+      const payment = response.data.data;
       //console.log(paymentData.workshopId, payment.status, payment);
       await freeWorkshopRegister({ workshopId: paymentData.workshopId });
 
@@ -431,6 +431,7 @@ export const UserContextProvider = ({ children }) => {
       //   console.log("Updated workshops:", updatedWorkshops);
       //   return updatedWorkshops;
       //   });
+      //console.log(response.data.data);
       return { message, payment };
     } catch (err) {
       if (err.response) throw err.response.data.message;

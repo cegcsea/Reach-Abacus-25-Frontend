@@ -117,6 +117,7 @@ const Payment = () => {
               accept="image/*"
               className="hidden"
               onChange={handleFileChange}
+              required
             />
             {file !== null && (
               <button
