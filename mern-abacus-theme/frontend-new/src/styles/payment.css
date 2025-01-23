@@ -1,0 +1,146 @@
+.payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+    background-color: #34363e;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.dots-container {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dots-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.dots-container.rotate {
+    transform: rotate(180deg);
+}
+
+.payment-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid #abb2bf;
+    background-color: #282c33;
+    padding: 2rem;
+    color: #fff;
+}
+
+.payment-header {
+    font-size: 1.8rem;
+    text-align: center;
+    color: #fff;
+}
+
+.payment-header .highlight {
+    color: #c778dd;
+}
+
+.payment-subtext {
+    font-size: 1rem;
+    text-align: center;
+    color: #aaa;
+}
+
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.toggle-button {
+    padding: 0.8rem 1.2rem;
+    background-color: transparent;
+    border: 1px solid #7882dd;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-button:hover {
+    background-color: rgba(120, 122, 221, 0.2);
+}
+
+.qr-code-container {
+    display: none;
+    justify-content: center;
+}
+
+.qr-code-container.active {
+    display: flex;
+}
+
+.qr-code {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.input-field {
+    padding: 0.8rem;
+    border: 1px solid #abb2bf;
+    background-color: #30343a;
+    color: #fff;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.upload-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.upload-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.upload-button {
+    padding: 0.8rem 1.2rem;
+    border: 1px solid #98dd78;
+    color: #fff;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.upload-button:hover {
+    background-color: rgba(152, 221, 120, 0.2);
+}
+
+.file-name {
+    padding: 0.8rem;
+    border: 1px solid #abb2bf;
+    color: #aaa;
+    flex-grow: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+.submit-button {
+    padding: 0.8rem 1.2rem;
+    background-color: transparent;
+    border: 1px solid #c778dd;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: rgba(199, 120, 221, 0.2);
+}
