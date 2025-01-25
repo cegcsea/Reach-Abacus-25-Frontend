@@ -11,10 +11,10 @@ function Session() {
   const handleRegister = (code) => {
     freeWorkshopRegister({ workshopId: code });
   };
-
-  const isRegistered = (session || []).some(
-    (workshop) => workshop.workshopId === 3
-  );
+  console.log(session);
+  const isRegistered =
+    Array.isArray(session) &&
+    session.some((workshop) => workshop.workshopId === 3);
 
   return (
     <div>

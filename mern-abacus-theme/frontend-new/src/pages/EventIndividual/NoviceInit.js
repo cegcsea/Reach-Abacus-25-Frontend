@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import "../../styles/Intern.css";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import Contact from "../../components/Contact.js";
@@ -11,7 +11,7 @@ const NoviceInit = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { id } = useParams(); // Ensure the route has a dynamic :id parameter
-  const { userEvents, isAuth, eventRegister } = UserData();
+  const { userEvents, isAuth, eventRegister,getEvents } = UserData();
   //const selectedEvent = events.find((event) => event.to === id);
   const allEvents = events.flatMap((category) => category.event);
 
@@ -19,6 +19,10 @@ const NoviceInit = () => {
     //console.log(`Checking event:`, event.to, "Expected:", id,event.to === id);
     return event.to === id;
   });
+
+  useEffect(()=>{
+    getEvents();
+  },[userEvents])
 
   const [activeTab, setActiveTab] = useState("description");
   if (!selectedEvent) {

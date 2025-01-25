@@ -1,16 +1,17 @@
 import React,{useState} from "react";
 import "../styles/Register.css";
 import { UserData } from "../context/userContext";
+import { useNavigate } from "react-router-dom";
 
 const Register = ({ setIsLogin }) => {
     const { getRegistrationLink } = UserData();
     const [email, setEmail] = useState("");
-  
+    const navigate=useNavigate();
     const handleEmailChange = (e) => setEmail(e.target.value);
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      getRegistrationLink({ email });
+      getRegistrationLink({ email },navigate);
     }
   
   return (

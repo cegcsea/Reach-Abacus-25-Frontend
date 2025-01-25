@@ -55,9 +55,12 @@ export const UserContextProvider = ({ children }) => {
         { email }
       );
       const data = response.data;
+      console.log(data.data.secretKey, data.data.link);
       toast.success(data.message);
-      localStorage.setItem("activationToken", data.activationToken);
-      navigate(`/register/${email}/${data.token}`);
+      localStorage.setItem("activationToken", data.data.secretKey);
+      console.log("works before");
+      navigate(`/register/${email}/${data.data.secretKey}`);
+      console.log("works after");
     } catch (error) {
       toast.error(error.response?.data?.message || "Registration failed");
     } finally {
@@ -77,7 +80,7 @@ export const UserContextProvider = ({ children }) => {
           email: formData.email,
           token: formData.token, // If token is required
           college: formData.college,
-          //hostCollege: formData.hostCollege,
+          hostCollege: formData.hostCollege,
           accomodation: formData.accomodation,
           dept: formData.dept,
           year: formData.year,
@@ -221,11 +224,12 @@ export const UserContextProvider = ({ children }) => {
         const getBestPayment = (payments) => {
           let bestPayment = null;
           for (const payment of payments) {
+            console.log(payment.status, bestPayment);
             if (payment.status === "SUCCESS") {
               return payment; // Highest priority
             } else if (
               payment.status === "PENDING" &&
-              (bestPayment.status === "FAILURE" || !bestPayment)
+              (bestPayment?.status === "FAILURE" || !bestPayment)
             ) {
               bestPayment = payment;
             } else if (!bestPayment) {
@@ -311,6 +315,7 @@ export const UserContextProvider = ({ children }) => {
         { headers: { token } }
       );
       const data = response.data;
+      getEvents();
       toast.success(data.message);
     } catch (error) {
       toast.error(error.response.data.message);
@@ -351,6 +356,11 @@ export const UserContextProvider = ({ children }) => {
         { headers: { token } }
       );
       const { data } = response.data;
+      //console.log(data.data);
+      // setSession((prevSession) =>
+      //   Array.isArray(prevSession) ? [...prevSession, data.data] : [data.data]
+      // );
+
       getWorkshops();
       //console.log(data);
       // setUserWorkshops((prevWorkshops) => [
@@ -520,7 +530,7 @@ export const UserContextProvider = ({ children }) => {
         .catch((error) => {});
       getWorkshops()
         .then((data) => {
-          setSession(data.workshops.workshops);
+          //setSession(data.workshops.workshops);
         })
         .catch((error) => {});
     } else {
@@ -531,15 +541,15 @@ export const UserContextProvider = ({ children }) => {
 
   useEffect(() => {
     refreshauth();
-    console.log(user);
+    //console.log(user);
   }, []);
-  // useEffect(() => {
-  //   console.log("active", active);
-  //   console.log("user:", user);
-  //   console.log("userevents", userEvents);
-  //   console.log("user workshops", userWorkshops);
-  //   console.log("sessions", session);
-  // }, [user]);
+  useEffect(() => {
+    //   console.log("active", active);
+    //   console.log("user:", user);
+    //   console.log("userevents", userEvents);
+    //   console.log("user workshops", userWorkshops);
+    console.log("sessions", session);
+  }, [session]);
 
   return (
     <UserContext.Provider

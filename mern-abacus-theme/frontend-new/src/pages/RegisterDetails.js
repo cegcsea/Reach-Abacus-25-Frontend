@@ -24,20 +24,20 @@ function RegisterDetails() {
     confirmPassword: "",
   });
 
-  // const optionsHostCollege = [
-  //   {
-  //     label: "PSNA College of Engineering and Technology",
-  //     value: "PSNA College of Engineering and Technology",
-  //   },
-  //   {
-  //     label: "Anna University",
-  //     value: "Anna University",
-  //   },
-  //   {
-  //     label: "IIT Madras",
-  //     value: "IIT Madras",
-  //   },
-  // ];
+  const optionsHostCollege = [
+    {
+      label: "J.J. College of Engineering and Technology,Tiruchirappalli",
+      value: "J.J. College of Engineering and Technology,Tiruchirappalli",
+    },
+    {
+      label: "Anna University",
+      value: "Anna University",
+    },
+    {
+      label: "IIT Madras",
+      value: "IIT Madras",
+    },
+  ];
 
   const optionsYear = [
     { label: "First year", value: "1" },
@@ -122,7 +122,7 @@ function RegisterDetails() {
             required
           />
 
-          {/* <select
+           <select
             className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
             value={formData.hostCollege}
             onChange={(e) => handleSelectChange("hostCollege", e.target.value)}
@@ -136,7 +136,7 @@ function RegisterDetails() {
                 {option.label}
               </option>
             ))}
-          </select> */}
+          </select> 
           <select
             className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
             value={

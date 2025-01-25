@@ -57,6 +57,7 @@ export const workshopsReach = [
             entryFee: "Rs. 399/-",
         },
     },
+    
 ]
 
 // export   const abacusWorkshops = [
