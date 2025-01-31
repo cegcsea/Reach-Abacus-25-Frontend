@@ -31,7 +31,7 @@ export const UserContextProvider = ({ children }) => {
       const data = response.data;
       setUser(data.user);
       toast.success(data.message);
-      console.log(data);
+      //console.log(data);
       localStorage.setItem("abacustoken", data.token);
       localStorage.setItem("abacususer", JSON.stringify(data.user));
       setIsAuth(true);
@@ -55,12 +55,12 @@ export const UserContextProvider = ({ children }) => {
         { email }
       );
       const data = response.data;
-      console.log(data.data.secretKey, data.data.link);
+      //console.log(data.data.secretKey, data.data.link);
       toast.success(data.message);
       localStorage.setItem("activationToken", data.data.secretKey);
-      console.log("works before");
-      navigate(`/register/${email}/${data.data.secretKey}`);
-      console.log("works after");
+      //console.log("works before");
+      //navigate(`/register/${email}/${data.data.secretKey}`);
+      //console.log("works after");
     } catch (error) {
       toast.error(error.response?.data?.message || "Registration failed");
     } finally {
@@ -224,7 +224,7 @@ export const UserContextProvider = ({ children }) => {
         const getBestPayment = (payments) => {
           let bestPayment = null;
           for (const payment of payments) {
-            console.log(payment.status, bestPayment);
+            //console.log(payment.status, bestPayment);
             if (payment.status === "SUCCESS") {
               return payment; // Highest priority
             } else if (
@@ -256,7 +256,7 @@ export const UserContextProvider = ({ children }) => {
 
       //console.log(user);
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   }
 
@@ -548,7 +548,7 @@ export const UserContextProvider = ({ children }) => {
     //   console.log("user:", user);
     //   console.log("userevents", userEvents);
     //   console.log("user workshops", userWorkshops);
-    console.log("sessions", session);
+    //console.log("sessions", session);
   }, [session]);
 
   return (
