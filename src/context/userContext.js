@@ -3,7 +3,7 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { LoaderData } from "./loaderContext";
 // import { server } from "../main";
-const server = "http://localhost:3001";
+const server = process.env.REACT_APP_API_BASE_URL;
 const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
@@ -522,17 +522,17 @@ export const UserContextProvider = ({ children }) => {
           // setUser(data.user);
           // setUserWorkshops(data.user.workshopPayments);
         })
-        .catch((error) => {});
+        .catch((error) => { });
       getEvents()
         .then((data) => {
           setUserEvents(data.events.events);
         })
-        .catch((error) => {});
+        .catch((error) => { });
       getWorkshops()
         .then((data) => {
           //setSession(data.workshops.workshops);
         })
-        .catch((error) => {});
+        .catch((error) => { });
     } else {
       setIsAuth(false);
       setUser({});
