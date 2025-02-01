@@ -127,11 +127,6 @@
 
 /* Media query for iPad view (portrait and landscape) */
 @media (min-width: 768px) and (max-width: 1024px) {
-  /* .register-container {
-      padding-top: 105px;
-      padding-left: 30px;
-      padding-right: 30px;
-  } */
 
   .register-box {
       width: 360px;

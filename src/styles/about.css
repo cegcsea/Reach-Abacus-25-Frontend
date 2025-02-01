@@ -8,7 +8,7 @@
 .main {
   position: relative;
   width: 100%;
-  max-width: 100%; /* Ensure no unintentional limiting */
+  max-width: 100%;
   box-sizing: border-box;
   padding: 0;
 }
@@ -21,7 +21,6 @@
   padding-left: 40px;
   align-items: center;
   justify-content: center;
-  /* background-color: black; */
   color: white;
 }
 
@@ -41,13 +40,12 @@
 
 .home_bgcircle1__MiYGt {
   animation: rotate-dots 2.66s linear infinite;
-  background-image: url(../assets/images/image.png);
+  background-image: url("../assets/images/image.png");
   background-position: 50%;
   background-size: contain;
   border-radius: 50%;
   height: 450px;
   position: absolute;
-  /* top: 100px; */
   width: 450px;
   display: flex;
   justify-content: center;
@@ -81,9 +79,6 @@
 .div1 {
   background-image: url("../assets/images/red_neurons.png");
   display: flex;
-  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-  url("../assets/images/blue_neurons1.png") no-repeat center center;
-  background-size: cover; */
   height: inherit;
   justify-content: center;
   align-items: center;
@@ -168,22 +163,14 @@
 
 .about {
   background-color: black;
-  /* height: 100vh; */
   padding: 20px;
   padding-left: 40px;
   display: flex;
   color: white;
-  /* height:100vh; */
 }
 .about .first {
   display: flex;
 }
-
-/* .about .first img{
-  width:540px;
-  height:480px;
-  border-radius: 4%;
-} */
 
 .about .second {
   padding: 10px;
@@ -201,17 +188,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.1); /* Adjust the alpha for transparency */
-  pointer-events: none; /* Prevents interaction with the overlay */
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .about div {
   flex: 1;
 }
-/* .main h2 {
-  padding-left: 40px;
-} */
-
 .second button {
   margin-top: 20px;
   background: linear-gradient(135deg, #e15d5d, #b22e2e);
@@ -237,16 +219,6 @@
   width: 1500px;
 }
 
-@media (max-width: 1400px) {
-  /* .main .des-1 {
-    visibility: hidden;
-  } */
-
-  /* .home_bgcircle1__MiYGt {
-    visibility: hidden;
-  } */
-}
-
 @media (max-width: 1050px) {
   .main .heading {
     margin-top: 80px;
@@ -255,11 +227,6 @@
     height: auto;
     flex-direction: column;
   }
-  /* .main .initial .logo {
-    visibility: hidden;
-    width: 0;
-    height: 0;
-  } */
   .about {
     height: auto;
     flex-direction: column;
@@ -276,13 +243,12 @@
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
-    background-image: url(../assets/images/image.png);
+    background-image: url("../assets/images/image.png");
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
     height: 360px;
     position: absolute;
-    /* top: 28%; */
     width: 360px;
     background-repeat: no-repeat;
     display: flex;
@@ -295,11 +261,6 @@
     width: 15em;
     visibility: visible;
   }
-  /* .about .first img{
-    visibility: hidden;
-    height:0;
-    width:0;
-  } */
   .h2 {
     font-size: 35px;
   }
@@ -317,7 +278,6 @@
     text-align: center;
     text-decoration: none;
     padding: 10px;
-    /* background-color: white; */
     margin-top: 20px;
   }
 
@@ -358,7 +318,7 @@
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
-    background-image: url(../assets/images/image.png);
+    background-image: url("../assets/images/image.png");
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
@@ -382,7 +342,6 @@
   }
   .initial .theme {
     padding: 10px;
-    /* background-color: #f0f0f0; */
     color: rgb(255, 255, 255);
     font-size: 12px;
     border: 1px solid black;
@@ -399,13 +358,12 @@
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
-    background-image: url(../assets/images/image.png);
+    background-image: url("../assets/images/image.png");
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
     height: 340px;
     position: absolute;
-    /* top: 24%; */
     width: 340px;
     background-repeat: no-repeat;
     display: flex;
@@ -421,7 +379,6 @@
   .home_bgcircle1__MiYGt {
     height: 340px;
     position: absolute;
-    /* top: 26%; */
     width: 340px;
     margin-top: 60px;
   }
