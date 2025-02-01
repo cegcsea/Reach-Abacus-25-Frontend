@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const Events = () => {
-  const navaigate = useNavigate();
+  const navigate = useNavigate();
   const { userEvents } = UserData();
   //const { userEvents, getEvents } = useContext(UserContext);
 
@@ -106,7 +106,7 @@ const Events = () => {
       <div className="w-full flex justify-end mt-5 ">
         <button
           className={`py-3 px-4 w-fit md:text-base mx-auto text-xs text-white border border-red-600 hover:bg-red-700/40 duration-150`}
-          onClick={() => navaigate("/events")}
+          onClick={() => navigate("/events")}
         >
           Explore Events {"<"}~{">"}
         </button>

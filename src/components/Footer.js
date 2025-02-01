@@ -77,7 +77,7 @@ const Footer = () => {
                   className="mr-5 hover:text-blue-500 transition-all"
                 />
               </a>
-              <a href="#">
+              <a href="https://whatsapp.com/channel/0029VaK58YP77qVW3eKp391r">
                 <FaWhatsapp
                   size={35}
                   className="hover:text-green-500 transition-all"
@@ -92,7 +92,7 @@ const Footer = () => {
           <div className="footer-column">
             <h1>Phone</h1>
             <div className="contact-card">
-              <p>Padmasharan S</p>
+              <p>Padmasharan B</p>
               <p>+91 95856 12262</p>
             </div>
             <div className="contact-card">
@@ -102,7 +102,7 @@ const Footer = () => {
           </div>
           <div className="footer-bottom">
             <p>Collaborate with us!</p>
-            <a href="mailto:cseaceg24@gmail.com">cseaceg24@gmail.com</a>
+            <a href="mailto:cseaceg25@gmail.com">cseaceg24@gmail.com</a>
             <a href="mailto:marketing@abacus.org.in">marketing@abacus.org.in</a>
           </div>
         </div>
