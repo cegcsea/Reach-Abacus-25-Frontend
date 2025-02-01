@@ -41,7 +41,7 @@ const Home = () => {
         >
           <div className="para">
             <h1 className="heading text-center">
-              ABACUS'24 "Ideas Converge and Possibilities Unfold"
+              Reach'25 "Ideas Converge and Possibilities Unfold"
             </h1>
             <p className="pres text-center text-white">
               Navigating the Future, One Innovation at a Time
@@ -84,8 +84,9 @@ const Home = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          Abacus-2025
+          Reach-2025
         </motion.h2>
+        <img src={require("../assets/Reach/Reach'25_logo_white.png")}></img>
         <motion.div
           className="about bg-transparent overflow-hidden"
           initial="hidden"

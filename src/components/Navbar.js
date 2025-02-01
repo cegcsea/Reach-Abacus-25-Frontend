@@ -107,7 +107,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         </a>
         <a href="#home" className="my-auto">
           <h1 className="hover:text-gray-950 text-2xl font-semibold rounded-xl mx-2 p-1 cursor-pointer">
-            Abacus 2025
+            Reach 2025
           </h1>
         </a>
       </div>

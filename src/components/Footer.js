@@ -88,23 +88,22 @@ const Footer = () => {
         </div>
 
         {/* <!-- Phone Section --> */}
-        <div className="footer-column">
-          <h1>Phone</h1>
-          <div className="contact-card">
-            <p>Saran Kumaran</p>
-            <p>+91 9600544132</p>
+        <div className="footer-combined-column">
+          <div className="footer-column">
+            <h1>Phone</h1>
+            <div className="contact-card">
+              <p>Padmasharan S</p>
+              <p>+91 95856 12262</p>
+            </div>
+            <div className="contact-card">
+              <p>Nikhil Prasanna A</p>
+              <p>+91 6379 066 510</p>
+            </div>
           </div>
-          <div className="contact-card">
-            <p>Sruthi</p>
-            <p>+91 8056284967</p>
-          </div>
-          <div className="contact-card">
-            <p>Madhumithran</p>
-            <p>+91 9566622358</p>
-          </div>
-          <div className="contact-card">
-            <p>Sangami M</p>
-            <p>+91 9942896494</p>
+          <div className="footer-bottom">
+            <p>Collaborate with us!</p>
+            <a href="mailto:cseaceg24@gmail.com">cseaceg24@gmail.com</a>
+            <a href="mailto:marketing@abacus.org.in">marketing@abacus.org.in</a>
           </div>
         </div>
 
@@ -150,13 +149,8 @@ const Footer = () => {
           </form>
         </div>
       </div>
-      <div className="footer-bottom">
-        <p>Collaborate with us!</p>
-        <a href="mailto:cseaceg24@gmail.com">cseaceg24@gmail.com</a>
-        <a href="mailto:marketing@abacus.org.in">marketing@abacus.org.in</a>
-      </div>
       <div className="footer-line">
-        &copy; Copyright 2024 CSEA. All rights reserved.
+        &copy; Copyright 2025 CSEA. All rights reserved.
       </div>
     </div>
   );

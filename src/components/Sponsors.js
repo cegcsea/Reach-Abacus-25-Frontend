@@ -8,7 +8,7 @@ const Sponsors = () => {
   const sponsors = [
     { image: spon1, name: "Motorq", desc: "Title Sponsor" },
     { image: e2w, name: "E2W STUDY", desc: "Educational Sponsor" },
-    { image: spon3, name: "TMB", desc: "REACH'24 Sponsor" },
+    { image: spon3, name: "TMB", desc: "REACH'25 Sponsor" },
   ];
 
   return (
