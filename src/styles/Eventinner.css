@@ -1,25 +1,24 @@
-/* Global Styles */
+
 body {
     font-family: "Arial", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212; /* Black background */
-    color: #f4f4f4; /* Light text color for contrast */
+    background-color: #121212; 
+    color: #f4f4f4; 
 }
 
-/* Heading Style */
 .heading {
-    margin-top: 2rem; /* Top margin */
-    font-size: 3rem; /* Heading size */
-    font-weight: bold; /* Bold text */
-    color: #fcfcfc; /* White text */
+    margin-top: 2rem; 
+    font-size: 3rem; 
+    font-weight: bold;
+    color: #fcfcfc; 
     text-align: center;
-    padding-block: 5rem; /* Vertical padding */
+    padding-block: 5rem; 
     padding-bottom: 40px;
-    text-shadow: 6px 2px 4px #ff0000; /* Red shadow for the text */
+    text-shadow: 6px 2px 4px #ff0000;
 }
 
-/* Content Container Styles */
+
 .content-container {
     display: flex;
     justify-content: center;
@@ -28,74 +27,68 @@ body {
     margin: auto;
     margin-bottom: 30px;
     max-width: 1000px;
-    background-color: #1a1a1a; /* Dark gray background for content */
-    border: 2px solid #ff6f61; /* Red border */
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 0px 4px 15px rgba(255, 0, 0, 0.3); /* Slight red shadow around the box */
+    background-color: #1a1a1a; 
+    border: 2px solid #ff6f61; 
+    border-radius: 12px; 
+    box-shadow: 0px 4px 15px rgba(255, 0, 0, 0.3); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Hover effect on content container */
+
 .content-container:hover {
     transform: scale(1.03);
-    box-shadow: 0px 6px 20px rgba(255, 0, 0, 0.5); /* Glow effect on hover */
+    box-shadow: 0px 6px 20px rgba(255, 0, 0, 0.5); 
 }
 
-/* Image Styling */
+
 .content-container img {
     width: 100%;
     max-width: 300px;
     border-radius: 12px;
-    /* margin-right: 20px; */
-    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3); /* Red glow around image */
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3); 
 }
 
-/* Text Container Styling */
+
 .text-container {
     flex: 1;
     padding: 20px;
-    color: #f4f4f4; /* Light text color */
+    color: #f4f4f4; 
     text-align: left;
 }
 
-/* Title Styling */
 .text-container h1 {
     font-size: 2.5rem;
-    color: #ff6f61; /* Red color for titles */
+    color: #ff6f61; 
     margin-bottom: 10px;
     font-weight: 600;
 }
 
-/* Paragraph Styling */
+
 .text-container p {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #dddddd; /* Light gray text for description */
+    color: #dddddd; 
     margin-bottom: 20px;
 }
 
-/* Link Styling */
 .read-more {
     font-size: 1rem;
     font-weight: bold;
-    color: #ff6f61; /* Red link color */
+    color: #ff6f61;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-/* Hover effect on the link */
+
 .read-more:hover {
-    color: #ffffff; /* White on hover */
+    color: #ffffff;
 }
 
-/* Reverse Layout for Even Index */
+
 .reverse {
     flex-direction: row-reverse;
 }
 
-/* Media Queries for Responsive Layout */
-
-/* For Medium Screens (Tablets) */
 @media (max-width: 768px) {
     .content-container {
         flex-direction: column;
@@ -113,26 +106,26 @@ body {
     }
 
     .heading {
-        font-size: 2.5rem; /* Smaller heading on medium screens */
+        font-size: 2.5rem;
     }
 }
 
-/* For Small Screens (Mobile Devices) */
+
 @media (max-width: 480px) {
     .content-container img {
         max-width: 100%;
     }
 
     .text-container h1 {
-        font-size: 1.8rem; /* Smaller title on mobile */
+        font-size: 1.8rem; 
     }
 
     .text-container p {
-        font-size: 1rem; /* Smaller description text */
+        font-size: 1rem; 
     }
 
     .heading {
-        font-size: 2rem; /* Smaller heading on small devices */
+        font-size: 2rem; 
     }
 }
 .gl-button {
@@ -155,25 +148,21 @@ body {
     display: block;
     filter: drop-shadow(0 0 5px #fffdef);
   }
-  /*hh*/
-  
-  /* Content Container Styles */
 .content-container {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
   margin: 20px 0;
-  background-color: #1a1a1a; /* Dark gray background for content */
-  border: 2px solid #ff6f61; /* Red border */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0px 4px 15px rgba(255, 0, 0, 0.3); /* Slight red shadow around the box */
+  background-color: #1a1a1a; 
+  border: 2px solid #ff6f61; 
+  border-radius: 12px; 
+  box-shadow: 0px 4px 15px rgba(255, 0, 0, 0.3); 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Reverse Layout for Even Index */
 .reverse {
-  margin-left: auto; /* Move the container to the right side */
+  margin-left: auto;
 }
 .out{
     padding:30px;

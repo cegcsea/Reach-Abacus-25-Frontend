@@ -13,7 +13,7 @@
     text-align: center;
     margin-bottom: 40px;
     color: #fcfcfc;
-    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3); /* Red glow around image */
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3); 
   }
   
   
@@ -81,7 +81,7 @@
 
   .names div:hover {
     background-color: #333;
-    transform: translateY(-2px); /* Lift the contact box on hover */
+    transform: translateY(-2px);
   }
 
   .names div p a:hover {

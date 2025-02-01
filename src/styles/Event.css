@@ -1,5 +1,4 @@
 
-/*=============== BASE ===============*/
 * {
   box-sizing: border-box;
   padding: 0;
@@ -20,7 +19,7 @@ img {
   height: auto;
 }
 
-/*=============== CARD ===============*/
+
 .card {
   display: grid;
   place-items: center;
@@ -66,7 +65,7 @@ font-weight: bold;
 .card__button {
   font-size: 1rem;
   font-weight: bold;
-  color: #ff6f61; /* Red link color */
+  color: #ff6f61; 
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -76,19 +75,19 @@ font-weight: bold;
 }
 
 .event{
-  margin-top: 1.25rem; /* my-5 equivalent */
-  font-size: 3rem; /* text-5xl equivalent */
-  font-weight: bold; /* font-bold equivalent */
-  color: #fcfcfc; /* text-[#fcfcfc] equivalent */
-  margin-bottom: 2rem; /* mb-8 equivalent */
-  overflow: hidden; /* overflow-hidden equivalent */
-  text-shadow: 6px 2px 4px #ff0000; /* Red shadow */
+  margin-top: 1.25rem; 
+  font-size: 3rem; 
+  font-weight: bold; 
+  color: #fcfcfc; 
+  margin-bottom: 2rem; 
+  overflow: hidden; 
+  text-shadow: 6px 2px 4px #ff0000; 
   text-align: left;
 }
 
 
-/*=============== BREAKPOINTS ===============*/
-/* For small devices */
+
+
 @media screen and (max-width: 340px) {
   .card {
     margin-inline: 1rem;
@@ -100,7 +99,7 @@ font-weight: bold;
   }
 }
 
-/* For medium devices */
+
 @media screen and (min-width: 768px) {
   .card__container {
     grid-template-columns: repeat(2, 1fr);
@@ -108,7 +107,7 @@ font-weight: bold;
   }
 }
 
-/* For large devices */
+
 @media screen and (min-width: 1120px) {
   .card {
     height: 90vh;
@@ -130,14 +129,14 @@ font-weight: bold;
 
 
 
-/* Remove hover effects for the card */
+
 .card__article:hover .card__data,
 .card__article:hover {
   animation: none;
   overflow: initial;
 }
 
-/* Updated hover effects for the card */
+
 .card__article {
   position: relative;
   overflow: hidden;
@@ -165,16 +164,16 @@ font-weight: bold;
   border-radius: 1rem;
   position: absolute;
   bottom: 0;
-  left: 50%; /* Center align */
+  left: 50%; 
   transform: translateX(-50%);
   margin-inline: auto;
-  opacity: 1; /* Fully visible by default */
+  opacity: 1; 
   transition: transform 0.3s ease, background-color 0.3s ease;
   
 }
 
 .card__article:hover .card__data {
-  transform: translateX(-50%) translateY(-10px); /* Slight upward movement */
-  background-color: #d4d4d4; /* Optional hover background color change */
+  transform: translateX(-50%) translateY(-10px); 
+  background-color: #d4d4d4; 
 }
 
