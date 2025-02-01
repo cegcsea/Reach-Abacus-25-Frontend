@@ -1,0 +1,161 @@
+/* General container styling */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 75px;
+  min-height: 100vh;
+  background-color: #000000;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-box {
+  background: #1d1d1d;
+  /* backdrop-filter: blur(20px); */
+  padding: 2rem;
+  border-radius: 15px;
+  width: 360px;
+  box-shadow: 0px 4px 15px rgba(169, 169, 169, 0.6);
+  border: 1px solid rgba(169, 169, 169, 0.6);
+}
+
+.register-toggle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.register-toggle button {
+  flex: 1;
+  padding: 0.5rem 0;
+  text-align: center;
+  font-size: 1rem;
+  background: none;
+  color: rgba(255, 255, 255, 0.6);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.register-toggle button:hover {
+  color: #de0038;
+}
+
+.register-toggle button.active-tab {
+  color: #de0038;
+  border-bottom: 2px solid #800020;
+}
+
+.register-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.register-input {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  background: #333333;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  outline: none;
+  transition: border 0.3s ease-in-out;
+}
+
+.register-input:focus {
+  border-color: #de0038;
+}
+
+.register-button {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #800020;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.register-button:hover {
+  background-color: #a51c34;
+}
+
+.forgot-password {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.forgot-password a {
+  color: #de0038;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.forgot-password a:hover {
+  color: #ffffff;
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+    /* .register-container {
+        padding-top: 110px;
+        padding-left: 15px;
+        padding-right: 15px;
+    } */
+
+    .register-box {
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        /* padding: 1.2rem; */
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(169, 169, 169, 0.6);
+    }
+
+}
+
+/* Media query for iPad view (portrait and landscape) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* .register-container {
+      padding-top: 105px;
+      padding-left: 30px;
+      padding-right: 30px;
+  } */
+
+  .register-box {
+      width: 360px;
+      max-width: 480px;
+      padding: 1.8rem;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(169, 169, 169, 0.7);
+  }
+
+  .register-title {
+      font-size: 1.6rem;
+  }
+
+  .register-input {
+      font-size: 0.9rem;
+      padding: 0.7rem;
+  }
+
+  .register-button {
+      font-size: 0.95rem;
+      padding: 0.7rem;
+  }
+
+  .forgot-password {
+      font-size: 0.85rem;
+  }
+}
