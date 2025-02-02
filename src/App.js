@@ -21,6 +21,7 @@ import { UserData } from "./context/userContext";
 import { LoaderData } from "./context/loaderContext";
 import Loader from "./components/Loader/Loader";
 import { useEffect } from "react";
+import Login from "./components/Login";
 const App = () => {
   const { isMenuOpen, setIsMenuOpen } = UserData();
   const { isLoading, setIsLoading } = LoaderData();
@@ -49,7 +50,7 @@ const App = () => {
           <Route path="/workshops" element={<Workshops />} />
           <Route path="/workshops/:id" element={<IndividualWorkshops />} />
           <Route path="/workshops/:id/payment" element={<Payment />} />
-          <Route path="/login" element={<HomePage />} />
+          <Route path="/login" element={<Login/>} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route
             path="/reset-password/:id/:token"
