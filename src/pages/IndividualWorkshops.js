@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { UserData } from "../context/userContext";
 import { FaInfo } from "react-icons/fa";
 import { LoaderData } from "../context/loaderContext";
+import Contact from "../components/Contact";
 import Loader from "../components/Loader/Loader";
 const IndividualWorkshops = () => {
   const { id } = useParams();
@@ -152,7 +153,7 @@ const IndividualWorkshops = () => {
         </span>
       </p>
 
-      <div className="flex flex-col lg:flex-row mt-8 gap-8">
+      <div className="flex flex-col lg:flex-row mt-8 gap-8 mb-20">
         <img
           src={workshop.image}
           alt={`workshop: ${workshop.title}`}
@@ -284,13 +285,14 @@ const IndividualWorkshops = () => {
 
           {!isAuth && (
             <Link to="/auth">
-              <button className="m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]">
+              <button className="m-3 w-fit border border-[#c72727] px-4 py-2 text-white duration-150 hover:bg-[#ff4d4d]">
                 Login to Register {"<"}~{">"}
               </button>
             </Link>
           )}
         </div>
       </div>
+      <Contact contacts={workshop.contact}/>
     </div>
   );
 };

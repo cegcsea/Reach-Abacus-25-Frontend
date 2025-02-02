@@ -11,7 +11,7 @@ const NoviceInit = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { id } = useParams(); // Ensure the route has a dynamic :id parameter
-  const { userEvents, isAuth, eventRegister,getEvents } = UserData();
+  const { userEvents, isAuth, eventRegister, getEvents } = UserData();
   //const selectedEvent = events.find((event) => event.to === id);
   const allEvents = events.flatMap((category) => category.event);
 
@@ -20,9 +20,9 @@ const NoviceInit = () => {
     return event.to === id;
   });
 
-  useEffect(()=>{
+  useEffect(() => {
     getEvents();
-  },[userEvents])
+  }, [userEvents]);
 
   const [activeTab, setActiveTab] = useState("description");
   if (!selectedEvent) {
@@ -78,12 +78,13 @@ const NoviceInit = () => {
                   Internship &lt;~&gt;
                 </button>
               )}
-              <button
+              {selectedEvent.rounds?.length>0  &&( <button 
                 onClick={() => handleTabClick("rounds")}
                 className={activeTab === "rounds" ? "active" : ""}
               >
                 Rounds &lt;~&gt;
               </button>
+  )}
             </div>
 
             {/* Description Tab */}
@@ -108,7 +109,7 @@ const NoviceInit = () => {
                 {selectedEvent.intern.map((intern, index) => (
                   <div key={index} className="intern-container">
                     <img
-                      src={img4}
+                      src={intern.image}
                       alt={intern.name}
                       className="intern-image"
                     />
@@ -141,7 +142,7 @@ const NoviceInit = () => {
               </div>
             )}
 
-            {isAuth && !isRegistered &&(
+            {isAuth && !isRegistered && (
               <button
                 className="m-3 w-fit border border-[#c72727] px-4 py-2 text-white duration-150 hover:bg-[#fb525233]"
                 onClick={handleRegister}
@@ -149,16 +150,19 @@ const NoviceInit = () => {
                 Register{"<"}~{">"}
               </button>
             )}
-            {!isAuth && (
-              <button
-                className="m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]"
-                onClick={() => navigate("/login")}
-              >
-                Login to Register{"<"}~{">"}
-              </button>
-            )}
+          <div className="flex justify-center">
+  {!isAuth && (
+    <button
+      className="m-3 w-fit border border-[#c72727] px-4 py-2 text-white duration-150 hover:bg-[#ff4d4d]"
+      onClick={() => navigate("/login")}
+    >
+      Login to Register{"<"}~{">"}
+    </button>
+  )}
+</div>
+
             {isRegistered && (
-              <p className="p-2 w-full sm:w-fit flex justify-center items-center text-white text-lg font-semibold text-gray border rounded-lg border-gray-700 bg-slate-800 mx-auto">
+              <p className="p-2 w-full sm:w-fit flex justify-center items-center text-white text-lg font-semibold text-gray border rounded-lg border-[#c72727] bg-slate-800 mx-auto">
                 <span className="text-lime-400">/*</span>
                 &nbsp;Already registered for this event!&nbsp;
                 <span className="text-lime-400">*/</span>
@@ -168,9 +172,9 @@ const NoviceInit = () => {
         </div>
       </div>
 
-      {selectedEvent.contact?.length > 0 && (
+      {/* {selectedEvent.contact?.length > 0 && (
         <Contact contacts={selectedEvent.contact} />
-      )}
+      )} */}
     </div>
   );
 };

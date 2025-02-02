@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -10,7 +9,7 @@ body {
   background-color: black;
   color: var(--text-color);
   text-align: center;
-  width:100%;
+  width: 100%;
 }
 
 img {
@@ -19,18 +18,17 @@ img {
   height: auto;
 }
 
-
 .card {
   display: grid;
   place-items: center;
   padding-block: 5rem;
   width: 100%;
- 
 }
 
 .card__container {
   display: grid;
   row-gap: 3.5rem;
+  padding-bottom: 50px;
 }
 
 .card__article {
@@ -40,32 +38,34 @@ img {
 
 .card__img {
   width: 328px;
+  height: 250px;
   border-radius: 1.5rem;
   overflow: hidden;
+  object-fit: fill;
 }
 
 .card__description {
   display: block;
   font-size: var(--small-font-size);
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 
 .card__title {
-font-weight: bold;
+  font-weight: bold;
   font-size: var(--h2-font-size);
   font-weight: 500;
   color: var(--title-color);
-  margin-bottom: .75rem;
+  margin-bottom: 0.75rem;
   color: #fcfcfc;
-    text-align: center;
-    color:black;
-    
+  text-align: center;
+  color: black;
 }
 
 .card__button {
   font-size: 1rem;
   font-weight: bold;
-  color: #ff6f61; 
+  color: #ff6f61;
+  margin-bottom: 20px;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -74,20 +74,21 @@ font-weight: bold;
   text-decoration: underline;
 }
 
-.event{
-  margin-top: 1.25rem; 
-  font-size: 3rem; 
-  font-weight: bold; 
-  color: #fcfcfc; 
-  margin-bottom: 2rem; 
-  overflow: hidden; 
-  text-shadow: 6px 2px 4px #ff0000; 
-  text-align: left;
+.event {
+  margin-top: 1.25rem;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fcfcfc;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  text-align: center;
+  text-shadow: 6px 2px 4px #ff0000;
+  width: 100%;
 }
 
-
-
-
+.event h1 {
+  width: 100%;
+}
 @media screen and (max-width: 340px) {
   .card {
     margin-inline: 1rem;
@@ -99,14 +100,12 @@ font-weight: bold;
   }
 }
 
-
 @media screen and (min-width: 768px) {
   .card__container {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 1.5rem;
   }
 }
-
 
 @media screen and (min-width: 1120px) {
   .card {
@@ -125,24 +124,16 @@ font-weight: bold;
   }
 }
 
-
-
-
-
-
 .card__article:hover .card__data,
 .card__article:hover {
   animation: none;
   overflow: initial;
 }
 
-
 .card__article {
   position: relative;
   overflow: hidden;
 }
-
-
 
 .card__article {
   position: relative;
@@ -158,22 +149,20 @@ font-weight: bold;
 .card__data {
   width: 280px;
   background-color: white;
-  color:black;
+  color: black;
   padding: 1.5rem 2rem;
   box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.15);
   border-radius: 1rem;
   position: absolute;
   bottom: 0;
-  left: 50%; 
+  left: 50%;
   transform: translateX(-50%);
   margin-inline: auto;
-  opacity: 1; 
+  opacity: 1;
   transition: transform 0.3s ease, background-color 0.3s ease;
-  
 }
 
 .card__article:hover .card__data {
-  transform: translateX(-50%) translateY(-10px); 
-  background-color: #d4d4d4; 
+  transform: translateX(-50%) translateY(-10px);
+  background-color: #d4d4d4;
 }
-

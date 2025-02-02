@@ -1,30 +1,20 @@
-import img1 from "../assets/images/landscape-1.jpg";
-import img2 from "../assets/images/landscape-2.jpg"; // Example images
-import img3 from "../assets/images/landscape-3.jpg";
-import img4 from "../assets/images/internship.png";
-
+import img1 from "../assets/images/techevent.jpg";
+import img2 from "../assets/images/nontech.jpg"; // Example images
+import img3 from "../assets/images/preevnt.jpg";
+import img4 from "../assets/images/pentacode.png";
+import img5 from "../assets/images/ML Mania.png";
+import img6 from "../assets/images/ospc.png";
+import img7 from "../assets/images/family feud.png";
+import img8 from "../assets/images/amazon.png";
 // Contacts for the EventPage
+
 export const EventContacts = [
   {
     id: 1,
-    name: "Gautham",
-    phone: "+1 234 567 890",
+    name: "Nikhil Prasanna",
+    phone: "+91 6379066510",
   },
-  {
-    id: 2,
-    name: "Ganesh",
-    phone: "+1 234 567 890",
-  },
-  {
-    id: 3,
-    name: "Gautham",
-    phone: "+1 234 567 890",
-  },
-  {
-    id: 4,
-    name: "Ganesh",
-    phone: "+1 234 567 890",
-  },
+  { id: 2, name: "Padmasharan", phone: "+91 9585612262" },
 ];
 
 // List of events
@@ -38,7 +28,7 @@ export const events = [
         title: "Pentacode",
         description:
           "A quiz challenge spanning five core Computer Science domains: Debugging, DSA, OOPs, CN, and DBMS. Solve a series of tasks to unlock hints and crack the final DSA problem.",
-        image: img1, // Replace with your image path
+        image: img4, // Replace with your image path
         path: "/events/geekquiz1",
 
         team: "Two or three members",
@@ -81,7 +71,7 @@ export const events = [
             no_of_team: "Top 3 will get opportunitues",
 
             name: "Amazon",
-            image: img4,
+            image: img8,
           },
         ],
       },
@@ -90,7 +80,7 @@ export const events = [
         title: "ML - Conquer",
         description:
           "Test your skills in machine learning through a quiz and a hands-on model-building challenge. Answer questions and build an ML model to solve real-world problems.",
-        image: img1,
+        image: img5,
         path: "/events/geekquiz2",
 
         team: "Two or three members",
@@ -140,7 +130,7 @@ export const events = [
         title: "OSPC",
         description:
           "It's a fast-paced programming contest, where innovative minds come together to resolve challenges in the most complicated coding questions, involving data structures and algorithms.",
-        image: img1, // Replace with your image path
+        image: img6, // Replace with your image path
         path: "/events/geekquiz3",
         team: "Two or three members",
         gctDate: "19 February 2024",
@@ -182,46 +172,6 @@ export const events = [
           },
         ],
       },
-      // {
-      //   title: "hello",
-      //   description:
-      //     "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
-      //   image: img1, // Replace with your image path
-      //   path: "/events/geekquiz4",
-
-      //   team: "Two or three members",
-      //   gctDate: "19 February 2024",
-      //   psnaDate: "22 February 2024",
-      //   prize: "Rs 1k+",
-      //   to: "geekquiz4",
-      //   rounds: [
-      //     {
-      //       title: "Round 1",
-      //       content: "MCQ pen and paper event",
-      //       duration: "30 minutes",
-      //       time: "01:30 PM to 04:00 PM",
-      //       venue: "Main Building Room No 238",
-      //     },
-      //   ],
-      //   contact: [
-      //     {
-      //       id: 1,
-      //       name: "Gautham",
-      //       phone: "+1 234 567 890",
-      //     },
-      //     {
-      //       id: 2,
-      //       name: "Ganesh",
-      //       phone: "+1 234 567 890",
-      //     },
-      //     {
-      //       id: 3,
-      //       name: "Ganesh",
-      //       phone: "+1 234 567 890",
-      //     },
-      //   ],
-      // },
-      // Add more events here
     ],
     path: "/events/technical-events", // Path to the event page
   },
@@ -234,7 +184,7 @@ export const events = [
         title: "Family Feud",
         description:
           "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
-        image: img1, // Replace with your image path
+        image: img7, // Replace with your image path
         path: "/events/geekquiz4",
         rules: `• Participants answer survey-based questions on topics like Books, Food, Movies, Lifestyle, and Technology. Responses are ranked (1 = most popular, 7 = least popular).
               • Teams compete to guess the most popular answers.
@@ -244,15 +194,6 @@ export const events = [
               • Each round includes 10 questions.
               • Top 3 teams with the highest total scores win.`,
         to: "geekquiz4",
-      },
-      {
-        id: 5,
-        title: "#Another Event",
-        description:
-          "A DBMS challenge that combines theoretical knowledge with practical application. The first round involves DBMS-based multiple-choice questions (MCQs), testing participants' understanding of database concepts. Successful participants advance to Round 2, a hands-on SQL coding challenge, where they apply their skills to solve real-world database problems.",
-        image: img1, // Replace with your image path
-        path: "/events/geekquiz5",
-        to: "geekquiz5",
       },
     ],
     // Add more events h

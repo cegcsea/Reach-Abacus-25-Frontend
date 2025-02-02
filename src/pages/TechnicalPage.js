@@ -54,7 +54,7 @@ const TechnicalPage = () => {
           ))}
         </div>
       </div>
-      <Contact contacts={EventContacts}/>
+      {/* <Contact contacts={EventContacts}/> */}
     </div>
   );
 };

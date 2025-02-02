@@ -14,14 +14,10 @@ const Workshops = () => {
   const contacts = [
     {
       id: 1,
-      name: "Gautham",
-      phone: "+1 234 567 890",
+      name: "Sunil Kumar",
+      phone: "+91 6383123505",
     },
-    {
-      id: 2,
-      name: "Ganesh",
-      phone: "+1 234 567 890",
-    },
+    { id: 2, name: "Smrithi", phone: "+91 8072869255" },
   ];
   const { isLoading } = LoaderData();
 
