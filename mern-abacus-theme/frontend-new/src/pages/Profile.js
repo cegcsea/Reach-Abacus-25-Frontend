@@ -9,14 +9,13 @@ import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 import { sessions, workshopsReach } from "../constants/workshops";
 const Profile = () => {
-  const { profile, user, userEvents, userWorkshops,session } = UserData(); // Get the profile method and user data from context
+  const { profile, user, userEvents, userWorkshops, session } = UserData(); // Get the profile method and user data from context
 
   // useEffect(() => {
   //   profile(); // Fetch the profile when the component mounts
   //   console.log("profile:", userData.events,userData.workshops); // Debugging: Check the user data fetched
   // }, [user]);
-  console.log(userEvents, userWorkshops, user.workshopPayments,session);
-
+  console.log(userWorkshops);
   const navigate = useNavigate();
 
   const navigateTo = (page) => {
@@ -97,14 +96,15 @@ const Profile = () => {
           {/* Registered Workshops Section */}
           <div className="user-section workshops">
             <h3>Registered Workshops</h3>
+
             
-            {user.workshopPayments?.length > 0 ? (
+                {userWorkshops?.length > 0 ? (
               <ul>
-                {user.workshopPayments.map((workshop, index) => {
+                {userWorkshops.map((workshop, index) => {
                   const matchingWorkshop = workshopsReach.find(
                     (ws) =>
                       ws.code === workshop.workshopId &&
-                      workshop.status === "SUCCESS"
+                      workshop.paymentStatus === "SUCCESS"
                   );
                   return matchingWorkshop ? (
                     <li key={index} className="!text-green-600">
@@ -112,11 +112,11 @@ const Profile = () => {
                     </li>
                   ) : null;
                 })}
-                {user.workshopPayments.map((workshop, index) => {
+                {userWorkshops.map((workshop, index) => {
                   const matchingWorkshop = workshopsReach.find(
                     (ws) =>
                       ws.code === workshop.workshopId &&
-                      workshop.status === "PENDING"
+                      workshop.paymentStatus === "PENDING"
                   );
                   return matchingWorkshop ? (
                     <li key={index} className="!text-orange-800">
@@ -124,19 +124,17 @@ const Profile = () => {
                     </li>
                   ) : null;
                 })}
-                {session.length>0 && session.map((workshop, index) => {
-                  console.log(workshop);
-                  const matchingWorkshop = sessions.find(
-                    (ws) =>
-                      ws.code === workshop.workshopId
-                  );
-                  return matchingWorkshop ? (
-                    <li key={index} >
-                      {matchingWorkshop.title}
-                    </li>
-                  ) : null;
-                })}
-              </ul> 
+                {session.length > 0 &&
+                  session.map((workshop, index) => {
+                    console.log(workshop);
+                    const matchingWorkshop = sessions.find(
+                      (ws) => ws.code === workshop.workshopId
+                    );
+                    return matchingWorkshop ? (
+                      <li key={index}>{matchingWorkshop.title}</li>
+                    ) : null;
+                  })}
+              </ul>
             ) : (
               <p>
                 <button

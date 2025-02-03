@@ -9,7 +9,7 @@ import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 const IndividualWorkshops = () => {
   const { id } = useParams();
-  const { userWorkshops, isAuth } = UserData();
+  const { userWorkshops, isAuth, paymentType, setPaymentType } = UserData();
   const workshop = workshops.find((ws) => ws.to === id);
   const [activeTab, setActiveTab] = useState("description");
   const isPaidWorkshop = (userWorkshops || []).filter(
@@ -210,8 +210,13 @@ const IndividualWorkshops = () => {
               </Link>
             )}
             {workshop.bulkBooking && (
-              <Link to={workshop.bulkBooking.link} target="_blank">
-                <button className="m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-[#93dd7833]">
+              <Link
+                to={`/workshops/${workshop.code}/payment`}
+              >
+                <button
+                  className="m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-[#93dd7833]"
+                  onClick={() => setPaymentType("bulk")}
+                >
                   Bulk Register {"<"}~{">"}
                 </button>
               </Link>
@@ -228,7 +233,9 @@ const IndividualWorkshops = () => {
                 </button>
                 <p className="text-xl font-semibold text-white">
                   Status:&nbsp;
-                  <span className={colorFinder(isPaidWorkshop[0].paymentStatus)}>
+                  <span
+                    className={colorFinder(isPaidWorkshop[0].paymentStatus)}
+                  >
                     {isPaidWorkshop[0].paymentStatus}
                   </span>
                 </p>
@@ -250,7 +257,9 @@ const IndividualWorkshops = () => {
                 </button>
                 <p className="text-xl font-semibold text-white">
                   Status:&nbsp;
-                  <span className={colorFinder(isPaidWorkshop[0].paymentStatus)}>
+                  <span
+                    className={colorFinder(isPaidWorkshop[0].paymentStatus)}
+                  >
                     {isPaidWorkshop[0].paymentStatus}
                   </span>
                 </p>
@@ -268,7 +277,9 @@ const IndividualWorkshops = () => {
                 </Link>
                 <p className="text-xl font-semibold text-white">
                   Status:&nbsp;
-                  <span className={colorFinder(isPaidWorkshop[0].paymentStatus)}>
+                  <span
+                    className={colorFinder(isPaidWorkshop[0].paymentStatus)}
+                  >
                     {isPaidWorkshop[0].paymentStatus}
                   </span>
                 </p>

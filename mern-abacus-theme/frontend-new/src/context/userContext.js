@@ -12,6 +12,7 @@ export const UserContextProvider = ({ children }) => {
   const [btnLoading, setBtnLoading] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isAuth, setIsAuth] = useState(false);
+  const [paymentType, setPaymentType] = useState("individual");
   // const [auth, setAuth] = useState(false);
   const [userEvents, setUserEvents] = useState([]);
   const [userWorkshops, setUserWorkshops] = useState([]);
@@ -210,50 +211,149 @@ export const UserContextProvider = ({ children }) => {
 
       //   return updatedWorkshops;
       // });
-      setUserWorkshops((prevWorkshops) => {
-        const workshops = data.data.workshops;
-        const workshopPayments = data.data.workshopPayments;
 
-        const paymentsByWorkshop = {};
-        workshopPayments.forEach((payment) => {
-          if (!paymentsByWorkshop[payment.workshopId]) {
-            paymentsByWorkshop[payment.workshopId] = [];
-          }
-          paymentsByWorkshop[payment.workshopId].push(payment);
-        });
-        const getBestPayment = (payments) => {
-          let bestPayment = null;
-          for (const payment of payments) {
-            //console.log(payment.status, bestPayment);
-            if (payment.status === "SUCCESS") {
-              return payment; // Highest priority
-            } else if (
-              payment.status === "PENDING" &&
-              (bestPayment?.status === "FAILURE" || !bestPayment)
-            ) {
-              bestPayment = payment;
-            } else if (!bestPayment) {
-              bestPayment = payment;
-            }
-          }
+      // old worshopPayment
+      // setUserWorkshops((prevWorkshops) => {
+      //   const workshops = data.data.workshops;
+      //   const workshopPayments = data.data.workshopPayments;
+      //   console.log("user:",data.data);
+      //   const paymentsByWorkshop = {};
+      //   workshopPayments.forEach((payment) => {
+      //     if (!paymentsByWorkshop[payment.workshopId]) {
+      //       paymentsByWorkshop[payment.workshopId] = [];
+      //     }
+      //     paymentsByWorkshop[payment.workshopId].push(payment);
+      //   });
+      //   const getBestPayment = (payments) => {
+      //     let bestPayment = null;
+      //     for (const payment of payments) {
+      //       //console.log(payment.status, bestPayment);
+      //       if (payment.status === "SUCCESS") {
+      //         return payment; // Highest priority
+      //       } else if (
+      //         payment.status === "PENDING" &&
+      //         (bestPayment?.status === "FAILURE" || !bestPayment)
+      //       ) {
+      //         bestPayment = payment;
+      //       } else if (!bestPayment) {
+      //         bestPayment = payment;
+      //       }
+      //     }
 
-          return bestPayment;
-        };
+      //     return bestPayment;
+      //   };
 
-        const updatedWorkshops = workshops.map((workshop) => {
-          const payments = paymentsByWorkshop[workshop.workshopId] || [];
-          const bestPayment = getBestPayment(payments);
+      //   const updatedWorkshops = workshops.map((workshop) => {
+      //     const payments = paymentsByWorkshop[workshop.workshopId] || [];
+      //     const bestPayment = getBestPayment(payments);
 
-          return {
-            ...workshop,
-            paymentStatus: bestPayment ? bestPayment.status : "No Payment",
-            paymentDetails: bestPayment || {},
-          };
-        });
+      //     return {
+      //       ...workshop,
+      //       paymentStatus: bestPayment ? bestPayment.status : "No Payment",
+      //       paymentDetails: bestPayment || {},
+      //     };
+      //   });
 
-        return updatedWorkshops;
+      //   return updatedWorkshops;
+      // });
+
+      //new
+      // setUserWorkshops((prevWorkshops) => {
+      //   const workshops = data.data.workshops;
+      //   const workshopPayments = data.data.workshopPayments || []; // List of all payments
+      //   const workshopPaymentUsers = data.data.WorkshopPaymentUser || []; // List of users mapped to bulk payments
+
+      //   console.log("Workshops:", workshops);
+      //   console.log("Workshop Payments:", workshopPayments);
+      //   console.log(" Workshop Payment Users:", workshopPaymentUsers);
+
+      //   // Step 1: Create a mapping of payments by ID
+      //   const paymentById = {};
+      //   workshopPayments.forEach((payment) => {
+      //     paymentById[payment.id] = payment; // Map payment by its ID
+      //   });
+
+      //   console.log(" Payment Lookup Map (paymentById):", paymentById);
+
+      //   // Step 2: Map workshopPaymentUser with workshopPayments
+      //   const paymentMappings = workshopPaymentUsers.map((record) => {
+      //     const payment = paymentById[record.workshopPaymentId]; // Get corresponding payment
+      //     return {
+      //       workshopId: record.workshopId,
+      //       userId: record.userId, // Might be null in bulk payments, but we retain user mapping
+      //       paymentId: record.workshopPaymentId,
+      //       paymentStatus: payment ? payment.status : "No Payment",
+      //     };
+      //   });
+
+      //   console.log(" Mapped Workshop Payments:", paymentMappings);
+
+      //   // Step 3: Map payments by workshopId
+      //   const paymentsByWorkshop = {};
+      //   paymentMappings.forEach((mapping) => {
+      //     if (!paymentsByWorkshop[mapping.workshopId]) {
+      //       paymentsByWorkshop[mapping.workshopId] = [];
+      //     }
+      //     paymentsByWorkshop[mapping.workshopId].push(mapping);
+      //   });
+
+      //   console.log(
+      //     " Payments by Workshop (After Mapping):",
+      //     paymentsByWorkshop
+      //   );
+
+      //   // Step 4: Determine the best payment status
+      //   const getBestPayment = (payments) => {
+      //     let bestPayment = null;
+      //     for (const payment of payments) {
+      //       if (payment.paymentStatus === "SUCCESS") {
+      //         return payment; // Highest priority
+      //       } else if (
+      //         payment.paymentStatus === "PENDING" &&
+      //         (bestPayment?.paymentStatus === "FAILURE" || !bestPayment)
+      //       ) {
+      //         bestPayment = payment;
+      //       } else if (!bestPayment) {
+      //         bestPayment = payment;
+      //       }
+      //     }
+      //     return bestPayment;
+      //   };
+
+      //   // Step 5: Update workshops with correct payment status
+      //   const updatedWorkshops = workshops.map((workshop) => {
+      //     const payments = paymentsByWorkshop[workshop.workshopId] || [];
+      //     const bestPayment = getBestPayment(payments);
+
+      //     console.log(
+      //       `Workshop: ${workshop.workshopId}, Payments:`,
+      //       payments
+      //     );
+      //     console.log(
+      //       `Best Payment for Workshop ${workshop.workshopId}:`,
+      //       bestPayment
+      //     );
+
+      //     return {
+      //       ...workshop,
+      //       paymentStatus: bestPayment
+      //         ? bestPayment.paymentStatus
+      //         : "No Payment",
+      //       paymentDetails: bestPayment || {},
+      //     };
+      //   });
+
+      //   console.log(" Final Updated Workshops:", updatedWorkshops);
+
+      //   return updatedWorkshops;
+      // });
+
+      const response = await axios.get(`${server}/user/user-workshops`, {
+        headers: { token },
       });
 
+      console.log(" Fetched Workshops & Payments:", response.data);
+      setUserWorkshops(response.data.workshops);
       //console.log(user);
     } catch (error) {
       //console.log(error);
@@ -380,6 +480,42 @@ export const UserContextProvider = ({ children }) => {
     }
   }
 
+  const verifyBulkWorkshopPayment = async (paymentData, navigate) => {
+    try {
+      const token = localStorage.getItem("abacustoken");
+      //console.log(paymentData);
+      const formData = new FormData();
+      console.log(
+        paymentData.workshopId,
+        paymentData.paymentMobile,
+        paymentData.transactionId,
+        JSON.stringify(paymentData.userIds)
+      );
+      formData.append("workshopId", paymentData.workshopId);
+      console.log("formData", formData);
+      formData.append("paymentMobile", paymentData.paymentMobile);
+      formData.append("transactionId", paymentData.transactionId);
+      // Convert userIds array to JSON and append it to formData
+      formData.append("userIds", JSON.stringify(paymentData.userIds)); // userIds are now in an array
+
+      const response = await axios.post(
+        `${server}/user/workshop/bulk-payment`,
+        formData,
+        { headers: { token, "Content-Type": "multipart/form-data" } }
+      );
+      console.log("response bulk:", response);
+      const message = response.data.message;
+      const payment = response.data.payment;
+      toast.success("Bulk Payment submitted successfully!");
+
+      return { message, payment };
+    } catch (error) {
+      console.error("Bulk Payment failed:", error.response?.data);
+      alert("Bulk Payment submission failed. Please try again.");
+      throw error;
+    }
+  };
+
   // Get Workshops
   async function getWorkshops() {
     const token = localStorage.getItem("abacustoken");
@@ -448,6 +584,31 @@ export const UserContextProvider = ({ children }) => {
       throw err;
     }
   }
+  // async function verifyWorkshopPaymentDetails(paymentData) {
+  //   const token = localStorage.getItem("abacustoken");
+  //   try {
+  //     const response = await axios.post(
+  //       `${server}/user/verify-workshop-payment-details`,
+  //       paymentData,
+  //       { headers: { token } }
+  //     );
+
+  //     const message = response.data.message;
+  //     const payment = response.data.data;
+
+  //     // After verifying the payment, now link it to the user using WorkshopPaymentUser
+  //     const userId = paymentData.userId; // Assuming `userId` is passed in paymentData
+  //     await linkPaymentToUser(payment.id, userId);
+
+  //     return { message, payment };
+  //   } catch (err) {
+  //     if (err.response) throw err.response.data.message;
+  //     throw err;
+  //   }
+  // }
+
+
+
   // useEffect(() => {
   //   console.log("Updated userWorkshops:", userWorkshops);
   // }, [userWorkshops]);
@@ -475,7 +636,36 @@ export const UserContextProvider = ({ children }) => {
       throw err;
     }
   }
+  const handleVerifyBulkWorkshopPayment = (data, navigate) => {
+    toast.promise(
+      verifyBulkWorkshopPayment(
+        {
+          workshopId: data.workshopId,
+          paymentMobile: data.paymentMobile,
+          transactionId: data.transactionId,
+          userIds: data.userIds,
+        },
+        navigate
+      ).then((responsesData) => {
+        workshopPaymentScreenshot({
+          payment: responsesData.payment,
+          formData: data.formData,
+        });
+      }),
+      {
+        loading: "Verifying...",
+        success: (screenshotData) => {
+          refreshauth();
+          navigate(`/workshops`);
+          return "Payment Details will be verified shortly!";
+        },
 
+        error: (err) => {
+          return typeof err == "object" ? err.message : err;
+        },
+      }
+    );
+  };
   const handleVerifyWorkshopPayment = (data, navigate) => {
     toast.promise(
       verifyWorkshopPaymentDetails({
@@ -519,8 +709,6 @@ export const UserContextProvider = ({ children }) => {
         .then((data) => {
           setIsAuth(true);
           // console.log(data);
-          // setUser(data.user);
-          // setUserWorkshops(data.user.workshopPayments);
         })
         .catch((error) => {});
       getEvents()
@@ -549,7 +737,8 @@ export const UserContextProvider = ({ children }) => {
     //   console.log("userevents", userEvents);
     //   console.log("user workshops", userWorkshops);
     //console.log("sessions", session);
-  }, [session]);
+    //console.log(paymentType);
+  }, [paymentType]);
 
   return (
     <UserContext.Provider
@@ -583,6 +772,10 @@ export const UserContextProvider = ({ children }) => {
         userWorkshops,
         session,
         setIsMenuOpen,
+        verifyBulkWorkshopPayment,
+        handleVerifyBulkWorkshopPayment,
+        paymentType,
+        setPaymentType,
       }}
     >
       {children}

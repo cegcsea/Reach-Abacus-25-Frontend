@@ -21,6 +21,7 @@ import { UserData } from "./context/userContext";
 import { LoaderData } from "./context/loaderContext";
 import Loader from "./components/Loader/Loader";
 import { useEffect } from "react";
+import BulkPayment from "./pages/BulkPayment";
 const App = () => {
   const { isMenuOpen, setIsMenuOpen } = UserData();
   const { isLoading, setIsLoading } = LoaderData();
@@ -49,6 +50,7 @@ const App = () => {
           <Route path="/workshops" element={<Workshops />} />
           <Route path="/workshops/:id" element={<IndividualWorkshops />} />
           <Route path="/workshops/:id/payment" element={<Payment />} />
+          <Route path="/workshops/:id/bulkpayment" element={<BulkPayment />} />
           <Route path="/login" element={<HomePage />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route
