@@ -8,7 +8,7 @@ import ML_150 from "../assets/Reach/150.jpg";
 export const workshopsReach = [
   {
     title: "Design for Impact: Power of UX",
-    to: "mernstackdev",
+    to: "power_of_ux",
     image: MERN,
     bulkBooking: {
       link: "https://forms.gle/9nXUzrL8ejy4KUad6",
@@ -46,7 +46,7 @@ export const workshopsReach = [
   },
   {
     title: "Workshop on Generative AI",
-    to: "mlusingpython",
+    to: "genAI",
     image: ML,
     qr: ML_150,
     venue: [
