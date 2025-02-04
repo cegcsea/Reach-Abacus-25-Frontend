@@ -33,15 +33,16 @@ img {
 
 .card__article {
   position: relative;
-  overflow: hidden;
+  overflow: visible !important;
 }
 
 .card__img {
-  width: 328px;
+  width: 350px;
   height: 250px;
   border-radius: 1.5rem;
   overflow: hidden;
   object-fit: fill;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
 }
 
 .card__description {
@@ -50,15 +51,26 @@ img {
   margin-bottom: 0.25rem;
 }
 
+.card__data {
+  width: 280px !important;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.15);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: -50px !important; /* Pushed further down */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.15) !important; /* Semi-transparent */
+  backdrop-filter: blur(10px); /* Blur effect */
+}
+
 .card__title {
   font-weight: bold;
-  font-size: var(--h2-font-size);
-  font-weight: 500;
-  color: var(--title-color);
-  margin-bottom: 0.75rem;
+  font-size: 1.02rem !important; /* Slightly bigger */
+  text-transform: uppercase; /* Converts text to uppercase */
   color: #fcfcfc;
   text-align: center;
-  color: black;
+  margin-bottom: 0.75rem;
 }
 
 .card__button {
