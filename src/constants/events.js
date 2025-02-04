@@ -29,7 +29,7 @@ export const events = [
         description:
           "A quiz challenge spanning five core Computer Science domains: Debugging, DSA, OOPs, CN, and DBMS. Solve a series of tasks to unlock hints and crack the final DSA problem.",
         image: img4, // Replace with your image path
-        path: "/events/geekquiz1",
+        path: "/events/pentacode",
 
         team: "Two or three members",
         gctDate: "19 February 2024",
@@ -81,7 +81,7 @@ export const events = [
         description:
           "Test your skills in machine learning through a quiz and a hands-on model-building challenge. Answer questions and build an ML model to solve real-world problems.",
         image: img5,
-        path: "/events/geekquiz2",
+        path: "/events/ml-conquer",
 
         team: "Two or three members",
         gctDate: "19 February 2024",
@@ -131,7 +131,7 @@ export const events = [
         description:
           "It's a fast-paced programming contest, where innovative minds come together to resolve challenges in the most complicated coding questions, involving data structures and algorithms.",
         image: img6, // Replace with your image path
-        path: "/events/geekquiz3",
+        path: "/events/ospc",
         team: "Two or three members",
         gctDate: "19 February 2024",
         psnaDate: "22 February 2024",
@@ -185,7 +185,7 @@ export const events = [
         description:
           "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
         image: img7, // Replace with your image path
-        path: "/events/geekquiz4",
+        path: "/events/family-feud",
         rules: `• Participants answer survey-based questions on topics like Books, Food, Movies, Lifestyle, and Technology. Responses are ranked (1 = most popular, 7 = least popular).
               • Teams compete to guess the most popular answers.
               • Buzzers decide who answers first.
