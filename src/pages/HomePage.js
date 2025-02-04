@@ -1,4 +1,4 @@
-import React from "react";
+import {React,useRef} from "react";
 import "../styles/about.css";
 import "../styles/global.css";
 //import { Bubble } from "../components/Bubble";
@@ -13,10 +13,16 @@ import Loader from "../components/Loader/Loader";
 
 const HomePage = ({ isMenuOpen }) => {
   const { isLoading } = LoaderData();
-
+  const contactRef = useRef(null);
   if (isLoading) {
     return <Loader />;
   }
+  const scrollToContact = () => {
+    if (contactRef.current) {
+      contactRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+  
   return (
     <div className="bg-black">
       {/* Main Section */}
@@ -27,7 +33,7 @@ const HomePage = ({ isMenuOpen }) => {
         ))}
       </div> */}
       <div className="main bg-transparent scroll-mt-20">
-        <Home />
+        <Home scrollToContact={scrollToContact}/>
       </div>
       <div className="mt-16 scroll-mt-20" id="sponsors">
         <Sponsors />
@@ -35,7 +41,7 @@ const HomePage = ({ isMenuOpen }) => {
       {/* Developers Section */}
       <Developers />
       {/* Footer Section */}
-      <Footer />
+      <Footer ref={contactRef} />
     </div>
   );
 };
