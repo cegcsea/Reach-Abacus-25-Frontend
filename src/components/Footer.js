@@ -5,10 +5,10 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
-import { useState } from "react";
+import { useState,forwardRef } from "react";
 import { UserData } from "../context/userContext";
 import toast from "react-hot-toast";
-const Footer = () => {
+const Footer =forwardRef((props, ref)  => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,7 +30,7 @@ const Footer = () => {
     setFormData({ name: "", email: "", title: "", message: "" });
   };
   return (
-    <div className="footer">
+    <div  ref={ref} className="footer">
       <div className="footer-container">
         <h1 className="footer-heading text-2xl lg:!text-4xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#c03e3e]">
           CONTACTS
@@ -154,5 +154,5 @@ const Footer = () => {
       </div>
     </div>
   );
-};
+});
 export default Footer;

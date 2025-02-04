@@ -29,13 +29,13 @@ export const events = [
         description:
           "A quiz challenge spanning five core Computer Science domains: Debugging, DSA, OOPs, CN, and DBMS. Solve a series of tasks to unlock hints and crack the final DSA problem.",
         image: img4, // Replace with your image path
-        path: "/events/geekquiz1",
+        path: "/events/pentacode",
 
         team: "Two or three members",
         gctDate: "19 February 2024",
         psnaDate: "22 February 2024",
         prize: "Rs 1k+",
-        to: "geekquiz1",
+        to: "pentacode",
         rounds: [
           {
             title: "Round 1 – Quiz Challenge",
@@ -81,13 +81,13 @@ export const events = [
         description:
           "Test your skills in machine learning through a quiz and a hands-on model-building challenge. Answer questions and build an ML model to solve real-world problems.",
         image: img5,
-        path: "/events/geekquiz2",
+        path: "/events/ml-conquer",
 
         team: "Two or three members",
         gctDate: "19 February 2024",
         psnaDate: "22 February 2024",
         prize: "Rs 1k+",
-        to: "geekquiz2",
+        to: "ml-conquer",
         rounds: [
           {
             title: "Round 1 – ML Conquer: Quiz Blitz",
@@ -131,12 +131,12 @@ export const events = [
         description:
           "It's a fast-paced programming contest, where innovative minds come together to resolve challenges in the most complicated coding questions, involving data structures and algorithms.",
         image: img6, // Replace with your image path
-        path: "/events/geekquiz3",
+        path: "/events/ospc",
         team: "Two or three members",
         gctDate: "19 February 2024",
         psnaDate: "22 February 2024",
         prize: "Rs 1k+",
-        to: "geekquiz3",
+        to: "ospc",
         rounds: [
           {
             title: "Round 1",
