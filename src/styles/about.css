@@ -40,13 +40,13 @@
 
 .home_bgcircle1__MiYGt {
   animation: rotate-dots 2.66s linear infinite;
-  background-image: url("../assets/images/image.png");
+  background-image: url("../assets/images/img\ red.png");
   background-position: 50%;
   background-size: contain;
   border-radius: 50%;
-  height: 450px;
+  height: 550px;
   position: absolute;
-  width: 450px;
+  width: 550px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -243,13 +243,13 @@
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/image.png");
+    background-image: url("../assets/images/img\ red.png");
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 360px;
+    height: 500px;
     position: absolute;
-    width: 360px;
+    width: 500px;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -318,14 +318,14 @@
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/image.png");
+    background-image: url("../assets/images/img\ red.png");
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 340px;
+    height: 470px;
     position: absolute;
-    top: 23%;
-    width: 340px;
+    top: 14%;
+    width: 470px;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -354,17 +354,39 @@
   }
 }
 
+@media(max-width:514px)
+{
+
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 460px;
+    position: absolute;
+    width: 460px;
+    top:16%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 @media (max-width: 480px) {
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/image.png");
+    background-image: url("../assets/images/img\ red.png");
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 340px;
+    height: 460px;
     position: absolute;
-    width: 340px;
+    width: 460px;
+    top:17%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -376,14 +398,125 @@
 }
 
 @media (max-width: 480px) {
-  .home_bgcircle1__MiYGt {
-    height: 340px;
-    position: absolute;
-    width: 340px;
-    margin-top: 60px;
-  }
+
 
   .logo {
     margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 460px;
+    position: absolute;
+    width: 460px;
+    top:19%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+
+@media (max-width: 472px) {
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 460px;
+    position: absolute;
+    width: 460px;
+    top:17%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 422px) {
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 460px;
+    position: absolute;
+    width: 460px;
+    top:19%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 357px) {
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 465px;
+    position: absolute;
+    width: 465x;
+    top:22%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width:345px) {
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 440px;
+    position: absolute;
+    width: 440px;
+    top:17%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+ 
+}
+
+@media (max-width: 350px) {
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 460px;
+    position: absolute;
+    width: 460px;
+    top:22%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
