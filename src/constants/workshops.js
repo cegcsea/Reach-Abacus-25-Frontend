@@ -32,7 +32,7 @@ export const workshopsReach = [
       takeaways: "Takeaways",
       time: "9:00 AM to 4:30 PM",
       date: "22nd March (Friday), 2024",
-      venue: "X hall, EEE Department",
+      // venue: "X hall, EEE Department",
       entryFee: "Rs. 150/-",
     },
     contact: [
@@ -67,7 +67,7 @@ export const workshopsReach = [
       takeaways: "Takeaways",
       time: "9:00 AM to 4:30 PM",
       date: "22nd March (Friday), 2024",
-      venue: "X hall, EEE Department",
+      // venue: "X hall, EEE Department",
       entryFee: "Rs. 300/-",
     },
     contact: [
@@ -112,6 +112,8 @@ export const sessions = [
     image: placement,
     content:
       "Participate in focused sessions on interview techniques, enhancing your confidence and readiness for placement scenarios. Stay informed about current hiring trends and industry expectations, positioning yourself effectively during placement processes. Engage in simulated interview experiences, receiving valuable feedback to optimize your performance in real-world placements.",
+   
     
   },
+  
 ];

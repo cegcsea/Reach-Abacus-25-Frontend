@@ -11,14 +11,7 @@ const Workshops = () => {
   const burgundy = "#800020";
   const white = "#fff";
 
-  const contacts = [
-    {
-      id: 1,
-      name: "Sunil Kumar",
-      phone: "+91 6383123505",
-    },
-    { id: 2, name: "Smrithi", phone: "+91 8072869255" },
-  ];
+
   const { isLoading } = LoaderData();
 
   if (isLoading) {
@@ -71,9 +64,7 @@ const Workshops = () => {
           ))}
         </div>
         <Session />
-        <div className="mt-10">
-          <Contact contacts={contacts} />
-        </div>
+       
       </div>
     </div>
   );
