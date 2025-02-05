@@ -34,7 +34,7 @@ export const events = [
         team: "Two or three members",
         gctDate: "19 February 2024",
         psnaDate: "22 February 2024",
-        prize: "Rs 1k+",
+        prize: "Rs 1.5k+",
         to: "pentacode",
         rounds: [
           {
@@ -43,7 +43,7 @@ export const events = [
               "Test your mettle in a quiz spanning five core Computer Science domains: Debugging, DSA, OOPs, CN, and DBMS. Showcase your expertise to advance!",
             duration: "30 minutes",
             time: "01:30 PM to 04:00 PM",
-            venue: "Main Building Room No 238",
+            // venue: "Main Building Room No 238",
           },
           {
             title: "Round 2 – Decode the Pentacode",
@@ -51,7 +51,7 @@ export const events = [
               "Solve a challenging DSA problem with the help of hints unlocked from tasks in four other domains. Complete all tasks strategically to crack the final DSA problem and secure victory!",
             duration: "45 minutes",
             time: "01:30 PM to 04:00 PM",
-            venue: "Main Building Room No 238",
+            // venue: "Main Building Room No 238",
           },
         ],
         contact: [
@@ -66,14 +66,7 @@ export const events = [
             phone: "+1 234 567 890",
           },
         ],
-        intern: [
-          {
-            no_of_team: "Top 3 will get opportunitues",
-
-            name: "Amazon",
-            image: img8,
-          },
-        ],
+        intern: [],
       },
       {
         id: 2,
@@ -86,7 +79,7 @@ export const events = [
         team: "Two or three members",
         gctDate: "19 February 2024",
         psnaDate: "22 February 2024",
-        prize: "Rs 1k+",
+        prize: "Rs 1.5k+",
         to: "ml-conquer",
         rounds: [
           {
@@ -95,7 +88,7 @@ export const events = [
               "Test your theoretical knowledge of machine learning algorithms, concepts, and applications in a fast-paced quiz. Answer quickly and accurately to secure your spot in the next round.",
             duration: "30 minutes",
             time: "01:30 PM to 04:00 PM",
-            venue: "Main Building Room No 238",
+            // venue: "Main Building Room No 238",
           },
           {
             title: "Round 2 – ML Conquer: Model Challenge",
@@ -103,7 +96,7 @@ export const events = [
               "Build a powerful ML model to solve a real-world problem. Showcase your coding skills, data analysis, and model optimization techniques to emerge as the ultimate ML conqueror.",
             duration: "45 minutes",
             time: "01:30 PM to 04:00 PM",
-            venue: "Main Building Room No 238",
+            // venue: "Main Building Room No 238",
           },
         ],
         contact: [
@@ -135,7 +128,7 @@ export const events = [
         team: "Two or three members",
         gctDate: "19 February 2024",
         psnaDate: "22 February 2024",
-        prize: "Rs 1k+",
+        prize: "Rs 1.5k+",
         to: "ospc",
         rounds: [
           {
@@ -143,7 +136,7 @@ export const events = [
             content: "MCQ on Data Structures, Algorithms, and OOPs concepts",
             duration: "30 minutes",
             time: "01:30 PM to 02:00 PM",
-            venue: "Main Building Room No 238",
+            // venue: "Main Building Room No 238",
           },
           {
             title: "Round 2",
@@ -151,7 +144,7 @@ export const events = [
               "Solve challenging programming questions based on DSA and algorithms",
             duration: "1 hour",
             time: "02:30 PM to 03:30 PM",
-            venue: "Main Building Room No 238",
+            // venue: "Main Building Room No 238",
           },
         ],
         contact: [
@@ -183,9 +176,9 @@ export const events = [
         id: 4,
         title: "Family Feud",
         description:
-          "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
+          "Put your skills to test on topics like Food, Technology, Movies, Lifestyle, and more! Can your team guess the most popular answers to survey questions and win the title of Family Feud Champions?",
         image: img7, // Replace with your image path
-        path: "/events/geekquiz4",
+        path: "/events/family-feud",
         rules: `• Participants answer survey-based questions on topics like Books, Food, Movies, Lifestyle, and Technology. Responses are ranked (1 = most popular, 7 = least popular).
               • Teams compete to guess the most popular answers.
               • Buzzers decide who answers first.
@@ -194,6 +187,7 @@ export const events = [
               • Each round includes 10 questions.
               • Top 3 teams with the highest total scores win.`,
         to: "family-feud",
+        prize: "Rs 1k+",
       },
     ],
     // Add more events h

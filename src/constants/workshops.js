@@ -26,14 +26,14 @@ export const workshopsReach = [
       "This half-day workshop delves into the world of User Experience (UX) design, exploring its core principles and how psychology influences user behavior. Participants will learn to differentiate between UI and UX, understand the importance of accessibility and inclusive design, and analyze how successful apps leverage UX psychology. A hands-on activity will allow participants to apply these concepts by redesigning a user flow for a mobile app, fostering a practical understanding of creating impactful and user-centered designs.",
     prerequisites:
       "Participants are required to bring laptops.No prior knowledge is needed.",
-    speakers: "John Doe, Jane Smith",
+    // speakers: "John Doe, Jane Smith",
     moreInfo: {
       certificate: "Physical Certificate",
       takeaways: "Takeaways",
       time: "9:00 AM to 4:30 PM",
       date: "22nd March (Friday), 2024",
       venue: "X hall, EEE Department",
-      entryFee: "Rs. 399/-",
+      entryFee: "Rs. 150/-",
     },
     contact: [
       {
@@ -61,19 +61,19 @@ export const workshopsReach = [
       "Ignite your curiosity in Generative AI!. This one-day workshop provides a comprehensive introduction to Generative AI, focusing on its fundamentals, applications, and practical implementation. Designed for beginners, the session will help participants understand the transformative potential of Generative AI in various domains through engaging lectures and hands-on activities.",
     prerequistes:
       "No prior machine learning experience is required. Just bring your curiosity, and let's make the most of this short but impactful ML adventure!",
-    speakers: "John Doe, Jane Smith",
+    // speakers: "John Doe, Jane Smith",
     moreInfo: {
       certificate: "Physical Certificate",
       takeaways: "Takeaways",
       time: "9:00 AM to 4:30 PM",
       date: "22nd March (Friday), 2024",
       venue: "X hall, EEE Department",
-      entryFee: "Rs. 399/-",
+      entryFee: "Rs. 300/-",
     },
     contact: [
       {
         id: 1,
-        name: "Ajay Krishna",
+        name: "Ajai Krishna",
         phone: "+91 7010707652",
       },
       { id: 2, name: "Nikhil Prasanna", phone: "+91 6379066510" },
