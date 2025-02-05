@@ -24,14 +24,14 @@ function Session() {
   const isRegistered =
     Array.isArray(session) &&
     session.some((workshop) => workshop.workshopId === 3);
-    const contact = [
-      {
-        id: 1,
-        name: "Sunil Kumar",
-        phone: "+91 6383123505",
-      },
-      { id: 2, name: "Smrithi", phone: "+91 8072869255" },
-    ]
+  const contact = [
+    {
+      id: 1,
+      name: "Sunil Kumar",
+      phone: "+91 6383123505",
+    },
+    { id: 2, name: "Smrithi", phone: "+91 8072869255" },
+  ];
   return (
     <div className="border-[2px] rounded-xl border-[#FF5555] border-shadow border-shadow-lg bg-[#1d1d1d] my-5">
       <div className="p-5 sm:py-8 sm:px-10 flex gap-3 flex-col ">
@@ -109,14 +109,11 @@ function Session() {
               </p>
             )}
           </div>
-          </div>
-          
-          <div className="">
-  <Contact contacts={contact} />
-</div>
-
         </div>
-       
+
+        <div className="">
+          <Contact contacts={contact} />
+        </div>
       </div>
       <div className="mt-10">
         <Contact contacts={contacts} />
