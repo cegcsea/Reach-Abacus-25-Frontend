@@ -7,6 +7,8 @@ import Loader from "../components/Loader/Loader";
 const Workshops = () => {
   const navigate = useNavigate();
   const white = "#fff";
+
+
   const { isLoading } = LoaderData();
 
   if (isLoading) {
@@ -60,6 +62,7 @@ const Workshops = () => {
         </div>
         <Session />
         
+       
       </div>
     </div>
   );

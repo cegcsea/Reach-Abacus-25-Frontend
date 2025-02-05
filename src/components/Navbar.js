@@ -6,6 +6,7 @@ import { MdEvent } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
 import { UserData } from "../context/userContext";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const navigate = useNavigate();
@@ -106,11 +107,11 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             className="h-16 w-20 mt-1 mx-auto rounded-lg"
           />
         </a>
-        <a href="#home" className="my-auto">
+        <Link to="/" className="my-auto">
           <h1 className="hover:text-gray-950 text-2xl font-semibold rounded-xl mx-2 p-1 cursor-pointer">
             Reach 2025
           </h1>
-        </a>
+        </Link>
       </div>
 
       {/* Mobile Menu Toggle */}

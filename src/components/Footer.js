@@ -106,7 +106,7 @@ const Footer = forwardRef((props, ref) => {
           </div>
           <div className="footer-bottom">
             <p>Collaborate with us!</p>
-            <a href="mailto:cseaceg25@gmail.com">cseaceg24@gmail.com</a>
+            <a href="mailto:cseaceg25@gmail.com">cseaceg25@gmail.com</a>
             <a href="mailto:marketing@abacus.org.in">marketing@abacus.org.in</a>
           </div>
         </div>
