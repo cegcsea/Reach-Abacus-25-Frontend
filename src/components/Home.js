@@ -20,7 +20,7 @@ const slideFromRight = {
   visible: { x: 0, opacity: 1, transition: { duration: 1 } },
 };
 
-const Home = ({scrollToContact}) => {
+const Home = ({ scrollToContact }) => {
   const { isLoading } = LoaderData();
   if (isLoading) {
     return <Loader />;
@@ -72,7 +72,7 @@ const Home = ({scrollToContact}) => {
               src={require("../assets/Reach/abacus'25_logo_white.png")}
               alt="Abacus Logo"
             />
-            <div className="home_bgcircle1__MiYGt !mb-28 md:!my-68 xl:!my-8 lg:!my-68"></div>
+            <div className="home_bgcircle1__MiYGt !mb-[90px] md:!my-68  lg:!my-68"></div>
           </motion.div>
           <TypewritingButton />
         </motion.div>

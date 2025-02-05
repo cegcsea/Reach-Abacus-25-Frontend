@@ -254,7 +254,7 @@
 
   .main .initial .logo {
     height: 20em;
-    width: 30em;
+    /* width: 30em; */
     visibility: visible;
   }
   .h2 {
@@ -429,10 +429,10 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 460px;
+    height: 475px;
     position: absolute;
-    width: 480px;
-    top:36%;
+    width: 485px;
+    top:37%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
