@@ -116,13 +116,13 @@ const Home = ({scrollToContact}) => {
               innovation. This year, Abacus is back offline on a grander scale
               with an innovative edge to all the events.
             </p>
-            <motion.button
+            {/* <motion.button
               className=".but !my-8 !mx-auto xl:!mx-0 lg:w-[23%]"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
               Read More
-            </motion.button>
+            </motion.button> */}
           </motion.div>
         </motion.div>
       </motion.div>

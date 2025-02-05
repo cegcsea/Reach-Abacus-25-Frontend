@@ -270,7 +270,7 @@
   }
   .initial .theme {
     color: rgb(255, 255, 255);
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 400;
     text-align: center;
     text-decoration: none;
@@ -321,7 +321,7 @@
     border-radius: 50%;
     height: 470px;
     position: absolute;
-    top: 14%;
+    top: 16%;
     width: 470px;
     background-repeat: no-repeat;
     display: flex;
@@ -340,7 +340,7 @@
   .initial .theme {
     padding: 10px;
     color: rgb(255, 255, 255);
-    font-size: 12px;
+    font-size: 25px;
     border: 1px solid black;
     z-index: 10;
   }
