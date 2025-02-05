@@ -57,7 +57,7 @@ body {
 }
 
 .text-container h1 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     color: #ff6f61; 
     margin-bottom: 10px;
     font-weight: 600;
@@ -112,12 +112,14 @@ body {
 
 
 @media (max-width: 480px) {
+
+    
     .content-container img {
         max-width: 100%;
     }
 
     .text-container h1 {
-        font-size: 1.8rem; 
+        font-size: 1.5rem; 
     }
 
     .text-container p {
@@ -165,7 +167,7 @@ body {
   margin-left: auto;
 }
 .out{
-    padding:30px;
+    padding:15px;
     text-align: center;
     margin: auto;
 }

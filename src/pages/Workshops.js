@@ -1,24 +1,12 @@
 import React from "react";
-import { FaPhoneAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { workshopsReach as workshops } from "../constants/workshops";
-import Contact from "../components/Contact";
 import Session from "../components/Session";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 const Workshops = () => {
   const navigate = useNavigate();
-  const burgundy = "#800020";
   const white = "#fff";
-
-  const contacts = [
-    {
-      id: 1,
-      name: "Sunil Kumar",
-      phone: "+91 6383123505",
-    },
-    { id: 2, name: "Smrithi", phone: "+91 8072869255" },
-  ];
   const { isLoading } = LoaderData();
 
   if (isLoading) {
@@ -34,11 +22,11 @@ const Workshops = () => {
           Workshops
         </h2>
 
-        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-8 ">
           {workshops.map((workshop) => (
             <div
               key={workshop.id}
-              className=" bg-[#1d1d1d] text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow "
+              className="border-[2px]  border-[#FF5555] bg-[#1d1d1d] text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow "
             >
               <h3
                 className="text-xl font-semibold mb-4 border-b-2 pb-4"
@@ -71,9 +59,7 @@ const Workshops = () => {
           ))}
         </div>
         <Session />
-        <div className="mt-10">
-          <Contact contacts={contacts} />
-        </div>
+        
       </div>
     </div>
   );

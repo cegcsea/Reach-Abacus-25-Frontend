@@ -1,4 +1,5 @@
-import abacus_img from "../assets/images/logo.jpeg";
+import reach_img from "../assets/Hero/Reach'25 logo black.png";
+import abacus_img from "../assets/Reach/abacus'25_logo_white.png";
 import { AiFillHome, AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
 import { FaInfoCircle, FaHandshake, FaTools } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
@@ -88,7 +89,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-screen flex flex-row justify-between lg:px-5 lg:py-2 text-white bg-gradient-to-b from-[#702b2b] via-[#9d0505] to-[#8a1818] shadow-2xl z-50 border-b-2 border-b-gray-600 ${
+      className={`fixed top-0 left-0 w-screen flex flex-row justify-between lg:px-5  text-white bg-gradient-to-b from-[#702b2b] via-[#9d0505] to-[#8a1818] shadow-2xl z-50 border-b-2 border-b-gray-600 ${
         isMenuOpen ? "overflow-hidden" : "visible"
       }`}
     >
@@ -98,11 +99,11 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           isMenuOpen ? "hidden" : "visible"
         }`}
       >
-        <a href="#home">
+        <a href="#home" className="mt-[6px]">
           <img
             src={abacus_img}
             alt="abacus-image"
-            className="h-14 w-14 mx-auto p-1 rounded-lg"
+            className="h-16 w-20 mt-1 mx-auto rounded-lg"
           />
         </a>
         <a href="#home" className="my-auto">

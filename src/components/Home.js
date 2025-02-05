@@ -69,10 +69,10 @@ const Home = ({scrollToContact}) => {
           >
             <img
               className="logo"
-              src={require("../assets/images/logo copy.png")}
+              src={require("../assets/Reach/abacus'25_logo_white.png")}
               alt="Abacus Logo"
             />
-            <div className="home_bgcircle1__MiYGt !my-[340px] md:!my-68 xl:!my-8 lg:!my-68"></div>
+            <div className="home_bgcircle1__MiYGt !mb-28 md:!my-68 xl:!my-8 lg:!my-68"></div>
           </motion.div>
           <TypewritingButton />
         </motion.div>

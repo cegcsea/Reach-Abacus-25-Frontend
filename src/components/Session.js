@@ -3,6 +3,7 @@ import image from "../assets/Reach/placement.svg";
 import { UserData } from "../context/userContext.js";
 import { useNavigate } from "react-router-dom";
 import { FaLocationDot } from "react-icons/fa6";
+import Contact from "../components/Contact";
 
 function Session() {
   const { freeWorkshopRegister, isAuth, user, session } = UserData();
@@ -11,13 +12,21 @@ function Session() {
   const handleRegister = (code) => {
     freeWorkshopRegister({ workshopId: code });
   };
-  console.log(session);
+  //console.log(session);
+  const contacts = [
+    {
+      id: 1,
+      name: "Sunil Kumar",
+      phone: "+91 6383123505",
+    },
+    { id: 2, name: "Smrithi", phone: "+91 8072869255" },
+  ];
   const isRegistered =
     Array.isArray(session) &&
     session.some((workshop) => workshop.workshopId === 3);
 
   return (
-    <div>
+    <div className="border-[2px] rounded-xl border-[#FF5555] border-shadow border-shadow-lg bg-[#1d1d1d] my-5">
       <div className="p-5 sm:py-8 sm:px-10 flex gap-3 flex-col ">
         <h1 className="text-4xl lg:text-5xl md:text-4xl sm:text-3xl text-white overflow-hidden">
           <span className="[text-shadow:6px_2px_4px_#c03e3e] text-5xl font-bold text-[#fcfcfc] text-center">
@@ -26,7 +35,7 @@ function Session() {
         </h1>
       </div>
       <div className="px-2 sm:px-0 !p-0 !m-0 ">
-        <div className=" flex sm:flex-row !p-0 !m-0 flex-col  border border-[#FF5555] bg-[#1d1d1d] overflow-hidden ">
+        <div className=" flex sm:flex-row !p-0 !m-0 flex-col bg-[#1d1d1d] overflow-hidden ">
           <div className="w-full sm:w-2/5 p-5 border !border-r-0 border-b sm:border-r sm:border-y-0 border-l-0 flex justify-center items-center ">
             <img
               src={image}
@@ -94,6 +103,9 @@ function Session() {
             )}
           </div>
         </div>
+      </div>
+      <div className="mt-10">
+        <Contact contacts={contacts} />
       </div>
     </div>
   );

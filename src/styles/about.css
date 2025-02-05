@@ -70,9 +70,8 @@
   padding: 2px;
 }
 .div2 .logo {
-  width: 280px;
-  height: 280px;
-
+  width: 350px;
+  height: 350px;
   z-index: 10;
 }
 
@@ -254,8 +253,8 @@
   }
 
   .main .initial .logo {
-    height: 15em;
-    width: 15em;
+    height: 20em;
+    width: 30em;
     visibility: visible;
   }
   .h2 {
@@ -398,7 +397,7 @@
 
 
   .logo {
-    margin-top: 20px;
+    margin-top: 38px;
   }
 }
 
@@ -413,7 +412,7 @@
     height: 460px;
     position: absolute;
     width: 460px;
-    top:19%;
+    top:18%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -432,8 +431,8 @@
     border-radius: 50%;
     height: 460px;
     position: absolute;
-    width: 460px;
-    top:17%;
+    width: 480px;
+    top:36%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -441,7 +440,7 @@
   }
 }
 
-@media (max-width: 422px) {
+/* @media (max-width: 422px) {
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
@@ -497,8 +496,8 @@
     align-items: center;
   }
  
-}
-
+} */
+/* 
 @media (max-width: 350px) {
   .home_bgcircle1__MiYGt {
     visibility: visible;
@@ -516,4 +515,4 @@
     justify-content: center;
     align-items: center;
   }
-}
+} */
