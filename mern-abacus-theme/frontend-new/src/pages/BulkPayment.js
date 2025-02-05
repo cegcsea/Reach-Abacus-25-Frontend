@@ -3,6 +3,7 @@ import { UserData } from "../context/userContext";
 import { useParams, useNavigate } from "react-router-dom";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
+import toast from "react-hot-toast";
 
 const BulkPayment = () => {
   const navigate = useNavigate();
@@ -38,12 +39,21 @@ const BulkPayment = () => {
     const formReqData = new FormData();
     formReqData.append("paymentScreenshot", file);
 
+    const uniqueUserIds = [
+      ...new Set(userIds.split(",").map((uid) => parseInt(uid.trim()))),
+    ];
+
+    if (uniqueUserIds.length !== 5) {
+      toast.error("Please provide exactly five unique user IDs.");
+      return;
+    }
+
     handleVerifyBulkWorkshopPayment(
       {
         workshopId: parseInt(id),
         paymentMobile: formData.paymentMobile,
         transactionId: formData.transactionId,
-        userIds: userIds.split(",").map((uid) => parseInt(uid.trim())), // Convert CSV to array of numbers
+        userIds: uniqueUserIds,
         formData: formReqData,
       },
       navigate
@@ -60,7 +70,6 @@ const BulkPayment = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-center border-b-2 border-[#8a1818] pb-2">
           <span className="text-[#8a1818]">&lt;</span> Bulk Payment{" "}
           <span className="text-[#8a1818]">&gt;</span>
-         
         </h2>
         <button
           type="button"
@@ -99,7 +108,7 @@ const BulkPayment = () => {
           />
           <input
             type="text"
-            placeholder="Enter User IDs (comma-separated)"
+            placeholder="Enter 5 unregistered Reach User-Ids (comma-separated)"
             value={userIds}
             onChange={handleUserIdsChange}
             className="w-full p-3 bg-black border border-[#8a1818] text-white rounded-md"
