@@ -127,10 +127,10 @@ const IndividualWorkshops = () => {
                 <td className="border-b py-2 px-4 text-[#aaa]">Date</td>
                 <td className="border-b py-2 px-4 text-[#aaa]">{info.date}</td>
               </tr>
-              <tr className="bg-[#1d1d1d]">
+              {/* <tr className="bg-[#1d1d1d]">
                 <td className="border-b py-2 px-4 text-[#aaa]">Venue</td>
                 <td className="border-b py-2 px-4 text-[#aaa]">{info.venue}</td>
-              </tr>
+              </tr> */}
               <tr className="bg-[#2e2e2e]">
                 <td className="border-b py-2 px-4 text-[#aaa]">Entry Fee</td>
                 <td className="border-b py-2 px-4 text-[#aaa]">
@@ -177,7 +177,7 @@ const IndividualWorkshops = () => {
             >
               Description
             </button>
-            <button
+            {/* <button
               className={`border px-2 py-2 text-white duration-150 ${
                 activeTab === "speakers"
                   ? "bg-[#660000]"
@@ -186,7 +186,7 @@ const IndividualWorkshops = () => {
               onClick={() => setActiveTab("speakers")}
             >
               Speakers
-            </button>
+            </button> */}
             <button
               className={`border px-2 py-2 text-white duration-150 ${
                 activeTab === "more-info"
