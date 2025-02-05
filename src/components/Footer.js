@@ -1,14 +1,10 @@
 import "../styles/Footer.css";
-import {
-  FaInstagram,
-  FaFacebook,
-  FaWhatsapp,
-} from "react-icons/fa";
+import { FaInstagram, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
-import { useState,forwardRef } from "react";
+import { useState, forwardRef } from "react";
 import { UserData } from "../context/userContext";
 import toast from "react-hot-toast";
-const Footer =forwardRef((props, ref)  => {
+const Footer = forwardRef((props, ref) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,7 +26,7 @@ const Footer =forwardRef((props, ref)  => {
     setFormData({ name: "", email: "", title: "", message: "" });
   };
   return (
-    <div  ref={ref} className="footer">
+    <div ref={ref} className="footer">
       <div className="footer-container">
         <h1 className="footer-heading text-2xl lg:!text-4xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#c03e3e]">
           CONTACTS
@@ -92,12 +88,20 @@ const Footer =forwardRef((props, ref)  => {
           <div className="footer-column">
             <h1>Phone</h1>
             <div className="contact-card">
-              <p>Padmasharan B</p>
-              <p>+91 95856 12262</p>
+              <p>
+                <a href="tel:+919585612262">Padmasharan B</a>
+              </p>
+              <p>
+                <a href="tel:+919379066510" className="tel">+91 95856 12262</a>
+              </p>
             </div>
             <div className="contact-card">
-              <p>Nikhil Prasanna A</p>
-              <p>+91 6379 066 510</p>
+              <p>
+                <a href="tel:+916379066510">Nikhil Prasanna A</a>
+              </p>
+              <p>
+                <a href="tel:+916379066510" className="tel">+91 6379 066 510</a>
+              </p>
             </div>
           </div>
           <div className="footer-bottom">

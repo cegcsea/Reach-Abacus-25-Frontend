@@ -2,6 +2,8 @@ import HariniImage from "../assets/images/testpic.jpg";
 import "../styles/developer.css";
 import React, { useState, useEffect } from "react";
 import img1 from "../assets/images/sivani.jpg"
+import img2 from "../assets/images/visvess.jpg"
+
 const developers = [
   {
     name: "Harini",
@@ -18,7 +20,7 @@ const developers = [
   {
     name: "Visvesswar",
     role: "//Backend Developer",
-    src: HariniImage,
+    src: img2,
     linkedin: "https://linkedin.com/in/visvesswaram",
   },
   {

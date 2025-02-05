@@ -205,8 +205,8 @@
     }
 
     .developer-card img {
-        width: 100px;
-        height: 100px;
+        width: 200px;
+        height: 200px;
     }
 
     .carousel-button {
@@ -232,8 +232,8 @@
     }
 
     .developer-card img {
-        width:400px;
-        height: 400px;
+        width:200px;
+        height: 200px;
         object-fit: contain;
     }
 
@@ -279,7 +279,7 @@
 
     .developer-card {
         width: 45%;
-        height: 350px;
+        height: auto;
         padding: 20px;
         box-sizing: border-box;
         margin: 0 10px;
@@ -337,7 +337,7 @@
 
     .developer-card {
         width: 80%;
-        height: 350px;
+        height: auto;
         padding: 20px;
         box-sizing: border-box;
         margin: 0;

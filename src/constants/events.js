@@ -193,11 +193,11 @@ export const events = [
               • Three consecutive wrong guesses result in negative points, and the chance passes to the other team.
               • Each round includes 10 questions.
               • Top 3 teams with the highest total scores win.`,
-        to: "geekquiz4",
+        to: "family-feud",
       },
     ],
     // Add more events h
-    path: "/events/technical-events", // Path to the event page
+    path: "/events/non-technical-events", // Path to the event page
   },
   // {
   //   title: "Pre Events",

@@ -50,7 +50,7 @@ const App = () => {
           <Route path="/workshops" element={<Workshops />} />
           <Route path="/workshops/:id" element={<IndividualWorkshops />} />
           <Route path="/workshops/:id/payment" element={<Payment />} />
-          <Route path="/login" element={<Login/>} />
+          <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route
             path="/reset-password/:id/:token"
@@ -61,6 +61,10 @@ const App = () => {
           <Route path="/register/:email/:token" element={<RegisterDetails />} />
           <Route path="/events" element={<EventPage />} />{" "}
           <Route path="/events/technical-events" element={<TechnicalPage />} />
+          <Route
+            path="/events/non-technical-events"
+            element={<TechnicalPage />}
+          />
           <Route path="/" element={<EventPage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/events/:id" element={<NoviceInit />} />
