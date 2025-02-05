@@ -211,7 +211,7 @@ const IndividualWorkshops = () => {
             )}
             {workshop.bulkBooking && (
               <Link
-                to={`/workshops/${workshop.code}/payment`}
+                to={`/workshops/${workshop.code}/bulkpayment`}
               >
                 <button
                   className="m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-[#93dd7833]"

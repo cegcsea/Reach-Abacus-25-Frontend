@@ -6,7 +6,7 @@ import Loader from "../components/Loader/Loader";
 
 const BulkPayment = () => {
   const navigate = useNavigate();
-  const { handleBulkWorkshopPayment } = UserData();
+  const { handleVerifyBulkWorkshopPayment } = UserData();
   const { id } = useParams();
   const { isLoading } = LoaderData();
 
@@ -38,12 +38,12 @@ const BulkPayment = () => {
     const formReqData = new FormData();
     formReqData.append("paymentScreenshot", file);
 
-    handleBulkWorkshopPayment(
+    handleVerifyBulkWorkshopPayment(
       {
         workshopId: parseInt(id),
         paymentMobile: formData.paymentMobile,
         transactionId: formData.transactionId,
-        userIds: userIds.split(",").map((uid) => parseInt(uid.trim())),
+        userIds: userIds.split(",").map((uid) => parseInt(uid.trim())), // Convert CSV to array of numbers
         formData: formReqData,
       },
       navigate
@@ -60,10 +60,11 @@ const BulkPayment = () => {
         <h2 className="text-2xl md:text-3xl font-bold text-center border-b-2 border-[#8a1818] pb-2">
           <span className="text-[#8a1818]">&lt;</span> Bulk Payment{" "}
           <span className="text-[#8a1818]">&gt;</span>
+         
         </h2>
         <button
           type="button"
-          className="bg-[#8a1818] text-white font-semibold py-2 rounded mt-4"
+          className="bg-[#8a1818] p-2 text-white font-semibold py-2 rounded mt-4"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? "Hide QR Code!" : "Show QR Code!"} &lt;~&gt;
@@ -109,7 +110,7 @@ const BulkPayment = () => {
               htmlFor="screenshot"
               className="flex items-center gap-2 bg-black border border-red-600 px-4 py-2 rounded-md cursor-pointer"
             >
-              <span className="bg-[#8a1818] text-white px-3 py-1 rounded">
+              <span className="bg-[#8a1818] text-white pl-2 pr-4 py-1  rounded">
                 Upload
               </span>
               <span className="text-gray-400 text-sm">
