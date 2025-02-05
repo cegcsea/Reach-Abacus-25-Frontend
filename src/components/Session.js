@@ -111,11 +111,8 @@ function Session() {
           </div>
         </div>
 
-        <div className="">
-          <Contact contacts={contact} />
-        </div>
       </div>
-      <div className="mt-10">
+      <div >
         <Contact contacts={contacts} />
       </div>
     </div>
