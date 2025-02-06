@@ -92,7 +92,9 @@ const Footer = forwardRef((props, ref) => {
                 <a href="tel:+919585612262">Padmasharan B</a>
               </p>
               <p>
-                <a href="tel:+919379066510" className="tel">+91 95856 12262</a>
+                <a href="tel:+919585612262" className="tel">
+                  +91 95856 12262
+                </a>
               </p>
             </div>
             <div className="contact-card">
@@ -100,7 +102,9 @@ const Footer = forwardRef((props, ref) => {
                 <a href="tel:+916379066510">Nikhil Prasanna A</a>
               </p>
               <p>
-                <a href="tel:+916379066510" className="tel">+91 6379 066 510</a>
+                <a href="tel:+916379066510" className="tel">
+                  +91 6379 066 510
+                </a>
               </p>
             </div>
           </div>

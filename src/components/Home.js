@@ -103,7 +103,7 @@ const Home = ({ scrollToContact }) => {
             />
           </motion.div>
           <motion.div
-            className="second py-10 flex flex-col"
+            className="second py-10 flex flex-col "
             variants={slideFromRight}
           >
             <p className="text-white text-justify">
