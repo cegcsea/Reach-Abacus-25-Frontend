@@ -425,7 +425,7 @@ export const UserContextProvider = ({ children }) => {
       const message = response.data.message;
       const payment = response.data.data;
       //console.log(paymentData.workshopId, payment.status, payment);
-      await freeWorkshopRegister({ workshopId: paymentData.workshopId });
+      //await freeWorkshopRegister({ workshopId: paymentData.workshopId });
 
       // setUserWorkshops((prevWorkshops) => {
       //   const updatedWorkshops = prevWorkshops.map((workshop) => {

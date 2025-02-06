@@ -146,15 +146,16 @@ const NoviceInit = () => {
                 ))}
               </div>
             )}
-
+            <div className="flex justify-center">
             {isAuth && !isRegistered && (
               <button
-                className="m-3 w-fit border border-[#c72727] px-4 py-2 text-white duration-150 hover:bg-[#fb525233]"
+                className="m-3 w-fit border border-[#c72727] px-4 py-2 text-white duration-150 hover:bg-[#fb525233] "
                 onClick={handleRegister}
               >
                 Register{"<"}~{">"}
               </button>
             )}
+            </div>
           <div className="flex justify-center">
   {!isAuth && (
     <button

@@ -1,19 +1,17 @@
-
 import ML from "../assets/Reach/ML.png";
 import placement from "../assets/Reach/placement.svg";
 import UI from "../assets/images/mobile-app-ux-ui-basics.jpg";
-import MERN_300 from "../assets/Reach/300.jpg";
-import ML_150 from "../assets/Reach/150.jpg";
+import GENAI_300 from "../assets/Reach/300.jpg";
+import UI_150 from "../assets/Reach/150.jpg";
+import GENAI_1200 from "../assets/Reach/1200.jpg";
 
 export const workshopsReach = [
   {
     title: "Design for Impact: Power of UX",
     to: "UI-UX",
     image: UI,
-    // bulkBooking: {
-    //   link: "https://forms.gle/9nXUzrL8ejy4KUad6",
-    // },
-    qr: MERN_300,
+
+    qr: UI_150,
     venue: [
       {
         name: "PSNA College of Engineering and Technology",
@@ -48,7 +46,8 @@ export const workshopsReach = [
     title: "Workshop on Generative AI",
     to: "genAI",
     image: ML,
-    qr: ML_150,
+    bulkBooking: GENAI_1200,
+    qr: GENAI_300,
     venue: [
       {
         name: "PSNA College of Engineering and Technology",
@@ -112,8 +111,5 @@ export const sessions = [
     image: placement,
     content:
       "Participate in focused sessions on interview techniques, enhancing your confidence and readiness for placement scenarios. Stay informed about current hiring trends and industry expectations, positioning yourself effectively during placement processes. Engage in simulated interview experiences, receiving valuable feedback to optimize your performance in real-world placements.",
-   
-    
   },
-  
 ];

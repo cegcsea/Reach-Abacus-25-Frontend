@@ -3,9 +3,10 @@ import { UserData } from "../context/userContext";
 import { useParams, useNavigate } from "react-router-dom";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
+import { workshopsReach as workshops } from "../constants/workshops";
 const Payment = () => {
   const navigate = useNavigate();
-  const { handleVerifyWorkshopPayment,registerWorkshop } = UserData();
+  const { handleVerifyWorkshopPayment, registerWorkshop } = UserData();
   const { id } = useParams();
   const [formData, setFormData] = useState({
     transactionId: "",
@@ -14,7 +15,8 @@ const Payment = () => {
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("Get your payment screenshot...");
   const [isOpen, setIsOpen] = useState(false);
-
+  const workshop = workshops.find((ws) => ws.code === parseInt(id));
+  console.log(workshops,id);
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
     setFileName(event.target.files[0].name);
@@ -73,9 +75,9 @@ const Payment = () => {
           {isOpen && (
             <div className="flex justify-center">
               <img
-                src="path/to/qr-code.png"
+                src={workshop.qr}
                 alt="QR Code"
-                className="w-28 h-28 border-2 border-[#8a1818] rounded-md"
+                className="w-64 h-88 border-2 border-[#8a1818] rounded-md"
               />
             </div>
           )}
