@@ -187,11 +187,15 @@
 
 
 @media (max-width: 1200px) {
+    .developers{
+        padding-top: 0;
+    }
     .developers-carousel {
         gap: 20px;
     }
 
     .developer-card {
+       
         width: 22%;
         padding: 20px;
     }

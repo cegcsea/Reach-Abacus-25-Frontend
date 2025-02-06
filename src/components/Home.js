@@ -97,9 +97,9 @@ const Home = ({ scrollToContact }) => {
         >
           <motion.div className="first" variants={slideFromLeft}>
             <img
-              src={require("../assets/images/logo.jpeg")}
+              src={require("../assets/Reach/abacus'25_logo_white.png")}
               alt="Abacus Logo"
-              className="h-[0] w-[0] !mx-auto lg:mx-20 lg:h-[35%] lg:w-[45%] xl:h-[85%] xl:w-[65%] "
+              className="ablogo "
             />
           </motion.div>
           <motion.div
