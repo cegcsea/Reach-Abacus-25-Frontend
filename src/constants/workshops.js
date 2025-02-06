@@ -1,15 +1,15 @@
-import MERN from "../assets/Reach/MERN.png";
+
 import ML from "../assets/Reach/ML.png";
 import placement from "../assets/Reach/placement.svg";
-
+import UI from "../assets/images/mobile-app-ux-ui-basics.jpg";
 import MERN_300 from "../assets/Reach/300.jpg";
 import ML_150 from "../assets/Reach/150.jpg";
 
 export const workshopsReach = [
   {
     title: "Design for Impact: Power of UX",
-    to: "mernstackdev",
-    image: MERN,
+    to: "UI-UX",
+    image: UI,
     bulkBooking: {
       link: "https://forms.gle/9nXUzrL8ejy4KUad6",
     },
@@ -28,7 +28,7 @@ export const workshopsReach = [
       "Participants are required to bring laptops.No prior knowledge is needed.",
     // speakers: "John Doe, Jane Smith",
     moreInfo: {
-      certificate: "Physical Certificate",
+      certificate: "E-Certificate",
       takeaways: "Takeaways",
       time: "9:00 AM to 4:30 PM",
       date: "22nd March (Friday), 2024",
@@ -46,7 +46,7 @@ export const workshopsReach = [
   },
   {
     title: "Workshop on Generative AI",
-    to: "mlusingpython",
+    to: "genAI",
     image: ML,
     qr: ML_150,
     venue: [
@@ -63,7 +63,7 @@ export const workshopsReach = [
       "No prior machine learning experience is required. Just bring your curiosity, and let's make the most of this short but impactful ML adventure!",
     // speakers: "John Doe, Jane Smith",
     moreInfo: {
-      certificate: "Physical Certificate",
+      certificate: "E-Certificate",
       takeaways: "Takeaways",
       time: "9:00 AM to 4:30 PM",
       date: "22nd March (Friday), 2024",

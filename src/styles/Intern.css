@@ -144,6 +144,9 @@ body {
     .content {
       text-align:left;
     }
+    .content-container{
+      width: 100%;
+    }
     .content-container img {
         margin-right: 0;
         margin-bottom: 20px;
@@ -160,7 +163,7 @@ body {
   @media(max-width:1200px)
   {
     .content-container{
-        width: 90%;
+        width: 100%;
         margin:25px auto;
         
     }
@@ -175,7 +178,7 @@ body {
   @media(max-width:360px)
   {
     .par{
-      padding: 0 20px;
+      padding: 0 10px;
   
     }
   }

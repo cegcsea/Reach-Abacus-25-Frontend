@@ -46,7 +46,7 @@ const IndividualWorkshops = () => {
   const renderContent = () => {
     if (activeTab === "description") {
       return (
-        <div>
+        <div  className="">
           <div>
             {/* Workshop Content */}
             <p className="flex justify-start text-justify mx-2 text-md lg:text-lg">
@@ -100,7 +100,7 @@ const IndividualWorkshops = () => {
     } else if (activeTab === "more-info") {
       const info = workshop.moreInfo;
       return (
-        <div className="mt-6 text-lg">
+        <div className="mt-6 text-lg ">
           <table className="table-auto w-full text-left border-collapse">
             <thead>
               <tr>
@@ -145,7 +145,7 @@ const IndividualWorkshops = () => {
   };
 
   return (
-    <div className="mt-20 py-8 sm:px-10 flex gap-3 flex-col m-6 lg:m-10 bg-[#1d1d1d]">
+    <div className="mt-20 lg:mt-24 py-8 sm:px-10 flex gap-3 flex-col m-6 lg:m-10 bg-[#1d1d1d] border-[2px] rounded-xl border-[#FF5555]">
       <p className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl text-white overflow-hidden mx-auto text-center mt-6">
         <span className="text-[#c53939] overflow-hidden">/</span>
         <span className="text-white overflow-hidden font-bold my-5 [text-shadow:6px_2px_4px_#c03e3e]">
@@ -202,7 +202,7 @@ const IndividualWorkshops = () => {
           {/* Render content based on activeTab */}
           {renderContent()}
 
-          <div className="flex justify-center gap-3">
+          <div className="flex justify-left gap-3 mt-5">
             {isAuth && !isRegistered && (
               <Link to={`/workshops/${workshop.code}/payment`}>
                 <button className="m-3 w-fit border-[#b72222] border-[1.7px] px-4 py-2 text-white duration-150 hover:bg-[#9f232363]">
@@ -284,7 +284,7 @@ const IndividualWorkshops = () => {
             )}
 
           {!isAuth && (
-            <Link to="/auth">
+            <Link to="/auth" className="flex justify-start mt-2 mb-0">
               <button className="m-3 w-fit border border-[#c72727] px-4 py-2 text-white duration-150 hover:bg-[#ff4d4d]">
                 Login to Register {"<"}~{">"}
               </button>

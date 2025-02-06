@@ -1,14 +1,11 @@
 import React from "react";
-import { FaPhoneAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { workshopsReach as workshops } from "../constants/workshops";
-import Contact from "../components/Contact";
 import Session from "../components/Session";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 const Workshops = () => {
   const navigate = useNavigate();
-  const burgundy = "#800020";
   const white = "#fff";
 
 
@@ -27,11 +24,11 @@ const Workshops = () => {
           Workshops
         </h2>
 
-        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-8 ">
           {workshops.map((workshop) => (
             <div
               key={workshop.id}
-              className=" bg-[#1d1d1d] text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow "
+              className="border-[2px]  border-[#FF5555] bg-[#1d1d1d] text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow "
             >
               <h3
                 className="text-xl font-semibold mb-4 border-b-2 pb-4"
@@ -64,6 +61,7 @@ const Workshops = () => {
           ))}
         </div>
         <Session />
+        
        
       </div>
     </div>
