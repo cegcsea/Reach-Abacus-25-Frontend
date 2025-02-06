@@ -65,6 +65,7 @@ const App = () => {
             path="/events/non-technical-events"
             element={<TechnicalPage />}
           />
+          
           <Route path="/" element={<EventPage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/events/:id" element={<NoviceInit />} />
