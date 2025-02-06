@@ -3,12 +3,14 @@ import "../styles/developer.css";
 import React, { useState, useEffect } from "react";
 import img1 from "../assets/images/sivani.jpg"
 import img2 from "../assets/images/visvess.jpg"
+import img3 from "../assets/images/harini.jpg"
+
 
 const developers = [
   {
     name: "Harini",
     role: "//Frontend Developer",
-    src: HariniImage,
+    src: img3,
     linkedin: "https://linkedin.com/in/harini",
   },
   {
