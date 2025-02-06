@@ -3,7 +3,7 @@ import image from "../assets/Reach/placement.svg";
 import { UserData } from "../context/userContext.js";
 import { useNavigate } from "react-router-dom";
 import { FaLocationDot } from "react-icons/fa6";
-import Contact from "../components/Contact";
+import SessionContact from "../components/SessionContact.js";
 
 function Session() {
   const { freeWorkshopRegister, isAuth, user, session } = UserData();
@@ -113,7 +113,7 @@ function Session() {
 
       </div>
       <div >
-        <Contact contacts={contacts} />
+        <SessionContact contacts={contacts} />
       </div>
     </div>
   );

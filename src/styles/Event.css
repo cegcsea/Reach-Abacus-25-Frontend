@@ -101,40 +101,6 @@ img {
 .event h1 {
   width: 100%;
 }
-@media screen and (max-width: 340px) {
-  .card {
-    margin-inline: 1rem;
-  }
-
-  .card__data {
-    width: 250px;
-    padding: 1rem;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .card__container {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 1.5rem;
-  }
-}
-
-@media screen and (min-width: 1120px) {
-  .card {
-    height: 90vh;
-  }
-
-  .card__container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .card__img {
-    width: 348px;
-  }
-  .card__data {
-    width: 316px;
-    padding-inline: 2.5rem;
-  }
-}
 
 .card__article:hover .card__data,
 .card__article:hover {
@@ -158,7 +124,7 @@ img {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-.card__data {
+/* .card__data {
   width: 280px;
   background-color: white;
   color: black;
@@ -172,9 +138,47 @@ img {
   margin-inline: auto;
   opacity: 1;
   transition: transform 0.3s ease, background-color 0.3s ease;
-}
+} */
 
 .card__article:hover .card__data {
   transform: translateX(-50%) translateY(-10px);
   background-color: #d4d4d4;
+}
+
+@media screen and (max-width: 480px) {
+  .card {
+    margin-inline: 1rem;
+  }
+  .card__data {
+    width: 250px;
+    padding: 1rem;
+  }
+  .card__container {
+    row-gap: 3rem !important;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .card__container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .card {
+    height: 90vh;
+  }
+
+  .card__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .card__img {
+    width: 348px;
+  }
+  .card__data {
+    width: 316px;
+    padding-inline: 2.5rem;
+  }
 }
