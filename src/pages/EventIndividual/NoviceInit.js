@@ -95,6 +95,10 @@ const NoviceInit = () => {
                   <strong>Team members:</strong> {selectedEvent.team || "N/A"}
                 </p>
                 <p>
+                      <strong>Date:</strong> {selectedEvent.Date}
+                    </p>
+                    {selectedEvent.time ?<p><strong>Time:</strong> {selectedEvent.time}</p>:""}
+                <p>
                   <strong>Prize:</strong> {selectedEvent.prize || "N/A"}
                 </p>
               </div>
@@ -131,6 +135,7 @@ const NoviceInit = () => {
                     <p>
                       <strong>Duration:</strong> {round.duration}
                     </p>
+                    
                     <p>
                       <strong>Time:</strong> {round.time}
                     </p>

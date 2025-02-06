@@ -10,9 +10,9 @@ export const workshopsReach = [
     title: "Design for Impact: Power of UX",
     to: "UI-UX",
     image: UI,
-    bulkBooking: {
-      link: "https://forms.gle/9nXUzrL8ejy4KUad6",
-    },
+    // bulkBooking: {
+    //   link: "https://forms.gle/9nXUzrL8ejy4KUad6",
+    // },
     qr: MERN_300,
     venue: [
       {
@@ -30,8 +30,8 @@ export const workshopsReach = [
     moreInfo: {
       certificate: "E-Certificate",
       takeaways: "Takeaways",
-      time: "9:00 AM to 4:30 PM",
-      date: "22nd March (Friday), 2024",
+      time: "9:30 AM to 4:00 PM",
+      date: "21st February, 2024",
       // venue: "X hall, EEE Department",
       entryFee: "Rs. 150/-",
     },
@@ -65,8 +65,8 @@ export const workshopsReach = [
     moreInfo: {
       certificate: "E-Certificate",
       takeaways: "Takeaways",
-      time: "9:00 AM to 4:30 PM",
-      date: "22nd March (Friday), 2024",
+      time: "9:00 AM to 12:00 PM",
+      date: "21st February, 2024",
       // venue: "X hall, EEE Department",
       entryFee: "Rs. 300/-",
     },
