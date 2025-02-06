@@ -125,7 +125,7 @@ const Profile = () => {
                   ) : null;
                 })}
                 {session.length>0 && session.map((workshop, index) => {
-                  console.log(workshop);
+                  //console.log(workshop);
                   const matchingWorkshop = sessions.find(
                     (ws) =>
                       ws.code === workshop.workshopId

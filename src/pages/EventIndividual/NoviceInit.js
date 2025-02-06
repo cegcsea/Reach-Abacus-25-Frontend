@@ -35,7 +35,7 @@ const NoviceInit = () => {
 
   // Check if the user is already registered for this event
   const isRegistered = (userEvents || []).some(
-    (event) => event.eventName === selectedEvent.to
+    (event) => event.eventName === selectedEvent.title
   );
 
   // Handle tab switching

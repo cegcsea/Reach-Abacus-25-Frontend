@@ -29,14 +29,14 @@ function RegisterDetails() {
       label: "J.J. College of Engineering and Technology,Tiruchirappalli",
       value: "J.J. College of Engineering and Technology,Tiruchirappalli",
     },
-    {
-      label: "Anna University",
-      value: "Anna University",
-    },
-    {
-      label: "IIT Madras",
-      value: "IIT Madras",
-    },
+    // {
+    //   label: "Anna University",
+    //   value: "Anna University",
+    // },
+    // {
+    //   label: "IIT Madras",
+    //   value: "IIT Madras",
+    // },
   ];
 
   const optionsYear = [
@@ -126,11 +126,12 @@ function RegisterDetails() {
             className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
             value={formData.hostCollege}
             onChange={(e) => handleSelectChange("hostCollege", e.target.value)}
+            disabled
             required
           >
-            <option value="" disabled>
+            {/* <option value="" disabled>
               Select Host College
-            </option>
+            </option> */}
             {optionsHostCollege.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
@@ -155,14 +156,15 @@ function RegisterDetails() {
                   : null
               )
             }
+            disabled
             required
           >
-            <option value="" disabled>
+            {/* <option value="" disabled>
               Accommodation required?
-            </option>
-            <option key="Yes" value={true}>
+            </option> */}
+            {/* <option key="Yes" value={true}>
               Yes
-            </option>
+            </option> */}
             <option key="No" value={false}>
               No
             </option>
