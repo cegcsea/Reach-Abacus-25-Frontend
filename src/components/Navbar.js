@@ -1,5 +1,5 @@
 import reach_img from "../assets/Hero/Reach'25 logo black.png";
-import abacus_img from "../assets/Reach/abacus'25_logo_white.png";
+import abacus_img from "../assets/Reach/Reach'25_logo_white.png";
 import { AiFillHome, AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
 import { FaInfoCircle, FaHandshake, FaTools } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
