@@ -97,14 +97,13 @@ const Profile = () => {
           <div className="user-section workshops">
             <h3>Registered Workshops</h3>
 
-            
-                {userWorkshops?.length > 0 ? (
+            {userWorkshops?.length > 0 ? (
               <ul>
                 {userWorkshops.map((workshop, index) => {
                   const matchingWorkshop = workshopsReach.find(
                     (ws) =>
                       ws.code === workshop.workshopId &&
-                      workshop.paymentStatus === "SUCCESS"
+                      workshop.status === "SUCCESS"
                   );
                   return matchingWorkshop ? (
                     <li key={index} className="!text-green-600">
@@ -116,7 +115,7 @@ const Profile = () => {
                   const matchingWorkshop = workshopsReach.find(
                     (ws) =>
                       ws.code === workshop.workshopId &&
-                      workshop.paymentStatus === "PENDING"
+                      workshop.status === "PENDING"
                   );
                   return matchingWorkshop ? (
                     <li key={index} className="!text-orange-800">

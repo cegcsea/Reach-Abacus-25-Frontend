@@ -37,6 +37,9 @@ export const workshopsReach = [
         title: "Workshop on Generative AI",
         to: "mlusingpython",
         image: ML,
+        bulkBooking: {
+            link: "https://forms.gle/9nXUzrL8ejy4KUad6",
+        },
         qr: ML_150,
         venue: [
             {

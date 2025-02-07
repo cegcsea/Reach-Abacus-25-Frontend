@@ -32,9 +32,9 @@ const IndividualWorkshops = () => {
   // useEffect(() => {
   //   console.log(userWorkshops);
   //   console.log(workshop);
-  //   console.log(isPaidWorkshop[0].paymentStatus);
+  //   console.log(isPaidWorkshop[0].status);
   //   console.log(isRegistered);
-  //   //console.log(userWorkshops[3].paymentStatus);
+  //   //console.log(userWorkshops[3].status);
   // });
   if (isLoading) {
     return <Loader />;
@@ -226,7 +226,7 @@ const IndividualWorkshops = () => {
           {/* Payment status sections */}
           {isAuth &&
             isRegistered &&
-            isPaidWorkshop[0].paymentStatus === "PENDING" && (
+            isPaidWorkshop[0].status === "PENDING" && (
               <>
                 <button className="m-3 w-fit border border-[#ddb878] px-4 py-2 text-white duration-150 hover:bg-[#ddc27833]">
                   Paid for the workshop {"<"}~{">"}
@@ -234,9 +234,9 @@ const IndividualWorkshops = () => {
                 <p className="text-xl font-semibold text-white">
                   Status:&nbsp;
                   <span
-                    className={colorFinder(isPaidWorkshop[0].paymentStatus)}
+                    className={colorFinder(isPaidWorkshop[0].status)}
                   >
-                    {isPaidWorkshop[0].paymentStatus}
+                    {isPaidWorkshop[0].status}
                   </span>
                 </p>
                 <p className="flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl">
@@ -250,7 +250,7 @@ const IndividualWorkshops = () => {
 
           {isAuth &&
             isRegistered &&
-            isPaidWorkshop[0].paymentStatus === "SUCCESS" && (
+            isPaidWorkshop[0].status === "SUCCESS" && (
               <>
                 <button className="m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-lime-400/40">
                   Payment Verified! {"<"}~{">"}
@@ -258,9 +258,9 @@ const IndividualWorkshops = () => {
                 <p className="text-xl font-semibold text-white">
                   Status:&nbsp;
                   <span
-                    className={colorFinder(isPaidWorkshop[0].paymentStatus)}
+                    className={colorFinder(isPaidWorkshop[0].status)}
                   >
-                    {isPaidWorkshop[0].paymentStatus}
+                    {isPaidWorkshop[0].status}
                   </span>
                 </p>
               </>
@@ -268,7 +268,7 @@ const IndividualWorkshops = () => {
 
           {isAuth &&
             isRegistered &&
-            isPaidWorkshop[0].paymentStatus === "FAILURE" && (
+            isPaidWorkshop[0].status === "FAILURE" && (
               <>
                 <Link to={`/workshops/${workshop.code}/payment`}>
                   <button className="m-3 w-fit border border-red-400 px-4 py-2 text-white duration-150 hover:bg-red-400/40">
@@ -278,9 +278,9 @@ const IndividualWorkshops = () => {
                 <p className="text-xl font-semibold text-white">
                   Status:&nbsp;
                   <span
-                    className={colorFinder(isPaidWorkshop[0].paymentStatus)}
+                    className={colorFinder(isPaidWorkshop[0].status)}
                   >
-                    {isPaidWorkshop[0].paymentStatus}
+                    {isPaidWorkshop[0].status}
                   </span>
                 </p>
                 <p className="flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl">

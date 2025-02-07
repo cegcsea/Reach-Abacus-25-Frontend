@@ -40,9 +40,9 @@ const BulkPayment = () => {
     formReqData.append("paymentScreenshot", file);
 
     const uniqueUserIds = [
-      ...new Set(userIds.split(",").map((uid) => parseInt(uid.trim()))),
+      ...new Set(userIds.split(",").map((uid) => uid)),
     ];
-
+    console.log(uniqueUserIds.length, userIds);
     if (uniqueUserIds.length !== 5) {
       toast.error("Please provide exactly five unique user IDs.");
       return;

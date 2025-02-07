@@ -312,7 +312,7 @@ export const UserContextProvider = ({ children }) => {
       //   ...prevWorkshops, // Spread the previous workshops
       //   {
       //     ...data.data, // Add the new workshop details
-      //     paymentStatus: null, // Set default payment status as null
+      //     status: null, // Set default payment status as null
       //     paymentDetails: null, // Set payment details to null initially
       //   },
       // ]);
@@ -337,7 +337,7 @@ export const UserContextProvider = ({ children }) => {
         JSON.stringify(paymentData.userIds)
       );
       formData.append("workshopId", paymentData.workshopId);
-      console.log("formData", formData);
+      //console.log("formData", formData);
       formData.append("paymentMobile", paymentData.paymentMobile);
       formData.append("transactionId", paymentData.transactionId);
       // Convert userIds array to JSON and append it to formData
@@ -408,7 +408,7 @@ export const UserContextProvider = ({ children }) => {
       const message = response.data.message;
       const payment = response.data.data;
       //console.log(paymentData.workshopId, payment.status, payment);
-      await freeWorkshopRegister({ workshopId: paymentData.workshopId });
+      //await freeWorkshopRegister({ workshopId: paymentData.workshopId });
 
       // setUserWorkshops((prevWorkshops) => {
       //   const updatedWorkshops = prevWorkshops.map((workshop) => {
@@ -416,7 +416,7 @@ export const UserContextProvider = ({ children }) => {
       //       console.log("Updating:", workshop);
       //       return {
       //         ...workshop,
-      //         paymentStatus: payment.status,
+      //         status: payment.status,
       //         paymentDetails: payment,
       //       };
       //     }
@@ -625,9 +625,7 @@ export const UserContextProvider = ({ children }) => {
       }}
     >
       {children}
-      <Toaster
-        
-      />
+      <Toaster />
     </UserContext.Provider>
   );
 };
