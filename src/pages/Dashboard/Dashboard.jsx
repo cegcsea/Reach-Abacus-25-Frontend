@@ -12,7 +12,7 @@ function Dashboard() {
   }
 
   return (
-    <div className="flex justify-center items-center py-10 sm:px-0 px-4 bg-black gap-5">
+    <div className="mt-20 flex justify-center items-center py-10 sm:px-0 px-4 bg-black gap-5">
       <div className="querybox flex flex-col gap-7 w-full sm:w-3/5 border border-red-600 text-white p-5 sm:p-10 bg-[#111]">
         <div className="text-2xl text-center">
           <span className="text-red-400">&#60;</span>

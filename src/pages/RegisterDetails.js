@@ -68,10 +68,24 @@ function RegisterDetails() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form Data before submit:", formData);
     if (formData.password !== formData.confirmPassword) {
       toast.error("Passwords do not match!");
       return;
     }
+    console.log({
+      name: formData.name,
+      email: email,
+      token: token,
+      college: formData.college,
+      hostCollege: formData.hostCollege,
+      accomodation: formData.accomodation,
+      dept: formData.dept,
+      year: parseInt(formData.year),
+      mobile: formData.mobile,
+      password: formData.password,
+    });
+    
     register(
       {
         name: formData.name,
