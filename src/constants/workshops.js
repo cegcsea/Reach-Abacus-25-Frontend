@@ -17,7 +17,7 @@ export const workshopsReach = [
     venue: [
       {
         name: "PSNA College of Engineering and Technology",
-        time: "09:30 AM to 04:00 PM",
+        time: "09:00 AM to 12:00 PM",
         location: "CSE Department, First Floor Lab",
       },
     ],
@@ -30,8 +30,8 @@ export const workshopsReach = [
     moreInfo: {
       certificate: "E-Certificate",
       takeaways: "Takeaways",
-      time: "9:30 AM to 4:00 PM",
-      date: "21st February, 2024",
+      time: "9:00 AM to 12:00 PM",
+      date: "21st February, 2025",
       // venue: "X hall, EEE Department",
       entryFee: "Rs. 150/-",
     },
@@ -52,7 +52,7 @@ export const workshopsReach = [
     venue: [
       {
         name: "PSNA College of Engineering and Technology",
-        time: "09:00 AM to 12:00 PM",
+        time: "09:30 AM to 04:00 PM",
         location: "CSE Department, Second Floor Lab",
       },
     ],
@@ -65,8 +65,8 @@ export const workshopsReach = [
     moreInfo: {
       certificate: "E-Certificate",
       takeaways: "Takeaways",
-      time: "9:00 AM to 12:00 PM",
-      date: "21st February, 2024",
+      time: "9:30 AM to 04:00 PM",
+      date: "21st February, 2025",
       // venue: "X hall, EEE Department",
       entryFee: "Rs. 300/-",
     },
@@ -112,6 +112,7 @@ export const sessions = [
     image: placement,
     content:
       "Participate in focused sessions on interview techniques, enhancing your confidence and readiness for placement scenarios. Stay informed about current hiring trends and industry expectations, positioning yourself effectively during placement processes. Engage in simulated interview experiences, receiving valuable feedback to optimize your performance in real-world placements.",
+     
    
     
   },

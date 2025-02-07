@@ -74,6 +74,9 @@ function Session() {
                 Engage in simulated interview experiences, receiving valuable
                 feedback to optimize your performance in real-world placements.
               </p>
+
+              <p className="text-[#c9c9c9] p-3 text-base"><span className="font-bold text-lg">Date: </span> 20th February 2025</p>
+              <p className="text-[#c9c9c9] p-3 text-base"><span className="font-bold text-lg">Time: </span> 02:00 PM to 03:30 PM</p>
               {isAuth &&
                 user.hostCollege ===
                   "Government College of Technology, Coimbatore" && (
