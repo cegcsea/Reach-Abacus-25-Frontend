@@ -104,14 +104,14 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           <img
             src={abacus_img}
             alt="abacus-image"
-            className="h-16 w-20 mt-1 mx-auto rounded-lg"
+            className="h-16 w-23 mt-1 mx-auto rounded-lg"
           />
         </a>
-        <Link to="/" className="my-auto">
+        {/* <Link to="/" className="my-auto">
           <h1 className="hover:text-gray-950 text-2xl font-semibold rounded-xl mx-2 p-1 cursor-pointer">
             Reach 2025
           </h1>
-        </Link>
+        </Link> */}
       </div>
 
       {/* Mobile Menu Toggle */}
