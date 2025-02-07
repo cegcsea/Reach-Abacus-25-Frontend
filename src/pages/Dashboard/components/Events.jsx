@@ -12,10 +12,10 @@ const Events = () => {
 
   const allEvents = events.flatMap((category) => category.event);
   const filteredEvents = allEvents.filter((event) =>
-    eventNames.includes(event.to)
+    eventNames.includes(event.title)
   );
   const notIncludedEvents = allEvents.filter(
-    (event) => !eventNames.includes(event.to)
+    (event) => !eventNames.includes(event.title)
   );
 
   useEffect(() => {
