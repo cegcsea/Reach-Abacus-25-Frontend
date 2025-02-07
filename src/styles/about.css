@@ -443,15 +443,9 @@
 
 
 
-@media (max-width: 480px) {
 
 
-  .logo {
-    margin-top: 38px;
-  }
-}
-
-@media (max-width: 480px) {
+@media (max-width: 490px) {
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
@@ -462,7 +456,7 @@
     height: 520px;
     position: absolute;
     width: 520px;
-    top:31.6%;
+    top:30.4%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -482,6 +476,24 @@
     height: 520px;
     position: absolute;
     width: 520px;
+    top:31%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 420px) {
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 520px;
+    position: absolute;
+    width: 520x;
     top:32%;
     background-repeat: no-repeat;
     display: flex;
@@ -490,25 +502,7 @@
   }
 }
 
- @media (max-width: 422px) {
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 0px;
-    position: absolute;
-    width: 520px;
-    top:33%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
+ 
 @media (max-width: 357px) {
   .home_bgcircle1__MiYGt {
     visibility: visible;
@@ -517,10 +511,10 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 465px;
+    height: 500px;
     position: absolute;
-    width: 465x;
-    top:22%;
+    width: 500x;
+    top: 34%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
