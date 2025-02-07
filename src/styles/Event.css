@@ -27,7 +27,7 @@ img {
 
 .card__container {
   display: grid;
-  row-gap: 3.5rem;
+  row-gap: 5rem;
   padding-bottom: 50px;
 }
 
@@ -154,7 +154,7 @@ img {
     padding: 1rem;
   }
   .card__container {
-    row-gap: 3rem !important;
+    row-gap: 5rem !important;
   }
 }
 
@@ -164,6 +164,7 @@ img {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 1.5rem;
   }
+  
 }
 
 @media screen and (min-width: 1120px) {
