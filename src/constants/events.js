@@ -40,7 +40,7 @@ export const events = [
             title: "Round 1 – Quiz Challenge",
             content:
               "Test your mettle in a quiz spanning five core Computer Science domains: Debugging, DSA, OOPs, CN, and DBMS. Showcase your expertise to advance!",
-
+              
             duration: "30 minutes",
             time: "09:00 AM to 12:30 PM",
             // venue: "Main Building Room No 238",
@@ -167,12 +167,13 @@ export const events = [
     title: "Non Technical Events",
     image: img2, // Event image,
     Date: "20 February 2025",
-
+    
     event: [
       {
         id: 4,
         title: "Family Feud",
         time: "01:30 PM to 04:00 PM",
+        Date: "20 February 2025",
         description:
           "Put your skills to test on topics like Food, Technology, Movies, Lifestyle, and more! Can your team guess the most popular answers to survey questions and win the title of Family Feud Champions?",
         image: img7, // Replace with your image path

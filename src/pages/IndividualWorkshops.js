@@ -45,7 +45,7 @@ const IndividualWorkshops = () => {
   const renderContent = () => {
     if (activeTab === "description") {
       return (
-        <div className="">
+        <div>
           <div>
             {/* Workshop Content */}
             <p className="flex justify-start text-justify mx-2 text-md lg:text-lg">
@@ -99,7 +99,7 @@ const IndividualWorkshops = () => {
     } else if (activeTab === "more-info") {
       const info = workshop.moreInfo;
       return (
-        <div className="mt-6 text-lg ">
+        <div className="mt-6 text-lg">
           <table className="table-auto w-full text-left border-collapse">
             <thead>
               <tr>
@@ -126,10 +126,10 @@ const IndividualWorkshops = () => {
                 <td className="border-b py-2 px-4 text-[#aaa]">Date</td>
                 <td className="border-b py-2 px-4 text-[#aaa]">{info.date}</td>
               </tr>
-              {/* <tr className="bg-[#1d1d1d]">
+              <tr className="bg-[#1d1d1d]">
                 <td className="border-b py-2 px-4 text-[#aaa]">Venue</td>
                 <td className="border-b py-2 px-4 text-[#aaa]">{info.venue}</td>
-              </tr> */}
+              </tr>
               <tr className="bg-[#2e2e2e]">
                 <td className="border-b py-2 px-4 text-[#aaa]">Entry Fee</td>
                 <td className="border-b py-2 px-4 text-[#aaa]">
@@ -144,7 +144,7 @@ const IndividualWorkshops = () => {
   };
 
   return (
-    <div className="mt-20 lg:mt-24 py-8 sm:px-10 flex gap-3 flex-col m-6 lg:m-10 bg-[#1d1d1d] border-[2px] rounded-xl border-[#FF5555]">
+    <div className="mt-20 py-8 sm:px-10 flex gap-3 flex-col m-6 lg:m-10 bg-[#1d1d1d]">
       <p className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl text-white overflow-hidden mx-auto text-center mt-6">
         <span className="text-[#c53939] overflow-hidden">/</span>
         <span className="text-white overflow-hidden font-bold my-5 [text-shadow:6px_2px_4px_#c03e3e]">
@@ -176,7 +176,7 @@ const IndividualWorkshops = () => {
             >
               Description
             </button>
-            {/* <button
+            <button
               className={`border px-2 py-2 text-white duration-150 ${
                 activeTab === "speakers"
                   ? "bg-[#660000]"
@@ -185,7 +185,7 @@ const IndividualWorkshops = () => {
               onClick={() => setActiveTab("speakers")}
             >
               Speakers
-            </button> */}
+            </button>
             <button
               className={`border px-2 py-2 text-white duration-150 ${
                 activeTab === "more-info"
@@ -201,7 +201,7 @@ const IndividualWorkshops = () => {
           {/* Render content based on activeTab */}
           {renderContent()}
 
-          <div className="flex justify-left gap-3 mt-5">
+          <div className="flex justify-center gap-3">
             {isAuth && !isRegistered && (
               <Link to={`/workshops/${workshop.code}/payment`}>
                 <button className="m-3 w-fit border-[#b72222] border-[1.7px] px-4 py-2 text-white duration-150 hover:bg-[#9f232363]">
@@ -210,7 +210,9 @@ const IndividualWorkshops = () => {
               </Link>
             )}
             {workshop.bulkBooking && (
-              <Link to={`/workshops/${workshop.code}/bulkpayment`}>
+              <Link
+                to={`/workshops/${workshop.code}/bulkpayment`}
+              >
                 <button
                   className="m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-[#93dd7833]"
                   onClick={() => setPaymentType("bulk")}
@@ -222,62 +224,74 @@ const IndividualWorkshops = () => {
           </div>
 
           {/* Payment status sections */}
-          {isAuth && isRegistered && isPaidWorkshop[0].status === "PENDING" && (
-            <>
-              <button className="m-3 w-fit border border-[#ddb878] px-4 py-2 text-white duration-150 hover:bg-[#ddc27833]">
-                Paid for the workshop {"<"}~{">"}
-              </button>
-              <p className="text-xl font-semibold text-white">
-                Status:&nbsp;
-                <span className={colorFinder(isPaidWorkshop[0].status)}>
-                  {isPaidWorkshop[0].status}
-                </span>
-              </p>
-              <p className="flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl">
-                <span className="text-white bg-red-400 p-1 rounded-full">
-                  <FaInfo />
-                </span>
-                Your payment will be reflected within 2 business days!
-              </p>
-            </>
-          )}
-
-          {isAuth && isRegistered && isPaidWorkshop[0].status === "SUCCESS" && (
-            <>
-              <button className="m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-lime-400/40">
-                Payment Verified! {"<"}~{">"}
-              </button>
-              <p className="text-xl font-semibold text-white">
-                Status:&nbsp;
-                <span className={colorFinder(isPaidWorkshop[0].status)}>
-                  {isPaidWorkshop[0].status}
-                </span>
-              </p>
-            </>
-          )}
-
-          {isAuth && isRegistered && isPaidWorkshop[0].status === "FAILURE" && (
-            <>
-              <Link to={`/workshops/${workshop.code}/payment`}>
-                <button className="m-3 w-fit border border-red-400 px-4 py-2 text-white duration-150 hover:bg-red-400/40">
-                  Pay Again! {"<"}~{">"}
+          {isAuth &&
+            isRegistered &&
+            isPaidWorkshop[0].status === "PENDING" && (
+              <>
+                <button className="m-3 w-fit border border-[#ddb878] px-4 py-2 text-white duration-150 hover:bg-[#ddc27833]">
+                  Paid for the workshop {"<"}~{">"}
                 </button>
-              </Link>
-              <p className="text-xl font-semibold text-white">
-                Status:&nbsp;
-                <span className={colorFinder(isPaidWorkshop[0].status)}>
-                  {isPaidWorkshop[0].status}
-                </span>
-              </p>
-              <p className="flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl">
-                <span className="text-white bg-red-400 p-1 rounded-full">
-                  <FaInfo />
-                </span>
-                There seems to be some error during your payment. Please
-                initiate payment again!
-              </p>
-            </>
-          )}
+                <p className="text-xl font-semibold text-white">
+                  Status:&nbsp;
+                  <span
+                    className={colorFinder(isPaidWorkshop[0].status)}
+                  >
+                    {isPaidWorkshop[0].status}
+                  </span>
+                </p>
+                <p className="flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl">
+                  <span className="text-white bg-red-400 p-1 rounded-full">
+                    <FaInfo />
+                  </span>
+                  Your payment will be reflected within 2 business days!
+                </p>
+              </>
+            )}
+
+          {isAuth &&
+            isRegistered &&
+            isPaidWorkshop[0].status === "SUCCESS" && (
+              <>
+                <button className="m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-lime-400/40">
+                  Payment Verified! {"<"}~{">"}
+                </button>
+                <p className="text-xl font-semibold text-white">
+                  Status:&nbsp;
+                  <span
+                    className={colorFinder(isPaidWorkshop[0].status)}
+                  >
+                    {isPaidWorkshop[0].status}
+                  </span>
+                </p>
+              </>
+            )}
+
+          {isAuth &&
+            isRegistered &&
+            isPaidWorkshop[0].status === "FAILURE" && (
+              <>
+                <Link to={`/workshops/${workshop.code}/payment`}>
+                  <button className="m-3 w-fit border border-red-400 px-4 py-2 text-white duration-150 hover:bg-red-400/40">
+                    Pay Again! {"<"}~{">"}
+                  </button>
+                </Link>
+                <p className="text-xl font-semibold text-white">
+                  Status:&nbsp;
+                  <span
+                    className={colorFinder(isPaidWorkshop[0].status)}
+                  >
+                    {isPaidWorkshop[0].status}
+                  </span>
+                </p>
+                <p className="flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl">
+                  <span className="text-white bg-red-400 p-1 rounded-full">
+                    <FaInfo />
+                  </span>
+                  There seems to be some error during your payment. Please
+                  initiate payment again!
+                </p>
+              </>
+            )}
 
           {!isAuth && (
             <Link to="/auth">
