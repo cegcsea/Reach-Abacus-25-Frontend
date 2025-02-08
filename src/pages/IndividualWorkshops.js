@@ -6,11 +6,10 @@ import { Link } from "react-router-dom";
 import { UserData } from "../context/userContext";
 import { FaInfo } from "react-icons/fa";
 import { LoaderData } from "../context/loaderContext";
-import Contact from "../components/Contact";
 import Loader from "../components/Loader/Loader";
 const IndividualWorkshops = () => {
   const { id } = useParams();
-  const { userWorkshops, isAuth } = UserData();
+  const { userWorkshops, isAuth, paymentType, setPaymentType } = UserData();
   const workshop = workshops.find((ws) => ws.to === id);
   const [activeTab, setActiveTab] = useState("description");
   const isPaidWorkshop = (userWorkshops || []).filter(
@@ -33,9 +32,9 @@ const IndividualWorkshops = () => {
   // useEffect(() => {
   //   console.log(userWorkshops);
   //   console.log(workshop);
-  //   console.log(isPaidWorkshop[0].paymentStatus);
+  //   console.log(isPaidWorkshop[0].status);
   //   console.log(isRegistered);
-  //   //console.log(userWorkshops[3].paymentStatus);
+  //   //console.log(userWorkshops[3].status);
   // });
   if (isLoading) {
     return <Loader />;
@@ -46,7 +45,7 @@ const IndividualWorkshops = () => {
   const renderContent = () => {
     if (activeTab === "description") {
       return (
-        <div  className="">
+        <div className="">
           <div>
             {/* Workshop Content */}
             <p className="flex justify-start text-justify mx-2 text-md lg:text-lg">
@@ -153,7 +152,7 @@ const IndividualWorkshops = () => {
         </span>
       </p>
 
-      <div className="flex flex-col lg:flex-row mt-8 gap-8 mb-20">
+      <div className="flex flex-col lg:flex-row mt-8 gap-8">
         <img
           src={workshop.image}
           alt={`workshop: ${workshop.title}`}
@@ -211,8 +210,11 @@ const IndividualWorkshops = () => {
               </Link>
             )}
             {workshop.bulkBooking && (
-              <Link to={`/workshops/${workshop.code}/bulkpayment`} >
-                <button className="m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-[#93dd7833]">
+              <Link to={`/workshops/${workshop.code}/bulkpayment`}>
+                <button
+                  className="m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-[#93dd7833]"
+                  onClick={() => setPaymentType("bulk")}
+                >
                   Bulk Register {"<"}~{">"}
                 </button>
               </Link>
@@ -220,79 +222,72 @@ const IndividualWorkshops = () => {
           </div>
 
           {/* Payment status sections */}
-          {isAuth &&
-            isRegistered &&
-            isPaidWorkshop[0].paymentStatus === "PENDING" && (
-              <>
-                <button className="m-3 w-fit border border-[#ddb878] px-4 py-2 text-white duration-150 hover:bg-[#ddc27833]">
-                  Paid for the workshop {"<"}~{">"}
-                </button>
-                <p className="text-xl font-semibold text-white">
-                  Status:&nbsp;
-                  <span className={colorFinder(isPaidWorkshop[0].paymentStatus)}>
-                    {isPaidWorkshop[0].paymentStatus}
-                  </span>
-                </p>
-                <p className="flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl">
-                  <span className="text-white bg-red-400 p-1 rounded-full">
-                    <FaInfo />
-                  </span>
-                  Your payment will be reflected within 2 business days!
-                </p>
-              </>
-            )}
+          {isAuth && isRegistered && isPaidWorkshop[0].status === "PENDING" && (
+            <>
+              <button className="m-3 w-fit border border-[#ddb878] px-4 py-2 text-white duration-150 hover:bg-[#ddc27833]">
+                Paid for the workshop {"<"}~{">"}
+              </button>
+              <p className="text-xl font-semibold text-white">
+                Status:&nbsp;
+                <span className={colorFinder(isPaidWorkshop[0].status)}>
+                  {isPaidWorkshop[0].status}
+                </span>
+              </p>
+              <p className="flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl">
+                <span className="text-white bg-red-400 p-1 rounded-full">
+                  <FaInfo />
+                </span>
+                Your payment will be reflected within 2 business days!
+              </p>
+            </>
+          )}
 
-          {isAuth &&
-            isRegistered &&
-            isPaidWorkshop[0].paymentStatus === "SUCCESS" && (
-              <>
-                <button className="m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-lime-400/40">
-                  Payment Verified! {"<"}~{">"}
-                </button>
-                <p className="text-xl font-semibold text-white">
-                  Status:&nbsp;
-                  <span className={colorFinder(isPaidWorkshop[0].paymentStatus)}>
-                    {isPaidWorkshop[0].paymentStatus}
-                  </span>
-                </p>
-              </>
-            )}
+          {isAuth && isRegistered && isPaidWorkshop[0].status === "SUCCESS" && (
+            <>
+              <button className="m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-lime-400/40">
+                Payment Verified! {"<"}~{">"}
+              </button>
+              <p className="text-xl font-semibold text-white">
+                Status:&nbsp;
+                <span className={colorFinder(isPaidWorkshop[0].status)}>
+                  {isPaidWorkshop[0].status}
+                </span>
+              </p>
+            </>
+          )}
 
-          {isAuth &&
-            isRegistered &&
-            isPaidWorkshop[0].paymentStatus === "FAILURE" && (
-              <>
-                <Link to={`/workshops/${workshop.code}/payment`}>
-                  <button className="m-3 w-fit border border-red-400 px-4 py-2 text-white duration-150 hover:bg-red-400/40">
-                    Pay Again! {"<"}~{">"}
-                  </button>
-                </Link>
-                <p className="text-xl font-semibold text-white">
-                  Status:&nbsp;
-                  <span className={colorFinder(isPaidWorkshop[0].paymentStatus)}>
-                    {isPaidWorkshop[0].paymentStatus}
-                  </span>
-                </p>
-                <p className="flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl">
-                  <span className="text-white bg-red-400 p-1 rounded-full">
-                    <FaInfo />
-                  </span>
-                  There seems to be some error during your payment. Please
-                  initiate payment again!
-                </p>
-              </>
-            )}
+          {isAuth && isRegistered && isPaidWorkshop[0].status === "FAILURE" && (
+            <>
+              <Link to={`/workshops/${workshop.code}/payment`}>
+                <button className="m-3 w-fit border border-red-400 px-4 py-2 text-white duration-150 hover:bg-red-400/40">
+                  Pay Again! {"<"}~{">"}
+                </button>
+              </Link>
+              <p className="text-xl font-semibold text-white">
+                Status:&nbsp;
+                <span className={colorFinder(isPaidWorkshop[0].status)}>
+                  {isPaidWorkshop[0].status}
+                </span>
+              </p>
+              <p className="flex justify-center items-center gap-2 text-white bg-gray-500 py-3 px-1 rounded-3xl">
+                <span className="text-white bg-red-400 p-1 rounded-full">
+                  <FaInfo />
+                </span>
+                There seems to be some error during your payment. Please
+                initiate payment again!
+              </p>
+            </>
+          )}
 
           {!isAuth && (
-            <Link to="/auth" className="flex justify-start mt-2 mb-0">
-              <button className="m-3 w-fit border border-[#c72727] px-4 py-2 text-white duration-150 hover:bg-[#ff4d4d]">
+            <Link to="/auth">
+              <button className="m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]">
                 Login to Register {"<"}~{">"}
               </button>
             </Link>
           )}
         </div>
       </div>
-      <Contact contacts={workshop.contact}/>
     </div>
   );
 };

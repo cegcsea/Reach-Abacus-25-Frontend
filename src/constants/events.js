@@ -30,6 +30,7 @@ export const events = [
           "A quiz challenge spanning five core Computer Science domains: Debugging, DSA, OOPs, CN, and DBMS. Solve a series of tasks to unlock hints and crack the final DSA problem.",
         image: img4, // Replace with your image path
         path: "/events/pentacode",
+
         team: "Two or three members",
         Date: "21st February 2025",
         prize: "Rs 1.5k+",
@@ -39,7 +40,7 @@ export const events = [
             title: "Round 1 – Quiz Challenge",
             content:
               "Test your mettle in a quiz spanning five core Computer Science domains: Debugging, DSA, OOPs, CN, and DBMS. Showcase your expertise to advance!",
-              
+
             duration: "30 minutes",
             time: "09:00 AM to 12:30 PM",
             // venue: "Main Building Room No 238",
@@ -166,7 +167,7 @@ export const events = [
     title: "Non Technical Events",
     image: img2, // Event image,
     Date: "20 February 2025",
-    
+
     event: [
       {
         id: 4,
@@ -176,8 +177,6 @@ export const events = [
           "Put your skills to test on topics like Food, Technology, Movies, Lifestyle, and more! Can your team guess the most popular answers to survey questions and win the title of Family Feud Champions?",
         image: img7, // Replace with your image path
         path: "/events/family-feud",
-        team: "Three members",
-        Date: "20th February 2025",
         rules: `• Participants answer survey-based questions on topics like Books, Food, Movies, Lifestyle, and Technology. Responses are ranked (1 = most popular, 7 = least popular).
               • Teams compete to guess the most popular answers.
               • Buzzers decide who answers first.

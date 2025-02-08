@@ -3,8 +3,7 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { LoaderData } from "./loaderContext";
 // import { server } from "../main";
-const server = process.env.REACT_APP_API_BASE_URL;
-//const server = "http://localhost:3001";
+const server = "http://localhost:3001";
 const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
@@ -13,6 +12,7 @@ export const UserContextProvider = ({ children }) => {
   const [btnLoading, setBtnLoading] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isAuth, setIsAuth] = useState(false);
+  const [paymentType, setPaymentType] = useState("individual");
   // const [auth, setAuth] = useState(false);
   const [userEvents, setUserEvents] = useState([]);
   const [userWorkshops, setUserWorkshops] = useState([]);
@@ -192,69 +192,13 @@ export const UserContextProvider = ({ children }) => {
       //console.log(data.data);
       setUser(data.data);
       setIsAuth(true);
-      // setUserWorkshops((prevWorkshops) => {
-      //   const workshops = data.data.workshops;
-      //   const workshopPayments = data.data.workshopPayments;
 
-      //   // Merge payment data into workshops
-      //   const updatedWorkshops = workshops.map((workshop) => {
-      //     const paymentInfo = workshopPayments.find(
-      //       (payment) => payment.workshopId === workshop.workshopId && payment.paymentStatus==="SUCCESS"
-      //     );
-
-      //     return {
-      //       ...workshop,
-      //       paymentStatus: paymentInfo ? paymentInfo.status : "Pending", // Default status if missing
-      //       paymentDetails: paymentInfo || {}, // Store full payment details if available
-      //     };
-      //   });
-
-      //   return updatedWorkshops;
-      // });
-      setUserWorkshops((prevWorkshops) => {
-        const workshops = data.data.workshops;
-        const workshopPayments = data.data.workshopPayments;
-
-        const paymentsByWorkshop = {};
-        workshopPayments.forEach((payment) => {
-          if (!paymentsByWorkshop[payment.workshopId]) {
-            paymentsByWorkshop[payment.workshopId] = [];
-          }
-          paymentsByWorkshop[payment.workshopId].push(payment);
-        });
-        const getBestPayment = (payments) => {
-          let bestPayment = null;
-          for (const payment of payments) {
-            //console.log(payment.status, bestPayment);
-            if (payment.status === "SUCCESS") {
-              return payment; // Highest priority
-            } else if (
-              payment.status === "PENDING" &&
-              (bestPayment?.status === "FAILURE" || !bestPayment)
-            ) {
-              bestPayment = payment;
-            } else if (!bestPayment) {
-              bestPayment = payment;
-            }
-          }
-
-          return bestPayment;
-        };
-
-        const updatedWorkshops = workshops.map((workshop) => {
-          const payments = paymentsByWorkshop[workshop.workshopId] || [];
-          const bestPayment = getBestPayment(payments);
-
-          return {
-            ...workshop,
-            paymentStatus: bestPayment ? bestPayment.status : "No Payment",
-            paymentDetails: bestPayment || {},
-          };
-        });
-
-        return updatedWorkshops;
+      const response = await axios.get(`${server}/user/user-workshops`, {
+        headers: { token },
       });
 
+      console.log(" Fetched Workshops & Payments:", response.data);
+      setUserWorkshops(response.data.workshops);
       //console.log(user);
     } catch (error) {
       //console.log(error);
@@ -368,7 +312,7 @@ export const UserContextProvider = ({ children }) => {
       //   ...prevWorkshops, // Spread the previous workshops
       //   {
       //     ...data.data, // Add the new workshop details
-      //     paymentStatus: null, // Set default payment status as null
+      //     status: null, // Set default payment status as null
       //     paymentDetails: null, // Set payment details to null initially
       //   },
       // ]);
@@ -380,6 +324,45 @@ export const UserContextProvider = ({ children }) => {
       setIsLoading(false);
     }
   }
+
+  const verifyBulkWorkshopPayment = async (paymentData, navigate) => {
+    try {
+      const token = localStorage.getItem("abacustoken");
+      //console.log(paymentData);
+      const formData = new FormData();
+      console.log(
+        paymentData.workshopId,
+        paymentData.paymentMobile,
+        paymentData.transactionId,
+        JSON.stringify(paymentData.userIds)
+      );
+      formData.append("workshopId", paymentData.workshopId);
+      //console.log("formData", formData);
+      formData.append("paymentMobile", paymentData.paymentMobile);
+      formData.append("transactionId", paymentData.transactionId);
+      // Convert userIds array to JSON and append it to formData
+      formData.append("userIds", JSON.stringify(paymentData.userIds)); // userIds are now in an array
+
+      const response = await axios.post(
+        `${server}/user/workshop/bulk-payment`,
+        formData,
+        { headers: { token, "Content-Type": "multipart/form-data" } }
+      );
+      console.log("response bulk:", response);
+      const message = response.data.message;
+      const payment = response.data.payment;
+      toast.success("Bulk Payment submitted successfully!");
+
+      return { message, payment };
+    } catch (error) {
+      //console.error(error);
+      console.error("Bulk Payment failed:", error.response?.data);
+      toast.error(error.response?.data?.message, {
+        duration: 3000,
+      });
+      throw error;
+    }
+  };
 
   // Get Workshops
   async function getWorkshops() {
@@ -425,7 +408,7 @@ export const UserContextProvider = ({ children }) => {
       const message = response.data.message;
       const payment = response.data.data;
       //console.log(paymentData.workshopId, payment.status, payment);
-      await freeWorkshopRegister({ workshopId: paymentData.workshopId });
+      //await freeWorkshopRegister({ workshopId: paymentData.workshopId });
 
       // setUserWorkshops((prevWorkshops) => {
       //   const updatedWorkshops = prevWorkshops.map((workshop) => {
@@ -433,7 +416,7 @@ export const UserContextProvider = ({ children }) => {
       //       console.log("Updating:", workshop);
       //       return {
       //         ...workshop,
-      //         paymentStatus: payment.status,
+      //         status: payment.status,
       //         paymentDetails: payment,
       //       };
       //     }
@@ -449,6 +432,29 @@ export const UserContextProvider = ({ children }) => {
       throw err;
     }
   }
+  // async function verifyWorkshopPaymentDetails(paymentData) {
+  //   const token = localStorage.getItem("abacustoken");
+  //   try {
+  //     const response = await axios.post(
+  //       `${server}/user/verify-workshop-payment-details`,
+  //       paymentData,
+  //       { headers: { token } }
+  //     );
+
+  //     const message = response.data.message;
+  //     const payment = response.data.data;
+
+  //     // After verifying the payment, now link it to the user using WorkshopPaymentUser
+  //     const userId = paymentData.userId; // Assuming `userId` is passed in paymentData
+  //     await linkPaymentToUser(payment.id, userId);
+
+  //     return { message, payment };
+  //   } catch (err) {
+  //     if (err.response) throw err.response.data.message;
+  //     throw err;
+  //   }
+  // }
+
   // useEffect(() => {
   //   console.log("Updated userWorkshops:", userWorkshops);
   // }, [userWorkshops]);
@@ -476,7 +482,36 @@ export const UserContextProvider = ({ children }) => {
       throw err;
     }
   }
+  const handleVerifyBulkWorkshopPayment = (data, navigate) => {
+    toast.promise(
+      verifyBulkWorkshopPayment(
+        {
+          workshopId: data.workshopId,
+          paymentMobile: data.paymentMobile,
+          transactionId: data.transactionId,
+          userIds: data.userIds,
+        },
+        navigate
+      ).then((responsesData) => {
+        workshopPaymentScreenshot({
+          payment: responsesData.payment,
+          formData: data.formData,
+        });
+      }),
+      {
+        loading: "Verifying...",
+        success: (screenshotData) => {
+          refreshauth();
+          navigate(`/workshops`);
+          return "Payment Details will be verified shortly!";
+        },
 
+        error: (err) => {
+          return typeof err == "object" ? err.message : err;
+        },
+      }
+    );
+  };
   const handleVerifyWorkshopPayment = (data, navigate) => {
     toast.promise(
       verifyWorkshopPaymentDetails({
@@ -520,8 +555,6 @@ export const UserContextProvider = ({ children }) => {
         .then((data) => {
           setIsAuth(true);
           // console.log(data);
-          // setUser(data.user);
-          // setUserWorkshops(data.user.workshopPayments);
         })
         .catch((error) => {});
       getEvents()
@@ -550,7 +583,8 @@ export const UserContextProvider = ({ children }) => {
     //   console.log("userevents", userEvents);
     //   console.log("user workshops", userWorkshops);
     //console.log("sessions", session);
-  }, [session]);
+    //console.log(paymentType);
+  }, [paymentType]);
 
   return (
     <UserContext.Provider
@@ -584,6 +618,10 @@ export const UserContextProvider = ({ children }) => {
         userWorkshops,
         session,
         setIsMenuOpen,
+        verifyBulkWorkshopPayment,
+        handleVerifyBulkWorkshopPayment,
+        paymentType,
+        setPaymentType,
       }}
     >
       {children}

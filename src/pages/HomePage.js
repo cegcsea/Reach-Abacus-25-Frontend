@@ -22,6 +22,7 @@ const HomePage = ({ isMenuOpen }) => {
       contactRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
+  
   return (
     <div className="bg-black">
       {/* Main Section */}
@@ -32,7 +33,7 @@ const HomePage = ({ isMenuOpen }) => {
         ))}
       </div> */}
       <div className="main bg-transparent scroll-mt-20">
-        <Home scrollToContact={scrollToContact} />
+        <Home scrollToContact={scrollToContact}/>
       </div>
       {/* <div className="mt-16 scroll-mt-20" id="sponsors">
         <Sponsors />
