@@ -30,28 +30,34 @@ const IndividualWorkshops = () => {
   };
   const { isLoading } = LoaderData();
   const getbestPayment = () => {
+    if (!user?.WorkshopPayment || !Array.isArray(user.WorkshopPayment)) {
+      return null;
+    }
+    const workshopPayments = user.WorkshopPayment.filter(
+      (payment) => payment.workshopId === workshop.code
+    );
+
     let bestPayment = null;
-    if (user?.WorkshopPayment && Array.isArray(user.WorkshopPayment)) {
-      for (const payment of user.WorkshopPayment) {
-        if (payment.status === "SUCCESS") {
-          return payment; 
-        } else if (
-          payment.status === "PENDING" &&
-          (bestPayment?.status === "FAILURE" || !bestPayment)
-        ) {
-          bestPayment = payment;
-        } else if (!bestPayment) {
-          bestPayment = payment;
-        }
+
+    for (const payment of workshopPayments) {
+      if (payment.status === "SUCCESS") {
+        return payment; 
+      } else if (
+        payment.status === "PENDING" &&
+        (bestPayment?.status === "FAILURE" || !bestPayment)
+      ) {
+        bestPayment = payment;
+      } else if (!bestPayment) {
+        bestPayment = payment;
       }
     }
-    return bestPayment; 
-  }
+
+    return bestPayment;
+  };
 
   useEffect(() => {
     setBestPayment(getbestPayment());
-    
-  },[user?.WorkshopPayment]);
+  }, [user?.WorkshopPayment]);
 
   if (isLoading) {
     return <Loader />;
