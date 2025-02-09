@@ -39,9 +39,7 @@ const BulkPayment = () => {
     const formReqData = new FormData();
     formReqData.append("paymentScreenshot", file);
 
-    const uniqueUserIds = [
-      ...new Set(userIds.split(",").map((uid) => uid)),
-    ];
+    const uniqueUserIds = [...new Set(userIds.split(",").map((uid) => uid))];
     console.log(uniqueUserIds.length, userIds);
     if (uniqueUserIds.length !== 5) {
       toast.error("Please provide exactly five unique user IDs.");
@@ -71,9 +69,18 @@ const BulkPayment = () => {
           <span className="text-[#8a1818]">&lt;</span> Bulk Payment{" "}
           <span className="text-[#8a1818]">&gt;</span>
         </h2>
+        <div className="flex justify-center w-full  flex-col">
+          <p className="font-bold text-xl text-white">Note!</p>
+          <ul className="list-disc list-inside text-justify pl-1">
+            <li>Bulk registration Rs.1200 for 5 members</li>
+            <li>All five participants should register in the website individually and
+              enter Reach IDs separated by commas
+            </li>
+          </ul>
+        </div>
         <button
           type="button"
-          className="bg-[#8a1818] p-2 text-white font-semibold py-2 rounded mt-4"
+          className="bg-[#8a1818] p-2 text-white font-semibold py-2 rounded mt-2"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? "Hide QR Code!" : "Show QR Code!"} &lt;~&gt;
@@ -83,10 +90,12 @@ const BulkPayment = () => {
             <img
               src={workshop.bulkBooking}
               alt="QR Code"
-              className="w-64 h-88 border-2 my-2 border-[#8a1818] rounded-md"
+              className="w-64 h-88 border-2 my-1 border-[#8a1818] rounded-md"
             />
           </div>
         )}
+        
+
         <form className="flex flex-col gap-4 mt-5" onSubmit={handleSubmit}>
           <input
             type="text"
@@ -108,10 +117,10 @@ const BulkPayment = () => {
           />
           <input
             type="text"
-            placeholder="Enter 5 unregistered Reach User-Ids (comma-separated)"
+            placeholder="Enter Reach-ids.Eg:10,12,15,13,22"
             value={userIds}
             onChange={handleUserIdsChange}
-            className="w-full p-3 bg-black border border-[#8a1818] text-white rounded-md"
+            className="w-full py-3 px-2 bg-black border border-[#8a1818] text-white rounded-md"
             required
           />
           <div className="flex flex-col items-center">
