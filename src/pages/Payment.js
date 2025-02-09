@@ -4,9 +4,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 import { workshopsReach as workshops } from "../constants/workshops";
+
 const Payment = () => {
   const navigate = useNavigate();
-  const { handleVerifyWorkshopPayment, registerWorkshop } = UserData();
+  const { handleVerifyWorkshopPayment, user } = UserData();
   const { id } = useParams();
   const [formData, setFormData] = useState({
     transactionId: "",
@@ -16,7 +17,7 @@ const Payment = () => {
   const [fileName, setFileName] = useState("Get your payment screenshot...");
   const [isOpen, setIsOpen] = useState(false);
   const workshop = workshops.find((ws) => ws.code === parseInt(id));
-  console.log(workshops,id);
+  console.log(workshops, id);
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
     setFileName(event.target.files[0].name);
@@ -38,12 +39,15 @@ const Payment = () => {
     e.preventDefault();
     const formReqData = new FormData();
     formReqData.append("paymentScreenshot", file);
+    const userArray = [parseInt(user.id)];
+    console.log(userArray);
     handleVerifyWorkshopPayment(
       {
         workshopId: parseInt(id),
         paymentMobile: formData.paymentMobile,
         transactionId: formData.transactionId,
         formData: formReqData,
+        users: userArray,
       },
       navigate
     );

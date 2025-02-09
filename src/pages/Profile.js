@@ -9,13 +9,13 @@ import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 import { sessions, workshopsReach } from "../constants/workshops";
 const Profile = () => {
-  const { profile, user, userEvents, userWorkshops, session } = UserData(); // Get the profile method and user data from context
+  const { profile, user, userEvents, session } = UserData(); // Get the profile method and user data from context
 
   // useEffect(() => {
   //   profile(); // Fetch the profile when the component mounts
   //   console.log("profile:", userData.events,userData.workshops); // Debugging: Check the user data fetched
   // }, [user]);
-  console.log(userWorkshops);
+  console.log(user.WorkshopPayment);
   const navigate = useNavigate();
 
   const navigateTo = (page) => {
@@ -75,7 +75,7 @@ const Profile = () => {
           {/* Registered Events Section */}
           <div className="user-section events">
             <h3>Registered Events</h3>
-            {userEvents.length > 0 ? (
+            {user.events?.length > 0 ? (
               <ul>
                 {userEvents.map((event, index) => (
                   <li key={index}>{event.eventName}</li>
@@ -97,9 +97,9 @@ const Profile = () => {
           <div className="user-section workshops">
             <h3>Registered Workshops</h3>
 
-            {userWorkshops?.length > 0 ? (
+            {user.WorkshopPayment?.length > 0 ? (
               <ul>
-                {userWorkshops.map((workshop, index) => {
+                {user.WorkshopPayment.map((workshop, index) => {
                   const matchingWorkshop = workshopsReach.find(
                     (ws) =>
                       ws.code === workshop.workshopId &&
@@ -111,7 +111,7 @@ const Profile = () => {
                     </li>
                   ) : null;
                 })}
-                {userWorkshops.map((workshop, index) => {
+                {user.WorkshopPayment.map((workshop, index) => {
                   const matchingWorkshop = workshopsReach.find(
                     (ws) =>
                       ws.code === workshop.workshopId &&
@@ -124,7 +124,7 @@ const Profile = () => {
                   ) : null;
                 })}
                 {session.length > 0 &&
-                  session.map((workshop, index) => {
+                  user.workshops.map((workshop, index) => {
                     console.log(workshop);
                     const matchingWorkshop = sessions.find(
                       (ws) => ws.code === workshop.workshopId

@@ -188,16 +188,16 @@ export const UserContextProvider = ({ children }) => {
       const { data } = await axios.get(`${server}/user/profile`, {
         headers: { token },
       });
-      //console.log(data.data);
+      console.log(data.data);
       setUser(data.data);
       setIsAuth(true);
+      setUserWorkshops(data.data.workshops);
+      // const response = await axios.get(`${server}/user/user-workshops`, {
+      //   headers: { token },
+      // });
 
-      const response = await axios.get(`${server}/user/user-workshops`, {
-        headers: { token },
-      });
-
-      console.log(" Fetched Workshops & Payments:", response.data);
-      setUserWorkshops(response.data.workshops);
+      // console.log(" Fetched Workshops & Payments:", response.data);
+      // setUserWorkshops(response.data.workshops);
       //console.log(user);
     } catch (error) {
       //console.log(error);
@@ -393,6 +393,7 @@ export const UserContextProvider = ({ children }) => {
   // Verify Workshop Payment Details
   async function verifyWorkshopPaymentDetails(paymentData) {
     const token = localStorage.getItem("abacustoken");
+    console.log("payment data:", paymentData);
     try {
       const response = await axios.post(
         `${server}/user/verify-workshop-payment-details`,
@@ -405,66 +406,26 @@ export const UserContextProvider = ({ children }) => {
       // );
 
       const message = response.data.message;
-      const payment = response.data.data;
-      //console.log(paymentData.workshopId, payment.status, payment);
-      //await freeWorkshopRegister({ workshopId: paymentData.workshopId });
-
-      // setUserWorkshops((prevWorkshops) => {
-      //   const updatedWorkshops = prevWorkshops.map((workshop) => {
-      //     if (workshop.workshopId === paymentData.workshopId) {
-      //       console.log("Updating:", workshop);
-      //       return {
-      //         ...workshop,
-      //         status: payment.status,
-      //         paymentDetails: payment,
-      //       };
-      //     }
-      //     return workshop;
-      //   });
-      //   console.log("Updated workshops:", updatedWorkshops);
-      //   return updatedWorkshops;
-      //   });
-      //console.log(response.data.data);
-      return { message, payment };
+      const id = response.data.id;
+      console.log(id);
+      return { message, id };
     } catch (err) {
       if (err.response) throw err.response.data.message;
       throw err;
     }
   }
-  // async function verifyWorkshopPaymentDetails(paymentData) {
-  //   const token = localStorage.getItem("abacustoken");
-  //   try {
-  //     const response = await axios.post(
-  //       `${server}/user/verify-workshop-payment-details`,
-  //       paymentData,
-  //       { headers: { token } }
-  //     );
-
-  //     const message = response.data.message;
-  //     const payment = response.data.data;
-
-  //     // After verifying the payment, now link it to the user using WorkshopPaymentUser
-  //     const userId = paymentData.userId; // Assuming `userId` is passed in paymentData
-  //     await linkPaymentToUser(payment.id, userId);
-
-  //     return { message, payment };
-  //   } catch (err) {
-  //     if (err.response) throw err.response.data.message;
-  //     throw err;
-  //   }
-  // }
 
   // useEffect(() => {
   //   console.log("Updated userWorkshops:", userWorkshops);
   // }, [userWorkshops]);
 
   // Upload Workshop Payment Screenshot
-  async function workshopPaymentScreenshot({ payment, formData }) {
+  async function workshopPaymentScreenshot({ id, formData }) {
     const token = localStorage.getItem("abacustoken");
-
+    console.log(id, formData);
     try {
       const response = await axios.post(
-        `${server}/user/workshop-payment-screenshot/${payment.id}`,
+        `${server}/user/workshop-payment-screenshot/${id}`,
         formData,
         {
           headers: {
@@ -493,7 +454,7 @@ export const UserContextProvider = ({ children }) => {
         navigate
       ).then((responsesData) => {
         workshopPaymentScreenshot({
-          payment: responsesData.payment,
+          id: responsesData.id,
           formData: data.formData,
         });
       }),
@@ -512,14 +473,16 @@ export const UserContextProvider = ({ children }) => {
     );
   };
   const handleVerifyWorkshopPayment = (data, navigate) => {
+    console.log("data",data);
     toast.promise(
       verifyWorkshopPaymentDetails({
         workshopId: data.workshopId,
         paymentMobile: data.paymentMobile,
         transactionId: data.transactionId,
+        users: data.users,
       }).then((responsesData) => {
         workshopPaymentScreenshot({
-          payment: responsesData.payment,
+          id: responsesData.id,
           formData: data.formData,
         });
       }),

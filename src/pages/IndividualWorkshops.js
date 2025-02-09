@@ -9,15 +9,15 @@ import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 const IndividualWorkshops = () => {
   const { id } = useParams();
-  const { userWorkshops, isAuth, paymentType, setPaymentType } = UserData();
+  const { user, isAuth } = UserData();
   const workshop = workshops.find((ws) => ws.to === id);
   const [activeTab, setActiveTab] = useState("description");
-  const isPaidWorkshop = (userWorkshops || []).filter(
+  const isPaidWorkshop = (user?.WorkshopPayment || []).filter(
     (ws) => ws.workshopId === workshop.code
   );
   isPaidWorkshop.sort((a, b) => b.id - a.id);
   //console.log(isPaidWorkshop);
-  const isRegistered = (userWorkshops || []).some(
+  const isRegistered = (user?.WorkshopPayment || []).some(
     (ws) => ws.workshopId === workshop.code
   );
   //console.log(workshop, id);
@@ -215,7 +215,7 @@ const IndividualWorkshops = () => {
               >
                 <button
                   className="m-3 w-fit border border-lime-400 px-4 py-2 text-white duration-150 hover:bg-[#93dd7833]"
-                  onClick={() => setPaymentType("bulk")}
+                  //onClick={() => setPaymentType("bulk")}
                 >
                   Bulk Register {"<"}~{">"}
                 </button>

@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { workshopsReach as workshops } from "../constants/workshops";
 const BulkPayment = () => {
   const navigate = useNavigate();
-  const { handleVerifyBulkWorkshopPayment } = UserData();
+  const { handleVerifyWorkshopPayment } = UserData();
   const { id } = useParams();
   const { isLoading } = LoaderData();
 
@@ -39,20 +39,20 @@ const BulkPayment = () => {
     const formReqData = new FormData();
     formReqData.append("paymentScreenshot", file);
 
-    const uniqueUserIds = [...new Set(userIds.split(",").map((uid) => uid))];
+    const uniqueUserIds = [...new Set(userIds.split(",").map((uid) => parseInt(uid)))];
     console.log(uniqueUserIds.length, userIds);
     if (uniqueUserIds.length !== 5) {
       toast.error("Please provide exactly five unique user IDs.");
       return;
     }
-
-    handleVerifyBulkWorkshopPayment(
+    console.log(uniqueUserIds);
+    handleVerifyWorkshopPayment(
       {
         workshopId: parseInt(id),
         paymentMobile: formData.paymentMobile,
         transactionId: formData.transactionId,
-        userIds: uniqueUserIds,
         formData: formReqData,
+        users: uniqueUserIds,
       },
       navigate
     );

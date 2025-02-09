@@ -5,9 +5,9 @@ import { useEffect } from "react";
 
 const Workshops = () => {
   const navigate = useNavigate();
-  const { userWorkshops, session ,refreshauth} = UserData();
+  const { user, session ,refreshauth} = UserData();
 
-  const eventNames = (userWorkshops || []).map((event) => event.workshopId);
+  const eventNames = (user?.WorkshopPayment || []).map((event) => event.workshopId);
   const filteredEvents = (workshopsReach || []).filter((event) =>
     eventNames.includes(event.code)
   );
