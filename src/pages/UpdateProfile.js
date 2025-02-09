@@ -18,7 +18,7 @@ function UpdateProfile() {
     //accomodation: user.accomodation,
   });
 
-  console.log(user);
+  //console.log(user);
   useEffect(() => {
     setFormData({
       name: user.name,
@@ -60,7 +60,7 @@ function UpdateProfile() {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-    console.log(name, value);
+    //console.log(name, value);
   };
 
   const handleSubmit = async (e) => {

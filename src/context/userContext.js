@@ -188,7 +188,7 @@ export const UserContextProvider = ({ children }) => {
       const { data } = await axios.get(`${server}/user/profile`, {
         headers: { token },
       });
-      console.log(data.data);
+      //console.log(data.data);
       setUser(data.data);
       setIsAuth(true);
       setUserWorkshops(data.data.workshops);
@@ -329,12 +329,12 @@ export const UserContextProvider = ({ children }) => {
       const token = localStorage.getItem("abacustoken");
       //console.log(paymentData);
       const formData = new FormData();
-      console.log(
-        paymentData.workshopId,
-        paymentData.paymentMobile,
-        paymentData.transactionId,
-        JSON.stringify(paymentData.userIds)
-      );
+      //console.log(
+      //   paymentData.workshopId,
+      //   paymentData.paymentMobile,
+      //   paymentData.transactionId,
+      //   JSON.stringify(paymentData.userIds)
+      // );
       formData.append("workshopId", paymentData.workshopId);
       //console.log("formData", formData);
       formData.append("paymentMobile", paymentData.paymentMobile);
@@ -347,7 +347,7 @@ export const UserContextProvider = ({ children }) => {
         formData,
         { headers: { token, "Content-Type": "multipart/form-data" } }
       );
-      console.log("response bulk:", response);
+      //console.log("response bulk:", response);
       const message = response.data.message;
       const payment = response.data.payment;
       toast.success("Bulk Payment submitted successfully!");
@@ -393,7 +393,7 @@ export const UserContextProvider = ({ children }) => {
   // Verify Workshop Payment Details
   async function verifyWorkshopPaymentDetails(paymentData) {
     const token = localStorage.getItem("abacustoken");
-    console.log("payment data:", paymentData);
+    //console.log("payment data:", paymentData);
     try {
       const response = await axios.post(
         `${server}/user/verify-workshop-payment-details`,
@@ -407,7 +407,7 @@ export const UserContextProvider = ({ children }) => {
 
       const message = response.data.message;
       const id = response.data.id;
-      console.log(id);
+      //console.log(id);
       return { message, id };
     } catch (err) {
       if (err.response) throw err.response.data.message;
@@ -422,7 +422,7 @@ export const UserContextProvider = ({ children }) => {
   // Upload Workshop Payment Screenshot
   async function workshopPaymentScreenshot({ id, formData }) {
     const token = localStorage.getItem("abacustoken");
-    console.log(id, formData);
+    //console.log(id, formData);
     try {
       const response = await axios.post(
         `${server}/user/workshop-payment-screenshot/${id}`,
@@ -473,7 +473,7 @@ export const UserContextProvider = ({ children }) => {
     );
   };
   const handleVerifyWorkshopPayment = (data, navigate) => {
-    console.log("data",data);
+    //console.log("data",data);
     toast.promise(
       verifyWorkshopPaymentDetails({
         workshopId: data.workshopId,

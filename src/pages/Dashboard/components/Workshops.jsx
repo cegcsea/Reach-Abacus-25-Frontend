@@ -19,13 +19,13 @@ const Workshops = () => {
     (event) => event.workshopId === 3
   );
 
-  useEffect(() => {
-    refreshauth();
-    console.log(session);
-    console.log("filteredEvents:", filteredEvents);
-    console.log("notIncludedEvents:", notIncludedEvents);
-    console.log("registeredSession:", registeredSession);
-  },[]);
+  // useEffect(() => {
+  //   refreshauth();
+  //   console.log(session);
+  //   console.log("filteredEvents:", filteredEvents);
+  //   console.log("notIncludedEvents:", notIncludedEvents);
+  //   console.log("registeredSession:", registeredSession);
+  // },[]);
 
   return (
     <div className="flex flex-col gap-5">

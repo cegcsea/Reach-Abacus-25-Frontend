@@ -9,7 +9,7 @@ import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 const IndividualWorkshops = () => {
   const { id } = useParams();
-  const { user, isAuth } = UserData();
+  const { user, isAuth ,refreshauth} = UserData();
   const workshop = workshops.find((ws) => ws.to === id);
   const [activeTab, setActiveTab] = useState("description");
   const [bestPayment, setBestPayment] = useState(null);
@@ -58,6 +58,10 @@ const IndividualWorkshops = () => {
   useEffect(() => {
     setBestPayment(getbestPayment());
   }, [user?.WorkshopPayment]);
+
+  useEffect(() => {
+      refreshauth();
+    }, [user?.WorkshopPayment?.length]);
 
   if (isLoading) {
     return <Loader />;

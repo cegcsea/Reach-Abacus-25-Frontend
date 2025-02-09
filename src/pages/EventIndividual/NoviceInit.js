@@ -46,7 +46,7 @@ const NoviceInit = () => {
   // Handle event registration
   const handleRegister = async (e) => {
     e.preventDefault();
-    console.log(typeof selectedEvent.id);
+    //console.log(typeof selectedEvent.id);
     eventRegister({ eventId: Number(selectedEvent.id) });
   };
   const { isLoading } = LoaderData();

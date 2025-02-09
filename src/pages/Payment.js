@@ -17,7 +17,7 @@ const Payment = () => {
   const [fileName, setFileName] = useState("Get your payment screenshot...");
   const [isOpen, setIsOpen] = useState(false);
   const workshop = workshops.find((ws) => ws.code === parseInt(id));
-  console.log(workshops, id);
+ // console.log(workshops, id);
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
     setFileName(event.target.files[0].name);
@@ -40,7 +40,7 @@ const Payment = () => {
     const formReqData = new FormData();
     formReqData.append("paymentScreenshot", file);
     const userArray = [parseInt(user.id)];
-    console.log(userArray);
+    //console.log(userArray);
     handleVerifyWorkshopPayment(
       {
         workshopId: parseInt(id),

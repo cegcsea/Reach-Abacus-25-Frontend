@@ -18,12 +18,12 @@ const Events = () => {
     (event) => !eventNames.includes(event.title)
   );
 
-  useEffect(() => {
-    console.log(userEvents);
-    console.log(eventNames);
-    console.log(filteredEvents);
-    console.log(notIncludedEvents);
-  }, [userEvents]);
+  // useEffect(() => {
+  //   console.log(userEvents);
+  //   console.log(eventNames);
+  //   console.log(filteredEvents);
+  //   console.log(notIncludedEvents);
+  // }, [userEvents]);
 
   //console.log(userEvents);
 

@@ -15,7 +15,7 @@ const Profile = () => {
   //   profile(); // Fetch the profile when the component mounts
   //   console.log("profile:", userData.events,userData.workshops); // Debugging: Check the user data fetched
   // }, [user]);
-  console.log(user.WorkshopPayment);
+  //console.log(user.WorkshopPayment);
   const navigate = useNavigate();
 
   const navigateTo = (page) => {
@@ -125,7 +125,7 @@ const Profile = () => {
                 })}
                 {session.length > 0 &&
                   user.workshops.map((workshop, index) => {
-                    console.log(workshop);
+                    //console.log(workshop);
                     const matchingWorkshop = sessions.find(
                       (ws) => ws.code === workshop.workshopId
                     );

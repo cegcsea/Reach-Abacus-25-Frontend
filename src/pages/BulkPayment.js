@@ -40,12 +40,12 @@ const BulkPayment = () => {
     formReqData.append("paymentScreenshot", file);
 
     const uniqueUserIds = [...new Set(userIds.split(",").map((uid) => parseInt(uid)))];
-    console.log(uniqueUserIds.length, userIds);
+    //console.log(uniqueUserIds.length, userIds);
     if (uniqueUserIds.length !== 5) {
       toast.error("Please provide exactly five unique user IDs.");
       return;
     }
-    console.log(uniqueUserIds);
+   // console.log(uniqueUserIds);
     handleVerifyWorkshopPayment(
       {
         workshopId: parseInt(id),
