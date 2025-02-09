@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import image from "../assets/Reach/placement.svg";
 import { UserData } from "../context/userContext.js";
 import { useNavigate } from "react-router-dom";
@@ -6,7 +6,8 @@ import { FaLocationDot } from "react-icons/fa6";
 import SessionContact from "../components/SessionContact.js";
 
 function Session() {
-  const { freeWorkshopRegister, isAuth, user, session } = UserData();
+  const { freeWorkshopRegister, isAuth, user, session, refreshauth } =
+    UserData();
   const navigate = useNavigate();
 
   const handleRegister = (code) => {
@@ -23,7 +24,7 @@ function Session() {
   ];
   const isRegistered =
     Array.isArray(session) &&
-    user?.workshops.some((workshop) => workshop.workshopId === 3);
+    user?.workshops?.some((workshop) => workshop.workshopId === 3);
   // const contact = [
   //   {
   //     id: 1,
@@ -32,6 +33,10 @@ function Session() {
   //   },
   //   { id: 2, name: "Smrithi", phone: "+91 8072869255" },
   // ];
+  useEffect(() => {
+    refreshauth();
+  }, [user?.workshops?.length]);
+
   return (
     <div className="border-[2px] rounded-xl border-[#FF5555] border-shadow border-shadow-lg bg-[#1d1d1d] my-5">
       <div className="p-5 sm:py-8 sm:px-10 flex gap-3 flex-col ">
@@ -75,8 +80,14 @@ function Session() {
                 feedback to optimize your performance in real-world placements.
               </p>
 
-              <p className="text-[#c9c9c9] p-3 text-base"><span className="font-bold text-lg">Date: </span> 20th February 2025</p>
-              <p className="text-[#c9c9c9] p-3 text-base"><span className="font-bold text-lg">Time: </span> 02:00 PM to 03:30 PM</p>
+              <p className="text-[#c9c9c9] p-3 text-base">
+                <span className="font-bold text-lg">Date: </span> 20th February
+                2025
+              </p>
+              <p className="text-[#c9c9c9] p-3 text-base">
+                <span className="font-bold text-lg">Time: </span> 02:00 PM to
+                03:30 PM
+              </p>
               {isAuth &&
                 user.hostCollege ===
                   "Government College of Technology, Coimbatore" && (
@@ -113,9 +124,8 @@ function Session() {
             )}
           </div>
         </div>
-
       </div>
-      <div >
+      <div>
         <SessionContact contacts={contacts} />
       </div>
     </div>
