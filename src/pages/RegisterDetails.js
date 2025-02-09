@@ -23,7 +23,7 @@ function RegisterDetails() {
     password: "",
     confirmPassword: "",
   });
-
+  const hostCollege = "J.J. College of Engineering and Technology,Tiruchirappalli";
   const optionsHostCollege = [
     {
       label: "J.J. College of Engineering and Technology,Tiruchirappalli",
@@ -92,7 +92,7 @@ function RegisterDetails() {
         email: email,
         token: token,
         college: formData.college,
-        hostCollege: formData.hostCollege,
+        hostCollege: hostCollege,
         accomodation:formData.accomodation,
         dept: formData.dept,
         year: parseInt(formData.year),

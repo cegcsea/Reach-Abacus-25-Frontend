@@ -2,9 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { LoaderData } from "./loaderContext";
-// import { server } from "../main";
 const server = process.env.REACT_APP_API_BASE_URL;
-// const server = "http://localhost:3001";
 const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
