@@ -169,16 +169,26 @@
 .about {
   background-color: black;
   padding: 20px;
-  padding-left: 40px;
+  padding-right:40px;
   display: flex;
   color: white;
 }
 .about .first {
   display: flex;
   justify-content: center;
+  width:1005;
   align-items: center;
 }
+/* .reachlogo{
+  width:500px;
+  height:500px;
+}
 
+.reach-first{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
 .about .second {
 
   padding-right: 30px;
@@ -240,6 +250,10 @@
   .theme {
     margin-top: 20px;
   }
+  .about .first{
+    display: flex;
+    flex-direction: column;
+  }
   .ablogo{
    width:400px;
     height:300px;
@@ -300,10 +314,53 @@
     justify-content: center;
     align-items: center;
   }
+
+  .whole{
+    flex-direction: column;
+  }
+
+
+.about .second{
+  padding:30px;
+}
+
+}
+@media(max-width:810px)
+{
+  .reachlogo{
+    width:200px;
+    height:200px;
+  }
+}
+@media(max-width:777px)
+{
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 560px;
+    position: absolute;
+    width: 560px;
+    top:18.5%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .reachlogo{
+    width:300px;
+  }
 }
 @media (max-width: 594px) {
   .button-container {
     margin-bottom: 40px;
+  }
+  .reachlogo{
+    width:250px;
+    height: 200px;
   }
   .home_bgcircle1__MiYGt {
     visibility: visible;

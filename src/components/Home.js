@@ -3,6 +3,7 @@ import "../styles/about.css";
 import Loader from "./Loader/Loader";
 import TypewritingButton from "./TypewritingButton";
 import { motion } from "framer-motion";
+import React,{ useEffect,useState } from "react";
 
 // Animation Variants
 const fadeInVariant = {
@@ -15,12 +16,29 @@ const slideFromLeft = {
   visible: { x: 0, opacity: 1, transition: { duration: 1 } },
 };
 
+
 const slideFromRight = {
   hidden: { x: "100%", opacity: 0 },
   visible: { x: 0, opacity: 1, transition: { duration: 1 } },
 };
 
 const Home = ({ scrollToContact }) => {
+ 
+  const [imageSrc, setImageSrc] = useState(
+    require("../assets/Reach/Reach'25 logo white(short).png")
+  );
+  useEffect(() => {
+    const updateImageSrc = () => {
+      if (window.innerWidth <= 800) {
+        setImageSrc(require("../assets/Reach/reach new.png")); // Set a different image for small screens
+      } else {
+        setImageSrc(require("../assets/Reach/Reach'25 logo white(short).png"));
+      }
+    }; updateImageSrc(); // Set initial value
+    window.addEventListener("resize", updateImageSrc); // Listen for resize events
+
+    return () => window.removeEventListener("resize", updateImageSrc); // Cleanup
+  }, []);
   const { isLoading } = LoaderData();
   if (isLoading) {
     return <Loader />;
@@ -90,39 +108,74 @@ const Home = ({ scrollToContact }) => {
         </motion.h2>
         <img src={require("../assets/Reach/Reach'25_logo_white.png")}></img>
         <motion.div
-          className="about bg-transparent overflow-hidden"
+          className="about bg-transparent overflow-hidden flex flex-col"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <motion.div className="first" variants={slideFromLeft}>
-            <img
-              src={require("../assets/Reach/abacus'25_logo_white.png")}
-              alt="Abacus Logo"
-              className="ablogo "
-            />
-          </motion.div>
-          <motion.div
-            className="second py-10 flex flex-col "
-            variants={slideFromRight}
-          >
-            <p className="text-white text-justify">
-              The conglomeration of the brightest minds enhancing the
-              participant’s knowledge and creative potentials. The 3-day annual
-              symposium showcases 15+ events and flagship contests of crystal
-              gazing technology. Abacus's coverage and deliberations of earlier
-              symposia have been a grand success with insatiable thirst for
-              technological development rejuvenating the technology with
-              innovation. This year, Abacus is back offline on a grander scale
-              with an innovative edge to all the events.
-            </p>
-            {/* <motion.button
+          <motion.div className="flex  flex-row whole">
+            <motion.div className="first" variants={slideFromLeft}>
+              <img
+                src={imageSrc}
+                alt="Reach logo"
+                className="ablogo reachlogo "
+              />
+            </motion.div>
+            <motion.div
+              className="second py-10 flex flex-col "
+              variants={slideFromRight}
+            >
+              <p className="text-white text-justify">
+                Every year, as a component of ABACUS, we organize outreach
+                initiatives in renowned colleges across Tamil Nadu, aiming to
+                enhance student engagement and amplify awareness for our
+                symposium. Our specialized workshops under the REACH umbrella
+                introduce students to emerging technologies, ensuring they
+                remain at the forefront of innovation and industry relevance.
+                REACH goes beyond academics by offering tailored events that
+                prepare students for competitive landscapes, equipping them with
+                essential skills and confidence for future placements and
+                interviews.
+              </p>
+              {/* <motion.button
               className=".but !my-8 !mx-auto xl:!mx-0 lg:w-[23%]"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
               Read More
             </motion.button> */}
+            </motion.div>
+          </motion.div>
+          <motion.div className="flex  flex-row whole">
+            <motion.div className="first" variants={slideFromLeft}>
+              <img
+                src={require("../assets/Reach/abacus'25_logo_white.png")}
+                alt="Abacus Logo"
+                className="ablogo "
+              />
+            </motion.div>
+            <motion.div
+              className="second py-10 flex flex-col "
+              variants={slideFromRight}
+            >
+              <p className="text-white text-justify">
+                The conglomeration of the brightest minds enhancing the
+                participant’s knowledge and creative potentials. The 3-day
+                annual symposium showcases 15+ events and flagship contests of
+                crystal gazing technology. Abacus's coverage and deliberations
+                of earlier symposia have been a grand success with insatiable
+                thirst for technological development rejuvenating the technology
+                with innovation. This year, Abacus is back offline on a grander
+                scale with an innovative edge to all the events.
+              </p>
+              {/* <motion.button
+              className=".but !my-8 !mx-auto xl:!mx-0 lg:w-[23%]"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              Read More
+            </motion.button> */}
+            </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>
