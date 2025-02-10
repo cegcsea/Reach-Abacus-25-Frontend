@@ -163,7 +163,7 @@ const Profile = () => {
               <TbHanger className="icon" />
             </div>
             <div>
-              You are currently in College of Engineering Guindy, attending our
+              You are currently in JJCET , attending our
               marvellous REACH'25!
             </div>
           </p>
