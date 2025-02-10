@@ -174,6 +174,7 @@ export const events = [
         title: "Family Feud",
         time: "01:30 PM to 04:00 PM",
         Date: "20 February 2025",
+        team: "Three members",
         description:
           "Put your skills to test on topics like Food, Technology, Movies, Lifestyle, and more! Can your team guess the most popular answers to survey questions and win the title of Family Feud Champions?",
         image: img7, // Replace with your image path
