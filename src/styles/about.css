@@ -240,10 +240,10 @@
   background-position: 50%;
   background-size: contain;
   border-radius: 50%;
-  height: 560px;
+  height: 540px;
   top:3.5%;
   position: absolute;
-  width: 560px;
+  width: 540px;
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
@@ -303,9 +303,9 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 560px;
+    height: 500px;
     position: absolute;
-    width: 560px;
+    width: 500px;
     top:19.5%;
     background-repeat: no-repeat;
     display: flex;
