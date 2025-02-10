@@ -538,7 +538,7 @@
     align-items: center;
   }
 }
-@media(max-width:560px){
+@media(max-width:575px){
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
@@ -599,7 +599,7 @@
     margin-bottom: 20px;
   }
 }
-@media(max-width:518px){
+@media(max-width:519px){
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
@@ -642,6 +642,24 @@
 
 
 
+@media (max-width: 506px) {
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 530px;
+    position: absolute;
+    width: 530px;
+    top:23.5%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
 @media (max-width: 490px) {
   .home_bgcircle1__MiYGt {
@@ -661,7 +679,7 @@
     align-items: center;
   }
 }
-@media(max-width:485px){
+@media(max-width:487px){
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
@@ -669,10 +687,10 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 560px;
+    height: 530px;
     position: absolute;
-    width: 560px;
-    top:24%;
+    width: 530px;
+    top:23.5%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -707,16 +725,17 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 560px;
+    height: 540px;
     position: absolute;
-    width: 560px;
-    top:23%;
+    width: 540px;
+    top:23.5%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 }
+
 @media (max-width: 420px) {
   .home_bgcircle1__MiYGt {
     visibility: visible;
@@ -725,10 +744,10 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 540px;
+    height: 520px;
     position: absolute;
-    width: 540x;
-    top:24%;
+    width: 520x;
+    top:24.3%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -737,7 +756,7 @@
 }
 
  
-@media (max-width: 357px) {
+@media (max-width: 370px) {
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
@@ -745,10 +764,10 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 500px;
+    height: 510px;
     position: absolute;
-    width: 500x;
-    top: 34%;
+    width: 510x;
+    top: 24%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
