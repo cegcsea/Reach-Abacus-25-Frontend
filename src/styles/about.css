@@ -654,10 +654,10 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 530px;
+    height: 525px;
     position: absolute;
-    width: 530px;
-    top:23.5%;
+    width: 525px;
+    top:23%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -665,7 +665,7 @@
   }
 }
 
-@media (max-width: 490px) {
+@media (max-width: 495px) {
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
@@ -676,7 +676,7 @@
     height: 520px;
     position: absolute;
     width: 520px;
-    top:27.4%;
+    top:24%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -768,10 +768,10 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 500px;
+    height: 510px;
     position: absolute;
-    width: 500x;
-    top: 24%;
+    width: 510x;
+    top: 24.3%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
