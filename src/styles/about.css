@@ -29,7 +29,6 @@
   bottom: 00px;
   left: 0px;
 }
-
 @keyframes rotate-dots {
   0% {
     transform: rotate(0deg);
@@ -45,11 +44,11 @@
   background-position: 50%;
   background-size: contain;
   border-radius: 50%;
-  height: 500px;
+  height: 480px;
   position: absolute;
-  width: 500px;
-  top:5%;
+  width: 480px;
   display: flex;
+  top:4.5%;
   justify-content: center;
   align-items: center;
 }
@@ -72,8 +71,9 @@
   padding: 2px;
 }
 .div2 .logo {
-  width: 350px;
-  height: 350px;
+  width: 280px;
+  height: 280px;
+
   z-index: 10;
 }
 
@@ -142,10 +142,6 @@
   height: 30em;
   background-color: #f0f0f0;
 }
-.ablogo{
-  width:500px;
-  height:400px;
-}
 
 .initial .des-2 {
   position: absolute;
@@ -169,33 +165,20 @@
 .about {
   background-color: black;
   padding: 20px;
-  padding-right:40px;
+  padding-left: 40px;
   display: flex;
   color: white;
 }
 .about .first {
   display: flex;
-  justify-content: center;
-  width:1005;
-  align-items: center;
-}
-/* .reachlogo{
-  width:500px;
-  height:500px;
 }
 
-.reach-first{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 .about .second {
-
-  padding-right: 30px;
+  padding: 10px;
   color: white;
   font-size: 20px;
   line-height: 40px;
-  
+  padding-left: 30px;
   padding-top: 50px;
 }
 
@@ -245,40 +228,30 @@
   .about {
     height: auto;
     flex-direction: column;
-   
   }
   .theme {
     margin-top: 20px;
   }
-  .about .first{
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 500px;
+    top:19%;
+    position: absolute;
+    width: 500px;
+    background-repeat: no-repeat;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  .ablogo{
-   width:400px;
-    height:300px;
-  }
-.about .second{
-  padding-top: 0;
+
 }
-.home_bgcircle1__MiYGt {
-  visibility: visible;
-  animation: rotate-dots 2.66s linear infinite;
-  background-image: url("../assets/images/img\ red.png");
-  background-position: 50%;
-  background-size: contain;
-  border-radius: 50%;
-  height: 560px;
-  top:22%;
-  position: absolute;
-  width: 560px;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-}
-@media(max-width:1018px)
+
+@media(max-width:730px)
 {
   .home_bgcircle1__MiYGt {
     visibility: visible;
@@ -287,52 +260,19 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 560px;
+    height: 500px;
     position: absolute;
-    width: 560px;
-    top:23%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-@media(max-width:850px){
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 560px;
-    position: absolute;
-    width: 560px;
-    top:24.5%;
+    width: 500px;
+    top:17.6%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .whole{
-    flex-direction: column;
-  }
-
-
-.about .second{
-  padding:30px;
 }
 
-}
-@media(max-width:810px)
-{
-  .reachlogo{
-    width:200px;
-    height:200px;
-  }
-}
-@media(max-width:777px)
+@media(max-width:650px)
 {
   .home_bgcircle1__MiYGt {
     visibility: visible;
@@ -341,27 +281,22 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 560px;
+    height: 500px;
     position: absolute;
-    width: 560px;
-    top:18.5%;
+    width: 500px;
+    top:16.6%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .reachlogo{
-    width:300px;
-  }
+
 }
+
 @media (max-width: 594px) {
   .button-container {
     margin-bottom: 40px;
   }
-  .reachlogo{
-    width:250px;
-    height: 200px;
-  }
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
@@ -369,10 +304,10 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 530px;
-    top:29%;
+    height:460px;
+    top:24%;
     position: absolute;
-    width: 530px;
+    width: 460px;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -380,8 +315,8 @@
   }
 
   .main .initial .logo {
-    height: 20em;
-    /* width: 30em; */
+    height: 15em;
+    width: 15em;
     visibility: visible;
   }
   .h2 {
@@ -396,7 +331,7 @@
   }
   .initial .theme {
     color: rgb(255, 255, 255);
-    font-size: 30px;
+    font-size: 20px;
     font-weight: 400;
     text-align: center;
     text-decoration: none;
@@ -445,10 +380,10 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 520px;
+    height: 470px;
     position: absolute;
-    top:29.4%;
-    width: 520px;
+    top: 23.5%;
+    width: 470px;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -466,7 +401,7 @@
   .initial .theme {
     padding: 10px;
     color: rgb(255, 255, 255);
-    font-size: 25px;
+    font-size: 12px;
     border: 1px solid black;
     z-index: 10;
   }
@@ -487,10 +422,10 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 520px;
+    height: 460px;
     position: absolute;
-    width: 520px;
-    top:31%;
+    width: 460px;
+    top:25%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -499,10 +434,15 @@
 }
 
 
+@media (max-width: 480px) {
 
 
+  .logo {
+    margin-top: 20px;
+  }
+}
 
-@media (max-width: 490px) {
+@media (max-width: 480px) {
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
@@ -510,10 +450,10 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 520px;
+    height: 460px;
     position: absolute;
-    width: 520px;
-    top:30.4%;
+    width: 460px;
+    top:19%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -530,28 +470,10 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 520px;
+    height: 460px;
     position: absolute;
-    width: 520px;
-    top:31%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-@media (max-width: 420px) {
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 520px;
-    position: absolute;
-    width: 520x;
-    top:32%;
+    width: 460px;
+    top:24.5%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -559,7 +481,25 @@
   }
 }
 
- 
+@media (max-width: 422px) {
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 460px;
+    position: absolute;
+    width: 460px;
+    top:24%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 @media (max-width: 357px) {
   .home_bgcircle1__MiYGt {
     visibility: visible;
@@ -568,10 +508,10 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 500px;
+    height: 465px;
     position: absolute;
-    width: 500x;
-    top: 34%;
+    width: 465x;
+    top:24%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -597,8 +537,8 @@
     align-items: center;
   }
  
-} 
-/* 
+}
+
 @media (max-width: 350px) {
   .home_bgcircle1__MiYGt {
     visibility: visible;
@@ -616,4 +556,4 @@
     justify-content: center;
     align-items: center;
   }
-} */
+}
