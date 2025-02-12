@@ -4,6 +4,7 @@ import UI from "../assets/images/mobile-app-ux-ui-basics.jpg";
 import GENAI_300 from "../assets/Reach/300.jpg";
 import UI_150 from "../assets/Reach/150.jpg";
 import GENAI_1200 from "../assets/Reach/1200.jpg";
+import PAY from "../assets/Reach/new.jpg"
 
 export const workshopsReach = [
   {
@@ -11,7 +12,7 @@ export const workshopsReach = [
     to: "UI-UX",
     image: UI,
 
-    qr: UI_150,
+    qr: PAY,
     venue: [
       {
         name: "PSNA College of Engineering and Technology",
@@ -46,7 +47,7 @@ export const workshopsReach = [
     title: "Workshop on Generative AI",
     to: "genAI",
     image: ML,
-    bulkBooking: GENAI_1200,
+    bulkBooking: PAY,
     qr: GENAI_300,
     venue: [
       {
