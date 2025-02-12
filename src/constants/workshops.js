@@ -12,7 +12,7 @@ export const workshopsReach = [
     to: "UI-UX",
     image: UI,
 
-    qr: PAY,
+    qr: UI_150,
     venue: [
       {
         name: "PSNA College of Engineering and Technology",
