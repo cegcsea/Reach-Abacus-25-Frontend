@@ -35,9 +35,9 @@ const HomePage = ({ isMenuOpen }) => {
       <div className="main bg-transparent scroll-mt-20">
         <Home scrollToContact={scrollToContact}/>
       </div>
-      {/* <div className="mt-16 scroll-mt-20" id="sponsors">
+      <div className="mt-16 scroll-mt-20" id="sponsors">
         <Sponsors />
-      </div> */}
+      </div>
       {/* Developers Section */}
       <Developers />
       {/* Footer Section */}

@@ -75,7 +75,7 @@ const Developers = () => {
   }, []);
   return (
     <div className="developers" id="developers">
-        <h2 className="text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#c03e3e]">#developers</h2>
+        <h2 className="text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#c03e3e]">developers</h2>
         <div className="developers-carousel">
           {/* Map through currentDevelopers */}
           {currentDevelopers.map((developer, index) => (

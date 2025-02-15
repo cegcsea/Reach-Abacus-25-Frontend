@@ -6,8 +6,8 @@ import e2w from "../assets/Reach/e2w.png";
 
 const Sponsors = () => {
   const sponsors = [
-    { image: spon1, name: "Motorq", desc: "Title Sponsor" },
-    { image: e2w, name: "E2W STUDY", desc: "Educational Sponsor" },
+    { image: spon1, name: "Motorq", desc: "ABACUS'25 Title Sponsor" },
+    // { image: e2w, name: "E2W STUDY", desc: "Educational Sponsor" },
     { image: spon3, name: "TMB", desc: "REACH'25 Sponsor" },
   ];
 
@@ -21,7 +21,7 @@ const Sponsors = () => {
         {sponsors.map((sponsor, index) => (
           <div
             key={index}
-            className=" bg-[#181720] bg-gradient-to-br from-[#000000] via-[#5a1414] to-[#bc4040]  text-[#f0f0f0] rounded-lg py- px-2 flex flex-col items-center  transform hover:scale-95 hover:shadow-2xl overflow-hidden  border-transparent mx-auto lg:w-[32%] w-[90%]  animated-border-box ease-in-out transition  border-solid  border-2 shadow-md shadow-[#d2c4fdba] m-3 p-6"
+            className=" bg-[#181720] bg-gradient-to-br from-[#000000] via-[#5a1414] to-[#bc4040]  text-[#f0f0f0] rounded-lg py- px-2 flex flex-col items-center  transform hover:scale-95 hover:shadow-2xl overflow-hidden  border-transparent mx-auto lg:w-[45%] w-[90%]  animated-border-box ease-in-out transition  border-solid  border-2 shadow-md shadow-[#d2c4fdba] m-3 p-6"
           >
             <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-[#e0e0e0ea] to-transparent animate-glow "></div>
             <p className="text-xl text-gray-300 text-center z-10 font-bold ">
