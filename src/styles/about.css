@@ -1,819 +1,109 @@
-.main .heading {
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.about-title {
+  margin-top: 5rem; 
+  font-size: 3rem;
   font-weight: bold;
-  font-size: 30px;
-  margin-bottom: 20px;
-  overflow-y: hidden;
-}
-
-.main {
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  padding: 0;
-}
-
-.main .initial {
-  display: flex;
-  height: 100vh;
-  overflow-y: hidden;
-  padding: 20px;
- 
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.border1 {
-  position: absolute;
-  bottom: 00px;
-  left: 0px;
-}
-
-@keyframes rotate-dots {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.home_bgcircle1__MiYGt {
-  animation: rotate-dots 2.66s linear infinite;
-  background-image: url("../assets/images/img\ red.png");
-  background-position: 50%;
-  background-size: contain;
-  border-radius: 50%;
-  height: 500px;
-  position: absolute;
-  width: 500px;
-  top:5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.main .initial div {
-  flex: 1;
-  overflow-y: hidden;
-}
-
-.main .initial .div2 {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 10;
-}
-
-.button-container {
-  padding: 2px;
-}
-.div2 .logo {
-  width: 350px;
-  height: 350px;
-  z-index: 10;
-}
-
-.div1 {
-  background-image: url("../assets/images/red_neurons.png");
-  display: flex;
-  height: inherit;
-  justify-content: center;
-  align-items: center;
-}
-
-.initial .theme {
-  color: white;
-  font-size: 26px;
-  font-weight: 400;
   text-align: center;
-  text-decoration: none;
-}
-
-.button-container {
-  padding: 15px;
-}
-
-.glow-button {
-
-  cursor: pointer;
-  background: linear-gradient(135deg, #6a5acd, #8a2be2);
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 30px;
-  padding: 10px 25px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 10px rgba(138, 43, 226, 0.6);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  transition: all 0.1s ease-in-out;
-}
-
-.glow-button:hover {
-  display: block;
-  filter: drop-shadow(0 0 5px #fffdef);
-}
-
-@keyframes ohyeah {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.new {
-  display: flex;
-  flex-direction: column;
-  height: 80%;
-}
-
-.initial .des-1 {
-  position: absolute;
-  right: 0px;
-  width: 50em;
-  height: 30em;
-  background-color: #f0f0f0;
-}
-.ablogo{
-  width:500px;
-  height:400px;
-}
-
-.initial .des-2 {
-  position: absolute;
-  right: 10px;
-  top: 9px;
-  width: 14em;
-  height: 15em;
-  transform: rotate(180deg);
-}
-.pres {
-  font-size: 20px;
-  font-weight: 300;
-}
-.h2 {
-  padding-top: 20px;
-  background-color: black;
   color: white;
-  font-size: 40px;
+  margin-bottom: 3rem;
+  text-shadow: 
+    3px 3px 0px #ff0000,
+    -3px -3px 0px #ff0000,
+    0 0 8px rgba(255, 0, 0, 1),
+    0 0 15px rgba(255, 0, 0, 0.8);
 }
 
-.about {
-  background-color: black;
-  padding: 20px;
-  padding-right:40px;
+.about-section {
   display: flex;
-  color: white;
-}
-.about .first {
-  display: flex;
-  justify-content: center;
-  width:1005;
   align-items: center;
-}
-/* .reachlogo{
-  width:500px;
-  height:500px;
-}
-
-.reach-first{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-.about .second {
-
-  padding-right: 30px;
-  color: white;
-  font-size: 20px;
-  line-height: 40px;
-  
-  padding-top: 50px;
+  justify-content: space-between;
+  border: 2px solid white; /* Outline */
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05); /* Light transparent overlay */
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2); /* Initial soft glow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.about .second::before {
-  content: "";
-  position: absolute;
-
-  background: rgba(0, 0, 0, 0.1);
+.about-section:hover {
+  transform: translateY(-5px); /* Slight lift effect */
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5); /* Stronger glow */
 }
 
-.about div {
+
+.about-section.right {
+  flex-direction: row; /* Image on Right */
+}
+
+.about-container .about-section.left {
+  flex-direction: row-reverse !;
+}
+
+
+
+.about-content {
   flex: 1;
+  padding: 1rem;
+  color: white;
 }
-.second button {
-  margin-top: 20px;
-  background: linear-gradient(135deg, #e15d5d, #b22e2e);
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: bold;
-  border: none;
-  border-radius: 30px;
-  padding: 10px 25px;
+
+.about-image {
+  width: 40%;
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.about-button {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 0 10px rgba(138, 43, 226, 0.6);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  transition: all 0.1s ease-in-out;
+  transition: all 0.3s ease;
 }
 
-.second button:hover {
-  display: block;
-  filter: drop-shadow(0 0 5px #fffdef);
+.about-button:hover {
+  background-color: white;
+  color: black;
+  transform: translateY(5px);
 }
 
-.main .border {
-  height: 250px;
-  width: 1500px;
-}
-.home_bgcircle1__MiYGt {
-  visibility: visible;
-  animation: rotate-dots 2.66s linear infinite;
-  background-image: url("../assets/images/img\ red.png");
-  background-position: 50%;
-  background-size: contain;
-  border-radius: 50%;
-  height: 540px;
-  top:3.5%;
-  position: absolute;
-  width: 540px;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.about-content h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #c50202;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 
-@media (max-width: 1050px) {
-  .main .heading {
-    margin-top: 80px;
-  }
-  .main .initial {
-    height: auto;
-    flex-direction: column;
-  }
-  .about {
-    height: auto;
-    flex-direction: column;
-   
-  }
-  .theme {
-    margin-top: 20px;
-  }
-  .about .first{
-    display: flex;
-    flex-direction: column;
-  }
-  .ablogo{
-   width:400px;
-    height:300px;
-  }
-.about .second{
-  padding-top: 0;
-}
-.home_bgcircle1__MiYGt {
-  visibility: visible;
-  animation: rotate-dots 2.66s linear infinite;
-  background-image: url("../assets/images/img\ red.png");
-  background-position: 50%;
-  background-size: contain;
-  border-radius: 50%;
-  height: 560px;
-  top:19%;
-  position: absolute;
-  width: 560px;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-}
-@media(max-width:1018px)
-{
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 500px;
-    position: absolute;
-    width: 500px;
-    top:19.5%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-@media(max-width:990px){
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 560px;
-    position: absolute;
-    width: 560px;
-    top:24%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-@media(max-width:985px){
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 560px;
-    position: absolute;
-    width: 560px;
-    top:19%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-@media(max-width:860px){
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 560px;
-    position: absolute;
-    width: 560px;
-    top:18.3%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .whole{
-    flex-direction: column;
-  }
-.about{
-  padding-right: 20px;
+.about-content p {
+  font-size: 1.2rem;
+  line-height: 1.6; 
+  color: #f0f0f0;
+  font-weight: 300; 
+  text-align: justify;
 }
 
-.about .second{
- 
-  padding:30px;
-  
+.about-buttons {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1.2rem;
 }
-
+.about-buttons:hover {
+  background-color: white;
+  color: black;
+  transform: translateY(5px);
 }
-@media(max-width:810px)
-{
-  .reachlogo{
-    width:200px;
-    height:200px;
-  }
-
-    .home_bgcircle1__MiYGt {
-      visibility: visible;
-      animation: rotate-dots 2.66s linear infinite;
-      background-image: url("../assets/images/img\ red.png");
-      background-position: 50%;
-      background-size: contain;
-      border-radius: 50%;
-      height: 560px;
-      position: absolute;
-      width: 560px;
-      top:19%;
-      background-repeat: no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  
-}
-@media(max-width:777px)
-{
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 560px;
-    position: absolute;
-    width: 560px;
-    top:18.5%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .reachlogo{
-    width:300px;
-  }
-}
-@media(max-width:645px){
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 560px;
-    position: absolute;
-    width: 560px;
-    top:18%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-@media (max-width: 594px) {
-  .button-container {
-    margin-bottom: 40px;
-  }
-  .reachlogo{
-    width:250px;
-    height: 200px;
-  }
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 530px;
-    top:23.5%;
-    position: absolute;
-    width: 530px;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .main .initial .logo {
-    height: 20em;
-    /* width: 30em; */
-    visibility: visible;
-  }
-  .h2 {
-    font-size: 35px;
-  }
-  .main .initial .contact_but {
-    background-color: black;
-    color: #f0f0f0;
-    font-size: 13px;
-    cursor: pointer;
-    border: 1px solid black;
-  }
-  .initial .theme {
-    color: rgb(255, 255, 255);
-    font-size: 30px;
-    font-weight: 400;
-    text-align: center;
-    text-decoration: none;
-    padding: 10px;
-    margin-top: 20px;
-  }
-
-  .button {
-    margin-bottom: 20px;
-  }
-
-  .about p {
-    font-size: 14px;
-    line-height: 25px;
-  }
-  .about {
-    padding-top: 0;
-    padding-left: 20px;
-  }
-  .main h2 {
-    margin-bottom: 0;
-  }
-  .about .second {
-    padding-right: 0;
-  }
-  .about .second {
-    padding-left: 0;
-  }
-  .second button {
-    margin-left: 10px;
-  }
-  .theme {
-    z-index: 10;
-  }
-}
-@media(max-width:590px){
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 560px;
-    position: absolute;
-    width: 560px;
-    top:21%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-@media(max-width:575px){
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 560px;
-    position: absolute;
-    width: 560px;
-    top:22%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-@media (max-width: 522px) {
-  .main .initial .heading {
-    font-size: 30px;
-  }
-
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 520px;
-    position: absolute;
-    top:26%;
-    width: 520px;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .main .initial .contact_but {
-    padding: 10px;
-    background-color: black;
-    color: #f0f0f0;
-    font-size: 13px;
-    cursor: pointer;
-    border: 1px solid black;
-  }
-  .initial .theme {
-    padding: 10px;
-    color: rgb(255, 255, 255);
-    font-size: 25px;
-    border: 1px solid black;
-    z-index: 10;
-  }
-
-  .button {
-    display: flex;
-    margin-bottom: 20px;
-  }
-}
-@media(max-width:519px){
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 560px;
-    position: absolute;
-    width: 560px;
-    top:22%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-@media(max-width:515px)
-{
-
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 520px;
-    position: absolute;
-    width: 520px;
-    top: 23%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-
-
-
-@media (max-width: 506px) {
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 525px;
-    position: absolute;
-    width: 525px;
-    top:23%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-@media (max-width: 495px) {
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 520px;
-    position: absolute;
-    width: 520px;
-    top:24%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-@media(max-width:487px){
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 530px;
-    position: absolute;
-    width: 530px;
-    top:23.5%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-
-@media (max-width: 472px) {
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 520px;
-    position: absolute;
-    width: 520px;
-    top:24%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-@media(max-width:452px){
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 540px;
-    position: absolute;
-    width: 540px;
-    top:23.5%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-@media (max-width: 420px) {
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 520px;
-    position: absolute;
-    width: 520px;
-    top:24.3%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
- 
-@media (max-width: 370px) {
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 510px;
-    position: absolute;
-    width: 510x;
-    top: 24.3%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-@media (max-width:345px) {
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 440px;
-    position: absolute;
-    width: 440px;
-    top:17%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
- 
-} 
-/* 
-@media (max-width: 350px) {
-  .home_bgcircle1__MiYGt {
-    visibility: visible;
-    animation: rotate-dots 2.66s linear infinite;
-    background-image: url("../assets/images/img\ red.png");
-    background-position: 50%;
-    background-size: contain;
-    border-radius: 50%;
-    height: 460px;
-    position: absolute;
-    width: 460px;
-    top:22%;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-} */

@@ -16,6 +16,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   // All navigation items
   const navItems = [
     { name: "home", label: "Home", icon: <AiFillHome />, path: "/" },
+    { name: "about", label: "About", icon: <FaInfoCircle />, path: "/about" },
     // {
     //   name: "sponsors",
     //   label: "Sponsors",

@@ -4,6 +4,7 @@ import "./index.css";
 import EventPage from "./pages/EventPage"; // Import EventPage
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar";
+import About from "./components/About";
 import TechnicalPage from "./pages/TechnicalPage";
 import Workshops from "./pages/Workshops";
 import IndividualWorkshops from "./pages/IndividualWorkshops";
@@ -44,6 +45,7 @@ const App = () => {
         )}
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/About" element={<About />} /> 
           <Route path="/profile" element={<Profile />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/sponsors" element={<HomePage />} />
