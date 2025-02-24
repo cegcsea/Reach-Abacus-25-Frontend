@@ -500,7 +500,73 @@ export const UserContextProvider = ({ children }) => {
       }
     );
   };
+  // Handle Event Payment (in your UserData context or similar)
+  const handleEventPayment = (data, navigate) => {
+    toast.promise(
+      verifyEventPaymentDetails({
+        eventId: data.eventId,
+        paymentMobile: data.paymentMobile,
+        transactionId: data.transactionId,
+        users: data.users,
+      }).then((responsesData) => {
+        return eventPaymentScreenshot({
+          id: responsesData.id,
+          formData: data.formData,
+        });
+      }),
+      {
+        loading: "Verifying...",
+        success: (screenshotData) => {
+          refreshauth(); // Refresh auth state
+          navigate(`/events`); // Adjust navigation path as needed
+          return "Payment Details will be verified shortly!";
+        },
+        error: (err) => {
+          return typeof err === "object" ? err.message : err;
+        },
+      }
+    );
+  };
 
+  // Verify Event Payment Details
+  async function verifyEventPaymentDetails(paymentData) {
+    const token = localStorage.getItem("abacustoken");
+    try {
+      const response = await axios.post(
+        `${server}/user/verify-event-payment-details`,
+        paymentData,
+        { headers: { token } }
+      );
+      const message = response.data.message;
+      const id = response.data.id; // Assuming the response includes the payment record ID
+      return { message, id };
+    } catch (err) {
+      if (err.response) throw err.response.data.message;
+      throw err;
+    }
+  }
+
+  // Upload Event Payment Screenshot
+  async function eventPaymentScreenshot({ id, formData }) {
+    const token = localStorage.getItem("abacustoken");
+    try {
+      const response = await axios.post(
+        `${server}/user/event-payment-screenshot/${id}`,
+        formData,
+        {
+          headers: {
+            token,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      const { message } = response.data;
+      return { message };
+    } catch (err) {
+      if (err.response) throw err.response.data.message;
+      throw err;
+    }
+  }
   async function handleLogout() {
     localStorage.removeItem("abacususer");
     localStorage.removeItem("abacustoken");
@@ -584,6 +650,8 @@ export const UserContextProvider = ({ children }) => {
         handleVerifyBulkWorkshopPayment,
         paymentType,
         setPaymentType,
+        handleEventPayment,
+
       }}
     >
       {children}

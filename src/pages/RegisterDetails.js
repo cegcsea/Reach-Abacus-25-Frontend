@@ -170,15 +170,15 @@ function RegisterDetails() {
                   : null
               )
             }
-            disabled
+            //disabled
             required
           >
             {/* <option value="" disabled>
               Accommodation required?
             </option> */}
-            {/* <option key="Yes" value={true}>
+            <option key="Yes" value={true}>
               Yes
-            </option> */}
+            </option>
             <option key="No" value={false}>
               No
             </option>
