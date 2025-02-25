@@ -20,6 +20,7 @@ function RegisterDetails() {
     dept: "",
     year: "",
     mobile: "",
+    referralCode:"",
     password: "",
     confirmPassword: "",
   });
@@ -97,6 +98,7 @@ function RegisterDetails() {
         dept: formData.dept,
         year: parseInt(formData.year),
         mobile: formData.mobile,
+        referralCode:formData.referralCode,
         password: formData.password,
       },
       navigate
@@ -217,6 +219,15 @@ function RegisterDetails() {
             className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
             value={formData.mobile}
             onChange={handleMobileChange}
+            required
+          />
+          <input
+            type="text"
+            name="referralCode"
+            placeholder="referralCode"
+            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            value={formData.referralCode}
+            onChange={handleChange}
             required
           />
 

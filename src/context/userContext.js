@@ -85,6 +85,7 @@ export const UserContextProvider = ({ children }) => {
           dept: formData.dept,
           year: formData.year,
           mobile: formData.mobile,
+          referralCode:formData.referralCode,
           password: formData.password,
         }
       );
