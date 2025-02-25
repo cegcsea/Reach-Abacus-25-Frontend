@@ -193,30 +193,30 @@ export const events = [
     // Add more events h
     path: "/events/non-technical-events", // Path to the event page
   },
-  // {
-  //   title: "Pre Events",
-  //   image: img3, // Event image
-  //   event: [
-  //     {
-  //       id: 6,
-  //       title: "#Novice.Init()",
-  //       description:
-  //         "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
-  //       image: img1, // Replace with your image path
-  //       path: "/events/geekquiz6",
-  //       to: "geekquiz6",
-  //     },
-  //     {
-  //       id: 7,
-  //       title: "#Another Event",
-  //       description:
-  //         "A DBMS challenge that combines theoretical knowledge with practical application. The first round involves DBMS-based multiple-choice questions (MCQs), testing participants' understanding of database concepts. Successful participants advance to Round 2, a hands-on SQL coding challenge, where they apply their skills to solve real-world database problems.",
-  //       image: img1, // Replace with your image path
-  //       path: "/events/geekquiz7",
-  //       to: "geekquiz7",
-  //     },
-  //   ],
-  //   path: "/events/technical-events", // Path to the event page
-  // },
-  // Add more events as needed
+  {
+    title: "Pre Events",
+    image: img3, // Event image
+    event: [
+      {
+        id: 6,
+        title: "#Novice.Init()",
+        description:
+          "Designed exclusively for first-year students, this programming event introduces them to Computer Science by testing logical reasoning and basic programming skills.",
+        image: img1, // Replace with your image path
+        path: "/events/geekquiz6",
+        to: "geekquiz6",
+      },
+      {
+        id: 7,
+        title: "#Another Event",
+        description:
+          "A DBMS challenge that combines theoretical knowledge with practical application. The first round involves DBMS-based multiple-choice questions (MCQs), testing participants' understanding of database concepts. Successful participants advance to Round 2, a hands-on SQL coding challenge, where they apply their skills to solve real-world database problems.",
+        image: img1, // Replace with your image path
+        path: "/events/geekquiz7",
+        to: "geekquiz7",
+      },
+    ],
+    path: "/events/technical-events", // Path to the event page
+  },
+ 
 ];
