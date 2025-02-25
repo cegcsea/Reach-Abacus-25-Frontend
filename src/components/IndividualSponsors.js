@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Navbar from "./Navbar";
 import { useLocation } from "react-router-dom";
 import "../styles/Sponsorinner.css";
@@ -64,6 +64,9 @@ const IndividualSponsors = () => {
 
   const { isLoading } = LoaderData();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   if (isLoading) {
     return <Loader />;
   }
