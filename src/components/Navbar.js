@@ -17,12 +17,12 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const navItems = [
     { name: "home", label: "Home", icon: <AiFillHome />, path: "/" },
     { name: "about", label: "About", icon: <FaInfoCircle />, path: "/about" },
-    // {
-    //   name: "sponsors",
-    //   label: "Sponsors",
-    //   icon: <FaHandshake />,
-    //   path: "/sponsors",
-    // },
+    {
+      name: "sponsors",
+      label: "Sponsors",
+      icon: <FaHandshake />,
+      path: "/sponsors",
+    },
     { name: "events", label: "Events", icon: <MdEvent />, path: "/events" },
     {
       name: "workshops",

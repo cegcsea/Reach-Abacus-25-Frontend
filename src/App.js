@@ -23,6 +23,7 @@ import { LoaderData } from "./context/loaderContext";
 import Loader from "./components/Loader/Loader";
 import { useEffect } from "react";
 import BulkPayment from "./pages/BulkPayment";
+import IndividualSponsors from "./components/IndividualSponsors";
 const App = () => {
   const { isMenuOpen, setIsMenuOpen } = UserData();
   const { isLoading, setIsLoading } = LoaderData();
@@ -45,10 +46,9 @@ const App = () => {
         )}
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/About" element={<About />} /> 
+          <Route path="/About" element={<About />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/sponsors" element={<HomePage />} />
           <Route path="/workshops" element={<Workshops />} />
           <Route path="/workshops/:id" element={<IndividualWorkshops />} />
           <Route path="/workshops/:id/payment" element={<Payment />} />
@@ -68,10 +68,10 @@ const App = () => {
             path="/events/non-technical-events"
             element={<TechnicalPage />}
           />
-          
           <Route path="/" element={<EventPage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/events/:id" element={<NoviceInit />} />
+          <Route path="/sponsors" element={<IndividualSponsors />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
