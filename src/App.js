@@ -22,6 +22,7 @@ import { UserData } from "./context/userContext";
 import { LoaderData } from "./context/loaderContext";
 import Loader from "./components/Loader/Loader";
 import { useEffect } from "react";
+import Login from "./components/Login";
 import BulkPayment from "./pages/BulkPayment";
 import IndividualSponsors from "./components/IndividualSponsors";
 const App = () => {
@@ -53,7 +54,7 @@ const App = () => {
           <Route path="/workshops/:id" element={<IndividualWorkshops />} />
           <Route path="/workshops/:id/payment" element={<Payment />} />
           <Route path="/workshops/:id/bulkpayment" element={<BulkPayment />} />
-          <Route path="/login" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route
             path="/reset-password/:id/:token"
