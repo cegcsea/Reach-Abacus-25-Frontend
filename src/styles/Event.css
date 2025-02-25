@@ -42,6 +42,7 @@ img {
   border-radius: 1.5rem;
   overflow: hidden;
   object-fit: fill;
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
 }
 
 .card__description {
@@ -157,11 +158,13 @@ img {
   }
 }
 
+
 @media screen and (min-width: 768px) {
   .card__container {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 1.5rem;
   }
+  
 }
 
 @media screen and (min-width: 1120px) {

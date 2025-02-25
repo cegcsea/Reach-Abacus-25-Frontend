@@ -40,7 +40,7 @@ export const events = [
             title: "Round 1 – Quiz Challenge",
             content:
               "Test your mettle in a quiz spanning five core Computer Science domains: Debugging, DSA, OOPs, CN, and DBMS. Showcase your expertise to advance!",
-              
+
             duration: "30 minutes",
             time: "09:00 AM to 12:30 PM",
             // venue: "Main Building Room No 238",
@@ -153,11 +153,6 @@ export const events = [
             name: "Ganesh",
             phone: "+1 234 567 890",
           },
-          {
-            id: 3,
-            name: "Ganesh",
-            phone: "+1 234 567 890",
-          },
         ],
       },
     ],
@@ -167,7 +162,7 @@ export const events = [
     title: "Non Technical Events",
     image: img2, // Event image,
     Date: "20 February 2025",
-    
+
     event: [
       {
         id: 4,
@@ -218,5 +213,4 @@ export const events = [
     ],
     path: "/events/technical-events", // Path to the event page
   },
- 
 ];
