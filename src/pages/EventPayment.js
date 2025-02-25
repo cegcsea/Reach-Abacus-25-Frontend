@@ -56,11 +56,11 @@ function EventPayment() {
     const formReqData = new FormData();
     formReqData.append("paymentScreenshot", file);
     const userArray = [parseInt(user.id)];
-    console.log(
-      selectedEvent.id,
-      formData.paymentMobile,
-      formData.transactionId
-    );
+    // console.log(
+    //   selectedEvent.id,
+    //   formData.paymentMobile,
+    //   formData.transactionId
+    // );
     await handleEventPayment(
       {
         eventId: parseInt(selectedEvent.id),

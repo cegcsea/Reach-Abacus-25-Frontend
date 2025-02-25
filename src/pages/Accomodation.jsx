@@ -4,20 +4,21 @@ import { UserData } from "../context/userContext";
 import toast from "react-hot-toast";
 import price from "../assets/images/price.png";
 import Loader from "../components/Loader/Loader";
-
+import { useNavigate } from "react-router-dom";
 function Accommodation() {
-  const { isLoading } = LoaderData(); 
-  const { handleAccomodation } = UserData(); 
+  const { isLoading } = LoaderData();
+  const { handleAccomodationPayment, user } = UserData();
   const [selectionDay, setSelectionDay] = useState(null);
   const [selectionDates, setSelectionDates] = useState(null);
   const [food, setFood] = useState("false");
+
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     transactionId: "",
     paymentMobile: "",
   });
   const [file, setFile] = useState(null);
   const [fileName, setFileName] = useState("Get your payment screenshot...");
-  const [isMobile, setIsMobile] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [hide, setHide] = useState(false);
   const [basePrice, setBasePrice] = useState(250);
@@ -70,17 +71,6 @@ function Accommodation() {
       day3: true,
     },
   ];
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
-    setIsMobile(mediaQuery.matches);
-
-    const handleMediaQueryChange = (event) => setIsMobile(event.matches);
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    return () =>
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-  }, []);
 
   if (isLoading) return <Loader />;
 
@@ -153,28 +143,27 @@ function Accommodation() {
 
     const formReqData = new FormData();
     formReqData.append("paymentScreenshot", file);
-
-    await handleAccomodation({
-      day0: selectionDay.day0 || false,
-      day1: selectionDay.day1 || false,
-      day2: selectionDay.day2 || false,
-      day3: selectionDay.day3 || false,
-      food: food === "true",
-      amount: price,
-      paymentMobile: formData.paymentMobile,
-      transactionId: formData.transactionId,
-      formData: formReqData,
-    });
+    const userArray = [parseInt(user.id)];
+    console.log(user.id, userArray);
+    await handleAccomodationPayment(
+      {
+        day0: selectionDay.day0 || false,
+        day1: selectionDay.day1 || false,
+        day2: selectionDay.day2 || false,
+        day3: selectionDay.day3 || false,
+        food: food === "true",
+        amount: price,
+        paymentMobile: formData.paymentMobile,
+        transactionId: formData.transactionId,
+        formData: formReqData,
+        users: userArray,
+      },
+      navigate
+    );
   };
 
   return (
     <div className="flex justify-center items-center py-10 sm:px-0 min-h-screen px-4 mt-10 gap-5 bg-black">
-      {!isMobile && (
-        <div className="w-[30%] flex justify-center items-center">
-          <img src={price} alt="price-bg" />
-        </div>
-      )}
-
       <div className="querybox flex flex-col gap-4 w-full sm:w-2/5 bg-gray-900 border-2 border-[#8a1818] rounded-lg shadow-lg p-5 sm:p-10 text-white">
         <div className="text-2xl md:text-3xl font-bold text-center border-b-2 border-[#8a1818] pb-2">
           <span className="text-[#8a1818]">{"<"}</span>
@@ -313,11 +302,7 @@ function Accommodation() {
                   <span className="bg-[#8a1818] text-white pl-2 pr-4 py-1 rounded">
                     Upload
                   </span>
-                  <span className="text-gray-400 text-sm">
-                    {fileName.length > 30
-                      ? fileName.slice(0, isMobile ? 17 : 25) + "..."
-                      : fileName}
-                  </span>
+                  <span className="text-gray-400 text-sm">{fileName}</span>
                 </label>
                 <input
                   type="file"
@@ -342,12 +327,6 @@ function Accommodation() {
           )}
         </form>
       </div>
-
-      {!isMobile && (
-        <div className="w-[30%] flex justify-center items-center rotate-180">
-          <img src={price} alt="price-bg" />
-        </div>
-      )}
     </div>
   );
 }

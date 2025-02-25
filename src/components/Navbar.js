@@ -1,7 +1,7 @@
 import reach_img from "../assets/Hero/Reach'25 logo black.png";
 import abacus_img from "../assets/Reach/Reach'25_logo_white.png";
 import { AiFillHome, AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
-import { FaInfoCircle, FaHandshake, FaTools } from "react-icons/fa";
+import { FaInfoCircle, FaHandshake, FaTools,FaHotel } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
 import { UserData } from "../context/userContext";
@@ -41,6 +41,12 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           path: "/profile",
         },
         {
+          name: "accomodation",
+          label: "Accomodation",
+          icon: <FaHotel />,
+          path: "/accomodation",
+        },
+        {
           name: "logout",
           label: "Logout",
           icon: <AiOutlineLogout />,
@@ -64,6 +70,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   //     setActive("home");
   //   }
   // }, []);
+  
   useEffect(() => {
     refreshauth();
     // Extract the content between the first and second slash
@@ -79,10 +86,10 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
   const handleIcon = (item) => {
     if (item.action) {
-      item.action(); // Call action if defined (e.g., logout)
+      item.action();
     }
     if (item.path) {
-      navigate(item.path); // Navigate to the path if defined
+      navigate(item.path);
     }
     setActive(item.name);
     setIsMenuOpen(false);
@@ -94,7 +101,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         isMenuOpen ? "overflow-hidden" : "visible"
       }`}
     >
-      {/* Logo Section */}
       <div
         className={`flex flex-row rounded-lg mx-4 delay-200 transform ease-in-out ${
           isMenuOpen ? "hidden" : "visible"
@@ -114,7 +120,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         </Link> */}
       </div>
 
-      {/* Mobile Menu Toggle */}
       <button
         className={`lg:hidden p-2 text-white ${
           isMenuOpen ? "hidden" : "visible"
@@ -137,7 +142,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         </svg>
       </button>
 
-      {/* Navigation Menu */}
       <div
         className={`flex lg:space-x-0 lg:px-2 xl:space-x-2 xl:mx-2 xl:py-2 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row lg:h-auto transition-transform duration-300 ease-in-out px-4 lg:bg-gradient-to-b lg:from-[#b03131] lg:via-[#6e0808] lg:to-[#b03131] rounded-3xl z-50 ${
           isMenuOpen
@@ -164,8 +168,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             />
           </svg>
         </button>
-
-        {/* Render Navigation Items */}
         {[...navItems, ...authItems].map((item) => (
           <button
             key={item.name}

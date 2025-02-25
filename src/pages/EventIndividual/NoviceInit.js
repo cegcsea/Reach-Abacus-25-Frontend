@@ -10,7 +10,7 @@ import Loader from "../../components/Loader/Loader.jsx";
 const NoviceInit = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { id } = useParams(); 
+  const { id } = useParams();
   const { userEvents, isAuth, eventRegister, getEvents } = UserData();
   //const selectedEvent = events.find((event) => event.to === id);
   const allEvents = events.flatMap((category) => category.event);
@@ -22,7 +22,7 @@ const NoviceInit = () => {
 
   useEffect(() => {
     getEvents();
-  }, [userEvents]);
+  }, []);
 
   const [activeTab, setActiveTab] = useState("description");
   if (!selectedEvent) {
@@ -45,7 +45,7 @@ const NoviceInit = () => {
 
   // Handle event registration
   const handleRegister = async (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     //console.log(typeof selectedEvent.id);
     eventRegister({ eventId: Number(selectedEvent.id) });
   };
@@ -159,7 +159,9 @@ const NoviceInit = () => {
                   className="m-3 w-fit border border-[#c72727] px-4 py-2 text-white duration-150 hover:bg-[#fb525233] "
                   //onClick={handleRegister}
                   onClick={() => {
-                    navigate("/events/ml-conquer/payment");
+                    selectedEvent?.Qr
+                      ? navigate(`/events/${selectedEvent.to}/payment`)
+                      : handleRegister();
                   }}
                 >
                   Register{"<"}~{">"}

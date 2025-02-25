@@ -117,7 +117,8 @@ export const events = [
       },
       {
         id: 3,
-        title: "OSPC",
+        title: "OSPC",  
+        Qr:true,
         description:
           "It's a fast-paced programming contest, where innovative minds come together to resolve challenges in the most complicated coding questions, involving data structures and algorithms.",
         image: img6, // Replace with your image path
