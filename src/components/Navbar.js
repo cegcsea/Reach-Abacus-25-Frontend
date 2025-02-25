@@ -1,5 +1,5 @@
 import reach_img from "../assets/Hero/Reach'25 logo black.png";
-import abacus_img from "../assets/Reach/Reach'25_logo_white.png";
+import abacus_img from "../assets/images/logo copy.png";
 import { AiFillHome, AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
 import { FaInfoCircle, FaHandshake, FaTools } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
@@ -105,14 +105,14 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           <img
             src={abacus_img}
             alt="abacus-image"
-            className="h-16 w-23 mt-1 mx-auto rounded-lg"
+            className="h-14 w-21 mt-1 mx-auto rounded-lg"
           />
         </a>
-        {/* <Link to="/" className="my-auto">
-          <h1 className="hover:text-gray-950 text-2xl font-semibold rounded-xl mx-2 p-1 cursor-pointer">
-            Reach 2025
+        <Link to="/" className="my-auto">
+          <h1 className="text-2xl font-bold rounded-xl mx-2 p-1 cursor-pointer ">
+            Abacus'25
           </h1>
-        </Link> */}
+        </Link>
       </div>
 
       {/* Mobile Menu Toggle */}
