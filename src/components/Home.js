@@ -3,6 +3,7 @@ import "../styles/about.css";
 import Loader from "./Loader/Loader";
 import TypewritingButton from "./TypewritingButton";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 // Animation Variants
 const fadeInVariant = {
@@ -115,6 +116,7 @@ const Home = ({scrollToContact}) => {
               innovation. This year, Abacus is back offline on a grander scale
               with an innovative edge to all the events.
             </p>
+            <Link to="/about">
             <motion.button
               className=".but !my-8 !mx-auto xl:!mx-0 lg:w-[23%]"
               whileHover={{ scale: 1.1 }}
@@ -122,6 +124,7 @@ const Home = ({scrollToContact}) => {
             >
               Read More
             </motion.button>
+            </Link>
           </motion.div>
         </motion.div>
       </motion.div>

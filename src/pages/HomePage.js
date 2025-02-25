@@ -4,6 +4,7 @@ import "../styles/global.css";
 //import { Bubble } from "../components/Bubble";
 import "../assets/images/logo.jpeg";
 //import { bubbles } from "../constants/bubbles";
+import About from "../components/About";
 import Sponsors from "../components/Sponsors";
 import Home from "../components/Home";
 import Developers from "../components/Developers";
