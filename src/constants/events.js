@@ -117,12 +117,8 @@ export const events = [
       },
       {
         id: 3,
-<<<<<<< HEAD
         title: "OSPC",  
         Qr:true,
-=======
-        title: "BRAINWAVE.ML",
->>>>>>> hari
         description:
           "Dive into the world of machine learning in this thrilling event! Test your knowledge, solve challenges, and showcase your skills by developing innovative solutions to given problems. Compete with the best and prove your expertise in ML!",
         image: img6, // Replace with your image path

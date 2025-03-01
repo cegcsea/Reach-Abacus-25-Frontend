@@ -25,6 +25,8 @@ import { useEffect } from "react";
 import Login from "./components/Login";
 import BulkPayment from "./pages/BulkPayment";
 import IndividualSponsors from "./components/IndividualSponsors";
+import Accommodation from "./pages/BulkPayment";
+import EventPayme
 const App = () => {
   const { isMenuOpen, setIsMenuOpen } = UserData();
   const { isLoading, setIsLoading } = LoaderData();
