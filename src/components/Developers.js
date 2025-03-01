@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import img1 from "../assets/images/sivani.jpg"
 import img2 from "../assets/images/visvess.jpg"
 import img3 from "../assets/images/harini.jpg"
+import img4 from "../assets/images/lakshay.jpg"
 
 
 const developers = [
@@ -28,7 +29,7 @@ const developers = [
   {
     name: "Lakshay",
     role: "//Backend Developer",
-    src: HariniImage,
+    src: img4,
     linkedin: "https://linkedin.com/in/lakshay",
   },
 ];
