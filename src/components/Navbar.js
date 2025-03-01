@@ -1,7 +1,7 @@
 import reach_img from "../assets/Hero/Reach'25 logo black.png";
-import abacus_img from "../assets/Reach/Reach'25_logo_white.png";
+import abacus_img from "../assets/images/logo copy.png";
 import { AiFillHome, AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
-import { FaInfoCircle, FaHandshake, FaTools,FaHotel } from "react-icons/fa";
+import { FaInfoCircle, FaHandshake, FaTools } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
 import { UserData } from "../context/userContext";
@@ -16,12 +16,13 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   // All navigation items
   const navItems = [
     { name: "home", label: "Home", icon: <AiFillHome />, path: "/" },
-    // {
-    //   name: "sponsors",
-    //   label: "Sponsors",
-    //   icon: <FaHandshake />,
-    //   path: "/sponsors",
-    // },
+    { name: "about", label: "About", icon: <FaInfoCircle />, path: "/about" },
+    {
+      name: "sponsors",
+      label: "Sponsors",
+      icon: <FaHandshake />,
+      path: "/sponsors",
+    },
     { name: "events", label: "Events", icon: <MdEvent />, path: "/events" },
     {
       name: "workshops",
@@ -39,12 +40,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           label: "Profile",
           icon: <FaInfoCircle />,
           path: "/profile",
-        },
-        {
-          name: "accomodation",
-          label: "Accomodation",
-          icon: <FaHotel />,
-          path: "/accomodation",
         },
         {
           name: "logout",
@@ -70,7 +65,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   //     setActive("home");
   //   }
   // }, []);
-  
   useEffect(() => {
     refreshauth();
     // Extract the content between the first and second slash
@@ -86,10 +80,10 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
   const handleIcon = (item) => {
     if (item.action) {
-      item.action();
+      item.action(); // Call action if defined (e.g., logout)
     }
     if (item.path) {
-      navigate(item.path);
+      navigate(item.path); // Navigate to the path if defined
     }
     setActive(item.name);
     setIsMenuOpen(false);
@@ -101,6 +95,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         isMenuOpen ? "overflow-hidden" : "visible"
       }`}
     >
+      {/* Logo Section */}
       <div
         className={`flex flex-row rounded-lg mx-4 delay-200 transform ease-in-out ${
           isMenuOpen ? "hidden" : "visible"
@@ -110,16 +105,17 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           <img
             src={abacus_img}
             alt="abacus-image"
-            className="h-16 w-23 mt-1 mx-auto rounded-lg"
+            className="h-14 w-21 mt-1 mx-auto rounded-lg"
           />
         </a>
-        {/* <Link to="/" className="my-auto">
-          <h1 className="hover:text-gray-950 text-2xl font-semibold rounded-xl mx-2 p-1 cursor-pointer">
-            Reach 2025
+        <Link to="/" className="my-auto">
+          <h1 className="text-2xl font-bold rounded-xl mx-2 p-1 cursor-pointer ">
+            Abacus'25
           </h1>
-        </Link> */}
+        </Link>
       </div>
 
+      {/* Mobile Menu Toggle */}
       <button
         className={`lg:hidden p-2 text-white ${
           isMenuOpen ? "hidden" : "visible"
@@ -142,6 +138,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         </svg>
       </button>
 
+      {/* Navigation Menu */}
       <div
         className={`flex lg:space-x-0 lg:px-2 xl:space-x-2 xl:mx-2 xl:py-2 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row lg:h-auto transition-transform duration-300 ease-in-out px-4 lg:bg-gradient-to-b lg:from-[#b03131] lg:via-[#6e0808] lg:to-[#b03131] rounded-3xl z-50 ${
           isMenuOpen
@@ -168,6 +165,8 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             />
           </svg>
         </button>
+
+        {/* Render Navigation Items */}
         {[...navItems, ...authItems].map((item) => (
           <button
             key={item.name}
