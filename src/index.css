@@ -43,3 +43,31 @@
     justify-content: center;
   }
   
+/* Scrollbar for Webkit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, rgb(88, 0, 0), red);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, red, rgb(88, 0, 0));
+}
+
+@supports (scrollbar-width: thin) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: red black;
+  }
+}

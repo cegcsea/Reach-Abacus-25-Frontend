@@ -11,13 +11,13 @@ const developers = [
     name: "Harini",
     role: "//Frontend Developer",
     src: img3,
-    linkedin: "https://linkedin.com/in/harini",
+    linkedin: "https://www.linkedin.com/in/harini-natarajan-24a658279/",
   },
   {
     name: "Sivanipriya",
     role: "//Frontend Developer",
     src: img1,
-    linkedin: "https://linkedin.com/in/sivanipriya",
+    linkedin: "https://www.linkedin.com/in/sivanipriya-senthilkumar-2b263a253/",
   },
   {
     name: "Visvesswar",
