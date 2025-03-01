@@ -4,6 +4,7 @@ import "./index.css";
 import EventPage from "./pages/EventPage"; // Import EventPage
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar";
+import About from "./components/About";
 import TechnicalPage from "./pages/TechnicalPage";
 import Workshops from "./pages/Workshops";
 import IndividualWorkshops from "./pages/IndividualWorkshops";
@@ -21,9 +22,9 @@ import { UserData } from "./context/userContext";
 import { LoaderData } from "./context/loaderContext";
 import Loader from "./components/Loader/Loader";
 import { useEffect } from "react";
+import Login from "./components/Login";
 import BulkPayment from "./pages/BulkPayment";
-import Accommodation from "./pages/Accomodation.jsx";
-import EventPayment from "./pages/EventPayment.js";
+import IndividualSponsors from "./components/IndividualSponsors";
 const App = () => {
   const { isMenuOpen, setIsMenuOpen } = UserData();
   const { isLoading, setIsLoading } = LoaderData();
@@ -46,15 +47,15 @@ const App = () => {
         )}
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/About" element={<About />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/sponsors" element={<HomePage />} />
           <Route path="/workshops" element={<Workshops />} />
           <Route path="/workshops/:id" element={<IndividualWorkshops />} />
           <Route path="/workshops/:id/payment" element={<Payment />} />
           <Route path="/events/:id/payment" element={<EventPayment />} />
           <Route path="/workshops/:id/bulkpayment" element={<BulkPayment />} />
-          <Route path="/login" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route
             path="/reset-password/:id/:token"
@@ -69,11 +70,11 @@ const App = () => {
             path="/events/non-technical-events"
             element={<TechnicalPage />}
           />
-          
           <Route path="/" element={<EventPage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/accomodation" element={<Accommodation />} />
           <Route path="/events/:id" element={<NoviceInit />} />
+          <Route path="/sponsors" element={<IndividualSponsors />} />
         </Routes>
       </Suspense>
     </BrowserRouter>

@@ -190,9 +190,9 @@ const NoviceInit = () => {
         </div>
       </div>
 
-      {/* {selectedEvent.contact?.length > 0 && (
+       {selectedEvent.contact?.length > 0 && (
         <Contact contacts={selectedEvent.contact} />
-      )} */}
+      )} 
     </div>
   );
 };
