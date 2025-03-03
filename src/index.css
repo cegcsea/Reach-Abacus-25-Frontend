@@ -56,18 +56,18 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, rgb(88, 0, 0), red);
+  background: linear-gradient(45deg, rgb(88, 0, 0), white);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, red, rgb(88, 0, 0));
+  background: linear-gradient(45deg, white, rgb(88, 0, 0));
 }
 
 @supports (scrollbar-width: thin) {
   * {
     scrollbar-width: thin;
-    scrollbar-color: red black;
+    scrollbar-color: white black;
   }
 }
