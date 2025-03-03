@@ -28,7 +28,7 @@
     margin-bottom: 40px;
     padding: 20px;
     border-radius: 10px;
-    border: 2px solid white;
+    border: 2px solid rgb(135, 1, 1);
     background-color: black;
     max-width: 950px;
     margin-left: auto;
@@ -38,7 +38,7 @@
 
 /* Glowing effect on hover */
 .abt-section:hover {
-    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px 5px rgba(210, 0, 0, 0.8);
 }
 
 /* Layout for right and left sections */
@@ -99,12 +99,61 @@
 /* Responsive Design */
 @media (max-width: 768px) {
     .abt-section {
-        flex-direction: column !important;
+        flex-direction: column-reverse !important; /* Image on top */
         text-align: center;
         border-width: 1px;
+        padding: 20px;
     }
 
     .abt-image {
-        width: 50%;
+        width: 70%;
+        max-width: 300px;
+    }
+
+    .abt-content {
+        width: 100%;
+    }
+
+    .abt-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .abt-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .abt-section {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        border-width: 1px;
+        padding: 20px;
+    }
+
+    #reach {
+        flex-direction: column !important;
+    }
+
+    #reach img {
+        order: -1;
+    }
+
+    .abt-image {
+        width: 70%;
+        max-width: 300px;
+    }
+
+    .abt-content {
+        width: 100%;
+    }
+
+    .abt-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .abt-content p {
+        font-size: 1rem;
     }
 }
