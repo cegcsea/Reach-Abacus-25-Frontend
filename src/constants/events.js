@@ -27,14 +27,14 @@ export const events = [
         id: 1,
         title: "OSPC",
         description:
-          "It's a fast-paced programming contest, where innovative minds come together to resolve challenges in the most complicated coding questions, involving data structures and algorithms.",
+          "Get ready for a high-intensity programming contest where sharp minds compete to crack the toughest coding challenges! Tackle complex problems involving data structures and algorithms, and showcase your speed, skill, and innovation in this high-stakes battle of logic and code!",
         image: img4, // Replace with your image path
         path: "/events/ospc",
         Qr: true,
 
         team: "Two or three members",
         Date: "21st March 2025",
-        prize: "Rs 1.5k+",
+        prize: "Rs 7k",
         to: "ospc",
         rounds: [
           {
@@ -57,13 +57,13 @@ export const events = [
         contact: [
           {
             id: 1,
-            name: "Gautham",
-            phone: "+1 234 567 890",
+            name: "Sreenithika S",
+            phone: "99650 65777",
           },
           {
             id: 2,
-            name: "Ganesh",
-            phone: "+1 234 567 890",
+            name: "Infancy P",
+            phone: "90473 66527",
           },
         ],
         intern: [],
@@ -72,13 +72,13 @@ export const events = [
         id: 2,
         title: "BYTE BEGIN",
         description:
-          "Designed exclusively for first-year students, this event introduces the basics of logical reasoning, arithmetic, and programming concepts in an engaging and beginner-friendly manner. Participants will tackle simple yet exciting challenges, making it the perfect launchpad for their coding journey!",
+          "Designed especially for first-year students, this event is the ultimate kickstart to their coding journey! Dive into the fundamentals of logical reasoning, arithmetic, and programming through interactive challenges that are both fun and beginner-friendly. Get ready to think, solve, and code your way to success!",
         image: img5,
         path: "/events/byte-begin",
 
-        team: "Two or three members",
+        team: "One or two members",
         Date: "21st February 2025",
-        prize: "Rs 1.5k+",
+        prize: "Rs 7k",
         to: "byte-begin",
         rounds: [
           {
@@ -100,18 +100,13 @@ export const events = [
         contact: [
           {
             id: 1,
-            name: "Gautham",
-            phone: "+1 234 567 890",
+            name: "Renjitha K",
+            phone: "79078 54731",
           },
           {
             id: 2,
-            name: "Ganesh",
-            phone: "+1 234 567 890",
-          },
-          {
-            id: 3,
-            name: "Ganesh",
-            phone: "+1 234 567 890",
+            name: "Ajai Krishna T.S",
+            phone: "70107 07652",
           },
         ],
         intern: [],
@@ -125,7 +120,7 @@ export const events = [
         path: "/events/brainwave.ml",
         team: "Two or three members",
         Date: "21st February 2025",
-        prize: "Rs 1.5k+",
+        prize: "Rs 5k",
         to: "brainwave.ml",
         rounds: [
           {
