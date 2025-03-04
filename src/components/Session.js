@@ -88,7 +88,7 @@ function Session() {
                 <span className="font-bold text-lg">Time: </span> 02:00 PM to
                 03:30 PM
               </p>
-              {isAuth &&
+              {/* {isAuth &&
                 user.hostCollege ===
                   "Government College of Technology, Coimbatore" && (
                   <p className="text-[#F0F0F0] p-3 text-base flex gap-2 items-center">
@@ -97,7 +97,7 @@ function Session() {
                     </span>
                     Seminar hall CSE department, GCT
                   </p>
-                )}
+                )} */}
             </div>
             {!isAuth && (
               <button

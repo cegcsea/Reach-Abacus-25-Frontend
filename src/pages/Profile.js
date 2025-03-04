@@ -40,7 +40,7 @@ const Profile = () => {
     college: "",
     year: "",
     dept: "",
-    hostCollege: "",
+    //hostCollege: "",
     registeredEvents: [],
     registeredWorkshops: [],
   };
@@ -156,15 +156,6 @@ const Profile = () => {
             <div className="overflow-x-clip ">
               Studying in {userData.college}. Striding through year{" "}
               {userData.year} in the {userData.dept} department!
-            </div>
-          </p>
-          <p className="flex flex-row !text-white">
-            <div className="pr-4 pt-5 lg:pt-1 ">
-              <TbHanger className="icon" />
-            </div>
-            <div>
-              You are currently in JJCET , attending our
-              marvellous REACH'25!
             </div>
           </p>
         </div>

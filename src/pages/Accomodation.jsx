@@ -129,6 +129,7 @@ function Accommodation() {
     if (e.target.value === "" || regex.test(e.target.value)) {
       setFormData((prev) => ({ ...prev, paymentMobile: e.target.value }));
     }
+    
   };
 
   const handleChange = (e) => {
