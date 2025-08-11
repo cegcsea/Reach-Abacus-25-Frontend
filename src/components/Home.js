@@ -59,7 +59,7 @@ const Home = ({ scrollToContact }) => {
         >
           <div className="para">
             <h1 className="heading text-center">
-              Reach'25 "Ideas Converge and Possibilities Unfold"
+              Reach'25 "Ideas Converge and Possibilities Unfold."
             </h1>
             <p className="pres text-center text-white">
               Navigating the Future, One Innovation at a Time
