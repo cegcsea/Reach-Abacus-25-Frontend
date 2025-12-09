@@ -100,7 +100,7 @@ const Footer = ({ scrollY }) => {
             className="mb-4 text-3xl md:text-4xl font-semibold"
             style={{
               background:
-                "linear-gradient(135deg, #C9A961 0%, #D4AF37 50%, #B8860B 100%)",
+                "linear-gradient(135deg, #b8956a 0%, #c0a068 50%, #9d7f52 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -113,7 +113,7 @@ const Footer = ({ scrollY }) => {
             className="w-24 h-1 mx-auto mb-4"
             style={{
               background:
-                "linear-gradient(90deg, #D4AF37 0%, #C9A961 50%, #D4AF37 100%)",
+                "linear-gradient(90deg, #c0a068 0%, #b8956a 50%, #c0a068 100%)",
               boxShadow: "0 0 10px rgba(212, 175, 55, 0.6)",
             }}
           />
@@ -138,7 +138,7 @@ const Footer = ({ scrollY }) => {
               <h3
                 className="text-2xl mb-6"
                 style={{
-                  color: "#D4AF37",
+                  color: "#c0a068",
                   textShadow:
                     "0 0 15px rgba(212, 175, 55, 0.4)",
                 }}
@@ -219,7 +219,7 @@ const Footer = ({ scrollY }) => {
                     border: "1px solid rgba(100, 100, 100, 0.7)",
                   }}
                   onFocus={(e) => {
-                    e.currentTarget.style.borderColor = "#D4AF37";
+                    e.currentTarget.style.borderColor = "#c0a068";
                     e.currentTarget.style.boxShadow =
                       "0 0 20px rgba(212, 175, 55, 0.3)";
                   }}
@@ -253,7 +253,7 @@ const Footer = ({ scrollY }) => {
                     border: "1px solid rgba(100, 100, 100, 0.7)",
                   }}
                   onFocus={(e) => {
-                    e.currentTarget.style.borderColor = "#D4AF37";
+                    e.currentTarget.style.borderColor = "#c0a068";
                     e.currentTarget.style.boxShadow =
                       "0 0 20px rgba(212, 175, 55, 0.3)";
                   }}
@@ -287,7 +287,7 @@ const Footer = ({ scrollY }) => {
                     border: "1px solid rgba(100, 100, 100, 0.7)",
                   }}
                   onFocus={(e) => {
-                    e.currentTarget.style.borderColor = "#D4AF37";
+                    e.currentTarget.style.borderColor = "#c0a068";
                     e.currentTarget.style.boxShadow =
                       "0 0 20px rgba(212, 175, 55, 0.3)";
                   }}
@@ -304,7 +304,7 @@ const Footer = ({ scrollY }) => {
                 className="group w-full px-8 py-4 rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
                 style={{
                   background:
-                    "linear-gradient(135deg, #C9A961 0%, #D4AF37 100%)",
+                    "linear-gradient(135deg, #b8956a 0%, #c0a068 100%)",
                   boxShadow: "0 0 30px rgba(212, 175, 55, 0.5)",
                 }}
                 onMouseEnter={(e) => {

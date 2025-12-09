@@ -136,7 +136,7 @@ const Developers = ({ scrollY = 0 }) => {
             className="mb-4 text-3xl md:text-4xl font-semibold tracking-[0.2em] uppercase"
             style={{
               background:
-                "linear-gradient(135deg, #C9A961 0%, #D4AF37 50%, #B8860B 100%)",
+                "linear-gradient(135deg, #b8956a 0%, #c0a068 50%, #9d7f52 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -149,7 +149,7 @@ const Developers = ({ scrollY = 0 }) => {
             className="w-24 h-1 mx-auto"
             style={{
               background:
-                "linear-gradient(90deg, #D4AF37 0%, #C9A961 50%, #D4AF37 100%)",
+                "linear-gradient(90deg, #c0a068 0%, #b8956a 50%, #c0a068 100%)",
               boxShadow: "0 0 10px rgba(212, 175, 55, 0.6)",
             }}
           />
@@ -164,23 +164,23 @@ const Developers = ({ scrollY = 0 }) => {
           <>
             <button
               onClick={handlePrev}
-              className="hidden sm:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/70 border border-[rgba(212,175,55,0.5)] hover:scale-110 transition"
+              className="hidden sm:flex items-center justify-center absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/70 border border-[rgba(192,160,104,0.5)] hover:scale-110 transition"
               style={{
                 boxShadow:
                   "0 0 15px rgba(212, 175, 55, 0.4)",
               }}
             >
-              <span className="text-[#D4AF37] text-lg">&lt;</span>
+              <span className="text-[#c0a068] text-lg">&lt;</span>
             </button>
             <button
               onClick={handleNext}
-              className="hidden sm:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/70 border border-[rgba(212,175,55,0.5)] hover:scale-110 transition"
+              className="hidden sm:flex items-center justify-center absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/70 border border-[rgba(192,160,104,0.5)] hover:scale-110 transition"
               style={{
                 boxShadow:
                   "0 0 15px rgba(212, 175, 55, 0.4)",
               }}
             >
-              <span className="text-[#D4AF37] text-lg">&gt;</span>
+              <span className="text-[#c0a068] text-lg">&gt;</span>
             </button>
           </>
         )}
@@ -204,8 +204,8 @@ const Developers = ({ scrollY = 0 }) => {
                 className="relative rounded-2xl overflow-hidden group"
                 style={{
                   background:
-                    "radial-gradient(circle at top, rgba(212,175,55,0.18), rgba(0,0,0,0.9))",
-                  border: "1px solid rgba(212,175,55,0.3)",
+                    "radial-gradient(circle at top, rgba(192,160,104,0.18), rgba(0,0,0,0.9))",
+                  border: "1px solid rgba(192,160,104,0.3)",
                   boxShadow:
                     "0 0 25px rgba(212, 175, 55, 0.25)",
                   transformStyle: "preserve-3d",
@@ -216,7 +216,7 @@ const Developers = ({ scrollY = 0 }) => {
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                   style={{
                     background:
-                      "linear-gradient(135deg, rgba(212,175,55,0.3), transparent)",
+                      "linear-gradient(135deg, rgba(192,160,104,0.3), transparent)",
                     mixBlendMode: "screen",
                   }}
                 />
@@ -236,7 +236,7 @@ const Developers = ({ scrollY = 0 }) => {
                   <h3
                     className="text-xl font-semibold mb-1"
                     style={{
-                      color: "#D4AF37",
+                      color: "#c0a068",
                       textShadow:
                         "0 0 12px rgba(212, 175, 55, 0.5)",
                     }}
@@ -257,7 +257,7 @@ const Developers = ({ scrollY = 0 }) => {
                       className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group/button flex items-center gap-2"
                       style={{
                         background:
-                          "linear-gradient(135deg, #C9A961 0%, #D4AF37 100%)",
+                          "linear-gradient(135deg, #b8956a 0%, #c0a068 100%)",
                         color: "#000",
                         boxShadow:
                           "0 0 18px rgba(212, 175, 55, 0.6)",
@@ -279,9 +279,9 @@ const Developers = ({ scrollY = 0 }) => {
             <div className="flex sm:hidden justify-center gap-6 mt-8">
               <button
                 onClick={handlePrev}
-                className="px-4 py-2 rounded-full text-sm border border-[rgba(212,175,55,0.7)]"
+                className="px-4 py-2 rounded-full text-sm border border-[rgba(192,160,104,0.7)]"
                 style={{
-                  color: "#D4AF37",
+                  color: "#c0a068",
                   boxShadow:
                     "0 0 12px rgba(212, 175, 55, 0.4)",
                   backgroundColor: "rgba(0,0,0,0.7)",
@@ -291,9 +291,9 @@ const Developers = ({ scrollY = 0 }) => {
               </button>
               <button
                 onClick={handleNext}
-                className="px-4 py-2 rounded-full text-sm border border-[rgba(212,175,55,0.7)]"
+                className="px-4 py-2 rounded-full text-sm border border-[rgba(192,160,104,0.7)]"
                 style={{
-                  color: "#D4AF37",
+                  color: "#c0a068",
                   boxShadow:
                     "0 0 12px rgba(212, 175, 55, 0.4)",
                   backgroundColor: "rgba(0,0,0,0.7)",

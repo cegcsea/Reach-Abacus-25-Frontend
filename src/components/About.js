@@ -72,7 +72,7 @@ const About = ({ scrollY }) => {
             className="mb-4 text-3xl md:text-4xl font-semibold tracking-wide"
             style={{
               background:
-                "linear-gradient(135deg, #C9A961 0%, #D4AF37 50%, #B8860B 100%)",
+                "linear-gradient(135deg, #b8956a 0%, #c0a068 50%, #9d7f52 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -85,7 +85,7 @@ const About = ({ scrollY }) => {
             className="w-24 h-1 mx-auto"
             style={{
               background:
-                "linear-gradient(90deg, #D4AF37 0%, #C9A961 50%, #D4AF37 100%)",
+                "linear-gradient(90deg, #c0a068 0%, #b8956a 50%, #c0a068 100%)",
               boxShadow: "0 0 10px rgba(212, 175, 55, 0.6)",
             }}
           />
@@ -183,7 +183,7 @@ const About = ({ scrollY }) => {
                     <h3
                       className="mb-1 text-lg"
                       style={{
-                        color: "#D4AF37",
+                        color: "#c0a068",
                         textShadow:
                           "0 0 10px rgba(212, 175, 55, 0.3)",
                       }}

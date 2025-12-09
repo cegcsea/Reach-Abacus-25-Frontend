@@ -87,7 +87,7 @@ const Home = ({ scrollY, scrollToContact }) => {
             transition={{ duration: 1.2, delay: 0.2 }}
             style={{
               background:
-                "linear-gradient(135deg, #C9A961 0%, #A67208 25%, #D4AF37 50%, #C9A961 75%, #B8860B 100%)",
+                "linear-gradient(135deg, #b8956a 0%, #8b6e3d 25%, #c0a068 50%, #b8956a 75%, #9d7f52 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -136,7 +136,7 @@ const Home = ({ scrollY, scrollToContact }) => {
               className="group relative px-8 py-4 rounded-lg overflow-hidden transition-all duration-300 hover:scale-105"
               style={{
                 background:
-                  "linear-gradient(135deg, #C9A961 0%, #D4AF37 100%)",
+                  "linear-gradient(135deg, #b8956a 0%, #c0a068 100%)",
                 boxShadow:
                   "0 0 30px rgba(212, 175, 55, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.2)",
               }}
@@ -152,7 +152,7 @@ const Home = ({ scrollY, scrollToContact }) => {
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
                 style={{
                   background:
-                    "linear-gradient(135deg, #A67208 0%, #C9A961 100%)",
+                    "linear-gradient(135deg, #8b6e3d 0%, #b8956a 100%)",
                 }}
               />
             </button>
@@ -160,8 +160,8 @@ const Home = ({ scrollY, scrollToContact }) => {
             <button
               className="px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105"
               style={{
-                border: "2px solid #D4AF37",
-                color: "#D4AF37",
+                border: "2px solid #c0a068",
+                color: "#c0a068",
                 boxShadow:
                   "0 0 20px rgba(212, 175, 55, 0.3), inset 0 0 10px rgba(212, 175, 55, 0.1)",
               }}
@@ -199,7 +199,7 @@ const Home = ({ scrollY, scrollToContact }) => {
         className="absolute top-0 left-0 w-full h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent 0%, #D4AF37 50%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, #c0a068 50%, transparent 100%)",
           boxShadow: "0 0 10px rgba(212, 175, 55, 0.5)",
         }}
       />
@@ -207,7 +207,7 @@ const Home = ({ scrollY, scrollToContact }) => {
         className="absolute bottom-0 left-0 w-full h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent 0%, #D4AF37 50%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, #c0a068 50%, transparent 100%)",
           boxShadow: "0 0 10px rgba(212, 175, 55, 0.5)",
         }}
       />

@@ -50,7 +50,7 @@ const Sponsors = ({ scrollY = 0 }) => {
         className="absolute inset-x-0 top-0 h-64 blur-3xl"
         style={{
           background:
-            "radial-gradient(circle at top, rgba(212,175,55,0.15), transparent 70%)",
+            "radial-gradient(circle at top, rgba(192,160,104,0.15), transparent 70%)",
         }}
       />
 
@@ -66,7 +66,7 @@ const Sponsors = ({ scrollY = 0 }) => {
             className="mb-4 text-3xl md:text-4xl font-semibold tracking-[0.25em] uppercase"
             style={{
               background:
-                "linear-gradient(135deg, #C9A961 0%, #D4AF37 50%, #B8860B 100%)",
+                "linear-gradient(135deg, #b8956a 0%, #c0a068 50%, #9d7f52 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -79,7 +79,7 @@ const Sponsors = ({ scrollY = 0 }) => {
             className="w-24 h-1 mx-auto mb-4"
             style={{
               background:
-                "linear-gradient(90deg, #D4AF37 0%, #C9A961 50%, #D4AF37 100%)",
+                "linear-gradient(90deg, #c0a068 0%, #b8956a 50%, #c0a068 100%)",
               boxShadow: "0 0 10px rgba(212, 175, 55, 0.6)",
             }}
           />
@@ -107,8 +107,8 @@ const Sponsors = ({ scrollY = 0 }) => {
               className="relative overflow-hidden rounded-2xl"
               style={{
                 background:
-                  "radial-gradient(circle at top left, rgba(212,175,55,0.2), rgba(0,0,0,0.95))",
-                border: "1px solid rgba(212,175,55,0.35)",
+                  "radial-gradient(circle at top left, rgba(192,160,104,0.2), rgba(0,0,0,0.95))",
+                border: "1px solid rgba(192,160,104,0.35)",
                 boxShadow:
                   "0 0 28px rgba(212, 175, 55, 0.3)",
               }}
@@ -118,7 +118,7 @@ const Sponsors = ({ scrollY = 0 }) => {
                 className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(212,175,55,0.25), transparent)",
+                    "linear-gradient(135deg, rgba(192,160,104,0.25), transparent)",
                   mixBlendMode: "screen",
                 }}
               />

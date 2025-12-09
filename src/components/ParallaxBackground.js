@@ -21,7 +21,7 @@ const ParallaxBackground = ({ scrollY, scrollProgress }) => {
           className="absolute w-[600px] h-[600px] rounded-full opacity-20 blur-3xl"
           style={{
             background:
-              "radial-gradient(circle, #C9A961 0%, #D4AF37 50%, transparent 70%)",
+              "radial-gradient(circle, #b8956a 0%, #c0a068 50%, transparent 70%)",
             top: "5%",
             left: "10%",
             transform: `translateZ(-100px) translateY(${
@@ -33,7 +33,7 @@ const ParallaxBackground = ({ scrollY, scrollProgress }) => {
           className="absolute w-[500px] h-[500px] rounded-full opacity-15 blur-3xl"
           style={{
             background:
-              "radial-gradient(circle, #C9A961 0%, #B8960F 50%, transparent 70%)",
+              "radial-gradient(circle, #b8956a 0%, #B8960F 50%, transparent 70%)",
             top: "40%",
             right: "5%",
             transform: `translateZ(-80px) translateY(${
@@ -45,7 +45,7 @@ const ParallaxBackground = ({ scrollY, scrollProgress }) => {
           className="absolute w-[700px] h-[700px] rounded-full opacity-10 blur-3xl"
           style={{
             background:
-              "radial-gradient(circle, #D4AF37 0%, #C9A961 50%, transparent 70%)",
+              "radial-gradient(circle, #c0a068 0%, #b8956a 50%, transparent 70%)",
             bottom: "10%",
             left: "50%",
             transform: `translateZ(-120px) translateY(${
@@ -74,7 +74,7 @@ const ParallaxBackground = ({ scrollY, scrollProgress }) => {
               scrollY * 0.3
             }px)`,
             boxShadow: "0 0 30px rgba(212, 175, 55, 0.2)",
-            borderColor: "rgba(212,175,55,0.3)",
+            borderColor: "rgba(192,160,104,0.3)",
           }}
         />
         <div
@@ -86,7 +86,7 @@ const ParallaxBackground = ({ scrollY, scrollProgress }) => {
               scrollY * 0.25
             }px)`,
             boxShadow: "0 0 20px rgba(212, 175, 55, 0.15)",
-            borderColor: "rgba(212,175,55,0.2)",
+            borderColor: "rgba(192,160,104,0.2)",
           }}
         />
 
@@ -105,7 +105,7 @@ const ParallaxBackground = ({ scrollY, scrollProgress }) => {
             <polygon
               points="50 1 95 25 95 75 50 99 5 75 5 25"
               fill="none"
-              stroke="#D4AF37"
+              stroke="#c0a068"
               strokeWidth="0.5"
               style={{
                 filter:
@@ -133,7 +133,7 @@ const ParallaxBackground = ({ scrollY, scrollProgress }) => {
             transform: `translateY(${scrollY * 0.6}px)`,
             boxShadow: "0 0 10px rgba(212, 175, 55, 0.4)",
             background:
-              "linear-gradient(to bottom, transparent, rgba(212,175,55,0.4), transparent)",
+              "linear-gradient(to bottom, transparent, rgba(192,160,104,0.4), transparent)",
           }}
         />
         <div
@@ -144,7 +144,7 @@ const ParallaxBackground = ({ scrollY, scrollProgress }) => {
             transform: `translateY(${scrollY * 0.55}px)`,
             boxShadow: "0 0 10px rgba(212, 175, 55, 0.3)",
             background:
-              "linear-gradient(to bottom, transparent, rgba(212,175,55,0.3), transparent)",
+              "linear-gradient(to bottom, transparent, rgba(192,160,104,0.3), transparent)",
           }}
         />
         <div
@@ -155,7 +155,7 @@ const ParallaxBackground = ({ scrollY, scrollProgress }) => {
             transform: `translateY(${scrollY * 0.5}px)`,
             boxShadow: "0 0 10px rgba(212, 175, 55, 0.35)",
             background:
-              "linear-gradient(to bottom, transparent, rgba(212,175,55,0.35), transparent)",
+              "linear-gradient(to bottom, transparent, rgba(192,160,104,0.35), transparent)",
           }}
         />
 
