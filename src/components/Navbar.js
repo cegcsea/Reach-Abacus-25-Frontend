@@ -88,11 +88,21 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
     setIsMenuOpen(false);
   };
 
+  // Check if we're on the home page
+  const isHomePage = location.pathname === "/";
+
   return (
     <div
-      className={`fixed top-0 left-0 w-screen flex flex-row justify-between lg:px-5  text-white bg-gradient-to-b from-[#702b2b] via-[#9d0505] to-[#8a1818] shadow-2xl z-50 border-b-2 border-b-gray-600 ${
+      className={`fixed top-0 left-0 w-screen flex flex-row justify-between lg:px-5  text-white shadow-2xl z-50 ${
+        isHomePage 
+          ? "bg-black border-b-2 border-b-[#c0a068]" 
+          : "bg-gradient-to-b from-[#702b2b] via-[#9d0505] to-[#8a1818] border-b-2 border-b-gray-600"
+      } ${
         isMenuOpen ? "overflow-hidden" : "visible"
       }`}
+      style={isHomePage ? {
+        boxShadow: "0 4px 20px rgba(212, 175, 55, 0.3)",
+      } : {}}
     >
       {/* Logo Section */}
       <div
@@ -116,7 +126,9 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
       {/* Mobile Menu Toggle */}
       <button
-        className={`lg:hidden p-2 text-white ${
+        className={`lg:hidden p-2 text-white transition-colors duration-300 ${
+          isHomePage ? "hover:text-[#c0a068]" : "hover:text-gray-300"
+        } ${
           isMenuOpen ? "hidden" : "visible"
         }`}
         onClick={toggleMenu}
@@ -139,14 +151,27 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
       {/* Navigation Menu */}
       <div
-        className={`flex lg:space-x-0 lg:px-2 xl:space-x-2 xl:mx-2 xl:py-2 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row lg:h-auto transition-transform duration-300 ease-in-out px-4 lg:bg-gradient-to-b lg:from-[#b03131] lg:via-[#6e0808] lg:to-[#b03131] rounded-3xl z-50 ${
+        className={`flex lg:space-x-0 lg:px-2 xl:space-x-2 xl:mx-2 xl:py-2 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row lg:h-auto transition-transform duration-300 ease-in-out px-4 rounded-3xl z-50 ${
+          isHomePage 
+            ? "lg:bg-black" 
+            : "lg:bg-gradient-to-b lg:from-[#b03131] lg:via-[#6e0808] lg:to-[#b03131]"
+        } ${
           isMenuOpen
-            ? "block transform translate-x-0 bg-gradient-to-b from-[#cb3d3d] via-[#8a1818] to-[#cb3d3d] fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl"
+            ? `block transform translate-x-0 fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl ${
+                isHomePage 
+                  ? "bg-black border-2 border-[#c0a068]" 
+                  : "bg-gradient-to-b from-[#cb3d3d] via-[#8a1818] to-[#cb3d3d]"
+              }`
             : "transform -translate-x-full hidden lg:block my-auto"
         }`}
+        style={isMenuOpen && isHomePage ? {
+          boxShadow: "0 0 30px rgba(212, 175, 55, 0.5)",
+        } : {}}
       >
         <button
-          className="absolute top-5 right-5 lg:hidden text-white "
+          className={`absolute top-5 right-5 lg:hidden text-white transition-colors duration-300 ${
+            isHomePage ? "hover:text-[#c0a068]" : "hover:text-gray-300"
+          }`}
           onClick={toggleMenu}
         >
           <svg
@@ -166,31 +191,58 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         </button>
 
         {/* Render Navigation Items */}
-        {[...navItems, ...authItems].map((item) => (
-          <button
-            key={item.name}
-            className={`relative group overflow-hidden rounded-xl font-semibold m-2 lg:m-0 ${
-              active === item.name
-                ? "bg-gradient-to-b from-[#E0115F] via-[#E0115F] to-[#E0115F]"
-                : ""
-            }`}
-            onClick={() => handleIcon(item)}
-          >
-            <div
-              className={`flex flex-row px-2 ${
-                active === item.name
-                  ? "bg-white text-black hover:text-black"
-                  : "text-gray-300 hover:text-white"
+        {[...navItems, ...authItems].map((item) => {
+          const isActive = active === item.name;
+          return (
+            <button
+              key={item.name}
+              className={`relative group overflow-hidden rounded-xl font-semibold m-2 lg:m-0 transition-all duration-300 ${
+                isHomePage 
+                  ? "" 
+                  : isActive 
+                    ? "bg-gradient-to-b from-[#E0115F] via-[#E0115F] to-[#E0115F]"
+                    : ""
               }`}
+              onClick={() => handleIcon(item)}
             >
-              <div className="my-auto bg-transparent">{item.icon}</div>
-              <span className="px-1 rounded-xl transition-all duration-300 cursor-pointer">
-                {item.label}
-              </span>
-            </div>
-            <span className="absolute left-0 bottom-0 h-1 w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-          </button>
-        ))}
+              <div
+                className={`flex flex-row px-2 py-1 transition-colors duration-300 ${
+                  isHomePage
+                    ? isActive
+                      ? "text-[#c0a068]"
+                      : "text-gray-300 hover:text-[#c0a068]"
+                    : isActive
+                      ? "bg-white text-black hover:text-black"
+                      : "text-gray-300 hover:text-white"
+                }`}
+                style={isHomePage && isActive ? {
+                  textShadow: "0 0 10px rgba(212, 175, 55, 0.6)",
+                } : {}}
+              >
+                <div className="my-auto bg-transparent">{item.icon}</div>
+                <span className="px-1 rounded-xl transition-all duration-300 cursor-pointer">
+                  {item.label}
+                </span>
+              </div>
+              {isHomePage ? (
+                <span 
+                  className={`absolute left-0 bottom-0 h-0.5 w-full transform transition-transform origin-left duration-300 ${
+                    isActive 
+                      ? "scale-x-100 bg-[#c0a068]" 
+                      : "scale-x-0 group-hover:scale-x-100 bg-[#c0a068]"
+                  }`}
+                  style={isActive ? {
+                    boxShadow: "0 0 10px rgba(212, 175, 55, 0.8)",
+                  } : {
+                    boxShadow: "0 0 5px rgba(212, 175, 55, 0.5)",
+                  }}
+                ></span>
+              ) : (
+                <span className="absolute left-0 bottom-0 h-1 w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+              )}
+            </button>
+          );
+        })}
       </div>
     </div>
   );
