@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { HiLocationMarker } from "react-icons/hi";
 
 const About = ({ scrollY }) => {
   const [inView, setInView] = useState(false);
@@ -30,7 +31,7 @@ const About = ({ scrollY }) => {
       description: "Three days of immersive experiences",
     },
     {
-      icon: "📍",
+      icon: <HiLocationMarker />,
       title: "College of Engineering Guindy",
       description: "CEG - Anna University, Chennai 600028",
     },
@@ -169,12 +170,13 @@ const About = ({ scrollY }) => {
                   className="flex items-start gap-4 group"
                 >
                   <div
-                    className="p-3 rounded-lg transition-all text-2xl"
+                    className="p-3 rounded-lg transition-all text-2xl flex items-center justify-center"
                     style={{
                       background:
                         "linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(184, 134, 11, 0.2) 100%)",
                       border: "1px solid rgba(212, 175, 55, 0.3)",
                       boxShadow: "0 0 20px rgba(212, 175, 55, 0.1)",
+                      color: typeof feature.icon === "string" ? "inherit" : "#c0a068",
                     }}
                   >
                     {feature.icon}

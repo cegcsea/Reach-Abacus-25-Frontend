@@ -139,7 +139,7 @@ const Home = ({ scrollY, scrollToContact }) => {
               }}
             >
               <span className="relative z-10 text-black font-semibold">
-                Register Now
+                About Us
               </span>
               <div
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
@@ -167,7 +167,7 @@ const Home = ({ scrollY, scrollToContact }) => {
                 e.currentTarget.style.backgroundColor = "transparent";
               }}
             >
-              View Schedule
+              Contact Us
             </button>
           </motion.div>
         </motion.div>
