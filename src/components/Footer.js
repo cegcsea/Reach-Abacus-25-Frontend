@@ -54,18 +54,18 @@ const Footer = ({ scrollY }) => {
     },
     {
       icon: "📞",
-      label: "Sunil Kumar",
-      value: "+91 63831 23505",
+      label: "Kamalesh N",
+      value: "+91 86103 86055",
     },
     {
       icon: "📞",
-      label: "Varsha",
-      value: "+91 63829 52323",
+      label: "Sulochana H",
+      value: "+91 90251 93250",
     },
     {
       icon: "📞",
-      label: "Smrithi",
-      value: "+91 80728 69255",
+      label: "Madhubaalika M",
+      value: "+91 73058 97553",
     },
   ];
 

@@ -32,9 +32,14 @@ const App = () => {
     if (isLoading) {
       setTimeout(() => {
         setIsLoading(false);
-      }, 1750);
+      }, 2500); // 2.5 seconds
     }
-  }, []);
+  }, [isLoading, setIsLoading]);
+  
+  if (isLoading) {
+    return <Loader />;
+  }
+  
   return (
     <BrowserRouter>
       <Suspense fallback={<Loader />}>

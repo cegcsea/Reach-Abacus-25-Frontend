@@ -95,7 +95,7 @@ const Home = ({ scrollY, scrollToContact }) => {
               filter: "drop-shadow(0 0 20px rgba(212, 175, 55, 0.6))",
             }}
           >
-            ABACUS &apos;25
+            REACH &apos;25
           </motion.h1>
 
           <motion.p
@@ -116,14 +116,7 @@ const Home = ({ scrollY, scrollToContact }) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.7 }}
           >
-            Abacus&apos;25 is the conglomeration of the brightest minds
-            enhancing the participant’s knowledge and creative potentials.
-            The 3-day annual symposium showcases 15+ events and flagship
-            contests of crystal gazing technology. Abacus&apos;s coverage and
-            deliberations of earlier symposia have been a grand success with
-            insatiable thirst for technological development rejuvenating the
-            technology with innovation. This year, Abacus is back offline on a
-            grander scale with an innovative edge to all the events.
+            Every year, as a component of REACH, we organize outreach initiatives in renowned colleges across Tamil Nadu, aiming to enhance student engagement and amplify awareness for our symposium. Our specialized workshops under the REACH umbrella introduce students to emerging technologies, ensuring they remain at the forefront of innovation and industry relevance. REACH goes beyond academics by offering tailored events that prepare students for competitive landscapes, equipping them with essential skills and confidence for future placements and interviews.
           </motion.p>
 
           <motion.div
