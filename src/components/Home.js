@@ -1,185 +1,217 @@
-import { LoaderData } from "../context/loaderContext";
-import "../styles/about.css";
-import Loader from "./Loader/Loader";
-import TypewritingButton from "./TypewritingButton";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import React,{ useEffect,useState } from "react";
 
-// Animation Variants
-const fadeInVariant = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 1 } },
-};
+const Home = ({ scrollY, scrollToContact }) => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-const slideFromLeft = {
-  hidden: { x: "-100%", opacity: 0 },
-  visible: { x: 0, opacity: 1, transition: { duration: 1 } },
-};
-
-
-const slideFromRight = {
-  hidden: { x: "100%", opacity: 0 },
-  visible: { x: 0, opacity: 1, transition: { duration: 1 } },
-};
-
-const Home = ({ scrollToContact }) => {
- 
-  const [imageSrc, setImageSrc] = useState(
-    require("../assets/Reach/Reach'25 logo white(short).png")
-  );
   useEffect(() => {
-    const updateImageSrc = () => {
-      if (window.innerWidth <= 800) {
-        setImageSrc(require("../assets/Reach/reach new.png")); // Set a different image for small screens
-      } else {
-        setImageSrc(require("../assets/Reach/Reach'25 logo white(short).png"));
-      }
-    }; updateImageSrc(); // Set initial value
-    window.addEventListener("resize", updateImageSrc); // Listen for resize events
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth - 0.5) * 20,
+        y: (e.clientY / window.innerHeight - 0.5) * 20,
+      });
+    };
 
-    return () => window.removeEventListener("resize", updateImageSrc); // Cleanup
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
-  const { isLoading } = LoaderData();
-  if (isLoading) {
-    return <Loader />;
-  }
-  return (
-    <motion.div
-      className="scroll-mt-20"
-      initial="hidden"
-      animate="visible"
-      variants={fadeInVariant}
-    >
-      <motion.div className="initial !mb-10" id="home">
-        <motion.div
-          className="div1"
-          variants={fadeInVariant}
-          initial="hidden"
-          animate="visible"
-        >
-          <div className="para">
-            <h1 className="heading text-center">
-              Reach'25 "Ideas Converge and Possibilities Unfold."
-            </h1>
-            <p className="pres text-center text-white">
-              Navigating the Future, One Innovation at a Time
-            </p>
 
-            <div className="button-container text-center">
-              <motion.button
-                className="mt-10 mb-6 px-6 py-4 bg-gradient-to-br from-red-300 via-red-500 to-red-800 text-white font-bold rounded-full shadow-lg hover:shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-shadow focus:outline-none focus:shadow-[0_0_15px_rgba(255,223,47,0.8)]"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                style={{ pointerEvents: "auto" }}
-                onClick={scrollToContact}
-              >
-                Contact Us!!
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
-        <motion.div className="new">
+  // Zoom in / blur as scroll
+  const scale = 1 + scrollY * 0.001;
+  const opacity = Math.max(1 - scrollY * 0.0015, 0);
+  const blur = Math.min(scrollY * 0.05, 20);
+
+  return (
+    <section
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{
+        transform: `scale(${scale}) translateZ(0)`,
+        opacity,
+        filter: `blur(${blur}px)`,
+        transformStyle: "preserve-3d",
+      }}
+    >
+      {/* Radial Gradient Background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.15) 0%, rgba(0, 0, 0, 0) 70%)",
+        }}
+      />
+
+      {/* Animated Gold Rings */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        {Array.from({ length: 3 }).map((_, i) => (
           <motion.div
-            className="div2 !my-24"
-            variants={fadeInVariant}
-            initial="hidden"
-            animate="visible"
-          >
-            <img
-              className="logo"
-              src={require("../assets/Reach/abacus'25_logo_white.png")}
-              alt="Abacus Logo"
-            />
-            <div className="home_bgcircle1__MiYGt !mb-[90px] md:!my-68  lg:!my-68"></div>
-          </motion.div>
-          <TypewritingButton />
-        </motion.div>
-      </motion.div>
-      <motion.div className="about-section">
-        <motion.h2
-          className="h2 scroll-mt-36 lg:!mt-16 lg:mx-20 !mx-auto text-2xl lg:text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#c03e3e]"
-          id="about"
-          variants={fadeInVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          Reach-2025
-        </motion.h2>
-        <img src={require("../assets/Reach/Reach'25_logo_white.png")}></img>
+            key={i}
+            className="absolute rounded-full"
+            style={{
+              width: `${300 + i * 200}px`,
+              height: `${300 + i * 200}px`,
+              border: `1px solid rgba(212, 175, 55, ${0.3 - i * 0.08})`,
+              boxShadow: `0 0 ${
+                20 + i * 10
+              }px rgba(212, 175, 55, ${0.2 - i * 0.05})`,
+            }}
+            animate={{
+              scale: [1, 1.1, 1],
+              rotate: [0, 360],
+            }}
+            transition={{
+              duration: 20 + i * 5,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Content with 3D transform */}
+      <div
+        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        style={{
+          transform: `translate(${mousePosition.x}px, ${mousePosition.y}px) translateZ(50px)`,
+          transformStyle: "preserve-3d",
+        }}
+      >
         <motion.div
-          className="about bg-transparent overflow-hidden flex flex-col"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
         >
-          <motion.div className="flex  flex-row whole">
-            <motion.div className="first" variants={slideFromLeft}>
-              <img
-                src={imageSrc}
-                alt="Reach logo"
-                className="ablogo reachlogo "
+          <motion.h1
+            className="mb-6 text-5xl md:text-7xl font-bold tracking-[0.2em]"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.2 }}
+            style={{
+              background:
+                "linear-gradient(135deg, #C9A961 0%, #A67208 25%, #D4AF37 50%, #C9A961 75%, #B8860B 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              textShadow: "0 0 80px rgba(212, 175, 55, 0.8)",
+              filter: "drop-shadow(0 0 20px rgba(212, 175, 55, 0.6))",
+            }}
+          >
+            ABACUS &apos;25
+          </motion.h1>
+
+          <motion.p
+            className="text-2xl md:text-3xl text-gray-300 mb-4 tracking-wide"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            style={{
+              textShadow: "0 0 20px rgba(212, 175, 55, 0.3)",
+            }}
+          >
+            &quot;Ideas Converge and Possibilities Unfold&quot;
+          </motion.p>
+
+          <motion.p
+            className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.7 }}
+          >
+            Abacus&apos;25 is the conglomeration of the brightest minds
+            enhancing the participant’s knowledge and creative potentials.
+            The 3-day annual symposium showcases 15+ events and flagship
+            contests of crystal gazing technology. Abacus&apos;s coverage and
+            deliberations of earlier symposia have been a grand success with
+            insatiable thirst for technological development rejuvenating the
+            technology with innovation. This year, Abacus is back offline on a
+            grander scale with an innovative edge to all the events.
+          </motion.p>
+
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.9 }}
+          >
+            <button
+              className="group relative px-8 py-4 rounded-lg overflow-hidden transition-all duration-300 hover:scale-105"
+              style={{
+                background:
+                  "linear-gradient(135deg, #C9A961 0%, #D4AF37 100%)",
+                boxShadow:
+                  "0 0 30px rgba(212, 175, 55, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.2)",
+              }}
+              onClick={() => {
+                const el = document.getElementById("about");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              <span className="relative z-10 text-black font-semibold">
+                Register Now
+              </span>
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #A67208 0%, #C9A961 100%)",
+                }}
               />
-            </motion.div>
-            <motion.div
-              className="second py-10 flex flex-col "
-              variants={slideFromRight}
+            </button>
+
+            <button
+              className="px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105"
+              style={{
+                border: "2px solid #D4AF37",
+                color: "#D4AF37",
+                boxShadow:
+                  "0 0 20px rgba(212, 175, 55, 0.3), inset 0 0 10px rgba(212, 175, 55, 0.1)",
+              }}
+              onClick={scrollToContact}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor =
+                  "rgba(212, 175, 55, 0.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "transparent";
+              }}
             >
-              <p className="text-white text-justify">
-                Every year, as a component of ABACUS, we organize outreach
-                initiatives in renowned colleges across Tamil Nadu, aiming to
-                enhance student engagement and amplify awareness for our
-                symposium. Our specialized workshops under the REACH umbrella
-                introduce students to emerging technologies, ensuring they
-                remain at the forefront of innovation and industry relevance.
-                REACH goes beyond academics by offering tailored events that
-                prepare students for competitive landscapes, equipping them with
-                essential skills and confidence for future placements and
-                interviews.
-              </p>
-              {/* <motion.button
-              className=".but !my-8 !mx-auto xl:!mx-0 lg:w-[23%]"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              Read More
-            </motion.button> */}
-            </motion.div>
-          </motion.div>
-          <motion.div className="flex  flex-row whole">
-            <motion.div className="first" variants={slideFromLeft}>
-              <img
-                src={require("../assets/Reach/abacus'25_logo_white.png")}
-                alt="Abacus Logo"
-                className="ablogo "
-              />
-            </motion.div>
-            <motion.div
-              className="second py-10 flex flex-col "
-              variants={slideFromRight}
-            >
-              <p className="text-white text-justify">
-                The conglomeration of the brightest minds enhancing the
-                participant’s knowledge and creative potentials. The 3-day
-                annual symposium showcases 15+ events and flagship contests of
-                crystal gazing technology. Abacus's coverage and deliberations
-                of earlier symposia have been a grand success with insatiable
-                thirst for technological development rejuvenating the technology
-                with innovation. This year, Abacus is back offline on a grander
-                scale with an innovative edge to all the events.
-              </p>
-              {/* <motion.button
-              className=".but !my-8 !mx-auto xl:!mx-0 lg:w-[23%]"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              Read More
-            </motion.button> */}
-            </motion.div>
+              View Schedule
+            </button>
           </motion.div>
         </motion.div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 1,
+          delay: 1.5,
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+      >
       </motion.div>
-    </motion.div>
+
+      {/* Decorative Gold Lines */}
+      <div
+        className="absolute top-0 left-0 w-full h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent 0%, #D4AF37 50%, transparent 100%)",
+          boxShadow: "0 0 10px rgba(212, 175, 55, 0.5)",
+        }}
+      />
+      <div
+        className="absolute bottom-0 left-0 w-full h-px"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent 0%, #D4AF37 50%, transparent 100%)",
+          boxShadow: "0 0 10px rgba(212, 175, 55, 0.5)",
+        }}
+      />
+    </section>
   );
 };
 

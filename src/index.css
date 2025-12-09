@@ -1,6 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Remove all scrollbars */
+* {
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
 /* Override default react-hot-toast styles */
 .react-hot-toast .toast {
     display: flex;
@@ -43,3 +71,6 @@
     justify-content: center;
   }
   
+
+@import './styles/luxury.css';
+

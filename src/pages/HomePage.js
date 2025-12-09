@@ -1,47 +1,106 @@
-import {React,useRef} from "react";
-import "../styles/about.css";
+import React, { useEffect, useState, useRef } from "react";
 import "../styles/global.css";
-//import { Bubble } from "../components/Bubble";
+import "../styles/about.css";
 import "../assets/images/logo.jpeg";
-//import { bubbles } from "../constants/bubbles";
-import Sponsors from "../components/Sponsors";
+
 import Home from "../components/Home";
+import About from "../components/About";
+import Sponsors from "../components/Sponsors";
 import Developers from "../components/Developers";
 import Footer from "../components/Footer";
+import ParallaxBackground from "../components/ParallaxBackground";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 
-const HomePage = ({ isMenuOpen }) => {
+const HomePage = () => {
   const { isLoading } = LoaderData();
+
+  const [scrollY, setScrollY] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
   const contactRef = useRef(null);
-  if (isLoading) {
-    return <Loader />;
-  }
+
+  // Scroll handler for parallax and zoom feeling
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY || window.pageYOffset;
+      const maxScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = maxScroll > 0 ? scrolled / maxScroll : 0;
+
+      setScrollY(scrolled);
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const scrollToContact = () => {
     if (contactRef.current) {
-      contactRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      contactRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   };
-  
+
+  if (isLoading) return <Loader />;
+
   return (
-    <div className="bg-black">
-      {/* Main Section */}
-      {/* <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} active={active} setActive={setActive}/> */}
-      {/* <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        {bubbles.map((bubble, index) => (
-          <Bubble key={index} {...bubble} />
-        ))}
-      </div> */}
-      <div className="main bg-transparent scroll-mt-20">
-        <Home scrollToContact={scrollToContact}/>
-      </div>
-      <div className="mt-16 scroll-mt-20" id="sponsors">
-        <Sponsors />
-      </div>
-      {/* Developers Section */}
-      <Developers />
-      {/* Footer Section */}
-      <Footer ref={contactRef} />
+    <div
+      className="relative bg-black text-white overflow-x-hidden"
+      style={{ perspective: "2px" }} // camera perspective for 3D feel
+    >
+      {/* Deep parallax background layers */}
+      <ParallaxBackground scrollY={scrollY} scrollProgress={scrollProgress} />
+
+      {/* Main content sections */}
+      <main>
+        {/* HOME / HERO */}
+        <section
+          id="home"
+          className="relative min-h-screen flex items-center justify-center parallax-section"
+        >
+          <Home scrollY={scrollY} scrollToContact={scrollToContact} />
+        </section>
+
+        {/* ABOUT */}
+        <section
+          id="about"
+          className="relative min-h-screen flex items-center parallax-section"
+        >
+          <About scrollY={scrollY} />
+        </section>
+
+        {/* SPONSORS */}
+        <section
+          id="sponsors"
+          className="relative min-h-screen flex items-center parallax-section"
+        >
+          {/* You can pass scrollY here if you want to animate inside Sponsors */}
+          <Sponsors scrollY={scrollY} />
+        </section>
+
+        {/* DEVELOPERS */}
+        <section
+          id="developers"
+          className="relative min-h-screen flex items-center parallax-section"
+        >
+          <Developers scrollY={scrollY} />
+        </section>
+
+        {/* CONTACT */}
+        <section
+          id="contact"
+          ref={contactRef}
+          className="relative min-h-screen flex items-center parallax-section"
+        >
+          <Footer scrollY={scrollY} />
+        </section>
+      </main>
     </div>
   );
 };

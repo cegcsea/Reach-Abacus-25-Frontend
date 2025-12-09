@@ -1,54 +1,173 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+
 import spon1 from "../assets/Sponsors/spon11.jpg";
 import spon3 from "../assets/Sponsors/tmb.png";
-import e2w from "../assets/Reach/e2w.png";
-//import "../styles/Navbar.css";
+import e2w from "../assets/Reach/e2w.png"; // keep if you plan to use later
 
-const Sponsors = () => {
+const Sponsors = ({ scrollY = 0 }) => {
+  const [inView, setInView] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.25 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
   const sponsors = [
     { image: spon1, name: "Motorq", desc: "ABACUS'25 Title Sponsor" },
     // { image: e2w, name: "E2W STUDY", desc: "Educational Sponsor" },
     { image: spon3, name: "TMB", desc: "REACH'25 Sponsor" },
   ];
 
+  const sectionTop = 2500; // approximate; adjust if needed
+  const distanceFromTop = scrollY - sectionTop;
+  const scale = inView
+    ? 1 - Math.min(Math.max(distanceFromTop * 0.0003, 0), 0.3)
+    : 0.9;
+  const opacity = inView
+    ? 1 - Math.min(Math.max(distanceFromTop * 0.0005, 0), 0.5)
+    : 0;
+
   return (
-    <div className="bg-black font-serif p-6 mb-3" id="sponsors">
-      <h1 className="my-5 text-5xl font-bold text-[#fcfcfc] text-center mb-8 overflow-hidden [text-shadow:6px_2px_4px_#c03e3e]">
-        Sponsors
-      </h1>
+    <section
+      id="sponsors"
+      ref={ref}
+      className="relative py-32 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center bg-black"
+      style={{
+        transform: `scale(${scale}) translateZ(${inView ? 0 : -100}px)`,
+        opacity,
+        transformStyle: "preserve-3d",
+        transition: "all 0.6s ease-out",
+      }}
+    >
+      {/* Background glow */}
+      <div
+        className="absolute inset-x-0 top-0 h-64 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(circle at top, rgba(212,175,55,0.15), transparent 70%)",
+        }}
+      />
 
-      <div className="flex flex-col justify-between lg:flex-row mx-auto overflow-clip bg-black w-[100%]">
-        {sponsors.map((sponsor, index) => (
-          <div
-            key={index}
-            className=" bg-[#181720] bg-gradient-to-br from-[#000000] via-[#5a1414] to-[#bc4040]  text-[#f0f0f0] rounded-lg py- px-2 flex flex-col items-center  transform hover:scale-95 hover:shadow-2xl overflow-hidden  border-transparent mx-auto lg:w-[45%] w-[90%]  animated-border-box ease-in-out transition  border-solid  border-2 shadow-md shadow-[#d2c4fdba] m-3 p-6"
+      <div className="max-w-7xl mx-auto w-full relative">
+        {/* Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h1
+            className="mb-4 text-3xl md:text-4xl font-semibold tracking-[0.25em] uppercase"
+            style={{
+              background:
+                "linear-gradient(135deg, #C9A961 0%, #D4AF37 50%, #B8860B 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              textShadow: "0 0 20px rgba(212, 175, 55, 0.5)",
+            }}
           >
-            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-[#e0e0e0ea] to-transparent animate-glow "></div>
-            <p className="text-xl text-gray-300 text-center z-10 font-bold ">
-              {sponsor.desc}
-            </p>
-            <div class="border-t-2 border-b-2 border-gray-400 h-1 w-[90%]"></div>
+            Sponsors
+          </h1>
+          <div
+            className="w-24 h-1 mx-auto mb-4"
+            style={{
+              background:
+                "linear-gradient(90deg, #D4AF37 0%, #C9A961 50%, #D4AF37 100%)",
+              boxShadow: "0 0 10px rgba(212, 175, 55, 0.6)",
+            }}
+          />
+          <p className="text-gray-400 text-sm md:text-base max-w-xl mx-auto">
+            We proudly collaborate with our esteemed sponsors who help elevate
+            ABACUS&apos;25 to a grander scale.
+          </p>
+        </motion.div>
 
-            <div className="rounded-lg ">
-              <img
-                src={sponsor.image}
-                alt={sponsor.name}
-                className="w-full h-32 object-cover mb-4 rounded-2xl z-10 p-2 m-2"
+        {/* Sponsor cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {sponsors.map((sponsor, index) => (
+            <motion.div
+              key={sponsor.name}
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              animate={
+                inView
+                  ? { opacity: 1, y: 0, scale: 1 }
+                  : { opacity: 0, y: 40, scale: 0.95 }
+              }
+              transition={{
+                duration: 0.7,
+                delay: 0.2 + index * 0.15,
+              }}
+              className="relative overflow-hidden rounded-2xl"
+              style={{
+                background:
+                  "radial-gradient(circle at top left, rgba(212,175,55,0.2), rgba(0,0,0,0.95))",
+                border: "1px solid rgba(212,175,55,0.35)",
+                boxShadow:
+                  "0 0 28px rgba(212, 175, 55, 0.3)",
+              }}
+            >
+              {/* Glow overlay */}
+              <div
+                className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(212,175,55,0.25), transparent)",
+                  mixBlendMode: "screen",
+                }}
               />
-              {/* <div class="absolute inset-0 bg-gray-200 mix-blend-multiply"></div> */}
-            </div>
-            <div class="border-t-2 border-b-2 border-gray-400 h-1 w-[90%]"></div>
 
-            <h2 className="text-lg font-bold mb-2 z-10">{sponsor.name}</h2>
-          </div>
-        ))}
+              <div className="relative flex flex-col items-center px-6 py-8">
+                <p className="text-lg md:text-xl text-gray-200 text-center font-semibold mb-4">
+                  {sponsor.desc}
+                </p>
+
+                <div
+                  className="w-3/4 h-px mb-4"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent, rgba(200,200,200,0.6), transparent)",
+                  }}
+                />
+
+                <div className="w-full max-w-md rounded-2xl overflow-hidden mb-4 bg-black/60">
+                  <img
+                    src={sponsor.image}
+                    alt={sponsor.name}
+                    className="w-full h-32 object-contain md:h-40 p-4"
+                  />
+                </div>
+
+                <div
+                  className="w-3/4 h-px mt-2"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent, rgba(200,200,200,0.6), transparent)",
+                  }}
+                />
+
+                <h2
+                  className="mt-4 text-lg md:text-xl font-bold text-center"
+                  style={{
+                    color: "#F5F5F5",
+                    textShadow:
+                      "0 0 10px rgba(0,0,0,0.6)",
+                  }}
+                >
+                  {sponsor.name}
+                </h2>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-      {/* <div className=" w-[100%] flex justify-center mt-4">
-        <button className="mt-10 mb-6 px-6 py-4 bg-gradient-to-br from-red-300 via-red-500 to-red-800 text-white font-bold rounded-full shadow-lg hover:shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-shadow focus:outline-none focus:shadow-[0_0_15px_rgba(255,223,47,0.8)]">
-          Read More{" "}
-        </button>
-      </div> */}
-    </div>
+    </section>
   );
 };
 
