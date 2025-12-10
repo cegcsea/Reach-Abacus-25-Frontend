@@ -37,7 +37,7 @@ const Sponsors = ({ scrollY = 0 }) => {
     <section
       id="sponsors"
       ref={ref}
-      className="relative py-32 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center bg-black"
+      className="relative min-h-screen flex items-center"
       style={{
         transform: `scale(${scale}) translateZ(${inView ? 0 : -100}px)`,
         opacity,
@@ -47,7 +47,7 @@ const Sponsors = ({ scrollY = 0 }) => {
     >
       {/* Background glow */}
       <div
-        className="absolute inset-x-0 top-0 h-64 blur-3xl"
+        className="absolute inset-x-0 top-0 h-30 blur-2xl"
         style={{
           background:
             "radial-gradient(circle at top, rgba(192,160,104,0.15), transparent 70%)",

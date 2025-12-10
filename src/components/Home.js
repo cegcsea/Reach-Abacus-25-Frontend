@@ -16,7 +16,7 @@ const Home = ({ scrollY, scrollToContact }) => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // Zoom in / blur as scroll
+  // Zoom in / blur as scroll (kept same as your code)
   const scale = 1 + scrollY * 0.001;
   const opacity = Math.max(1 - scrollY * 0.0015, 0);
   const blur = Math.min(scrollY * 0.05, 20);
@@ -40,7 +40,7 @@ const Home = ({ scrollY, scrollToContact }) => {
         }}
       />
 
-      {/* Animated Gold Rings */}
+      {/* Animated Gold Rings – shining one after another */}
       <div className="absolute inset-0 flex items-center justify-center">
         {Array.from({ length: 3 }).map((_, i) => (
           <motion.div
@@ -55,13 +55,16 @@ const Home = ({ scrollY, scrollToContact }) => {
               }px rgba(212, 175, 55, ${0.2 - i * 0.05})`,
             }}
             animate={{
-              scale: [1, 1.1, 1],
-              rotate: [0, 360],
+              // mild pulse + rotation
+              scale: [1, 1.08, 1],
+              opacity: [0.4, 0.9, 0.4],
+              rotate: [0, 15, 0],
             }}
             transition={{
-              duration: 20 + i * 5,
+              duration: 4.5 + i,
               repeat: Infinity,
-              ease: "linear",
+              ease: "easeInOut",
+              delay: i * 0.7, // one after another shine
             }}
           />
         ))}
@@ -111,12 +114,20 @@ const Home = ({ scrollY, scrollToContact }) => {
           </motion.p>
 
           <motion.p
-            className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto"
+            className="text-lg text-gray-400 mb-12 max-w-3xl mx-auto p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.7 }}
           >
-            Every year, as a component of REACH, we organize outreach initiatives in renowned colleges across Tamil Nadu, aiming to enhance student engagement and amplify awareness for our symposium. Our specialized workshops under the REACH umbrella introduce students to emerging technologies, ensuring they remain at the forefront of innovation and industry relevance. REACH goes beyond academics by offering tailored events that prepare students for competitive landscapes, equipping them with essential skills and confidence for future placements and interviews.
+            Every year, as a component of REACH, we organize outreach initiatives
+            in renowned colleges across Tamil Nadu, aiming to enhance student
+            engagement and amplify awareness for our symposium. Our specialized
+            workshops under the REACH umbrella introduce students to emerging
+            technologies, ensuring they remain at the forefront of innovation and
+            industry relevance. REACH goes beyond academics by offering tailored
+            events that prepare students for competitive landscapes, equipping
+            them with essential skills and confidence for future placements and
+            interviews.
           </motion.p>
 
           <motion.div
@@ -173,7 +184,7 @@ const Home = ({ scrollY, scrollToContact }) => {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator (kept as your empty animated container) */}
       <motion.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0, y: -10 }}
@@ -186,24 +197,6 @@ const Home = ({ scrollY, scrollToContact }) => {
         }}
       >
       </motion.div>
-
-      {/* Decorative Gold Lines */}
-      <div
-        className="absolute top-0 left-0 w-full h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent 0%, #c0a068 50%, transparent 100%)",
-          boxShadow: "0 0 10px rgba(212, 175, 55, 0.5)",
-        }}
-      />
-      <div
-        className="absolute bottom-0 left-0 w-full h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent 0%, #c0a068 50%, transparent 100%)",
-          boxShadow: "0 0 10px rgba(212, 175, 55, 0.5)",
-        }}
-      />
     </section>
   );
 };

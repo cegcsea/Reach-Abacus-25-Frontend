@@ -1,0 +1,50 @@
+/* Developers.css - outline + small helpers */
+
+.tilted-card-figure {
+  position: relative;
+  display: block;
+  user-select: none;
+}
+
+/* outline: gradient border that glows on hover of the figure */
+.tilted-card-outline {
+  transition: box-shadow 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+  opacity: 0.0;
+  box-shadow: 0 0 12px rgba(192,160,104,0.25), 0 0 30px rgba(192,160,104,0.08) inset;
+  border: 1px solid rgba(192,160,104,0.08);
+  background: linear-gradient(135deg, rgba(192,160,104,0.02), rgba(0,0,0,0));
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* when card hovered, show stronger outline */
+.tilted-card-figure:hover .tilted-card-outline {
+  opacity: 1;
+  box-shadow: 0 0 35px rgba(192,160,104,0.45), 0 0 80px rgba(192,160,104,0.2), inset 0 0 40px rgba(255,255,255,0.06);
+  transform: scale(1.02);
+}
+
+/* small adjustments for the image and children stacking */
+.tilted-card-figure img {
+  display: block;
+  pointer-events: none;
+}
+
+/* ensure the LinkedIn button and overlay are on top */
+.tilted-card-figure .z-30 {
+  z-index: 30 !important;
+}
+
+/* keep the card visually fixed when scrolling (helps avoid painting issues) */
+.tilted-card-figure {
+  will-change: transform;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* optional: adapt for small screens - scale down slightly */
+@media (max-width: 640px) {
+  .tilted-card-figure {
+    transform: none !important;
+  }
+}

@@ -124,40 +124,6 @@ const ParallaxBackground = ({ scrollY, scrollProgress }) => {
           zIndex: -10,
         }}
       >
-        {/* Vertical Golden Lines */}
-        <div
-          className="absolute w-px h-[500px] bg-gradient-to-b from-transparent via-gold-500/40 to-transparent"
-          style={{
-            top: "20%",
-            left: "25%",
-            transform: `translateY(${scrollY * 0.6}px)`,
-            boxShadow: "0 0 10px rgba(212, 175, 55, 0.4)",
-            background:
-              "linear-gradient(to bottom, transparent, rgba(192,160,104,0.4), transparent)",
-          }}
-        />
-        <div
-          className="absolute w-px h-[600px] bg-gradient-to-b from-transparent via-gold-400/30 to-transparent"
-          style={{
-            top: "5%",
-            right: "30%",
-            transform: `translateY(${scrollY * 0.55}px)`,
-            boxShadow: "0 0 10px rgba(212, 175, 55, 0.3)",
-            background:
-              "linear-gradient(to bottom, transparent, rgba(192,160,104,0.3), transparent)",
-          }}
-        />
-        <div
-          className="absolute w-px h-[400px] bg-gradient-to-b from-transparent via-gold-600/35 to-transparent"
-          style={{
-            top: "40%",
-            left: "70%",
-            transform: `translateY(${scrollY * 0.5}px)`,
-            boxShadow: "0 0 10px rgba(212, 175, 55, 0.35)",
-            background:
-              "linear-gradient(to bottom, transparent, rgba(192,160,104,0.35), transparent)",
-          }}
-        />
 
         {/* Floating Particles */}
         {Array.from({ length: 30 }).map((_, i) => {
