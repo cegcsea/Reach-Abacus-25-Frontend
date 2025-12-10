@@ -16,7 +16,7 @@ const developers = [
     linkedin: "https://linkedin.com/in/shevaani",
   },
   {
-    name: "Sri Pramod",
+    name: "Sripramod Yogarajan",
     src: img2,
     linkedin: "https://linkedin.com/in/sripramod",
   },
