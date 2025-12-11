@@ -12,7 +12,7 @@ const EventPage = () => {
     return <Loader />;
   }
   return (
-    <div>
+    <div style={{ background: "transparent", minHeight: "100vh" }}>
       <div className="main bg-transparent scroll-mt-20"></div>
       <div className="card">
         <div className="event">

@@ -22,9 +22,9 @@ const TechnicalPage = () => {
     return <Loader />;
   }
   return (
-    <div className="bg-black">
+    <div style={{ background: "transparent", minHeight: "100vh" }}>
       <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      <div style={{ backgroundColor: "#000", padding: "20px" }}>
+      <div style={{ background: "transparent", padding: "20px", minHeight: "100vh" }}>
         <div className="heading">
           <h1 style={{ textAlign: "center", color: "#fff" }}>
             {event.title}
