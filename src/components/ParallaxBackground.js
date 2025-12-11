@@ -55,7 +55,7 @@ const ParallaxBackground = ({ scrollY, scrollProgress }) => {
         />
       </div>
 
-      {/* Mid Layer - Geometric Shapes */}
+      {/* Mid Layer - (geometric shapes removed) */}
       <div
         className="fixed inset-0 pointer-events-none overflow-hidden"
         style={{
@@ -63,58 +63,7 @@ const ParallaxBackground = ({ scrollY, scrollProgress }) => {
           transformStyle: "preserve-3d",
           zIndex: -20,
         }}
-      >
-        {/* Rotating Golden Squares */}
-        <div
-          className="absolute border-2 border-gold-500/30 w-80 h-80"
-          style={{
-            top: "15%",
-            right: "10%",
-            transform: `rotate(${45 + scrollY * 0.1}deg) translateY(${
-              scrollY * 0.3
-            }px)`,
-            boxShadow: "0 0 30px rgba(212, 175, 55, 0.2)",
-            borderColor: "rgba(192,160,104,0.3)",
-          }}
-        />
-        <div
-          className="absolute border-2 border-gold-400/20 w-48 h-48"
-          style={{
-            bottom: "25%",
-            left: "8%",
-            transform: `rotate(${-30 + scrollY * 0.08}deg) translateY(${
-              scrollY * 0.25
-            }px)`,
-            boxShadow: "0 0 20px rgba(212, 175, 55, 0.15)",
-            borderColor: "rgba(192,160,104,0.2)",
-          }}
-        />
-
-        {/* Hexagon */}
-        <div
-          className="absolute w-64 h-64"
-          style={{
-            top: "50%",
-            left: "5%",
-            transform: `translateY(${scrollY * 0.4}px) rotate(${
-              scrollY * 0.05
-            }deg)`,
-          }}
-        >
-          <svg viewBox="0 0 100 100" className="w-full h-full opacity-20">
-            <polygon
-              points="50 1 95 25 95 75 50 99 5 75 5 25"
-              fill="none"
-              stroke="#c0a068"
-              strokeWidth="0.5"
-              style={{
-                filter:
-                  "drop-shadow(0 0 10px rgba(212, 175, 55, 0.3))",
-              }}
-            />
-          </svg>
-        </div>
-      </div>
+      />
 
       {/* Front Layer - Particles and Lines */}
       <div

@@ -44,6 +44,48 @@ const HomePage = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Apply uniform inward/outward transform to sections based on scroll position
+  useEffect(() => {
+    const applySectionTransforms = () => {
+      const sections = document.querySelectorAll('.parallax-section');
+      const vw = window.innerWidth;
+      const viewportCenter = window.innerHeight / 2;
+
+      sections.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const centerY = rect.top + rect.height / 2;
+        const distance = (centerY - viewportCenter) / viewportCenter; // -1..1
+        const clamped = Math.max(-1, Math.min(1, distance));
+
+        // Mobile: apply a toned-down variant of the same inward/outward effect
+        if (vw < 640) {
+          const translateYMobile = clamped * -12; // smaller translation
+          const scaleMobile = 1 - Math.abs(clamped) * 0.03; // subtler scale
+          const rotateXMobile = clamped * 1.2; // smaller tilt
+
+          el.style.transform = `translateY(${translateYMobile}px) scale(${scaleMobile}) rotateX(${rotateXMobile}deg)`;
+          el.style.transition = 'transform 0.45s ease-out';
+          el.style.transformStyle = 'preserve-3d';
+          return;
+        }
+
+        const translateY = clamped * -30;
+        const scale = 1 - Math.abs(clamped) * 0.06;
+        const rotateX = clamped * 3;
+
+        el.style.transform = `translateY(${translateY}px) scale(${scale}) rotateX(${rotateX}deg)`;
+        el.style.transition = 'transform 0.6s cubic-bezier(0.2,0.8,0.2,1)';
+        el.style.transformStyle = 'preserve-3d';
+      });
+    };
+
+    applySectionTransforms();
+
+    const onResize = () => applySectionTransforms();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [scrollY]);
+
   const scrollToContact = () => {
     if (contactRef.current) {
       contactRef.current.scrollIntoView({
@@ -58,7 +100,7 @@ const HomePage = () => {
   return (
     <div
       className="relative bg-transparent text-white overflow-x-hidden"
-      style={{ perspective: "2px" }} // camera perspective for 3D feel
+      style={{ perspective: "1000px" }} // camera perspective for 3D feel
     >
       {/* Deep parallax background layers */}
       <ParallaxBackground scrollY={scrollY} scrollProgress={scrollProgress} />

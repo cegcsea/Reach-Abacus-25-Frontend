@@ -33,12 +33,12 @@ const About = ({ scrollY }) => {
 
   const sectionTop = 1000;
   const distanceFromTop = scrollY - sectionTop;
-  const scale = inView
+  const scale = isMobile && inView
     ? 1 - Math.min(Math.max(distanceFromTop * 0.0003, 0), 0.3)
-    : 0.8;
-  const opacity = inView
+    : 1;
+  const opacity = isMobile && inView
     ? 1 - Math.min(Math.max(distanceFromTop * 0.0005, 0), 0.5)
-    : 0;
+    : 1;
 
   const features = [
     {
@@ -104,40 +104,41 @@ const About = ({ scrollY }) => {
         </motion.div>
 
         {/* Image and Paragraph - Straight Parallel */}
-        <div className={`grid ${isMobile ? "grid-cols-1" : "lg:grid-cols-2"} gap-8 lg:gap-16 items-start mb-12`}>
+        <div className={`grid ${isMobile ? "grid-cols-1" : "lg:grid-cols-2"} gap-8 lg:gap-16 items-center mb-12`}>
           {/* Left: Image */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            initial={isMobile ? { opacity: 0, y: 20 } : { opacity: 0, x: -50 }}
+            animate={inView ? (isMobile ? { opacity: 1, y: 0 } : { opacity: 1, x: 0 }) : (isMobile ? { opacity: 0, y: 20 } : { opacity: 0, x: -50 })}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex justify-center"
+            className="flex justify-center order-2 md:order-1"
           >
             <div
-              className="relative overflow-hidden rounded-2xl w-full"
+              className="relative overflow-hidden rounded-2xl w-full mx-auto"
               style={{
                 border: "2px solid rgba(212, 175, 55, 0.3)",
                 boxShadow: "0 0 30px rgba(212, 175, 55, 0.2)",
-                maxWidth: isMobile ? "320px" : "410px",
+                maxWidth: isMobile ? "280px" : "410px",
+                width: isMobile ? "100%" : "auto",
               }}
             >
               <img
                 src={logo}
                 alt="Abacus'25 Logo"
-                className="w-400px h-400px p-4"
-                style={{ maxHeight: isMobile ? "320px" : "400px" }}
+                className="w-full h-auto p-4"
+                style={{ display: "block", maxHeight: isMobile ? "280px" : "400px" }}
               />
             </div>
           </motion.div>
 
           {/* Right: Paragraph */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            initial={isMobile ? { opacity: 0, y: 20 } : { opacity: 0, x: 50 }}
+            animate={inView ? (isMobile ? { opacity: 1, y: 0 } : { opacity: 1, x: 0 }) : (isMobile ? { opacity: 0, y: 20 } : { opacity: 0, x: 50 })}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col justify-center h-full"
+            className="flex flex-col justify-center h-full order-1 md:order-2 px-2"
           >
             <div className="space-y-6">
-              <p className={`${isMobile ? "text-sm" : "text-base md:text-lg"} text-gray-300 leading-relaxed text-justify`}>
+              <p className={`${isMobile ? "text-xs leading-relaxed" : "text-base md:text-lg"} text-gray-300 leading-relaxed text-justify`}>
                 Abacus&apos;26 is the conglomeration of the brightest minds
                 enhancing the participant's knowledge and creative potentials. The
                 3-day annual symposium showcases 15+ events and flagship contests
@@ -148,7 +149,7 @@ const About = ({ scrollY }) => {
                 a grander scale with an innovative edge to all the events.
               </p>
 
-              <p className={`${isMobile ? "text-sm" : "text-base md:text-lg"} text-gray-300 leading-relaxed text-justify`}>
+              <p className={`${isMobile ? "text-xs leading-relaxed" : "text-base md:text-lg"} text-gray-300 leading-relaxed text-justify`}>
                 Join us for competitions, workshops, and panel discussions that
                 bridge academia and industry. Expect hands-on sessions, live
                 demonstrations, and networking opportunities designed to expand

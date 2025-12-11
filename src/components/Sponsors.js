@@ -5,9 +5,22 @@ import spon1 from "../assets/Sponsors/spon11.jpg";
 import spon3 from "../assets/Sponsors/tmb.png";
 import e2w from "../assets/Reach/e2w.png"; // keep if you plan to use later
 
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.innerWidth <= 768 : false
+  );
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+  return isMobile;
+};
+
 const Sponsors = ({ scrollY = 0 }) => {
   const [inView, setInView] = useState(false);
   const ref = useRef(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -94,11 +107,11 @@ const Sponsors = ({ scrollY = 0 }) => {
           {sponsors.map((sponsor, index) => (
             <motion.div
               key={sponsor.name}
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              initial={isMobile ? { opacity: 0, y: 30 } : { opacity: 0, y: 40, scale: 0.95 }}
               animate={
                 inView
-                  ? { opacity: 1, y: 0, scale: 1 }
-                  : { opacity: 0, y: 40, scale: 0.95 }
+                  ? (isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0, scale: 1 })
+                  : (isMobile ? { opacity: 0, y: 30 } : { opacity: 0, y: 40, scale: 0.95 })
               }
               transition={{
                 duration: 0.7,

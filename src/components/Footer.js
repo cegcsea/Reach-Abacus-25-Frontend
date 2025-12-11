@@ -116,8 +116,8 @@ const Footer = ({ scrollY }) => {
 
         {/* Top row: Location, Email, Contact */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          initial={isMobile ? { opacity: 0, y: 20 } : { opacity: 0, y: 30 }}
+          animate={inView ? (isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }) : (isMobile ? { opacity: 0, y: 20 } : { opacity: 0, y: 30 })}
           transition={{ duration: 0.6, delay: 0.2 }}
           className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-3"} gap-4 mb-4`}
         >
@@ -272,8 +272,8 @@ const Footer = ({ scrollY }) => {
 
         {/* Get in Touch Form - Wider and centered */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          initial={isMobile ? { opacity: 0, y: 20 } : { opacity: 0, y: 30 }}
+          animate={inView ? (isMobile ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }) : (isMobile ? { opacity: 0, y: 20 } : { opacity: 0, y: 30 })}
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-6"
         >

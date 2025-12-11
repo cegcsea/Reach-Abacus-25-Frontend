@@ -337,11 +337,8 @@ const Developers = ({ scrollY = 0 }) => {
         <div className="relative h-[350px] sm:h-[500px] md:h-[600px] flex items-center justify-center">
           {/* Previous Developer Card (left) - Hidden on mobile if not enough space */}
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            animate={inView ? { 
-              opacity: isMobile ? 0.3 : 0.4, 
-              x: isMobile ? -30 : -60 
-            } : { opacity: 0, x: -100 }}
+            initial={isMobile ? { opacity: 0, y: -30 } : { opacity: 0, x: -100 }}
+            animate={inView ? (isMobile ? { opacity: 0.35, y: -10 } : { opacity: 0.4, x: -60 }) : (isMobile ? { opacity: 0, y: -30 } : { opacity: 0, x: -100 })}
             transition={{ duration: 0.7 }}
             className={`absolute ${isMobile ? 'left-1 w-24 h-32' : 'left-2 md:left-8 w-40 md:w-56 h-52 md:h-64'} rounded-xl overflow-hidden z-10`}
             style={{
@@ -358,11 +355,8 @@ const Developers = ({ scrollY = 0 }) => {
 
           {/* Next Developer Card (right) - Hidden on mobile if not enough space */}
           <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            animate={inView ? { 
-              opacity: isMobile ? 0.3 : 0.4, 
-              x: isMobile ? 30 : 60 
-            } : { opacity: 0, x: 100 }}
+            initial={isMobile ? { opacity: 0, y: -30 } : { opacity: 0, x: 100 }}
+            animate={inView ? (isMobile ? { opacity: 0.35, y: 10 } : { opacity: 0.4, x: 60 }) : (isMobile ? { opacity: 0, y: -30 } : { opacity: 0, x: 100 })}
             transition={{ duration: 0.7 }}
             className={`absolute ${isMobile ? 'right-1 w-24 h-32' : 'right-2 md:right-8 w-40 md:w-56 h-52 md:h-64'} rounded-xl overflow-hidden z-10`}
             style={{
