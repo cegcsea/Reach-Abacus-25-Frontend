@@ -97,6 +97,9 @@ const HomePage = () => {
         >
           <Footer scrollY={scrollY} />
         </section>
+        <div className="footer-line p-3">
+            &copy; Copyright 2025 CSEA. All rights reserved.
+        </div>
       </main>
     </div>
   );

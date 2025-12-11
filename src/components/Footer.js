@@ -428,9 +428,6 @@ const Footer = ({ scrollY }) => {
           </div>
         </motion.div>
       </div>
-      <div className="footer-line p-3">
-        &copy; Copyright 2025 CSEA. All rights reserved.
-      </div>
     </section>
   );
 };
