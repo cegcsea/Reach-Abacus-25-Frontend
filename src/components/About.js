@@ -33,12 +33,12 @@ const About = ({ scrollY }) => {
 
   const sectionTop = 1000;
   const distanceFromTop = scrollY - sectionTop;
-  const scale = isMobile && inView
+  const scale = inView
     ? 1 - Math.min(Math.max(distanceFromTop * 0.0003, 0), 0.3)
-    : 1;
-  const opacity = isMobile && inView
+    : 0.8;
+  const opacity = inView
     ? 1 - Math.min(Math.max(distanceFromTop * 0.0005, 0), 0.5)
-    : 1;
+    : 0;
 
   const features = [
     {
@@ -104,7 +104,7 @@ const About = ({ scrollY }) => {
         </motion.div>
 
         {/* Image and Paragraph - Straight Parallel */}
-        <div className={`grid ${isMobile ? "grid-cols-1" : "lg:grid-cols-2"} gap-8 lg:gap-16 items-center mb-12`}>
+        <div className={`grid ${isMobile ? "grid-cols-1" : "lg:grid-cols-2"} gap-8 lg:gap-16 items-center mb-12 fixed-height`}>
           {/* Left: Image */}
           <motion.div
             initial={isMobile ? { opacity: 0, y: 20 } : { opacity: 0, x: -50 }}
