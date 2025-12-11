@@ -2,32 +2,32 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 
-import HariniImage from "../assets/images/testpic.jpg";
-import img1 from "../assets/images/shevaani.jpg";
-import img2 from "../assets/images/Pramod.jpg";
-import img3 from "../assets/images/harini.jpg";
+import SivaSanjayImg from "../assets/images/SivaSanjay.jpg";
+import ShevaaniImg from "../assets/images/Shevaani.jpg";
+import PramodImg from "../assets/images/Pramod.jpg";
+import GnanaKeshavImg from "../assets/images/GnanaKeshav.jpg";
 import ShinyText from "./ShinyText";
 
 const developers = [
   {
     name: "Shevaani",
-    src: img1,
-    linkedin: "https://linkedin.com/in/shevaani",
+    src: ShevaaniImg,
+    linkedin: "https://www.linkedin.com/in/shevaani-arun-12aa2828b",
   },
   {
     name: "Sripramod Y",
-    src: img2,
-    linkedin: "https://linkedin.com/in/sripramod",
+    src: PramodImg,
+    linkedin: "https://www.linkedin.com/in/sripramod",
   },
   {
-    name: "Harini",
-    src: img3,
-    linkedin: "https://linkedin.com/in/harini",
+    name: "Gnana Keshav",
+    src: GnanaKeshavImg,
+    linkedin: "https://www.linkedin.com/in/g-gnanakeshav",
   },
   {
-    name: "Lakshay",
-    src: HariniImage,
-    linkedin: "https://linkedin.com/in/lakshay",
+    name: "Siva Sanjay",
+    src: SivaSanjayImg,
+    linkedin: "https://linkedin.com/in/sivasanjay",
   },
 ];
 
