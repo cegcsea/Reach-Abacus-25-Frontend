@@ -1,7 +1,7 @@
 import img1 from "../assets/images/techevent.jpg";
 import img2 from "../assets/images/nontech.jpg"; // Example images
 import img3 from "../assets/images/preevnt.jpg";
-import img4 from "../assets/images/pentacode.png";
+import img4 from "../assets/Reach/UI UX.png";
 import img5 from "../assets/images/ML Mania.png";
 import img6 from "../assets/images/ospc.png";
 import img7 from "../assets/images/family feud.png";
@@ -25,30 +25,30 @@ export const events = [
     event: [
       {
         id: 1,
-        title: "Pentacode",
+        title: "UI Odyssey",
         description:
-          "A quiz challenge spanning five core Computer Science domains: Debugging, DSA, OOPs, CN, and DBMS. Solve a series of tasks to unlock hints and crack the final DSA problem.",
+          "A creative design event where participants imagine and build futuristic digital interfaces.",
         image: img4, // Replace with your image path
-        path: "/events/pentacode",
+        path: "/events/uiodyssey",
 
         team: "Two or three members",
         Date: "21st February 2025",
         prize: "Rs 1.5k+",
-        to: "pentacode",
+        to: "uiodyssey",
         rounds: [
           {
-            title: "Round 1 – Quiz Challenge",
+            title: "Round 1: Quick Sketch Challenge",
             content:
-              "Test your mettle in a quiz spanning five core Computer Science domains: Debugging, DSA, OOPs, CN, and DBMS. Showcase your expertise to advance!",
+              "Create a fast wireframe based on a futuristic theme.",
               
             duration: "30 minutes",
             time: "09:00 AM to 12:30 PM",
             // venue: "Main Building Room No 238",
           },
           {
-            title: "Round 2 – Decode the Pentacode",
+            title: "Round 2: Interactive Prototype",
             content:
-              "Solve a challenging DSA problem with the help of hints unlocked from tasks in four other domains. Complete all tasks strategically to crack the final DSA problem and secure victory!",
+              "Turn your idea into an interactive prototype using Figma or any design tool.",
             time: "01:30 PM to 03:00 PM",
             // venue: "Main Building Room No 238",
           },
@@ -69,29 +69,29 @@ export const events = [
       },
       {
         id: 2,
-        title: "ML - Conquer",
+        title: "CodeQuest",
         description:
-          "Test your skills in machine learning through a quiz and a hands-on model-building challenge. Answer questions and build an ML model to solve real-world problems.",
+          "It is a competitive coding event focused on problem-solving and algorithmic thinking.",
         image: img5,
-        path: "/events/ml-conquer",
+        path: "/events/codequest",
 
         team: "Two or three members",
         Date: "21st February 2025",
         prize: "Rs 1.5k+",
-        to: "ml-conquer",
+        to: "codequest",
         rounds: [
           {
-            title: "Round 1 – ML Conquer: Quiz Blitz",
+            title: "Round 1 – Algorithmic Sprint",
             content:
-              "Test your theoretical knowledge of machine learning algorithms, concepts, and applications in a fast-paced quiz. Answer quickly and accurately to secure your spot in the next round.",
+              "Participants solve 4–5 DSA-based problems covering arrays, strings, recursion, trees, graphs, and other core concepts. Points earned here determine ranking and unlock advantages for the next round.",
             duration: "30 minutes",
             time: "09:00 AM to 12:30 PM",
             // venue: "Main Building Room No 238",
           },
           {
-            title: "Round 2 – ML Conquer: Model Challenge",
+            title: "Round 2 – The Final Conquer",
             content:
-              "Build a powerful ML model to solve a real-world problem. Showcase your coding skills, data analysis, and model optimization techniques to emerge as the ultimate ML conqueror.",
+              "Top performers advance to Round 2, where they face 2–3 hard-level algorithmic problems. Each team receives access to 3 optional hints usable at any stage. Each hint costs a specific amount of points deducted from the team's total.",
             time: "01:30 PM to 03:00 PM",
             // venue: "Main Building Room No 238",
           },
@@ -117,19 +117,19 @@ export const events = [
       },
       {
         id: 3,
-        title: "OSPC",
+        title: "Query Kernel Arena",
         description:
-          "It's a fast-paced programming contest, where innovative minds come together to resolve challenges in the most complicated coding questions, involving data structures and algorithms.",
+          "It is designed to test precision, logic, and applied knowledge in Database Management Systems (DBMS) and Operating Systems (OS). Participants progress through two structured rounds that blend analytical thinking with hands-on problem solving.",
         image: img6, // Replace with your image path
-        path: "/events/ospc",
+        path: "/events/querykernel",
         team: "Two or three members",
         Date: "21st February 2025",
         prize: "Rs 1.5k+",
-        to: "ospc",
+        to: "querykernel",
         rounds: [
           {
             title: "Round 1",
-            content: "MCQ on Data Structures, Algorithms, and OOPs concepts",
+            content: "MCQs on DBMS & OS fundamentals, A Technical Crossword Puzzle, Spot-the-Error tasks in SQL/OS pseudo codes, ER Diagram Construction from table instances. 6-10 qualifying teams proceed to round 2.",
             duration: "30 minutes",
             time: "09:00 AM to 12:30 PM",
             // venue: "Main Building Room No 238",
@@ -137,7 +137,7 @@ export const events = [
           {
             title: "Round 2",
             content:
-              "Solve challenging programming questions based on DSA and algorithms",
+              "10 SQL Query Problems (JOINs, subqueries, aggregation, logic analysis) and 2 OS Tasks based on scheduling algorithms and synchronization code.",
             time: "01:30 PM to 03:00 PM",
             // venue: "Main Building Room No 238",
           },
