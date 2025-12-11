@@ -4,7 +4,7 @@ import "../styles/global.css";
 import "../styles/about.css";
 import "../assets/images/logo.jpeg";
 
-import Home from "../components/Home";
+import Home from "../components/Hero";
 import About from "../components/About";
 import Sponsors from "../components/Sponsors";
 import Developers from "../components/Developers";

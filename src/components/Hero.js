@@ -144,7 +144,7 @@ const Home = ({ scrollY, scrollToContact }) => {
           </motion.p>
 
           <motion.p
-            className={`${isMobile ? "text-sm" : "text-lg"} text-gray-400 mb-3 max-w-3xl mx-auto p-4`}
+            className={`${isMobile ? "text-sm" : "text-lg"} text-gray-400 mb-3 max-w-3xl mx-auto p-4 text-justify`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.7 }}

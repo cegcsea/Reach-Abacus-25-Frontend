@@ -123,8 +123,8 @@ const About = ({ scrollY }) => {
               <img
                 src={logo}
                 alt="Abacus'25 Logo"
-                className="w-full h-auto p-4"
-                style={{ maxHeight: isMobile ? "220px" : "auto" }}
+                className="w-400px h-400px p-4"
+                style={{ maxHeight: isMobile ? "320px" : "400px" }}
               />
             </div>
           </motion.div>
@@ -137,7 +137,7 @@ const About = ({ scrollY }) => {
             className="flex flex-col justify-center h-full"
           >
             <div className="space-y-6">
-              <p className={`${isMobile ? "text-sm" : "text-base md:text-lg"} text-gray-300 leading-relaxed`}>
+              <p className={`${isMobile ? "text-sm" : "text-base md:text-lg"} text-gray-300 leading-relaxed text-justify`}>
                 Abacus&apos;26 is the conglomeration of the brightest minds
                 enhancing the participant's knowledge and creative potentials. The
                 3-day annual symposium showcases 15+ events and flagship contests
@@ -148,7 +148,7 @@ const About = ({ scrollY }) => {
                 a grander scale with an innovative edge to all the events.
               </p>
 
-              <p className={`${isMobile ? "text-sm" : "text-base md:text-lg"} text-gray-300 leading-relaxed`}>
+              <p className={`${isMobile ? "text-sm" : "text-base md:text-lg"} text-gray-300 leading-relaxed text-justify`}>
                 Join us for competitions, workshops, and panel discussions that
                 bridge academia and industry. Expect hands-on sessions, live
                 demonstrations, and networking opportunities designed to expand
@@ -166,7 +166,7 @@ const About = ({ scrollY }) => {
           className="text-center"
         >
           <h3
-            className={`${isMobile ? "text-lg" : "mb-8 text-xl md:text-2xl font-semibold"}`}
+            className={`${isMobile ? "text-lg mb-3" : "mb-8 text-xl md:text-2xl font-semibold"}`}
             style={{
               color: "#c0a068",
               textShadow: "0 0 10px rgba(212, 175, 55, 0.3)",
@@ -186,7 +186,7 @@ const About = ({ scrollY }) => {
                 className="flex-1 p-5 rounded-xl text-center min-h-[160px] flex flex-col"
                 style={{
                   background: "rgba(0, 0, 0, 0.4)",
-                  border: "1px solid rgba(212, 175, 55, 0.2)",
+                  border: "3px solid rgba(212, 175, 55, 0.2)",
                   boxShadow: "0 0 15px rgba(212, 175, 55, 0.1)",
                 }}
               >
