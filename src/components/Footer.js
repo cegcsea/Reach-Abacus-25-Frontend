@@ -126,7 +126,7 @@ const Footer = ({ scrollY }) => {
             className="relative p-3 rounded-xl"
             style={{
               background: "rgba(0, 0, 0, 0.5)",
-              border: "1px solid rgba(212, 175, 55, 0.2)",
+              border: "3px solid rgba(212, 175, 55, 0.2)",
               boxShadow: "0 0 15px rgba(212, 175, 55, 0.12)",
             }}
           >
@@ -151,7 +151,7 @@ const Footer = ({ scrollY }) => {
             </div>
             <div
               className="rounded-lg overflow-hidden mt-1"
-              style={{ border: "1px solid rgba(212, 175, 55, 0.3)" }}
+              style={{ border: "3px solid rgba(212, 175, 55, 0.3)" }}
             >
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.3624377065466!2d80.2359838!3d13.012576399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52679f6aaaaaab%3A0x90dc1b9c54311d4b!2sDepartment%20Of%20Computer%20Science%20and%20Engineering!5e0!3m2!1sen!2sin!4v1765305285461!5m2!1sen!2sin"
@@ -171,7 +171,7 @@ const Footer = ({ scrollY }) => {
             className="relative p-3 rounded-xl"
             style={{
               background: "rgba(0, 0, 0, 0.5)",
-              border: "1px solid rgba(212, 175, 55, 0.2)",
+              border: "3px solid rgba(212, 175, 55, 0.2)",
               boxShadow: "0 0 15px rgba(212, 175, 55, 0.12)",
             }}
           >
@@ -217,7 +217,7 @@ const Footer = ({ scrollY }) => {
             className="relative p-3 rounded-xl"
             style={{
               background: "rgba(0, 0, 0, 0.5)",
-              border: "1px solid rgba(212, 175, 55, 0.2)",
+              border: "3px solid rgba(212, 175, 55, 0.2)",
               boxShadow: "0 0 15px rgba(212, 175, 55, 0.12)",
             }}
           >
@@ -281,7 +281,7 @@ const Footer = ({ scrollY }) => {
             className="relative p-4 md:p-6 rounded-xl w-full"
             style={{
               background: "rgba(0, 0, 0, 0.5)",
-              border: "1px solid rgba(212, 175, 55, 0.2)",
+              border: "3px solid rgba(212, 175, 55, 0.2)",
               boxShadow: "0 0 20px rgba(212, 175, 55, 0.15)",
             }}
           >
