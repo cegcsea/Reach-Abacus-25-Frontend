@@ -98,7 +98,7 @@ const Home = ({ scrollY, scrollToContact }) => {
               filter: "drop-shadow(0 0 20px rgba(212, 175, 55, 0.6))",
             }}
           >
-            REACH &apos;25
+            REACH &apos;26
           </motion.h1>
 
           <motion.p

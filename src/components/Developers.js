@@ -258,7 +258,7 @@ const Developers = ({ scrollY = 0 }) => {
             }}
           />
           <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto">
-            Meet the talented team behind ABACUS&apos;25, crafting exceptional experiences with passion and precision.
+            Meet the talented team behind Reach&apos;26, crafting exceptional experiences with passion and precision.
           </p>
         </motion.div>
 

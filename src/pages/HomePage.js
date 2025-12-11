@@ -76,13 +76,12 @@ const HomePage = () => {
         </section>
 
         {/* SPONSORS */}
-        <section
+        {/* <section
           id="sponsors"
           className="relative min-h-screen flex items-center parallax-section"
         >
-          {/* You can pass scrollY here if you want to animate inside Sponsors */}
           <Sponsors scrollY={scrollY} />
-        </section>
+        </section> */}
 
         {/* DEVELOPERS */}
         <section

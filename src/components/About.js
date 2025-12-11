@@ -122,7 +122,7 @@ const About = ({ scrollY }) => {
           >
             <div className="space-y-6">
               <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-                Abacus&apos;25 is the conglomeration of the brightest minds
+                Abacus&apos;26 is the conglomeration of the brightest minds
                 enhancing the participant's knowledge and creative potentials. The
                 3-day annual symposium showcases 15+ events and flagship contests
                 of crystal gazing technology. Abacus&apos;s coverage and

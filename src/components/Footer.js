@@ -173,10 +173,10 @@ const Footer = ({ scrollY }) => {
                   <div>
                     <p className="text-sm text-gray-400 mb-0.5">General</p>
                     <a
-                      href="mailto:cseaceg25@gmail.com"
+                      href="mailto:cseaceg26@gmail.com"
                       className="text-gray-300 text-sm hover:text-[#c0a068] transition-colors block break-words"
                     >
-                      cseaceg25@gmail.com
+                      cseaceg26@gmail.com
                     </a>
                   </div>
                   <div>
