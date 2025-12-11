@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 
-import SivaSanjayImg from "../assets/images/SivaSanjay.jpg";
+import SivaSanjayImg from "../assets/images/SivaSanjay.png";
 import ShevaaniImg from "../assets/images/Shevaani.jpg";
 import PramodImg from "../assets/images/Pramod.jpg";
 import GnanaKeshavImg from "../assets/images/GnanaKeshav.jpg";
@@ -27,7 +27,7 @@ const developers = [
   {
     name: "Siva Sanjay",
     src: SivaSanjayImg,
-    linkedin: "https://linkedin.com/in/sivasanjay",
+    linkedin: "https://www.linkedin.com/in/siva-sanjay-s-3114762a6",
   },
 ];
 
