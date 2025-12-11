@@ -117,7 +117,7 @@ const About = ({ scrollY }) => {
               style={{
                 border: "2px solid rgba(212, 175, 55, 0.3)",
                 boxShadow: "0 0 30px rgba(212, 175, 55, 0.2)",
-                maxWidth: isMobile ? "320px" : "max-w-md",
+                maxWidth: isMobile ? "320px" : "410px",
               }}
             >
               <img
