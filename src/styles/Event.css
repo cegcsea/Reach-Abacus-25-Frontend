@@ -42,7 +42,7 @@ img {
   border-radius: 1.5rem;
   overflow: hidden;
   object-fit: fill;
-  box-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+  box-shadow: 0 0 10px rgba(192, 160, 104, 0.7);
 }
 
 .card__description {
@@ -76,7 +76,7 @@ img {
 .card__button {
   font-size: 1rem;
   font-weight: bold;
-  color: #ff6f61;
+  color: #c0a068;
   margin-bottom: 20px;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -94,7 +94,7 @@ img {
   margin-bottom: 2rem;
   overflow: hidden;
   text-align: center;
-  text-shadow: 6px 2px 4px #ff0000;
+  text-shadow: 6px 2px 4px rgba(192, 160, 104, 0.8);
   width: 100%;
 }
 

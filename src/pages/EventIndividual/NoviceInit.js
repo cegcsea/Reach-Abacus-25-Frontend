@@ -149,7 +149,10 @@ const NoviceInit = () => {
             <div className="flex justify-center">
             {isAuth && !isRegistered && (
               <button
-                className="m-3 w-fit border border-[#c72727] px-4 py-2 text-white duration-150 hover:bg-[#fb525233] "
+                className="m-3 w-fit border px-4 py-2 text-white duration-150"
+                style={{ borderColor: '#c0a068', color: '#c0a068' }}
+                onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(192, 160, 104, 0.2)'}
+                onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
                 onClick={handleRegister}
               >
                 Register{"<"}~{">"}
@@ -159,7 +162,10 @@ const NoviceInit = () => {
           <div className="flex justify-center">
   {!isAuth && (
     <button
-      className="m-3 w-fit border border-[#c72727] px-4 py-2 text-white duration-150 hover:bg-[#ff4d4d]"
+      className="m-3 w-fit border px-4 py-2 text-white duration-150"
+      style={{ borderColor: '#c0a068', color: '#c0a068' }}
+      onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(192, 160, 104, 0.2)'}
+      onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
       onClick={() => navigate("/login")}
     >
       Login to Register{"<"}~{">"}
@@ -168,7 +174,7 @@ const NoviceInit = () => {
 </div>
 
             {isRegistered && (
-              <p className="p-2 w-full sm:w-fit flex justify-center items-center text-white text-lg font-semibold text-gray border rounded-lg border-[#c72727] bg-slate-800 mx-auto">
+              <p className="p-2 w-full sm:w-fit flex justify-center items-center text-white text-lg font-semibold text-gray border rounded-lg bg-slate-800 mx-auto" style={{ borderColor: '#c0a068' }}>
                 <span className="text-lime-400">/*</span>
                 &nbsp;Already registered for this event!&nbsp;
                 <span className="text-lime-400">*/</span>

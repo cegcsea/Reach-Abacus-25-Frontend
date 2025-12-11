@@ -46,9 +46,9 @@ const Events = () => {
             <div className="w-full md:w-3/5 flex flex-col justify-center mt-10 items-center">
               <div>
                 <h2 className="text-white font-medium text-2xl  border border-b border-x-0 border-t-0 p-3">
-                  <span className="text-red-500">&#60;</span>
+                  <span style={{ color: '#c0a068' }}>&#60;</span>
                   &nbsp;{title}&nbsp;
-                  <span className="text-red-500">&#62;</span>
+                  <span style={{ color: '#c0a068' }}>&#62;</span>
                 </h2>
                 <p className="text-[#e2e3e4] p-3 text-justify">
                   {(description||[]).slice(0, 150)}...&nbsp;
@@ -83,9 +83,9 @@ const Events = () => {
             <div className="w-full md:w-3/5 flex flex-col justify-center mt-10 items-center">
               <div>
                 <h2 className="text-white font-medium text-2xl border border-b border-x-0 border-t-0 p-3">
-                  <span className="text-red-500">&#60;</span>
+                  <span style={{ color: '#c0a068' }}>&#60;</span>
                   &nbsp;{title}&nbsp;
-                  <span className="text-red-500">&#62;</span>
+                  <span style={{ color: '#c0a068' }}>&#62;</span>
                 </h2>
                 <p className="text-[#e2e3e4] p-3 text-justify">
                   {(description || []).slice(0, 150)}...&nbsp;
@@ -94,9 +94,9 @@ const Events = () => {
                   </span>
                 </p>
                 <p className="p-2 m-3 mx-auto text-center w-fit text-white text-sm md:text-lg font-semibold text-gray border rounded-lg border-gray-700 bg-slate-800/50">
-                  <span className="text-red-400">/*</span>
+                  <span style={{ color: '#b8956a' }}>/*</span>
                   &nbsp;Not Registered for this event!&nbsp;
-                  <span className="text-red-400">*/</span>
+                  <span style={{ color: '#b8956a' }}>*/</span>
                 </p>
               </div>
             </div>
@@ -105,7 +105,10 @@ const Events = () => {
       })}
       <div className="w-full flex justify-end mt-5 ">
         <button
-          className={`py-3 px-4 w-fit md:text-base mx-auto text-xs text-white border border-red-600 hover:bg-red-700/40 duration-150`}
+          className={`py-3 px-4 w-fit md:text-base mx-auto text-xs text-white border duration-150`}
+          style={{ borderColor: '#c0a068', color: '#c0a068' }}
+          onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(192, 160, 104, 0.2)'}
+          onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
           onClick={() => navigate("/events")}
         >
           Explore Events {"<"}~{">"}
