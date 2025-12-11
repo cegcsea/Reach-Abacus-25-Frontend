@@ -7,7 +7,7 @@ function Loader() {
   return (
     <div className={styles.loader_wrapper} role="status" aria-live="polite">
       <div className={styles.text_block}>
-        <div className={styles.title}>REACH &apos;25</div>
+        <div className={styles.title}>REACH &apos;26</div>
         <div className={styles.subtitle}>Loading...</div>
       </div>
       <div className={styles.lottie_container}>

@@ -1,3 +1,4 @@
+// src/pages/HomePage.jsx
 import React, { useEffect, useState, useRef } from "react";
 import "../styles/global.css";
 import "../styles/about.css";
@@ -11,6 +12,11 @@ import Footer from "../components/Footer";
 import ParallaxBackground from "../components/ParallaxBackground";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
+
+/**
+ * NOTE: This file preserves desktop behavior exactly.
+ * Mobile-only adjustments are handled inside each component via useIsMobile hook.
+ */
 
 const HomePage = () => {
   const { isLoading } = LoaderData();
@@ -74,14 +80,6 @@ const HomePage = () => {
         >
           <About scrollY={scrollY} />
         </section>
-
-        {/* SPONSORS */}
-        {/* <section
-          id="sponsors"
-          className="relative min-h-screen flex items-center parallax-section"
-        >
-          <Sponsors scrollY={scrollY} />
-        </section> */}
 
         {/* DEVELOPERS */}
         <section

@@ -1,12 +1,26 @@
+// src/components/About.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { HiLocationMarker } from "react-icons/hi";
 import { MdCalendarToday, MdPeople } from "react-icons/md";
 import logo from "../assets/images/logo.png";
 
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.innerWidth <= 768 : false
+  );
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+  return isMobile;
+};
+
 const About = ({ scrollY }) => {
   const [inView, setInView] = useState(false);
   const ref = useRef(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -47,7 +61,7 @@ const About = ({ scrollY }) => {
   return (
     <section
       id="about"
-      className="relative py-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center"
+      className="relative py-16 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center justify-center"
       style={{
         transform: `scale(${scale}) translateZ(${inView ? 0 : -100}px)`,
         opacity,
@@ -61,10 +75,10 @@ const About = ({ scrollY }) => {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
           <h2
-            className="mb-4 text-3xl md:text-4xl font-semibold"
+            className={`mb-4 ${isMobile ? "text-2xl" : "text-3xl md:text-4xl"} font-semibold`}
             style={{
               background:
                 "linear-gradient(135deg, #b8956a 0%, #c0a068 50%, #9d7f52 100%)",
@@ -77,7 +91,7 @@ const About = ({ scrollY }) => {
             ABOUT ABACUS&apos;26
           </h2>
           <div
-            className="w-24 h-1 mx-auto mb-4"
+            className="w-20 h-1 mx-auto mb-4"
             style={{
               background:
                 "linear-gradient(90deg, #c0a068 0%, #b8956a 50%, #c0a068 100%)",
@@ -90,7 +104,7 @@ const About = ({ scrollY }) => {
         </motion.div>
 
         {/* Image and Paragraph - Straight Parallel */}
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start mb-16">
+        <div className={`grid ${isMobile ? "grid-cols-1" : "lg:grid-cols-2"} gap-8 lg:gap-16 items-start mb-12`}>
           {/* Left: Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -99,16 +113,18 @@ const About = ({ scrollY }) => {
             className="flex justify-center"
           >
             <div
-              className="relative overflow-hidden rounded-2xl w-full max-w-md"
+              className="relative overflow-hidden rounded-2xl w-full"
               style={{
                 border: "2px solid rgba(212, 175, 55, 0.3)",
                 boxShadow: "0 0 30px rgba(212, 175, 55, 0.2)",
+                maxWidth: isMobile ? "320px" : "max-w-md",
               }}
             >
               <img
                 src={logo}
                 alt="Abacus'25 Logo"
                 className="w-full h-auto p-4"
+                style={{ maxHeight: isMobile ? "220px" : "auto" }}
               />
             </div>
           </motion.div>
@@ -121,7 +137,7 @@ const About = ({ scrollY }) => {
             className="flex flex-col justify-center h-full"
           >
             <div className="space-y-6">
-              <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+              <p className={`${isMobile ? "text-sm" : "text-base md:text-lg"} text-gray-300 leading-relaxed`}>
                 Abacus&apos;26 is the conglomeration of the brightest minds
                 enhancing the participant's knowledge and creative potentials. The
                 3-day annual symposium showcases 15+ events and flagship contests
@@ -132,7 +148,7 @@ const About = ({ scrollY }) => {
                 a grander scale with an innovative edge to all the events.
               </p>
 
-              <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+              <p className={`${isMobile ? "text-sm" : "text-base md:text-lg"} text-gray-300 leading-relaxed`}>
                 Join us for competitions, workshops, and panel discussions that
                 bridge academia and industry. Expect hands-on sessions, live
                 demonstrations, and networking opportunities designed to expand
@@ -150,7 +166,7 @@ const About = ({ scrollY }) => {
           className="text-center"
         >
           <h3
-            className="mb-8 text-xl md:text-2xl font-semibold"
+            className={`${isMobile ? "text-lg" : "mb-8 text-xl md:text-2xl font-semibold"}`}
             style={{
               color: "#c0a068",
               textShadow: "0 0 10px rgba(212, 175, 55, 0.3)",
@@ -159,22 +175,22 @@ const About = ({ scrollY }) => {
             Event Highlights
           </h3>
           
-          {/* Three Boxes in Horizontal Line */}
-          <div className="flex flex-col md:flex-row justify-center items-stretch gap-6 max-w-5xl mx-auto">
+          {/* Three Boxes in Vertical on mobile, horizontal on desktop */}
+          <div className={`flex ${isMobile ? "flex-col" : "flex-row md:flex-row"} justify-center items-stretch gap-6 max-w-5xl mx-auto`}>
             {features.map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-                className="flex-1 p-6 rounded-xl text-center min-h-[180px] flex flex-col"
+                className="flex-1 p-5 rounded-xl text-center min-h-[160px] flex flex-col"
                 style={{
                   background: "rgba(0, 0, 0, 0.4)",
                   border: "1px solid rgba(212, 175, 55, 0.2)",
                   boxShadow: "0 0 15px rgba(212, 175, 55, 0.1)",
                 }}
               >
-                <div className="flex justify-center mb-4">
+                <div className="flex justify-center mb-3">
                   <div
                     className="p-3 rounded-lg"
                     style={{

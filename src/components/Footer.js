@@ -1,11 +1,26 @@
+// src/components/Footer.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { HiLocationMarker } from "react-icons/hi";
-import { MdEmail, MdPhone } from "react-icons/md";
+
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.innerWidth <= 768 : false
+  );
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+  return isMobile;
+};
 
 const Footer = ({ scrollY }) => {
   const [inView, setInView] = useState(false);
   const ref = useRef(null);
+  const isMobile = useIsMobile();
+
+  // State for focused inputs
+  const [focusedInput, setFocusedInput] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,10 +52,18 @@ const Footer = ({ scrollY }) => {
     setFormData({ name: "", email: "", message: "" });
   };
 
+  const handleFocus = (fieldName) => {
+    setFocusedInput(fieldName);
+  };
+
+  const handleBlur = () => {
+    setFocusedInput(null);
+  };
+
   return (
     <section
       id="contact"
-      className="relative py-12 px-4 sm:px-6 lg:px-8"
+      className="relative py-8 px-4 sm:px-6 lg:px-8"
       style={{
         transform: `scale(${scale}) translateZ(${inView ? 0 : -100}px)`,
         opacity,
@@ -50,7 +73,7 @@ const Footer = ({ scrollY }) => {
     >
       {/* Spotlight Effect */}
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-48 blur-3xl"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-36 blur-3xl"
         style={{
           background:
             "radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%)",
@@ -63,10 +86,10 @@ const Footer = ({ scrollY }) => {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-8"
+          className="text-center mb-6"
         >
           <h2
-            className="mb-4 text-3xl md:text-4xl font-semibold tracking-[0.2em] uppercase"
+            className={`mb-4 ${isMobile ? "text-2xl" : "text-3xl md:text-4xl"} font-semibold tracking-[0.2em] uppercase`}
             style={{
               background:
                 "linear-gradient(135deg, #b8956a 0%, #c0a068 50%, #9d7f52 100%)",
@@ -96,7 +119,7 @@ const Footer = ({ scrollY }) => {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6"
+          className={`grid ${isMobile ? "grid-cols-1" : "grid-cols-3"} gap-4 mb-4`}
         >
           {/* Location */}
           <div
@@ -110,7 +133,6 @@ const Footer = ({ scrollY }) => {
             <div className="flex items-start gap-3 mb-2">
               
               <div className="flex-1">
-                {/* TITLE: increased to match icon size */}
                 <h3
                   className="text-base md:text-lg font-semibold mb-1 p-1"
                   style={{
@@ -121,7 +143,6 @@ const Footer = ({ scrollY }) => {
                 >
                   Location
                 </h3>
-                {/* BODY: slightly larger than before */}
                 <p className="text-sm sm:text-sm leading-relaxed mb-2 text-gray-300">
                   College of Engineering Guindy, CEG - Anna University, Chennai
                   600028
@@ -135,7 +156,7 @@ const Footer = ({ scrollY }) => {
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.3624377065466!2d80.2359838!3d13.012576399999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52679f6aaaaaab%3A0x90dc1b9c54311d4b!2sDepartment%20Of%20Computer%20Science%20and%20Engineering!5e0!3m2!1sen!2sin!4v1765305285461!5m2!1sen!2sin"
                 width="100%"
-                height="100"
+                height={isMobile ? 180 : 100}
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
@@ -157,7 +178,6 @@ const Footer = ({ scrollY }) => {
             <div className="flex items-start gap-3">
               
               <div className="flex-1">
-                {/* TITLE: bigger */}
                 <h3
                   className="text-base md:text-lg font-semibold mb-2 p-1"
                   style={{
@@ -168,7 +188,6 @@ const Footer = ({ scrollY }) => {
                 >
                   Email
                 </h3>
-                {/* BODY: increased size */}
                 <div className="space-y-4 text-sm p-3">
                   <div>
                     <p className="text-sm text-gray-400 mb-0.5">General</p>
@@ -205,7 +224,6 @@ const Footer = ({ scrollY }) => {
             <div className="flex items-start gap-3">
               
               <div className="flex-1">
-                {/* TITLE: bigger */}
                 <h3
                   className="text-base md:text-lg font-semibold mb-2 p-1"
                   style={{
@@ -216,7 +234,6 @@ const Footer = ({ scrollY }) => {
                 >
                   Contact
                 </h3>
-                {/* BODY: increased size */}
                 <div className="space-y-1.5 text-sm">
                   <div>
                     <p className="text-sm text-gray-400 mb-0.5">Kamalesh N</p>
@@ -261,7 +278,7 @@ const Footer = ({ scrollY }) => {
           className="mt-6"
         >
           <div
-            className="relative p-6 rounded-xl w-full"
+            className="relative p-4 md:p-6 rounded-xl w-full"
             style={{
               background: "rgba(0, 0, 0, 0.5)",
               border: "1px solid rgba(212, 175, 55, 0.2)",
@@ -269,7 +286,7 @@ const Footer = ({ scrollY }) => {
             }}
           >
             <h3
-              className="text-xl md:text-2xl mb-3 text-center font-semibold"
+              className={`text-xl ${isMobile ? "text-lg" : "md:text-2xl"} mb-3 text-center font-semibold`}
               style={{
                 color: "#c0a068",
                 textShadow: "0 0 12px rgba(212, 175, 55, 0.4)",
@@ -277,19 +294,19 @@ const Footer = ({ scrollY }) => {
             >
               Get in Touch
             </h3>
-            <p className="text-gray-400 text-sm md:text-base mb-6 text-center">
+            <p className="text-gray-400 text-sm md:text-base mb-4 text-center">
               Send us a message and we&apos;ll get back to you as soon as possible.
             </p>
 
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col space-y-4"
+              className="flex flex-col space-y-3"
             >
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className={`grid ${isMobile ? "grid-cols-1" : "md:grid-cols-2"} gap-3`}>
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm text-gray-400 mb-2"
+                    className="block text-sm text-gray-400 mb-1"
                   >
                     Name
                   </label>
@@ -300,22 +317,20 @@ const Footer = ({ scrollY }) => {
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
                     }
+                    onFocus={() => handleFocus("name")}
+                    onBlur={handleBlur}
                     required
-                    className="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-gray-500 transition-all"
+                    className="w-full px-3 py-2 rounded-lg text-sm text-white placeholder-gray-500 transition-all duration-200"
                     placeholder="Your name"
                     style={{
                       backgroundColor: "rgba(0, 0, 0, 0.4)",
-                      border: "1px solid rgba(100, 100, 100, 0.7)",
-                    }}
-                    onFocus={(e) => {
-                      e.currentTarget.style.borderColor = "#c0a068";
-                      e.currentTarget.style.boxShadow =
-                        "0 0 15px rgba(212, 175, 55, 0.3)";
-                    }}
-                    onBlur={(e) => {
-                      e.currentTarget.style.borderColor =
-                        "rgba(100, 100, 100, 0.7)";
-                      e.currentTarget.style.boxShadow = "none";
+                      border: focusedInput === "name" 
+                        ? "2px solid #c0a068" 
+                        : "1px solid rgba(212, 175, 55, 0.3)",
+                      boxShadow: focusedInput === "name" 
+                        ? "0 0 15px rgba(212, 175, 55, 0.3), inset 0 0 8px rgba(212, 175, 55, 0.1)" 
+                        : "none",
+                      outline: "none",
                     }}
                   />
                 </div>
@@ -323,7 +338,7 @@ const Footer = ({ scrollY }) => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm text-gray-400 mb-2"
+                    className="block text-sm text-gray-400 mb-1"
                   >
                     Email
                   </label>
@@ -334,22 +349,20 @@ const Footer = ({ scrollY }) => {
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
                     }
+                    onFocus={() => handleFocus("email")}
+                    onBlur={handleBlur}
                     required
-                    className="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-gray-500 transition-all"
+                    className="w-full px-3 py-2 rounded-lg text-sm text-white placeholder-gray-500 transition-all duration-200"
                     placeholder="your.email@example.com"
                     style={{
                       backgroundColor: "rgba(0, 0, 0, 0.4)",
-                      border: "1px solid rgba(100, 100, 100, 0.7)",
-                    }}
-                    onFocus={(e) => {
-                      e.currentTarget.style.borderColor = "#c0a068";
-                      e.currentTarget.style.boxShadow =
-                        "0 0 15px rgba(212, 175, 55, 0.3)";
-                    }}
-                    onBlur={(e) => {
-                      e.currentTarget.style.borderColor =
-                        "rgba(100, 100, 100, 0.7)";
-                      e.currentTarget.style.boxShadow = "none";
+                      border: focusedInput === "email" 
+                        ? "2px solid #c0a068" 
+                        : "1px solid rgba(212, 175, 55, 0.3)",
+                      boxShadow: focusedInput === "email" 
+                        ? "0 0 15px rgba(212, 175, 55, 0.3), inset 0 0 8px rgba(212, 175, 55, 0.1)" 
+                        : "none",
+                      outline: "none",
                     }}
                   />
                 </div>
@@ -358,7 +371,7 @@ const Footer = ({ scrollY }) => {
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm text-gray-400 mb-2"
+                  className="block text-sm text-gray-400 mb-1"
                 >
                   Message
                 </label>
@@ -368,23 +381,21 @@ const Footer = ({ scrollY }) => {
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
+                  onFocus={() => handleFocus("message")}
+                  onBlur={handleBlur}
                   required
-                  rows={3}
-                  className="w-full px-4 py-3 rounded-lg text-sm text-white placeholder-gray-500 transition-all resize-none"
+                  rows={isMobile ? 4 : 3}
+                  className="w-full px-3 py-2 rounded-lg text-sm text-white placeholder-gray-500 transition-all duration-200 resize-none"
                   placeholder="Your message..."
                   style={{
                     backgroundColor: "rgba(0, 0, 0, 0.4)",
-                    border: "1px solid rgba(100, 100, 100, 0.7)",
-                  }}
-                  onFocus={(e) => {
-                    e.currentTarget.style.borderColor = "#c0a068";
-                    e.currentTarget.style.boxShadow =
-                      "0 0 15px rgba(212, 175, 55, 0.3)";
-                  }}
-                  onBlur={(e) => {
-                    e.currentTarget.style.borderColor =
-                      "rgba(100, 100, 100, 0.7)";
-                    e.currentTarget.style.boxShadow = "none";
+                    border: focusedInput === "message" 
+                      ? "2px solid #c0a068" 
+                      : "1px solid rgba(212, 175, 55, 0.3)",
+                    boxShadow: focusedInput === "message" 
+                      ? "0 0 15px rgba(212, 175, 55, 0.3), inset 0 0 8px rgba(212, 175, 55, 0.1)" 
+                      : "none",
+                    outline: "none",
                   }}
                 />
               </div>
@@ -392,11 +403,12 @@ const Footer = ({ scrollY }) => {
               <div className="flex justify-center">
                 <button
                   type="submit"
-                  className="group px-8 py-3 rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02]"
+                  className="group px-6 py-2 rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02]"
                   style={{
                     background:
                       "linear-gradient(135deg, #b8956a 0%, #c0a068 100%)",
                     boxShadow: "0 0 20px rgba(212, 175, 55, 0.5)",
+                    width: isMobile ? "80%" : "auto",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.boxShadow =

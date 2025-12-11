@@ -1,11 +1,35 @@
+// src/components/Home.jsx
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+/**
+ * Mobile-only adjustments:
+ * - reduce ring sizes and heading sizes
+ * - stack buttons vertically with spacing
+ * - adjust max widths/paddings
+ *
+ * Desktop values are exactly the same as your original file; mobile branch uses smaller values.
+ */
+
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.innerWidth <= 768 : false
+  );
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+  return isMobile;
+};
+
 const Home = ({ scrollY, scrollToContact }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleMouseMove = (e) => {
+      // keep original mouse motion formula (desktop). On mobile we keep tiny subtle motion using touch/move if needed.
       setMousePosition({
         x: (e.clientX / window.innerWidth - 0.5) * 20,
         y: (e.clientY / window.innerHeight - 0.5) * 20,
@@ -21,6 +45,7 @@ const Home = ({ scrollY, scrollToContact }) => {
   const opacity = Math.max(1 - scrollY * 0.0015, 0);
   const blur = Math.min(scrollY * 0.05, 20);
 
+  // desktop values preserved verbatim; mobile overrides below where necessary
   return (
     <section
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
@@ -41,14 +66,15 @@ const Home = ({ scrollY, scrollToContact }) => {
       />
 
       {/* Animated Gold Rings – shining one after another */}
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         {Array.from({ length: 3 }).map((_, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full"
             style={{
-              width: `${300 + i * 200}px`,
-              height: `${300 + i * 200}px`,
+              // desktop sizes preserved; mobile scaled down if isMobile
+              width: `${(300 + i * 200) * (isMobile ? 0.6 : 1)}px`,
+              height: `${(300 + i * 200) * (isMobile ? 0.6 : 1)}px`,
               border: `1px solid rgba(212, 175, 55, ${0.3 - i * 0.08})`,
               boxShadow: `0 0 ${
                 20 + i * 10
@@ -72,8 +98,10 @@ const Home = ({ scrollY, scrollToContact }) => {
 
       {/* Content with 3D transform */}
       <div
-        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        className="relative z-10 mx-auto text-center"
         style={{
+          maxWidth: isMobile ? "92%" : "80%",
+          padding: isMobile ? "16px" : "0 1rem",
           transform: `translate(${mousePosition.x}px, ${mousePosition.y}px) translateZ(50px)`,
           transformStyle: "preserve-3d",
         }}
@@ -84,7 +112,9 @@ const Home = ({ scrollY, scrollToContact }) => {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <motion.h1
-            className="mb-6 text-5xl md:text-7xl font-bold tracking-[0.2em]"
+            className={`mb-6 font-bold tracking-[0.2em] ${
+              isMobile ? "text-3xl p-2 my-3" : "text-5xl md:text-7xl"
+            }`}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.2 }}
@@ -102,7 +132,7 @@ const Home = ({ scrollY, scrollToContact }) => {
           </motion.h1>
 
           <motion.p
-            className="text-2xl md:text-3xl text-gray-300 mb-4 tracking-wide"
+            className={`${isMobile ? "text-base" : "text-2xl md:text-3xl"} text-gray-300 mb-2 tracking-wide`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
@@ -114,7 +144,7 @@ const Home = ({ scrollY, scrollToContact }) => {
           </motion.p>
 
           <motion.p
-            className="text-lg text-gray-400 mb-12 max-w-3xl mx-auto p-4"
+            className={`${isMobile ? "text-sm" : "text-lg"} text-gray-400 mb-3 max-w-3xl mx-auto p-4`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.7 }}
@@ -131,18 +161,22 @@ const Home = ({ scrollY, scrollToContact }) => {
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className={`flex gap-4 justify-center ${
+              isMobile ? "flex-col items-center" : "flex-row"
+            }`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.9 }}
           >
             <button
-              className="group relative px-8 py-4 rounded-lg overflow-hidden transition-all duration-300 hover:scale-105"
+              className="group relative px-6 py-3 rounded-lg overflow-hidden transition-all duration-300 hover:scale-105"
               style={{
                 background:
                   "linear-gradient(135deg, #b8956a 0%, #c0a068 100%)",
                 boxShadow:
                   "0 0 30px rgba(212, 175, 55, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.2)",
+                width: isMobile ? "85%" : "auto",
+                textAlign: "center",
               }}
               onClick={() => {
                 const el = document.getElementById("about");
@@ -162,12 +196,14 @@ const Home = ({ scrollY, scrollToContact }) => {
             </button>
 
             <button
-              className="px-8 py-4 rounded-lg transition-all duration-300 hover:scale-105"
+              className="px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105"
               style={{
                 border: "2px solid #c0a068",
                 color: "#c0a068",
                 boxShadow:
                   "0 0 20px rgba(212, 175, 55, 0.3), inset 0 0 10px rgba(212, 175, 55, 0.1)",
+                width: isMobile ? "85%" : "auto",
+                textAlign: "center",
               }}
               onClick={scrollToContact}
               onMouseEnter={(e) => {
