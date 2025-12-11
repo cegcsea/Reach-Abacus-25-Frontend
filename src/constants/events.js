@@ -1,5 +1,5 @@
-import img1 from "../assets/images/techevent.jpg";
-import img2 from "../assets/images/nontech.jpg"; // Example images
+import img1 from "../assets/images/Technical Events.png";
+import img2 from "../assets/images/NonTech Events.png"; // Example images
 import img3 from "../assets/images/preevnt.jpg";
 import img4 from "../assets/Reach/UI UX.png";
 import img5 from "../assets/images/ML Mania.png";
