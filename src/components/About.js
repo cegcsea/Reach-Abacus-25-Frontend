@@ -29,7 +29,7 @@ const About = ({ scrollY }) => {
   const features = [
     {
       icon: <MdCalendarToday className="text-xl" />,
-      title: "December 15-17, 2025",
+      title: "February 6-8, 2025",
       description: "Three days of immersive experiences",
     },
     {
