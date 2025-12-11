@@ -1,7 +1,7 @@
 import img1 from "../assets/images/Technical Events.png";
 import img2 from "../assets/images/NonTech Events.png"; // Example images
 import img3 from "../assets/images/preevnt.jpg";
-import img4 from "../assets/Reach/UI UX.png";
+import img4 from "../assets/images/UI Odyssey.jpg";
 import img5 from "../assets/images/ML Mania.png";
 import img6 from "../assets/images/ospc.png";
 import img7 from "../assets/images/family feud.png";

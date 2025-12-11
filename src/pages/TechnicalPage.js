@@ -24,10 +24,10 @@ const TechnicalPage = () => {
   return (
     <div style={{ background: "transparent", minHeight: "100vh" }}>
       <Navbar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      <div style={{ background: "transparent", padding: "20px", minHeight: "100vh" }}>
+      <div className="technical-page-wrapper" style={{ background: "transparent", minHeight: "100vh" }}>
         <div className="heading">
           <h1 style={{ textAlign: "center", color: "#fff" }}>
-            {event.title}
+            {event?.title || "Events"}
           </h1>
         </div>
         <div className="out">
@@ -45,15 +45,29 @@ const TechnicalPage = () => {
                 <Link
                   to={event.path} // Dynamic link to the event's detailed page
                   state={{ event }} 
-                  className="lg:mt-10 mx-7 lg:mb-6  px-4 py-2 lg:px-6 lg:py-4 text-white font-bold rounded-full shadow-lg transition-shadow focus:outline-none"
+                  className="read-more-button"
                   style={{ 
                     marginTop: "20px", 
-                    marginLeft: "-1px",
+                    display: "inline-block",
+                    padding: "12px 24px",
+                    fontSize: "1rem",
                     background: "linear-gradient(135deg, #b8956a 0%, #8b6e3d 25%, #c0a068 50%, #b8956a 75%, #9d7f52 100%)",
-                    boxShadow: "0 4px 15px rgba(192, 160, 104, 0.4)"
+                    boxShadow: "0 4px 15px rgba(192, 160, 104, 0.4)",
+                    color: "#fff",
+                    fontWeight: "bold",
+                    borderRadius: "9999px",
+                    textDecoration: "none",
+                    transition: "all 0.3s ease",
+                    textAlign: "center"
                   }}
-                  onMouseEnter={(e) => e.target.style.boxShadow = "0 0 10px rgba(192, 160, 104, 0.8)"}
-                  onMouseLeave={(e) => e.target.style.boxShadow = "0 4px 15px rgba(192, 160, 104, 0.4)"}
+                  onMouseEnter={(e) => {
+                    e.target.style.boxShadow = "0 0 10px rgba(192, 160, 104, 0.8)";
+                    e.target.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.boxShadow = "0 4px 15px rgba(192, 160, 104, 0.4)";
+                    e.target.style.transform = "translateY(0)";
+                  }}
                 >
                   Read More &lt;~&gt;
                 </Link>
