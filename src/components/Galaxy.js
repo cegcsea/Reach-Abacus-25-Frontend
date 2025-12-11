@@ -1,4 +1,4 @@
-// Galaxy.js — same as before but tuned for lighter yellow stars only
+// Galaxy.js — reduced particle count (NUM_LAYER 3.0, default density 0.6)
 import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
 import { useEffect, useRef } from 'react';
 import './Galaxy.css';
@@ -39,7 +39,8 @@ uniform bool uTransparent;
 
 varying vec2 vUv;
 
-#define NUM_LAYER 4.0
+// REDUCED: number of layers lowered to 3 for fewer particles
+#define NUM_LAYER 3.0
 #define STAR_COLOR_CUTOFF 0.2
 #define MAT45 mat2(0.7071, -0.7071, 0.7071, 0.7071)
 #define PERIOD 3.0
@@ -103,16 +104,10 @@ vec3 StarLayer(vec2 uv) {
       vec3 base = vec3(red, grn, blu);
 
       // === COLOR TUNED: force into lighter yellow/gold family, preserve tiny variation ===
-      // tiny per-star hue variation so the field still feels organic
       float tinyVariation = (seed - 0.5) * 0.02; // ±0.01 hue shift
       float hue = fract(uHueShift / 360.0 + tinyVariation);
 
-      // Lighter-yellow tuning:
-      // - lower the minimum saturation to avoid deep/reddish-gold
-      // - raise the minimum value/brightness so stars appear lighter/brighter
-      // uSaturation still controls intensity; clamp it to [0,1]
       float sat = mix(0.4, 0.95, clamp(uSaturation, 0.0, 1.0));
-      // value biased higher for a lighter look; size still influences brightness
       float val = mix(0.7, 1.0, clamp(size, 0.0, 1.0));
 
       base = hsv2rgb(vec3(hue, sat, val));
@@ -163,6 +158,7 @@ void main() {
 
   vec3 col = vec3(0.0);
 
+  // Fewer iterations because NUM_LAYER is lower
   for (float i = 0.0; i < 1.0; i += 1.0 / NUM_LAYER) {
     float depth = fract(i + uStarSpeed * uSpeed);
     float scale = mix(20.0 * uDensity, 0.5 * uDensity, depth);
@@ -185,7 +181,7 @@ export default function Galaxy({
   focal = [0.5, 0.5],
   rotation = [1.0, 0.0],
   starSpeed = 0.5,
-  density = 1,
+  density = 0.6, // REDUCED default density (was 1)
   hueShift = 45, // default set for warm/gold — your App override will still take precedence
   disableAnimation = false,
   speed = 1.0,

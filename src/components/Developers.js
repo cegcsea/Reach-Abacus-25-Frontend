@@ -399,7 +399,7 @@ const Developers = ({ scrollY = 0 }) => {
         </div>
 
         {/* Indicator Dots - Replaces navigation buttons */}
-        <div className="flex justify-center mt-10 space-x-4">
+        <div className="flex justify-center mt-0 space-x-5">
           {developers.map((_, index) => (
             <button
               key={index}
@@ -424,7 +424,7 @@ const Developers = ({ scrollY = 0 }) => {
         </div>
 
         {/* Auto-play toggle */}
-        <div className="text-center mt-8">
+        <div className="text-center mt-5">
           <button
             onClick={() => setIsAutoPlaying(!isAutoPlaying)}
             className="px-4 py-2 rounded-lg text-sm transition-all duration-300"
