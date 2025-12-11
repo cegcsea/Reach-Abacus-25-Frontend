@@ -51,7 +51,7 @@ const HomePage = () => {
 
   return (
     <div
-      className="relative bg-black text-white overflow-x-hidden"
+      className="relative bg-transparent text-white overflow-x-hidden"
       style={{ perspective: "2px" }} // camera perspective for 3D feel
     >
       {/* Deep parallax background layers */}
