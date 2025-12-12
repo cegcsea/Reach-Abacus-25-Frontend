@@ -40,13 +40,13 @@
 }
 
 .login-toggle button.active-tab {
-    color: #de0038;
-    border-color: #800020;
+    color: #c0a068;;
+    border-color: #c0a068;
     transition: color 0.3s ease, border-color 0.3s ease;
 }
 
 .login-toggle button:hover {
-    color: #800020;
+    color: #c0a068;
     transition: color 0.3s ease;
 }
 
@@ -76,7 +76,7 @@
 
 .login-input:focus {
     outline: none;
-    border-color: #800020;
+    border-color: #c0a068;
     background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -109,7 +109,7 @@
 }
 
 .password-field .field-icon:hover {
-    color: #de0038;
+    color: #c0a068;
 }
 
 .password-field input {
@@ -120,7 +120,7 @@
 .login-button {
     width: 100%;
     padding: 0.8rem;
-    background-color: #800020;
+    background-color: #c0a068;
     color: #ffffff;
     border: none;
     border-radius: 8px;
@@ -130,7 +130,7 @@
 }
 
 .login-button:hover {
-    background-color: #a51c34;
+    background-color: #c0a068;
 }
 
 .forgot-password {
@@ -141,7 +141,7 @@
 }
 
 .forgot-link {
-    color: #de0038;
+    color: #c0a068;
     text-decoration: none;
 }
 

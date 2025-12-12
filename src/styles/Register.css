@@ -39,12 +39,12 @@
 }
 
 .register-toggle button:hover {
-  color: #de0038;
+  color: #c0a068;
 }
 
 .register-toggle button.active-tab {
-  color: #de0038;
-  border-bottom: 2px solid #800020;
+  color: #c0a068;
+  border-bottom: 2px solid #c0a068;
 }
 
 .register-title {
@@ -68,7 +68,7 @@
 }
 
 .register-input:focus {
-  border-color: #de0038;
+  border-color: #c0a068;
 }
 
 .register-button {
@@ -76,7 +76,7 @@
   padding: 0.8rem;
   font-size: 1rem;
   color: #ffffff;
-  background-color: #800020;
+  background-color: #c0a068;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -84,7 +84,7 @@
 }
 
 .register-button:hover {
-  background-color: #a51c34;
+  background-color: #c0a068
 }
 
 .forgot-password {
@@ -95,7 +95,7 @@
 }
 
 .forgot-password a {
-  color: #de0038;
+  color: rgb(192, 160, 104);;
   text-decoration: none;
   transition: color 0.3s ease-in-out;
 }

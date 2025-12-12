@@ -109,7 +109,7 @@ function RegisterDetails() {
   }
   return (
     <div className="mt-16 flex justify-center items-center py-10 sm:px-0 px-4 bg-[#1d1d1d] gap-5">
-      <div className="querybox flex flex-col gap-7 w-full sm:w-2/5 border border-[#c53939] text-white p-5 sm:p-10 bg-[#1d1d1d]">
+      <div className="querybox flex flex-col gap-7 w-full sm:w-2/5 border border-[#c0a068] text-white p-5 sm:p-10 bg-[##c0a068]">
         <div className="text-2xl text-center">
           <span className="text-[#c53939]">&#60;</span>
           &nbsp;Sign up&nbsp;
@@ -120,7 +120,7 @@ function RegisterDetails() {
             type="text"
             name="name"
             placeholder="Name"
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            className="p-2 outline-none border border-[#c0a068] text-[18px] bg-[#c0a068]"
             value={formData.name}
             onChange={handleChange}
             required
@@ -195,7 +195,7 @@ function RegisterDetails() {
           />
 
           <select
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            className="p-2 outline-none border border-[#c0a068] text-[18px] bg-[#1d1d1d]"
             value={formData.year}
             onChange={(e) => handleSelectChange("year", e.target.value)}
             required
