@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 
 import SivaSanjayImg from "../assets/images/SivaSanjay.png";
-import ShevaaniImg from "../assets/images/Shevaani.jpg";
+import ShevaaniImg from "../assets/images/shevaani.jpg";
 import PramodImg from "../assets/images/Pramod.jpg";
 import GnanaKeshavImg from "../assets/images/GnanaKeshav.jpg";
 import ShinyText from "./ShinyText";
