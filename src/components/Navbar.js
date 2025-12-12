@@ -1,5 +1,4 @@
-import reach_img from "../assets/Hero/Reach'25 logo black.png";
-import abacus_img from "../assets/Reach/Reach'25_logo_white.png";
+import abacus_img from "../assets/Reach/Reach'26_logo_white.png";
 import { AiFillHome, AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
 import { FaInfoCircle, FaHandshake, FaTools } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
@@ -99,22 +98,28 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
     >
       {/* Logo Section */}
       <div
-        className={`flex flex-row rounded-lg mx-4 delay-200 transform ease-in-out ${
+        className={`flex flex-row mx-4 delay-200 transform ease-in-out ${
           isMenuOpen ? "hidden" : "visible"
         }`}
       >
+        {/* Inline CSS for logo shining outline (follows PNG alpha via drop-shadow) */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          .reach-logo-wrap{display:inline-block;line-height:0}
+          .reach-logo{display:block;height:64px;width:auto;filter:drop-shadow(0 0 6px rgba(192,160,104,0.6)) drop-shadow(0 0 12px rgba(192,160,104,0.35));transition:filter 250ms ease}
+          .reach-logo.shine{animation:reach-shine 3.2s ease-in-out infinite}
+          @keyframes reach-shine{0%{filter:drop-shadow(0 0 2px rgba(192,160,104,0.15)) drop-shadow(0 0 6px rgba(192,160,104,0.12))}50%{filter:drop-shadow(0 0 14px rgba(192,160,104,0.95)) drop-shadow(0 0 28px rgba(192,160,104,0.5))}100%{filter:drop-shadow(0 0 2px rgba(192,160,104,0.15)) drop-shadow(0 0 6px rgba(192,160,104,0.12))}}
+        ` }} />
+
         <a href="#home" className="mt-[6px]">
-          <img
-            src={abacus_img}
-            alt="abacus-image"
-            className="h-16 w-23 mt-1 mx-auto rounded-lg"
-          />
+          <span className="reach-logo-wrap">
+            <img
+              src={abacus_img}
+              alt="abacus-logo"
+              className="reach-logo shine"
+              style={{ borderRadius: 0 }}
+            />
+          </span>
         </a>
-        {/* <Link to="/" className="my-auto">
-          <h1 className="hover:text-gray-950 text-2xl font-semibold rounded-xl mx-2 p-1 cursor-pointer">
-            Reach 2025
-          </h1>
-        </Link> */}
       </div>
 
       {/* Mobile Menu Toggle */}
