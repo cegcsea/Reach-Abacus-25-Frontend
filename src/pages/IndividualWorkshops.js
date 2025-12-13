@@ -85,7 +85,7 @@ const IndividualWorkshops = () => {
             <div className="mt-4 mx-2">
               <div className="flex mx-auto my-3 mb-8 text-md sm: text-xl lg:text-2xl font-semibold">
                 Prerequisites{" "}
-                <div className="bg-[#c53939] h-[3px] w-[20%] mx-2 my-auto"></div>
+                <div className="bg-[#ab8e5c] h-[3px] w-[20%] mx-2 my-auto"></div>
               </div>
               <ul className="list-disc list-inside text-md lg:text-lg text-justify text-[#aaa]">
                 {workshop.prerequisites
@@ -149,8 +149,8 @@ const IndividualWorkshops = () => {
   return (
     <div className="mt-20 py-8 sm:px-10 flex gap-3 flex-col m-6 lg:m-10 bg-[#1d1d1d]">
       <p className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl text-white overflow-hidden mx-auto text-center mt-6">
-        <span className="text-[#c53939] overflow-hidden">/</span>
-        <span className="text-white overflow-hidden font-bold my-5 [text-shadow:6px_2px_4px_#c03e3e]">
+        <span className="text-[#ab8e5c] overflow-hidden">/</span>
+        <span className="text-white overflow-hidden font-bold my-5 [text-shadow:6px_2px_4px_#ab8e5c]">
           {workshop.title}
         </span>
       </p>
@@ -164,7 +164,7 @@ const IndividualWorkshops = () => {
         <div className="w-full lg:w-[55%] mx-auto lg:mx-0">
           <div className="flex mx-auto my-3 mb-8 text-md sm: text-xl lg:text-2xl font-semibold">
             What to expect
-            <div className="bg-[#c53939] h-[3px] w-[30%] sm:w-[50%] lg:w-[20%] mx-2 my-auto"></div>
+            <div className="bg-[#ab8e5c] h-[3px] w-[30%] sm:w-[50%] lg:w-[20%] mx-2 my-auto"></div>
           </div>
 
           {/* Tab buttons */}
@@ -172,8 +172,8 @@ const IndividualWorkshops = () => {
             <button
               className={`border px-1 py-2 text-white duration-150 ${
                 activeTab === "description"
-                  ? "bg-[#660000]"
-                  : "border-[#8B0000] hover:bg-[#66000033]"
+                  ? " border-[#ab8e5c] hover:bg-[#ab8e5c]"
+                  : "border-[#ab8e5c] hover:bg-[#ab8e5c]"
               } mx-1 text-sm sm:text-base lg:text-lg`}
               onClick={() => setActiveTab("description")}
             >
@@ -181,11 +181,11 @@ const IndividualWorkshops = () => {
             </button>
 
             <button
-              className={`border px-2 py-2 text-white duration-150 ${
-                activeTab === "more-info"
-                  ? "bg-[#660000]"
-                  : "border-[#8B0000] hover:bg-[#66000033]"
-              } mx-2 text-sm sm:text-base lg:text-lg`}
+             className={`border px-1 py-2 text-white duration-150 ${
+                activeTab === "description"
+                  ? " border-[#ab8e5c] hover:bg-[#ab8e5c]"
+                  : "border-[#ab8e5c] hover:bg-[#ab8e5c]"
+              } mx-1 text-sm sm:text-base lg:text-lg`}
               onClick={() => setActiveTab("more-info")}
             >
               More Info
@@ -278,7 +278,7 @@ const IndividualWorkshops = () => {
 
           {!isAuth && (
             <Link to="/auth">
-              <button className="m-3 w-fit border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]">
+              <button className="m-3 w-fit rounded-full border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]">
                 Login to Register {"<"}~{">"}
               </button>
             </Link>

@@ -9,7 +9,7 @@
     background-color: #1e1e22;
     padding: 1.5rem;
     border-radius: 0.5rem;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); */
     text-align: center;
     margin-bottom: 40px;
     color: #fcfcfc;
@@ -21,7 +21,7 @@
     font-size: 32px;
     margin-bottom: 15px;
     color: #f1f1f1;
-    text-shadow: 6px 2px 4px #ff0000; 
+    text-shadow: 6px 2px 4px #ab8e5d; 
   }
   
   .head p {

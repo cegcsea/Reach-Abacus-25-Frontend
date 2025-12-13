@@ -8,8 +8,8 @@ import PAY from "../assets/Reach/new.jpg"
 
 export const workshopsReach = [
   {
-    title: "Design for Impact: Power of UX",
-    to: "UI-UX",
+    title: "Building LLM Applications from Scratch",
+    to: "LLM",
     image: UI,
 
     qr: UI_150,
@@ -22,30 +22,31 @@ export const workshopsReach = [
     ],
     code: 1,
     content:
-      "This half-day workshop delves into the world of User Experience (UX) design, exploring its core principles and how psychology influences user behavior. Participants will learn to differentiate between UI and UX, understand the importance of accessibility and inclusive design, and analyze how successful apps leverage UX psychology. A hands-on activity will allow participants to apply these concepts by redesigning a user flow for a mobile app, fostering a practical understanding of creating impactful and user-centered designs.",
+      "This workshop introduces students to the fascinating world of Large Language Models (LLMs) and modern AI applications. Participants will explore how LLMs work behind the scenes, understand the principles of prompt engineering, and learn how to build practical AI tools without heavy frameworks.You will also dive into topics like conversational memory, system prompts, and retrieval-augmented generation (RAG).A guided hands-on session will help students build a working AI chatbot or a document-based Q&A system using direct LLM APIs and vector search.By the end of the workshop, participants will gain practical skills applicable to internships, projects, and real-world AI development.",
     prerequisites:
-      "Participants are required to bring laptops.No prior knowledge is needed.",
+      "Basic programming understanding is helpful but not mandatory.\nLaptops required.\nInternet connectivity required",
+
     // speakers: "John Doe, Jane Smith",
     moreInfo: {
       certificate: "E-Certificate",
       takeaways: "Takeaways",
       time: "9:00 AM to 12:00 PM",
       date: "21st February, 2025",
-      // venue: "X hall, EEE Department",
-      entryFee: "Rs. 150/-",
+      venue: "Your college audi/lab",
+      entryFee: "Rs. 300/-",
     },
     contact: [
-      {
-        id: 1,
-        name: "Sandhya",
-        phone: "+91 9363319596",
-      },
-      { id: 2, name: "Padmasharan", phone: "+91 9585612262" },
+      // {
+      //   id: 1,
+      //   name: "Sandhya",
+      //   phone: "+91 9363319596",
+      // },
+      { id: 1, name: "Sanjay Ganesan", phone: "+91 8148358787" },
     ],
   },
   {
-    title: "Workshop on Generative AI",
-    to: "genAI",
+    title: "Backend Development from Zero to API (Python + FastAPI)",
+    to: "backend",
     image: ML,
     bulkBooking: PAY,
     qr: GENAI_300,
@@ -57,26 +58,25 @@ export const workshopsReach = [
       },
     ],
     code: 2,
-    content:
-      "Ignite your curiosity in Generative AI!. This one-day workshop provides a comprehensive introduction to Generative AI, focusing on its fundamentals, applications, and practical implementation. Designed for beginners, the session will help participants understand the transformative potential of Generative AI in various domains through engaging lectures and hands-on activities.",
+    content:"This workshop provides a complete beginner-friendly introduction to backend development, covering how web applications work behind the scenes.Participants will learn fundamental concepts like client–server architecture, REST principles, HTTP methods, and API behavior.Through guided coding, students will build their own backend using Python + FastAPI, including request validation, routing, and structured responses.The workshop also covers database integration using SQLite, CRUD operations, and interactive API testing through Swagger UI.This hands-on session equips learners with the skills to build real-world backend systems and progress into full-stack development.",
     prerequistes:
-      "No prior machine learning experience is required. Just bring your curiosity, and let's make the most of this short but impactful ML adventure!",
+      "1.Laptops required.\nBasic Python knowledge recommended but not mandatory.\nNo prior backend experience needed",
     // speakers: "John Doe, Jane Smith",
     moreInfo: {
       certificate: "E-Certificate",
       takeaways: "Takeaways",
-      time: "9:30 AM to 04:00 PM",
+      time: "9:00 AM to 12:00 PM",
       date: "21st February, 2025",
-      // venue: "X hall, EEE Department",
-      entryFee: "Rs. 300/-",
+      venue: "Your audi/lab",
+      entryFee: "Rs. 150/-",
     },
     contact: [
-      {
-        id: 1,
-        name: "Ajai Krishna",
-        phone: "+91 7010707652",
-      },
-      { id: 2, name: "Nikhil Prasanna", phone: "+91 6379066510" },
+      // {
+      //   id: 1,
+      //   name: "Ajai Krishna",
+      //   phone: "+91 7010707652",
+      // },
+      { id: 1, name: "Sanjay Ganesan", phone: "+91 8148358787" },
     ],
   },
 ];

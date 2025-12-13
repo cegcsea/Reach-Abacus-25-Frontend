@@ -17,10 +17,10 @@ function Session() {
   const contacts = [
     {
       id: 1,
-      name: "Sunil Kumar",
-      phone: "+91 6383123505",
+      name: "Kamalesh N",
+      phone: "+91 8610386055"
     },
-    { id: 2, name: "Smrithi", phone: "+91 8072869255" },
+    { id: 2, name: "Sulochana H", phone: "+91 9025193250"},
   ];
   const isRegistered =
     Array.isArray(session) &&
@@ -38,10 +38,10 @@ function Session() {
   }, [user?.workshops?.length]);
 
   return (
-    <div className="border-[2px] rounded-xl border-[#FF5555] border-shadow border-shadow-lg bg-[#1d1d1d] my-5">
+    <div className="border-[2px] rounded-xl border-[#ab8e5c] border-shadow border-shadow-lg bg-[#1d1d1d] my-5">
       <div className="p-5 sm:py-8 sm:px-10 flex gap-3 flex-col ">
         <h1 className="text-4xl lg:text-5xl md:text-4xl sm:text-3xl text-white overflow-hidden">
-          <span className="[text-shadow:6px_2px_4px_#c03e3e] text-5xl font-bold text-[#fcfcfc] text-center ">
+          <span className="[text-shadow:6px_2px_4px_#ab8e5c] text-5xl font-bold text-[#fcfcfc] text-center ">
             Session
           </span>
         </h1>
@@ -58,7 +58,7 @@ function Session() {
           <div className="w-full sm:w-3/5 flex flex-col justify-between mb-10 pb-5">
             <div className="text-justify xl:!mt-20 ">
               <h2 className="text-[#c9c9c9] font-semibold text-2xl border border-b border-x-0 border-t-0 p-3">
-                #Placement_Session
+                Placement_Session
               </h2>
               <p className="text-[#c9c9c9]  p-3 text-base">
                 <span className="font-bold text-lg">Skill Refinement: </span>
@@ -101,7 +101,7 @@ function Session() {
             </div>
             {!isAuth && (
               <button
-                className="m-3 mb-7 w-fit border border-[#FF5555] px-4 py-2 text-white duration-150 hover:bg-[#FF555522] sm:self-start self-center"
+                className="m-3 mb-7 w-fit border border-[#ab8e5c] px-4 py-2 text-white duration-150 hover:bg-[#ab8e5c] sm:self-start self-center"
                 onClick={() => navigate("/login")}
               >
                 Login to Register {"<"}~{">"}
@@ -109,7 +109,7 @@ function Session() {
             )}
             {isAuth && !isRegistered && (
               <button
-                className="m-3 mb-7 w-fit border border-[#FF5555] px-4 py-2 text-white duration-150 hover:bg-[#FF555522] sm:self-start self-center"
+                className="m-3 mb-7 w-fit border border-[#ab8e5c] px-4 py-2 text-white duration-150 hover:bg-[#ab8e5c] sm:self-start self-center"
                 onClick={() => handleRegister(3)}
               >
                 Register {"<"}~{">"}
