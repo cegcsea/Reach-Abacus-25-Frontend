@@ -42,17 +42,17 @@ img {
   position: relative;
   overflow: visible !important;
   width: 100%;
-  max-width: 500px;
+  max-width: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .card__img {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  min-height: 300px;
+  width: 350px;
+  max-width: 350px;
+  height: 250px;
+  min-height: 250px;
   object-fit: cover;
   border-radius: 1.5rem;
   overflow: hidden;
@@ -76,7 +76,7 @@ img {
 
 .card__data {
   width: 90%;
-  max-width: 450px;
+  max-width: 315px;
   padding: 1.5rem 2rem;
   box-shadow: 0 8px 24px hsla(0, 0%, 0%, 0.3);
   border-radius: 1rem;
@@ -152,7 +152,10 @@ img {
   }
 
   .card__img {
-    min-height: 280px;
+    width: 350px;
+    max-width: 350px;
+    height: 250px;
+    min-height: 250px;
   }
 
   .card__data {
@@ -182,13 +185,15 @@ img {
   }
 
   .card__img {
-    max-width: 100%;
-    min-height: 320px;
+    width: 350px;
+    max-width: 350px;
+    height: 250px;
+    min-height: 250px;
   }
 
   .card__data {
     width: 85%;
-    max-width: 400px;
+    max-width: 315px;
   }
 
   .card__title {
@@ -213,7 +218,10 @@ img {
   }
 
   .card__img {
-    min-height: 335px;
+    width: 350px;
+    max-width: 350px;
+    height: 250px;
+    min-height: 250px;
   }
 
   .card__data {
@@ -241,7 +249,10 @@ img {
   }
 
   .card__img {
-    min-height: 350px;
+    width: 350px;
+    max-width: 350px;
+    height: 250px;
+    min-height: 250px;
   }
 
   .card__data {
@@ -269,7 +280,10 @@ img {
   }
 
   .card__img {
-    min-height: 400px;
+    width: 350px;
+    max-width: 350px;
+    height: 250px;
+    min-height: 250px;
   }
 
   .card__data {
@@ -297,7 +311,10 @@ img {
   }
 
   .card__img {
-    min-height: 450px;
+    width: 350px;
+    max-width: 350px;
+    height: 250px;
+    min-height: 250px;
   }
 
   .event {
@@ -337,7 +354,10 @@ img {
   }
 
   .card__img {
-    min-height: 220px;
+    width: 100%;
+    max-width: 280px;
+    height: 200px;
+    min-height: 200px;
   }
 }
 
@@ -373,7 +393,10 @@ img {
   }
 
   .card__img {
-    min-height: 250px;
+    width: 100%;
+    max-width: 300px;
+    height: 214px;
+    min-height: 214px;
   }
 }
 
@@ -389,7 +412,10 @@ img {
   }
 
   .card__img {
-    min-height: 270px;
+    width: 350px;
+    max-width: 350px;
+    height: 250px;
+    min-height: 250px;
   }
 
   .card__data {

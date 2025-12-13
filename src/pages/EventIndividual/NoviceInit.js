@@ -129,16 +129,55 @@ const NoviceInit = () => {
                 {selectedEvent.rounds.map((round, index) => (
                   <div className="round-card" key={index}>
                     <h3>{round.title}</h3>
-                    <p>
-                      <strong>Details:</strong> {round.content}
-                    </p>
-                    <p>
-                      <strong>Duration:</strong> {round.duration}
-                    </p>
-                    
-                    <p>
-                      <strong>Time:</strong> {round.time}
-                    </p>
+                    {round.content && (
+                      <p>
+                        <strong>Details:</strong> {round.content}
+                      </p>
+                    )}
+                    {round.duration && (
+                      <p>
+                        <strong>Duration:</strong> {round.duration}
+                      </p>
+                    )}
+                    {round.time && (
+                      <p>
+                        <strong>Time:</strong> {round.time}
+                      </p>
+                    )}
+                    {/* Display sections if they exist */}
+                    {round.sections && round.sections.length > 0 && (
+                      <div style={{ marginTop: "20px" }}>
+                        <h4 style={{ marginBottom: "15px", color: "#c0a068", fontSize: "1.2rem" }}>
+                          Sections:
+                        </h4>
+                        {round.sections.map((section, sectionIndex) => (
+                          <div 
+                            key={sectionIndex} 
+                            style={{ 
+                              marginBottom: "20px", 
+                              padding: "15px", 
+                              backgroundColor: "#1a1a1a", 
+                              borderRadius: "8px",
+                              border: "1px solid #c0a068"
+                            }}
+                          >
+                            <h5 style={{ color: "#c0a068", marginBottom: "10px", fontSize: "1.1rem" }}>
+                              {sectionIndex + 1}. {section.title}
+                            </h5>
+                            {section.description && (
+                              <p style={{ marginBottom: "8px" }}>
+                                <strong>Description:</strong> {section.description}
+                              </p>
+                            )}
+                            {section.points && (
+                              <p style={{ marginBottom: "0" }}>
+                                <strong>Points:</strong> {section.points}
+                              </p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
                     {/* <p>
                       <strong>Venue:</strong> {round.venue}
                     </p> */}

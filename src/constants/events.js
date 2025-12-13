@@ -4,7 +4,7 @@ import img3 from "../assets/images/preevnt.jpg";
 import img4 from "../assets/images/UI Odyssey.jpg";
 import img5 from "../assets/images/ML Mania.png";
 import img6 from "../assets/images/ospc.png";
-import img7 from "../assets/images/family feud.png";
+import img7 from "../assets/images/Musical Mania.jpg";
 import img8 from "../assets/images/amazon.png";
 // Contacts for the EventPage
 
@@ -20,7 +20,7 @@ export const EventContacts = [
 // List of events
 export const events = [
   {
-    title: "Technical Events",
+    title: "Tech Events",
     image: img1, // Event image
     event: [
       {
@@ -164,30 +164,68 @@ export const events = [
     path: "/events/technical-events", // Path to the event page
   },
   {
-    title: "Non Technical Events",
+    title: "Non-Tech Events",
     image: img2, // Event image,
     Date: "20 February 2025",
     
     event: [
       {
         id: 4,
-        title: "Family Feud",
+        title: "Musical Mania",
         time: "01:30 PM to 04:00 PM",
         Date: "20 February 2025",
-        team: "Three members",
+        team: "Two or three members",
         description:
-          "Put your skills to test on topics like Food, Technology, Movies, Lifestyle, and more! Can your team guess the most popular answers to survey questions and win the title of Family Feud Champions?",
+          "A music quiz event focused on the Tamil music industry, testing knowledge of music directors, singers, lyricists, songs, and movie trivia through written and interactive rounds.",
         image: img7, // Replace with your image path
-        path: "/events/family-feud",
-        rules: `• Participants answer survey-based questions on topics like Books, Food, Movies, Lifestyle, and Technology. Responses are ranked (1 = most popular, 7 = least popular).
-              • Teams compete to guess the most popular answers.
-              • Buzzers decide who answers first.
-              • Correct guesses earn points based on the popularity ranking.
-              • Three consecutive wrong guesses result in negative points, and the chance passes to the other team.
-              • Each round includes 10 questions.
-              • Top 3 teams with the highest total scores win.`,
-        to: "family-feud",
+        path: "/events/musical-mania",
+        to: "musical-mania",
         prize: "Rs 1k+",
+        rounds: [
+          {
+            title: "Round 1 – Pen and Paper Screening",
+            content:
+              "20-minute written quiz about the Tamil music industry. Questions on music directors, singers, lyricists, songs, and movie trivia. Top 6 teams qualify for Round 2.",
+            duration: "20 minutes",
+            time: "01:30 PM to 02:00 PM",
+          },
+          {
+            title: "Round 2 – Stage Music Quiz (6 Teams)",
+            content:
+              "This round has three sections testing different aspects of Tamil music knowledge through interactive identification challenges.",
+            time: "02:15 PM to 04:00 PM",
+            sections: [
+              {
+                title: "BGM Identification",
+                description: "Play a short background score. Teams identify the movie.",
+                points: "+10 for correct, –5 for wrong",
+              },
+              {
+                title: "Singer Identification",
+                description: "Play a short voice clip. Teams identify the singer.",
+                points: "+10 for correct, –5 for wrong",
+              },
+              {
+                title: "Song-to-Movie Identification",
+                description: "Play a short portion of a song. Teams identify the movie.",
+                points: "+10 for correct, –5 for wrong",
+              },
+            ],
+          },
+        ],
+        contact: [
+          {
+            id: 1,
+            name: "Contact Person 1",
+            phone: "+91 0000000000",
+          },
+          {
+            id: 2,
+            name: "Contact Person 2",
+            phone: "+91 0000000000",
+          },
+        ],
+        intern: [],
       },
     ],
     // Add more events h
