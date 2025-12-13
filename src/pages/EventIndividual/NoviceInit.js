@@ -205,7 +205,7 @@ const NoviceInit = () => {
       style={{ borderColor: '#c0a068', color: '#c0a068' }}
       onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(192, 160, 104, 0.2)'}
       onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
-      onClick={() => navigate("/login")}
+      onClick={() => navigate("/auth")}
     >
       Login to Register{"<"}~{">"}
     </button>
