@@ -278,7 +278,7 @@ const IndividualWorkshops = () => {
 
           {!isAuth && (
             <Link to="/auth">
-              <button className="m-3 w-fit rounded-full border border-[#C778DD] px-4 py-2 text-white duration-150 hover:bg-[#C778DD33]">
+              <button className="m-3 w-fit rounded-full border border-[#ab8e5c] px-4 py-2 text-white duration-150 hover:bg-[#ab8e5c]">
                 Login to Register {"<"}~{">"}
               </button>
             </Link>
