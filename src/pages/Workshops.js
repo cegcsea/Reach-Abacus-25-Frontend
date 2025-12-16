@@ -53,7 +53,7 @@ const Workshops = () => {
                     navigate(`${workshop.to}`);
                   }}
                 >
-                  Read More {`<~>`}
+                  wwead More {`<~>`}
               </button>
             </div>
           ))}

@@ -1,9 +1,9 @@
 import ML from "../assets/Reach/ML.png";
 import placement from "../assets/Reach/placement.svg";
 import UI from "../assets/images/mobile-app-ux-ui-basics.jpg";
-import GENAI_300 from "../assets/Reach/300.jpg";
+import UI_300 from "../assets/Reach/300.jpg";
 import UI_150 from "../assets/Reach/150.jpg";
-import GENAI_1200 from "../assets/Reach/1200.jpg";
+import UI_1200 from "../assets/Reach/1200.jpg";
 import PAY from "../assets/Reach/new.jpg"
 import LLM from '../assets/Reach/llm.png';
 import BACKEND from '../assets/Reach/pythonwo.png';
@@ -14,7 +14,7 @@ export const workshopsReach = [
     to: "LLM",
     image: LLM,
 
-    qr: UI_150,
+    qr: UI_300,
     venue: [
       {
         name: "PSNA College of Engineering and Technology",
@@ -50,8 +50,8 @@ export const workshopsReach = [
     title: "Backend Development from Zero to API (Python + FastAPI)",
     to: "backend",
     image: BACKEND,
-    bulkBooking: PAY,
-    qr: GENAI_300,
+    // bulkBooking: PAY,
+    qr: UI_150,
     venue: [
       {
         name: "PSNA College of Engineering and Technology",
@@ -113,6 +113,6 @@ export const sessions = [
     title: "Placement Session",
     image: placement,
     content:
-      "Participate in focused sessions on interview techniques, enhancing your confidence and readiness for placement scenarios. Stay informed about current hiring trends and industry expectations, positioning yourself effectively during placement processes. Engage in simulated interview experiences, receiving valuable feedback to optimize your performance in real-world placements.",
+      "Participate in focused sessions on interview techniques, enhancing your confidence and wadiness for placement scenarios. Stay informed about current hiring trends and industry expectations, positioning yourself effectively during placement processes. Engage in simulated interview experiences, receiving valuable feedback to optimize your performance in real-world placements.",
   },
 ];
