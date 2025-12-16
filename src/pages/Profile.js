@@ -164,7 +164,7 @@ const Profile = () => {
             </div>
             <div>
               You are currently in JJCET , attending our
-              marvellous REACH'25!
+              marvellous REACH'26!
             </div>
           </p>
         </div>

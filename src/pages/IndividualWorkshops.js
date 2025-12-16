@@ -198,7 +198,7 @@ const IndividualWorkshops = () => {
           <div className="flex justify-center gap-3">
             {isAuth && !isRegistered && (
               <Link to={`/workshops/${workshop.code}/payment`}>
-                <button className="m-3 w-fit border-[#b72222] border-[1.7px] px-4 py-2 text-white duration-150 hover:bg-[#9f232363]">
+                <button className="m-3 w-fit border-[#c0a068] border-[1.7px] px-4 py-2 text-white duration-150 hover:bg-[#D2BC8E]">
                   Register {"<"}~{">"}
                 </button>
               </Link>
@@ -285,6 +285,9 @@ const IndividualWorkshops = () => {
           )}
         </div>
       </div>
+      
+       
+    
     </div>
   );
 };

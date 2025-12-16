@@ -21,8 +21,10 @@
     font-size: 32px;
     margin-bottom: 15px;
     color: #f1f1f1;
-    text-shadow: 6px 2px 4px #ab8e5d; 
-  }
+  
+  text-shadow: 2px 2px 4px rgba(192, 160, 104, 0.6);
+}
+
   
   .head p {
     font-size: 16px;
@@ -53,10 +55,11 @@
   }
   
   .names div p a {
-    color:#ffcccc;
-    text-decoration: none;
-    font-weight: bold;
-  }
+  color: #c0a068;
+  text-decoration: none;
+  font-weight: bold;
+}
+
   
   .names div p a:hover {
     text-decoration: underline;

@@ -60,10 +60,10 @@ const Payment = () => {
 
   return (
     <div className="flex flex-col items-center justify-center bg-black text-white p-5 relative mt-16 pt-6">
-      <div className="w-full max-w-md bg-gray-900 border-2 border-[#8a1818] rounded-lg shadow-lg p-6 md:p-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-center border-b-2 border-[#8a1818] pb-2">
-          <span className="text-[#8a1818]">&lt;</span> Payment{" "}
-          <span className="text-[#8a1818]">&gt;</span>
+      <div className="w-full max-w-md bg-gray-900 border-2 border-[#c0a068] rounded-lg shadow-lg p-6 md:p-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-center border-b-2 border-[#c0a068] pb-2">
+          <span className="text-[#c0a068]">&lt;</span> Payment{" "}
+          <span className="text-[#c0a068]">&gt;</span>
         </h2>
         <p className="text-gray-400 text-center mt-2">
           It's always better to lay down the burden of loan ASAP!
@@ -71,7 +71,7 @@ const Payment = () => {
         <form className="flex flex-col gap-4 mt-5" onSubmit={handleSubmit}>
           <button
             type="button"
-            className="bg-[#8a1818] text-white font-semibold py-2 rounded"
+            className="bg-[#c0a068] text-white font-semibold py-2 rounded"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? "Hide QR Code!" : "Show QR Code!"} &lt;~&gt;
@@ -81,7 +81,7 @@ const Payment = () => {
               <img
                 src={workshop.qr}
                 alt="QR Code"
-                className="w-64 h-88 border-2 border-[#8a1818] rounded-md"
+                className="w-64 h-88 border-2 border-[#c0a068] rounded-md"
               />
             </div>
           )}
@@ -91,7 +91,7 @@ const Payment = () => {
             placeholder="Transaction ID"
             value={formData.transactionId}
             onChange={handleChange}
-            className="w-full p-3 bg-black border border-[#8a1818] text-white rounded-md"
+            className="w-full p-4 bg-black border border-[#c0a068] text-white rounded-md "
             required
           />
           <input
@@ -100,15 +100,15 @@ const Payment = () => {
             placeholder="Payment Mobile No."
             value={formData.paymentMobile}
             onChange={handleMobileChange}
-            className="w-full p-3 bg-black border border-[#8a1818] text-white rounded-md"
+            className="w-full p-3 bg-black border border-[#c0a068] text-white rounded-md"
             required
           />
           <div className="flex flex-col items-center">
             <label
               htmlFor="screenshot"
-              className="flex items-center gap-2 bg-black border border-red-600 px-4 py-2 rounded-md cursor-pointer"
+              className="flex items-center gap-2 bg-black border border-[#c0a068] px-4 py-2 rounded-md cursor-pointer"
             >
-              <span className="bg-[#8a1818] text-white px-3 py-1 rounded">
+              <span className="bg-[#c0a068] text-white px-3 py-1 rounded">
                 Upload
               </span>
               <span className="text-gray-400 text-sm">
@@ -127,7 +127,7 @@ const Payment = () => {
             />
             {file !== null && (
               <button
-                className="rounded-lg bg-[#8a1818] text-white px-3 py-1 mt-3"
+                className="rounded-lg bg-[#c0a068] text-white px-3 py-1 mt-3"
                 onClick={() => {
                   setFile(null);
                   setFileName("Get your payment screenshot...");
@@ -139,7 +139,7 @@ const Payment = () => {
           </div>
           <button
             type="submit"
-            className="bg-[#8a1818] text-white font-semibold py-2 rounded"
+            className="bg-[#c0a068] text-white font-semibold py-2 rounded"
           >
             Verify Payment &lt;~&gt;
           </button>

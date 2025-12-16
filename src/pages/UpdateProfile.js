@@ -84,18 +84,18 @@ function UpdateProfile() {
   }
   return (
     <div className="mt-20 lg:mt-28 flex justify-center items-center py-10 sm:px-0 px-4 bg-[#1d1d1d] gap-5 ">
-      <div className="querybox flex flex-col gap-7 w-full sm:w-2/5 border border-[#c53939] text-white p-5 sm:p-10 bg-[#1d1d1d]">
+      <div className="querybox flex flex-col gap-7 w-full sm:w-2/5 border border-[#c0a068] text-white p-5 sm:p-10 bg-[#1d1d1d]">
         <div className="text-2xl text-center">
-          <span className="text-[#c53939]">&#60;</span>
+          <span className="text-[#c0a068]">&#60;</span>
           &nbsp;Update Info&nbsp;
-          <span className="text-[#c53939]">&#62;</span>
+          <span className="text-[#c0a068]">&#62;</span>
         </div>
         <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
           <input
             type="text"
             name="name"
             placeholder="Name"
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            className="p-2 outline-none border border-[#c0a068] text-[18px] bg-[#1d1d1d]"
             value={formData.name}
             onChange={handleChange}
             required
@@ -105,7 +105,7 @@ function UpdateProfile() {
             type="text"
             name="college"
             placeholder="College"
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            className="p-2 outline-none border border-[#c0a068] text-[18px] bg-[#1d1d1d]"
             value={formData.college}
             onChange={handleChange}
             required
@@ -115,14 +115,14 @@ function UpdateProfile() {
             type="text"
             name="dept"
             placeholder="Department"
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            className="p-2 outline-none border border-[#c0a068] text-[18px] bg-[#1d1d1d]"
             value={formData.dept}
             onChange={handleChange}
             required
           />
 
           <select
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            className="p-2 outline-none border border-[#c0a068] text-[18px] bg-[#1d1d1d]"
             value={formData.year}
             onChange={(e) => handleSelectChange("year", e.target.value)}
             required
@@ -138,7 +138,7 @@ function UpdateProfile() {
             type="text"
             name="mobile"
             placeholder="Mobile"
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            className="p-2 outline-none border border-[#c0a068] text-[18px] bg-[#1d1d1d]"
             value={formData.mobile}
             onChange={handleMobileChange}
             required
@@ -178,7 +178,7 @@ function UpdateProfile() {
           <div className="self-center">
             <button
               type="submit"
-              className="py-2 px-4 text-white border border-[#c53939] hover:bg-[#c5393936] duration-150"
+              className="py-2 px-4 text-white border border-[#c0a068] hover:bg-[#c5393936] duration-150"
               disabled={btnLoading}
             >
               {btnLoading ? "Updating..." : "Update Info"}
