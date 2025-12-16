@@ -159,5 +159,4 @@ const Workshops = () => {
     </div>
   );
 };
-ww
 export default Workshops;
