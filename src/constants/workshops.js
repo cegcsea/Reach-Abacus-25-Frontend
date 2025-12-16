@@ -5,12 +5,14 @@ import GENAI_300 from "../assets/Reach/300.jpg";
 import UI_150 from "../assets/Reach/150.jpg";
 import GENAI_1200 from "../assets/Reach/1200.jpg";
 import PAY from "../assets/Reach/new.jpg"
+import LLM from '../assets/Reach/llm.png';
+import BACKEND from '../assets/Reach/pythonwo.png';
 
 export const workshopsReach = [
   {
     title: "Building LLM Applications from Scratch",
     to: "LLM",
-    image: UI,
+    image: LLM,
 
     qr: UI_150,
     venue: [
@@ -47,7 +49,7 @@ export const workshopsReach = [
   {
     title: "Backend Development from Zero to API (Python + FastAPI)",
     to: "backend",
-    image: ML,
+    image: BACKEND,
     bulkBooking: PAY,
     qr: GENAI_300,
     venue: [
