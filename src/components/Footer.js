@@ -1,6 +1,7 @@
 // src/components/Footer.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+const server = process.env.REACT_APP_API_BASE_URL;
 
 const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(
@@ -46,11 +47,37 @@ const Footer = ({ scrollY }) => {
     message: "",
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Thank you for your message! We will get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const res = await fetch(`${server}/user/post-query`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        title: formData.message,   // 👈 satisfies Joi
+        message: formData.message // 👈 satisfies Joi
+      }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("Thank you for your message!");
+      setFormData({ name: "", email: "", message: "" });
+    } else {
+      alert(data.message);
+    }
+  } catch (err) {
+    alert("Server error");
+  }
+};
+
+
 
   const handleFocus = (fieldName) => {
     setFocusedInput(fieldName);

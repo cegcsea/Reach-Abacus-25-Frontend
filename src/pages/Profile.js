@@ -118,7 +118,7 @@ const Profile = () => {
                       workshop.status === "PENDING"
                   );
                   return matchingWorkshop ? (
-                    <li key={index} className="!text-orange-800">
+                    <li key={index} className="!text-red-500">
                       {matchingWorkshop.title} - Pending
                     </li>
                   ) : null;
