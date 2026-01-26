@@ -28,89 +28,21 @@ const HomePage = () => {
 
   // Scroll handler for parallax and zoom feeling
   useEffect(() => {
-  let rafId;
-  let smoothScroll = 0;
+    const handleScroll = () => {
+      const scrolled = window.scrollY || window.pageYOffset;
+      const maxScroll =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = maxScroll > 0 ? scrolled / maxScroll : 0;
 
-  const applyWarpTransforms = () => {
-    const sections = document.querySelectorAll(".parallax-section");
+      setScrollY(scrolled);
+      setScrollProgress(progress);
+    };
 
-    const viewportCenter = window.innerHeight / 2;
-    const vw = window.innerWidth;
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
 
-    sections.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      const centerY = rect.top + rect.height / 2;
-
-      // -1 to +1 range
-      const distance = (centerY - viewportCenter) / viewportCenter;
-      const clamped = Math.max(-1, Math.min(1, distance));
-
-      /* ============================================
-         🚀 INTERSTELLAR WARP DRIVE TRANSFORM
-      ============================================ */
-
-      // Depth tunnel pull
-      const zDepth = (1 - Math.abs(clamped)) * 520;
-
-      // Vertical drift
-      const translateY = clamped * -65;
-
-      // Tiny sideways drift = speed illusion
-      const translateX = clamped * 18;
-
-      // Compression zoom
-      const scale = 1 - Math.abs(clamped) * 0.12;
-
-      // Cinematic tilt
-      const rotateX = clamped * 8;
-
-      // Fade far objects like space fog (NO blur)
-      const opacity = 1 - Math.abs(clamped) * 0.45;
-
-      /* ===== MOBILE toned down ===== */
-      if (vw < 640) {
-        el.style.transform = `
-          translateY(${clamped * -18}px)
-          translateZ(${zDepth * 0.35}px)
-          scale(${1 - Math.abs(clamped) * 0.04})
-        `;
-        el.style.opacity = 1;
-        return;
-      }
-
-      /* ===== DESKTOP WARP ===== */
-      el.style.transform = `
-        translateX(${translateX}px)
-        translateY(${translateY}px)
-        translateZ(${zDepth}px)
-        scale(${scale})
-        rotateX(${rotateX}deg)
-      `;
-
-      el.style.opacity = opacity;
-
-      el.style.transition =
-        "transform 1.15s cubic-bezier(0.12,0.95,0.15,1), opacity 1s ease-out";
-
-      el.style.transformStyle = "preserve-3d";
-      el.style.willChange = "transform";
-    });
-  };
-
-  /* ============================================
-     🚀 SMOOTH CAMERA INERTIA LOOP
-  ============================================ */
-  const loop = () => {
-    smoothScroll += (window.scrollY - smoothScroll) * 0.06;
-    applyWarpTransforms();
-    rafId = requestAnimationFrame(loop);
-  };
-
-  loop();
-
-  return () => cancelAnimationFrame(rafId);
-}, []);
-
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Apply uniform inward/outward transform to sections based on scroll position
   useEffect(() => {
@@ -168,7 +100,7 @@ const HomePage = () => {
   return (
     <div
       className="relative bg-transparent text-white overflow-x-hidden"
-      style={{ perspective: "420px" }} // camera perspective for 3D feel
+      style={{ perspective: "1000px" }} // camera perspective for 3D feel
     >
       {/* Deep parallax background layers */}
       <ParallaxBackground scrollY={scrollY} scrollProgress={scrollProgress} />
