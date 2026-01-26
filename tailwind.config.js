@@ -12,6 +12,10 @@ module.exports = {
       animation: {
         glow: "rotate 7s linear infinite",
       },
+      fontFamily: {
+        monoton: ["Monoton", "cursive"],
+        bitgrid: ["Orbitron", "sans-serif"],
+      },
     },
   },
   plugins: [],
