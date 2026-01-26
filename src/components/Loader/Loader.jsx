@@ -1,18 +1,20 @@
 import React from "react";
+import Hyperspeed, { hyperspeedPresets } from "../HyperSpeed/HyperSpeed.jsx";
 import styles from "./Loader.module.css";
 
 function Loader() {
   return (
-    <div className={styles.loader_wrapper}>
-      <div className={styles.spinner_box}>
-        <div className={styles.leo_border_1}>
-          <div className={styles.leo_core_1}></div>
-        </div>
-        <div className={styles.leo_border_2}>
-          <div className={styles.leo_core_2}></div>
-        </div>
+    <div className={styles.loader_wrapper} role="status" aria-live="polite">
+      {/* Hyperspeed background */}
+      <div className={styles.hyperspeed_bg}>
+        <Hyperspeed effectOptions={hyperspeedPresets.two} />
       </div>
-      <p>Loading...</p>
+
+      {/* Overlay text - positioned at top */}
+      <div className={styles.text_block}>
+        <div className={styles.title}>ABACUS &apos;26</div>
+        <div className={styles.subtitle}>Initializing systems…</div>
+      </div>
     </div>
   );
 }

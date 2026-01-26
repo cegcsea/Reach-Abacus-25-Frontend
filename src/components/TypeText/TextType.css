@@ -1,0 +1,21 @@
+.text-type {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+.text-type__content {
+  line-height: 1.2;
+}
+
+.text-type__cursor {
+  margin-left: 0.15em;
+  display: inline-block;
+  font-size: inherit;
+  line-height: 1;
+  transform: translateY(1px); /* fine baseline tweak */
+}
+
+.text-type__cursor--hidden {
+  display: none;
+}

@@ -1,74 +1,46 @@
 .loader_wrapper {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #000000;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #000;
 }
 
-.loader_wrapper p {
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 2.5rem;
+/* Hyperspeed canvas layer */
+.hyperspeed_bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
-.spinner_box {
-    width: 200px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
+/* Text fixed at the TOP */
+.text_block {
+  position: absolute;
+  top: 2.5rem;          /* 👈 distance from top */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+  pointer-events: none;
 }
 
-.leo_border_1 {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    padding: 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    background: rgb(63, 249, 220);
-    background: linear-gradient(0deg, rgba(63, 249, 220, 0.1) 33%, rgba(63, 249, 220, 1) 100%);
-    animation: spin3D 1.8s linear 0s infinite;
+/* Main title */
+.title {
+  font-size: 1.6rem;
+  letter-spacing: 0.32rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background: linear-gradient(135deg, #f7e7b8, #c0a068, #8b6e3d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 18px rgba(212, 175, 55, 0.6);
 }
 
-.leo_core_1 {
-    width: 100%;
-    height: 100%;
-    background-color: #37474faa;
-    border-radius: 50%;
-}
-
-.leo_border_2 {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    padding: 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    background: rgb(251, 91, 83);
-    background: linear-gradient(0deg, rgba(251, 91, 83, 0.1) 33%, rgba(251, 91, 83, 1) 100%);
-    animation: spin3D 2.2s linear 0s infinite;
-}
-
-.leo_core_2 {
-    width: 100%;
-    height: 100%;
-    background-color: #1d2630aa;
-    border-radius: 50%;
-}
-
-@keyframes spin3D {
-    from {
-        transform: rotate3d(.5, .5, .5, 360deg);
-    }
-
-    to {
-        transform: rotate3d(0deg);
-    }
+/* Subtitle */
+.subtitle {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.18rem;
+  color: #c7b07b;
+  text-transform: uppercase;
 }
