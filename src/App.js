@@ -22,7 +22,7 @@ import { LoaderData } from "./context/loaderContext";
 import Loader from "./components/Loader/Loader";
 import { useEffect } from "react";
 import BulkPayment from "./pages/BulkPayment";
-import About from "./components/About.js";
+import About from "./components/HomePage/About.js";
 import Accommodation from "./pages/Accomodation.jsx";
 import EventPayment from "./pages/EventPayment.js";
 import Login from "./components/Login.js";
