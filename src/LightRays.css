@@ -1,0 +1,20 @@
+/* LightRays.css (append) */
+.light-rays-container {
+  position: fixed;         /* full-viewport fixed layer */
+  inset: 0;                /* top:0; right:0; bottom:0; left:0; */
+  pointer-events: none;    /* don't block clicks */
+  z-index: -10;            /* behind site content; adjust if needed */
+  overflow: hidden;
+}
+
+/* optional class you used: custom-rays */
+.custom-rays {
+  mix-blend-mode: screen;  /* blends nicely with dark backgrounds */
+  opacity: 0.9;            /* tweak */
+  transition: opacity 300ms ease;
+}
+
+/* mobile fallback: hide or reduce intensity on small screens */
+@media (max-width: 768px) {
+  .light-rays-container { display: none; } /* or reduce via opacity */
+}

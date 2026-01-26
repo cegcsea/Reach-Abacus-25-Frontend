@@ -1,28 +1,41 @@
-import reach_img from "../assets/Hero/Reach'25 logo black.png";
-import abacus_img from "../assets/images/logo copy.png";
+import abacus_img from "../assets/images/logo26.png";
 import { AiFillHome, AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
 import { FaInfoCircle, FaHandshake, FaTools } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
 import { UserData } from "../context/userContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { handleLogout, isAuth, refreshauth, active, setActive } = UserData();
+  
+  // Add mobile detection
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1200
+  );
+
+  useEffect(() => {
+    const onResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  const isMobile = windowWidth <= 640;
+  const isTablet = windowWidth > 640 && windowWidth <= 1024;
 
   // All navigation items
   const navItems = [
     { name: "home", label: "Home", icon: <AiFillHome />, path: "/" },
-    { name: "about", label: "About", icon: <FaInfoCircle />, path: "/about" },
-    {
-      name: "sponsors",
-      label: "Sponsors",
-      icon: <FaHandshake />,
-      path: "/sponsors",
-    },
+    // {
+    //   name: "sponsors",
+    //   label: "Sponsors",
+    //   icon: <FaHandshake />,
+    //   path: "/sponsors",
+    // },
     { name: "events", label: "Events", icon: <MdEvent />, path: "/events" },
     {
       name: "workshops",
@@ -58,13 +71,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         },
       ];
 
-  // useEffect(() => {
-  //   refreshauth();
-  //   setActive(location.pathname.substring(1));
-  //   if (location.pathname.substring(1) === "") {
-  //     setActive("home");
-  //   }
-  // }, []);
   useEffect(() => {
     refreshauth();
     // Extract the content between the first and second slash
@@ -91,33 +97,67 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-screen flex flex-row justify-between lg:px-5  text-white bg-gradient-to-b from-[#702b2b] via-[#9d0505] to-[#8a1818] shadow-2xl z-50 border-b-2 border-b-gray-600 ${
+      className={`fixed top-0 left-0 w-screen flex flex-row justify-between lg:px-5 text-white shadow-2xl z-50 bg-black border-b-2 border-b-[#c0a068] ${
         isMenuOpen ? "overflow-hidden" : "visible"
       }`}
+      style={{
+        boxShadow: "0 4px 20px rgba(212, 175, 55, 0.3)",
+      }}
     >
       {/* Logo Section */}
       <div
-        className={`flex flex-row rounded-lg mx-4 delay-200 transform ease-in-out ${
+        className={`flex flex-row items-center mx-4 delay-200 transform ease-in-out ${
           isMenuOpen ? "hidden" : "visible"
         }`}
       >
-        <a href="#home" className="mt-[6px]">
-          <img
-            src={abacus_img}
-            alt="abacus-image"
-            className="h-14 w-21 mt-1 mx-auto rounded-lg"
-          />
+        {/* Inline CSS for logo shining outline */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          .reach-logo-wrap{display:inline-block;line-height:0}
+          .reach-logo{display:block;height:64px;width:auto;filter:drop-shadow(0 0 6px rgba(192,160,104,0.6)) drop-shadow(0 0 12px rgba(192,160,104,0.35));transition:filter 250ms ease}
+          .reach-logo.shine{animation:reach-shine 3.2s ease-in-out infinite}
+          @keyframes reach-shine{0%{filter:drop-shadow(0 0 2px rgba(192,160,104,0.15)) drop-shadow(0 0 6px rgba(192,160,104,0.12))}50%{filter:drop-shadow(0 0 14px rgba(192,160,104,0.95)) drop-shadow(0 0 28px rgba(192,160,104,0.5))}100%{filter:drop-shadow(0 0 2px rgba(192,160,104,0.15)) drop-shadow(0 0 6px rgba(192,160,104,0.12))}}
+        ` }} />
+
+        <a href="#home" className="flex items-center">
+          <span className="reach-logo-wrap">
+            <img
+              src={abacus_img}
+              alt="abacus-logo"
+              className="reach-logo shine"
+              style={{ borderRadius: 0 }}
+            />
+          </span>
+          
+          {/* ABACUS '26 Text */}
+          <motion.div
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="ml-2 lg:ml-3"
+          >
+            <span
+              className="font-monoton leading-none"
+              style={{
+                fontSize: isMobile ? "1.3rem" : isTablet ? "1.5rem" : "1.8rem",
+                letterSpacing: "0.05em",
+                background: "linear-gradient(135deg, #d4af37, #c0a068, #9d7f52)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                textShadow: "0 0 15px rgba(212, 175, 55, 0.4)",
+                display: "block",
+                lineHeight: "1.1",
+              }}
+            >
+              ABACUS'26
+            </span>
+          </motion.div>
         </a>
-        <Link to="/" className="my-auto">
-          <h1 className="text-2xl font-bold rounded-xl mx-2 p-1 cursor-pointer ">
-            Abacus'25
-          </h1>
-        </Link>
       </div>
 
       {/* Mobile Menu Toggle */}
       <button
-        className={`lg:hidden p-2 text-white ${
+        className={`lg:hidden p-2 text-white transition-colors duration-300 hover:text-[#c0a068] ${
           isMenuOpen ? "hidden" : "visible"
         }`}
         onClick={toggleMenu}
@@ -140,14 +180,17 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
       {/* Navigation Menu */}
       <div
-        className={`flex lg:space-x-0 lg:px-2 xl:space-x-2 xl:mx-2 xl:py-2 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row lg:h-auto transition-transform duration-300 ease-in-out px-4 lg:bg-gradient-to-b lg:from-[#b03131] lg:via-[#6e0808] lg:to-[#b03131] rounded-3xl z-50 ${
+        className={`flex lg:space-x-0 lg:px-2 xl:space-x-2 xl:mx-2 xl:py-2 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row lg:h-auto transition-transform duration-300 ease-in-out px-4 rounded-3xl z-50 lg:bg-black ${
           isMenuOpen
-            ? "block transform translate-x-0 bg-gradient-to-b from-[#cb3d3d] via-[#8a1818] to-[#cb3d3d] fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl"
+            ? "block transform translate-x-0 fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl bg-black border-2 border-[#c0a068]"
             : "transform -translate-x-full hidden lg:block my-auto"
         }`}
+        style={isMenuOpen ? {
+          boxShadow: "0 0 30px rgba(212, 175, 55, 0.5)",
+        } : {}}
       >
         <button
-          className="absolute top-5 right-5 lg:hidden text-white "
+          className="absolute top-5 right-5 lg:hidden text-white transition-colors duration-300 hover:text-[#c0a068]"
           onClick={toggleMenu}
         >
           <svg
@@ -167,31 +210,44 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         </button>
 
         {/* Render Navigation Items */}
-        {[...navItems, ...authItems].map((item) => (
-          <button
-            key={item.name}
-            className={`relative group overflow-hidden rounded-xl font-semibold m-2 lg:m-0 ${
-              active === item.name
-                ? "bg-gradient-to-b from-[#E0115F] via-[#E0115F] to-[#E0115F]"
-                : ""
-            }`}
-            onClick={() => handleIcon(item)}
-          >
-            <div
-              className={`flex flex-row px-2 ${
-                active === item.name
-                  ? "bg-white text-black hover:text-black"
-                  : "text-gray-300 hover:text-white"
-              }`}
+        {[...navItems, ...authItems].map((item) => {
+          const isActive = active === item.name;
+          return (
+            <button
+              key={item.name}
+              className="relative group overflow-hidden rounded-xl font-semibold m-2 lg:m-0 transition-all duration-300"
+              onClick={() => handleIcon(item)}
             >
-              <div className="my-auto bg-transparent">{item.icon}</div>
-              <span className="px-1 rounded-xl transition-all duration-300 cursor-pointer">
-                {item.label}
-              </span>
-            </div>
-            <span className="absolute left-0 bottom-0 h-1 w-full bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-          </button>
-        ))}
+              <div
+                className={`flex flex-row px-2 py-1 transition-colors duration-300 ${
+                  isActive
+                    ? "text-[#c0a068]"
+                    : "text-gray-300 hover:text-[#c0a068]"
+                }`}
+                style={isActive ? {
+                  textShadow: "0 0 10px rgba(212, 175, 55, 0.6)",
+                } : {}}
+              >
+                <div className="my-auto bg-transparent">{item.icon}</div>
+                <span className="px-1 rounded-xl transition-all duration-300 cursor-pointer">
+                  {item.label}
+                </span>
+              </div>
+              <span 
+                className={`absolute left-0 bottom-0 h-0.5 w-full transform transition-transform origin-left duration-300 ${
+                  isActive 
+                    ? "scale-x-100 bg-[#c0a068]" 
+                    : "scale-x-0 group-hover:scale-x-100 bg-[#c0a068]"
+                }`}
+                style={isActive ? {
+                  boxShadow: "0 0 10px rgba(212, 175, 55, 0.8)",
+                } : {
+                  boxShadow: "0 0 5px rgba(212, 175, 55, 0.5)",
+                }}
+              ></span>
+            </button>
+          );
+        })}
       </div>
     </div>
   );

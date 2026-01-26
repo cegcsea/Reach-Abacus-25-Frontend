@@ -1,6 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+
+/* Remove all scrollbars */
+* {
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
 /* Override default react-hot-toast styles */
 .react-hot-toast .toast {
     display: flex;
@@ -43,31 +74,151 @@
     justify-content: center;
   }
   
-/* Scrollbar for Webkit browsers (Chrome, Edge, Safari) */
-::-webkit-scrollbar {
-  width: 12px;
+
+
+
+/* ShinyText.css */
+.shiny-text {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    #b8956a 0%,
+    #c0a068 25%,
+    #fde047 50%,
+    #c0a068 75%,
+    #b8956a 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: black;
-  border-radius: 10px;
+.shiny-text.disabled {
+  animation: none;
+  background: #c0a068;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, rgb(88, 0, 0), white);
-  border-radius: 10px;
+@keyframes shine {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, white, rgb(88, 0, 0));
+/* index.css - Add these styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+  background: transparent;
 }
 
-@supports (scrollbar-width: thin) {
-  * {
-    scrollbar-width: thin;
-    scrollbar-color: white black;
+/* Ensure all content sections have proper z-index */
+#home, #about, #sponsors, #developers, #contact {
+  position: relative;
+  z-index: 10;
+}
+
+/* Make sure content containers have transparent backgrounds */
+.min-h-screen {
+  background: transparent;
+}
+
+/* Add a subtle overlay to improve text readability */
+.content-overlay {
+  position: relative;
+}
+
+.content-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 50%, rgba(0, 0, 0, 0.2) 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Developers.css - outline + small helpers */
+
+.tilted-card-figure {
+  position: relative;
+  display: block;
+  user-select: none;
+}
+
+/* outline: gradient border that glows on hover of the figure */
+.tilted-card-outline {
+  transition: box-shadow 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+  opacity: 0.0;
+  box-shadow: 0 0 12px rgba(192,160,104,0.25), 0 0 30px rgba(192,160,104,0.08) inset;
+  border: 1px solid rgba(192,160,104,0.08);
+  background: linear-gradient(135deg, rgba(192,160,104,0.02), rgba(0,0,0,0));
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* when card hovered, show stronger outline */
+.tilted-card-figure:hover .tilted-card-outline {
+  opacity: 1;
+  box-shadow: 0 0 35px rgba(192,160,104,0.45), 0 0 80px rgba(192,160,104,0.2), inset 0 0 40px rgba(255,255,255,0.06);
+  transform: scale(1.02);
+}
+
+/* small adjustments for the image and children stacking */
+.tilted-card-figure img {
+  display: block;
+  pointer-events: none;
+}
+
+/* ensure the LinkedIn button and overlay are on top */
+.tilted-card-figure .z-30 {
+  z-index: 30 !important;
+}
+
+/* keep the card visually fixed when scrolling (helps avoid painting issues) */
+.tilted-card-figure {
+  will-change: transform;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* optional: adapt for small screens - scale down slightly */
+@media (max-width: 640px) {
+  .tilted-card-figure {
+    transform: none !important;
+  }
+}
+
+/* Uniform section parallax effect */
+.parallax-section {
+  transform-origin: center center;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+@media (max-width: 640px) {
+  .parallax-section {
+    /* allow transforms on mobile but keep them subtle */
+    transition: transform 0.45s ease-out;
+    will-change: transform;
   }
 }
