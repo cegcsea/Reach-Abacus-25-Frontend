@@ -28,6 +28,7 @@ import Loader from "./components/Loader/Loader";
 const App = () => {
   const { isMenuOpen, setIsMenuOpen } = UserData();
   const { isLoading, setIsLoading } = LoaderData();
+  
 
   useEffect(() => {
     if (isLoading) {

@@ -13,8 +13,3 @@
   opacity: 0.9;            /* tweak */
   transition: opacity 300ms ease;
 }
-
-/* mobile fallback: hide or reduce intensity on small screens */
-@media (max-width: 768px) {
-  .light-rays-container { display: none; } /* or reduce via opacity */
-}
