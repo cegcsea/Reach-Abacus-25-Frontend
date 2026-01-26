@@ -18,7 +18,7 @@
   height: 100vh;
   overflow-y: hidden;
   padding: 20px;
-  padding-left: 40px;
+ 
   align-items: center;
   justify-content: center;
   color: white;
@@ -29,6 +29,7 @@
   bottom: 00px;
   left: 0px;
 }
+
 @keyframes rotate-dots {
   0% {
     transform: rotate(0deg);
@@ -44,9 +45,10 @@
   background-position: 50%;
   background-size: contain;
   border-radius: 50%;
-  height: 550px;
+  height: 500px;
   position: absolute;
-  width: 550px;
+  width: 500px;
+  top:5%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,9 +72,8 @@
   padding: 2px;
 }
 .div2 .logo {
-  width: 280px;
-  height: 280px;
-
+  width: 350px;
+  height: 350px;
   z-index: 10;
 }
 
@@ -141,6 +142,10 @@
   height: 30em;
   background-color: #f0f0f0;
 }
+.ablogo{
+  width:500px;
+  height:400px;
+}
 
 .initial .des-2 {
   position: absolute;
@@ -164,22 +169,34 @@
 .about {
   background-color: black;
   padding: 20px;
-  padding-left: 40px;
+  padding-right:40px;
   display: flex;
   color: white;
 }
 .about .first {
   display: flex;
-  text-align: left;
+  justify-content: center;
+  width:1005;
+  align-items: center;
+}
+/* .reachlogo{
+  width:500px;
+  height:500px;
 }
 
+.reach-first{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
 .about .second {
-  padding: 10px;
+
+  padding-right: 30px;
   color: white;
   font-size: 20px;
   line-height: 40px;
+  
   padding-top: 50px;
-  padding-right: 50px;
 }
 
 .about .second::before {
@@ -207,11 +224,30 @@
   transition: all 0.1s ease-in-out;
 }
 
-
+.second button:hover {
+  display: block;
+  filter: drop-shadow(0 0 5px #fffdef);
+}
 
 .main .border {
   height: 250px;
   width: 1500px;
+}
+.home_bgcircle1__MiYGt {
+  visibility: visible;
+  animation: rotate-dots 2.66s linear infinite;
+  background-image: url("../assets/images/img\ red.png");
+  background-position: 50%;
+  background-size: contain;
+  border-radius: 50%;
+  height: 540px;
+  top:3.5%;
+  position: absolute;
+  width: 540px;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 1050px) {
@@ -225,16 +261,41 @@
   .about {
     height: auto;
     flex-direction: column;
+   
   }
   .theme {
     margin-top: 20px;
   }
-}
-
-@media (max-width: 594px) {
-  .button-container {
-    margin-bottom: 40px;
+  .about .first{
+    display: flex;
+    flex-direction: column;
   }
+  .ablogo{
+   width:400px;
+    height:300px;
+  }
+.about .second{
+  padding-top: 0;
+}
+.home_bgcircle1__MiYGt {
+  visibility: visible;
+  animation: rotate-dots 2.66s linear infinite;
+  background-image: url("../assets/images/img\ red.png");
+  background-position: 50%;
+  background-size: contain;
+  border-radius: 50%;
+  height: 560px;
+  top:19%;
+  position: absolute;
+  width: 560px;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+}
+@media(max-width:1018px)
+{
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
@@ -245,6 +306,165 @@
     height: 500px;
     position: absolute;
     width: 500px;
+    top:19.5%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media(max-width:990px){
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 560px;
+    position: absolute;
+    width: 560px;
+    top:24%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media(max-width:985px){
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 560px;
+    position: absolute;
+    width: 560px;
+    top:19%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media(max-width:860px){
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 560px;
+    position: absolute;
+    width: 560px;
+    top:18.3%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .whole{
+    flex-direction: column;
+  }
+.about{
+  padding-right: 20px;
+}
+
+.about .second{
+ 
+  padding:30px;
+  
+}
+
+}
+@media(max-width:810px)
+{
+  .reachlogo{
+    width:200px;
+    height:200px;
+  }
+
+    .home_bgcircle1__MiYGt {
+      visibility: visible;
+      animation: rotate-dots 2.66s linear infinite;
+      background-image: url("../assets/images/img\ red.png");
+      background-position: 50%;
+      background-size: contain;
+      border-radius: 50%;
+      height: 560px;
+      position: absolute;
+      width: 560px;
+      top:19%;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+}
+@media(max-width:777px)
+{
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 560px;
+    position: absolute;
+    width: 560px;
+    top:18.5%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .reachlogo{
+    width:300px;
+  }
+}
+@media(max-width:645px){
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 560px;
+    position: absolute;
+    width: 560px;
+    top:18%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 594px) {
+  .button-container {
+    margin-bottom: 40px;
+  }
+  .reachlogo{
+    width:250px;
+    height: 200px;
+  }
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 530px;
+    top:23.5%;
+    position: absolute;
+    width: 530px;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -252,8 +472,8 @@
   }
 
   .main .initial .logo {
-    height: 15em;
-    width: 15em;
+    height: 20em;
+    /* width: 30em; */
     visibility: visible;
   }
   .h2 {
@@ -268,6 +488,7 @@
   }
   .initial .theme {
     color: rgb(255, 255, 255);
+    font-size: 30px;
     font-weight: 400;
     text-align: center;
     text-decoration: none;
@@ -275,7 +496,6 @@
     margin-top: 20px;
   }
 
-  
   .button {
     margin-bottom: 20px;
   }
@@ -297,12 +517,49 @@
   .about .second {
     padding-left: 0;
   }
- 
+  .second button {
+    margin-left: 10px;
+  }
   .theme {
     z-index: 10;
   }
 }
-
+@media(max-width:590px){
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 560px;
+    position: absolute;
+    width: 560px;
+    top:21%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media(max-width:575px){
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 560px;
+    position: absolute;
+    width: 560px;
+    top:22%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 @media (max-width: 522px) {
   .main .initial .heading {
     font-size: 30px;
@@ -315,10 +572,10 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 470px;
+    height: 520px;
     position: absolute;
-    top: 14%;
-    width: 470px;
+    top:26%;
+    width: 520px;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -336,7 +593,7 @@
   .initial .theme {
     padding: 10px;
     color: rgb(255, 255, 255);
-    font-size: 20px;
+    font-size: 25px;
     border: 1px solid black;
     z-index: 10;
   }
@@ -346,8 +603,26 @@
     margin-bottom: 20px;
   }
 }
+@media(max-width:519px){
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 560px;
+    position: absolute;
+    width: 560px;
+    top:22%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 
-@media(max-width:514px)
+@media(max-width:515px)
 {
 
   .home_bgcircle1__MiYGt {
@@ -357,10 +632,10 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 460px;
+    height: 520px;
     position: absolute;
-    width: 460px;
-    top:16%;
+    width: 520px;
+    top: 23%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -368,7 +643,10 @@
   }
 }
 
-@media (max-width: 480px) {
+
+
+
+@media (max-width: 506px) {
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
@@ -376,29 +654,18 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 460px;
+    height: 525px;
     position: absolute;
-    width: 460px;
-    top:17%;
+    width: 525px;
+    top:23%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .logo {
-    margin-top: 10px;
-  }
 }
 
-@media (max-width: 480px) {
-
-
-  .logo {
-    margin-top: 20px;
-  }
-}
-
-@media (max-width: 480px) {
+@media (max-width: 495px) {
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
@@ -406,10 +673,28 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 460px;
+    height: 520px;
     position: absolute;
-    width: 460px;
-    top:19%;
+    width: 520px;
+    top:24%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media(max-width:487px){
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 530px;
+    position: absolute;
+    width: 530px;
+    top:23.5%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -426,18 +711,17 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 460px;
+    height: 520px;
     position: absolute;
-    width: 460px;
-    top:17%;
+    width: 520px;
+    top:24%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 }
-
-@media (max-width: 422px) {
+@media(max-width:452px){
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
@@ -445,10 +729,10 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 460px;
+    height: 540px;
     position: absolute;
-    width: 460px;
-    top:19%;
+    width: 540px;
+    top:23.5%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -456,7 +740,7 @@
   }
 }
 
-@media (max-width: 357px) {
+@media (max-width: 420px) {
   .home_bgcircle1__MiYGt {
     visibility: visible;
     animation: rotate-dots 2.66s linear infinite;
@@ -464,10 +748,30 @@
     background-position: 50%;
     background-size: contain;
     border-radius: 50%;
-    height: 465px;
+    height: 520px;
     position: absolute;
-    width: 465x;
-    top:22%;
+    width: 520px;
+    top:24.3%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+ 
+@media (max-width: 370px) {
+  .home_bgcircle1__MiYGt {
+    visibility: visible;
+    animation: rotate-dots 2.66s linear infinite;
+    background-image: url("../assets/images/img\ red.png");
+    background-position: 50%;
+    background-size: contain;
+    border-radius: 50%;
+    height: 510px;
+    position: absolute;
+    width: 510x;
+    top: 24.3%;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -493,8 +797,8 @@
     align-items: center;
   }
  
-}
-
+} 
+/* 
 @media (max-width: 350px) {
   .home_bgcircle1__MiYGt {
     visibility: visible;
@@ -512,4 +816,4 @@
     justify-content: center;
     align-items: center;
   }
-}
+} */

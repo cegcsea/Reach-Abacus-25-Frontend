@@ -6,16 +6,25 @@ body {
     color: #fff;
 }
 
+/* Container */
 .user-profile-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    
     padding: 80px 20px 40px 20px;
 }
 
+/* Card */
 .user-card {
-    background: linear-gradient(to bottom, #800020, #301515);
+    
+    background: linear-gradient(
+        to bottom,
+        #2a2a2a,
+        #1a1a1a
+    );
+    border: 1px solid #c0a068;
+
+
     padding: 25px 35px;
     border-radius: 12px;
     box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.6);
@@ -24,23 +33,25 @@ body {
     margin-top: 35px;
 }
 
+/* Header */
 .user-header {
     margin-bottom: 25px;
 }
 
 .user-header h2 {
-    color: #f8f8f8;
+    color: #fff;
     font-size: 1.8rem;
-    margin: 0 0 10px 0;
-    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.8);
+    margin-bottom: 10px;
+    text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.6);
 }
 
 .user-header p {
     font-size: 1rem;
     margin: 5px 0;
-    color: #ccc;
+    color: #f1f1f1;
 }
 
+/* Content */
 .user-content {
     display: flex;
     justify-content: space-between;
@@ -48,21 +59,24 @@ body {
     margin-top: 20px;
 }
 
+/* Sections */
 .user-section {
     flex: 1;
-    background: #292929;
+    background: #1e1e1e;
     padding: 15px;
     border-radius: 8px;
+    border: 1px solid #c0a068;
 }
 
 .user-section h3 {
     font-size: 1.2rem;
-    color: #f8f8f8;
-    border-bottom: 2px solid #f8f8f8;
+    color: #c0a068;
+    border-bottom: 2px solid #c0a068;
     margin-bottom: 20px;
     padding-bottom: 8px;
 }
 
+/* List */
 .user-section ul {
     list-style: none;
     padding: 0;
@@ -72,14 +86,33 @@ body {
 .user-section li {
     font-size: 1rem;
     margin-bottom: 10px;
-    color: #bbb;
+    color: #ddd;
     padding: 8px 12px;
     border-radius: 6px;
-    background: #1e1e1e;
+    background: #121212;
     transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* Hover effect */
 .user-section li:hover {
-    background: #800020;
+    background: #c0a068;
+    color: #000;
+}
+
+/* Buttons */
+.user-actions button {
+    border: 1px solid #c0a068;
     color: #fff;
+    background: transparent;
+    cursor: pointer;
+}
+
+.user-actions button:hover {
+    background: rgba(192, 160, 104, 0.25);
+}
+
+/* Icons */
+.icon {
+    color: #c0a068;
+    font-size: 1.2rem;
 }
