@@ -287,31 +287,26 @@ const Developers = ({ scrollY = 0 }) => {
       <div className="absolute inset-0 overflow-hidden">
         <div
           className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-20"
-          style={{
-            background: "radial-gradient(circle, #d4af37 0%, transparent 70%)",
-          }}
+          style={{ background: "radial-gradient(circle, #d4af37 0%, transparent 70%)" }}
         />
         <div
           className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl opacity-15"
-          style={{
-            background: "radial-gradient(circle, #b8956a 0%, transparent 70%)",
-          }}
+          style={{ background: "radial-gradient(circle, #b8956a 0%, transparent 70%)" }}
         />
       </div>
 
       <div className="max-w-6xl mx-auto w-full relative z-10">
-        {/* Title */}
+        {/* Title Section - Reduced mb-12 to mb-6 on desktop */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-8 sm:mb-12"
+          className="text-center mb-8 md:mb-6" 
         >
           <h2
             className="mb-4 text-2xl sm:text-3xl md:text-4xl font-semibold"
             style={{
-              background:
-                "linear-gradient(135deg, #b8956a 0%, #c0a068 50%, #9d7f52 100%)",
+              background: "linear-gradient(135deg, #b8956a 0%, #c0a068 50%, #9d7f52 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -323,19 +318,19 @@ const Developers = ({ scrollY = 0 }) => {
           <div
             className="w-20 sm:w-24 h-1 mx-auto mb-4"
             style={{
-              background:
-                "linear-gradient(90deg, #c0a068 0%, #b8956a 50%, #c0a068 100%)",
+              background: "linear-gradient(90deg, #c0a068 0%, #b8956a 50%, #c0a068 100%)",
               boxShadow: "0 0 15px rgba(212, 175, 55, 0.7)",
             }}
           />
-          <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-4">
+          <p className="text-gray-300 text-md sm:text-lg md:text-xl max-w-2xl mx-auto px-4">
             Meet the talented team behind Reach&apos;26, crafting exceptional experiences with passion and precision.
           </p>
         </motion.div>
 
-        {/* Main Gallery Container */}
-        <div className="relative h-[350px] sm:h-[500px] md:h-[600px] flex items-center justify-center">
-          {/* Previous Developer Card (left) - Hidden on mobile if not enough space */}
+        {/* Main Gallery Container - Reduced md:h-[600px] to md:h-[520px] */}
+        <div className="relative h-[400px] sm:h-[500px] md:h-[520px] flex items-center justify-center">
+          
+          {/* Previous Developer Card (left) */}
           <motion.div
             initial={isMobile ? { opacity: 0, y: -30 } : { opacity: 0, x: -100 }}
             animate={inView ? (isMobile ? { opacity: 0.35, y: -10 } : { opacity: 0.4, x: -60 }) : (isMobile ? { opacity: 0, y: -30 } : { opacity: 0, x: -100 })}
@@ -353,7 +348,7 @@ const Developers = ({ scrollY = 0 }) => {
             />
           </motion.div>
 
-          {/* Next Developer Card (right) - Hidden on mobile if not enough space */}
+          {/* Next Developer Card (right) */}
           <motion.div
             initial={isMobile ? { opacity: 0, y: -30 } : { opacity: 0, x: 100 }}
             animate={inView ? (isMobile ? { opacity: 0.35, y: 10 } : { opacity: 0.4, x: 60 }) : (isMobile ? { opacity: 0, y: -30 } : { opacity: 0, x: 100 })}
@@ -383,9 +378,7 @@ const Developers = ({ scrollY = 0 }) => {
               }}
               exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.4 } }}
               className="relative z-20"
-              style={{
-                cursor: isMobile ? 'pointer' : 'default'
-              }}
+              style={{ cursor: isMobile ? 'pointer' : 'default' }}
             >
               <TiltedCard
                 imageSrc={developers[currentIndex].src}
@@ -401,7 +394,6 @@ const Developers = ({ scrollY = 0 }) => {
                 onTap={handleCardTap}
                 isMobile={isMobile}
                 className="rounded-2xl"
-                // using inline style here is okay — preserves your previous effects
                 style={{
                   boxShadow: isHovered && !isMobile
                     ? "0 0 60px rgba(212, 175, 55, 0.8), 0 0 100px rgba(212, 175, 55, 0.4), inset 0 0 40px rgba(255, 255, 255, 0.1)"
@@ -412,7 +404,6 @@ const Developers = ({ scrollY = 0 }) => {
                   transition: "box-shadow 0.3s ease",
                 }}
               >
-                {/* Image gradient overlay */}
                 <div
                   className="absolute top-0 left-0 w-full rounded-t-2xl bg-gradient-to-t from-black/70 via-transparent to-transparent"
                   style={{ 
@@ -421,19 +412,16 @@ const Developers = ({ scrollY = 0 }) => {
                     zIndex: 2 
                   }}
                 />
-
-                {/* Name Section (Below Image) */}
                 <div
                   className="absolute left-0 w-full rounded-b-2xl p-4 sm:p-6 flex flex-col items-center justify-center transition-all duration-300"
                   style={{
                     top: isMobile ? mobileImageHeight : "400px",
-                    height: isMobile ? "100px" : "100px",
+                    height: "100px",
                     background: "rgba(0, 0, 0, 0.9)",
                     borderTop: "2px solid rgba(212, 175, 55, 0.3)",
                     zIndex: 3,
                   }}
                 >
-                  {/* Shiny name text (preserves existing color & size) */}
                   <ShinyText
                     text={developers[currentIndex].name}
                     speed={4}
@@ -442,7 +430,6 @@ const Developers = ({ scrollY = 0 }) => {
                   />
                 </div>
 
-                {/* LinkedIn Button - Appears on hover (desktop only) */}
                 {!isMobile && (
                   <div
                     className="absolute inset-0 flex items-center justify-center transition-all duration-500"
@@ -453,24 +440,13 @@ const Developers = ({ scrollY = 0 }) => {
                       zIndex: 30,
                     }}
                   >
-                    <a
-                      href={developers[currentIndex].linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="z-30"
-                    >
+                    <a href={developers[currentIndex].linkedin} target="_blank" rel="noopener noreferrer" className="z-30">
                       <button
                         className="px-8 py-4 rounded-lg font-bold transition-all duration-300 hover:scale-105 flex items-center gap-3 group"
                         style={{
                           background: "linear-gradient(135deg, #b8956a 0%, #c0a068 100%)",
                           color: "#000",
                           boxShadow: "0 0 30px rgba(212, 175, 55, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.2)",
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.boxShadow = "0 0 50px rgba(212, 175, 55, 1.2), inset 0 0 30px rgba(255, 255, 255, 0.3)";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.boxShadow = "0 0 30px rgba(212, 175, 55, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.2)";
                         }}
                       >
                         <span className="text-lg">LinkedIn Profile</span>
@@ -479,25 +455,13 @@ const Developers = ({ scrollY = 0 }) => {
                     </a>
                   </div>
                 )}
-
-                {/* Mobile Tap Hint (only on mobile) */}
-                {isMobile && (
-                  <div
-                    className="absolute bottom-4 left-0 right-0 flex justify-center transition-all duration-300"
-                    style={{
-                      opacity: 0.8,
-                      zIndex: 4,
-                    }}
-                  >
-                  </div>
-                )}
               </TiltedCard>
             </motion.div>
           </AnimatePresence>
         </div>
 
-        {/* Indicator Dots - Replaces navigation buttons */}
-        <div className="flex justify-center mt-0 sm:mt-4 space-x-3 sm:space-x-5">
+        {/* Indicator Dots - mt-4 keeps them visible below the shrunk card area */}
+        <div className="flex justify-center mt-4 p-3 sm:p-0.5 space-x-3 sm:space-x-5 relative z-30">
           {developers.map((_, index) => (
             <button
               key={index}
@@ -506,9 +470,7 @@ const Developers = ({ scrollY = 0 }) => {
                 setCurrentIndex(index);
                 setTimeout(() => setIsAutoPlaying(true), 5000);
               }}
-              className={`transition-all duration-300 ${
-                index === currentIndex ? "scale-125" : "scale-100"
-              }`}
+              className={`transition-all duration-300 ${index === currentIndex ? "scale-125" : "scale-100"}`}
               style={{
                 width: isMobile ? "12px" : "16px",
                 height: isMobile ? "12px" : "16px",
@@ -534,18 +496,6 @@ const Developers = ({ scrollY = 0 }) => {
               border: "1px solid rgba(212, 175, 55, 0.3)",
               background: "rgba(0, 0, 0, 0.5)",
               boxShadow: "0 0 10px rgba(212, 175, 55, 0.2)",
-            }}
-            onMouseEnter={(e) => {
-              if (!isMobile) {
-                e.currentTarget.style.boxShadow = "0 0 20px rgba(212, 175, 55, 0.4)";
-                e.currentTarget.style.background = "rgba(0, 0, 0, 0.7)";
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (!isMobile) {
-                e.currentTarget.style.boxShadow = "0 0 10px rgba(212, 175, 55, 0.2)";
-                e.currentTarget.style.background = "rgba(0, 0, 0, 0.5)";
-              }
             }}
           >
             {isAutoPlaying ? "⏸ Pause Rotation" : "▶ Resume Rotation"}

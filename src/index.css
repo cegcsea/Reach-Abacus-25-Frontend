@@ -1,224 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 
-/* Remove all scrollbars */
+/* Disable scrollbars globally for the app-scroll feel */
 * {
   scrollbar-width: none;
-}
-
-*::-webkit-scrollbar {
-  display: none;
-}
-
-html {
-  scrollbar-width: none;
   -ms-overflow-style: none;
 }
 
-html::-webkit-scrollbar {
-  display: none;
-}
-
-body {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-body::-webkit-scrollbar {
-  display: none;
-}
-
-/* Override default react-hot-toast styles */
-.react-hot-toast .toast {
-    display: flex;
-    align-items: center;
-    max-height: 80px;
-    padding: 12px;
-    border-radius: 8px;
-    font-weight: medium;
-    font-size: 0.875rem; /* Tailwind text-sm */
-    line-height: 1.2;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  
-  /* Success Toast */
-  .react-hot-toast .toast-success {
-    background-color: #38a169; /* Tailwind bg-green-500 */
-    color: #ffffff;
-  }
-  
-  /* Error Toast */
-  .react-hot-toast .toast-error {
-    background-color: #e53e3e; /* Tailwind bg-red-500 */
-    color: #ffffff;
-  }
-  
-  /* Default (fallback) toast color */
-  .react-hot-toast .toast {
-    background-color: #2d3748; /* Tailwind bg-gray-800 */
-    color: #ffffff;
-  }
-  
-  /* Icon Styling */
-  .react-hot-toast .toast-icon {
-    min-height: 24px;
-    max-height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-
-@import './styles/luxury.css';
-
-/* ShinyText.css */
-.shiny-text {
-  position: relative;
-  display: inline-block;
-  background: linear-gradient(
-    90deg,
-    #b8956a 0%,
-    #c0a068 25%,
-    #fde047 50%,
-    #c0a068 75%,
-    #b8956a 100%
-  );
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 3s linear infinite;
-  text-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
-}
-
-.shiny-text.disabled {
-  animation: none;
-  background: #c0a068;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-@keyframes shine {
-  0% {
-    background-position: 0% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
-/* index.css - Add these styles */
-body {
+body, html, #root {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
   background: transparent;
 }
 
-/* Ensure all content sections have proper z-index */
-#home, #about, #sponsors, #developers, #contact {
-  position: relative;
-  z-index: 10;
+body, html, #root {
+  touch-action: pan-y;
 }
 
-/* Make sure content containers have transparent backgrounds */
-.min-h-screen {
-  background: transparent;
+/* Allow scrolling ONLY inside the specific footer container */
+div[ref="footerScrollRef"] {
+  touch-action: auto !important;
 }
 
-/* Add a subtle overlay to improve text readability */
-.content-overlay {
-  position: relative;
+/* Update your Footer.css to ensure it flows naturally */
+.footer-section-container {
+    width: 100%;
+    min-height: 100%; /* Allows it to be longer than the screen */
+    display: block;
+    padding-bottom: 5rem; /* Space at the bottom so it doesn't cut off */
 }
 
-.content-overlay::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 50%, rgba(0, 0, 0, 0.2) 100%);
-  pointer-events: none;
-  z-index: -1;
+/* Hide scrollbar for Chrome/Safari */
+div::-webkit-scrollbar {
+  display: none;
 }
 
-/* Developers.css - outline + small helpers */
-
-.tilted-card-figure {
-  position: relative;
-  display: block;
-  user-select: none;
+/* Maintain font styles from original */
+* {
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
 }
 
-/* outline: gradient border that glows on hover of the figure */
-.tilted-card-outline {
-  transition: box-shadow 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
-  opacity: 0.0;
-  box-shadow: 0 0 12px rgba(192,160,104,0.25), 0 0 30px rgba(192,160,104,0.08) inset;
-  border: 1px solid rgba(192,160,104,0.08);
-  background: linear-gradient(135deg, rgba(192,160,104,0.02), rgba(0,0,0,0));
-  pointer-events: none;
-  z-index: 4;
-}
-
-/* when card hovered, show stronger outline */
-.tilted-card-figure:hover .tilted-card-outline {
-  opacity: 1;
-  box-shadow: 0 0 35px rgba(192,160,104,0.45), 0 0 80px rgba(192,160,104,0.2), inset 0 0 40px rgba(255,255,255,0.06);
-  transform: scale(1.02);
-}
-
-/* small adjustments for the image and children stacking */
-.tilted-card-figure img {
-  display: block;
-  pointer-events: none;
-}
-
-/* ensure the LinkedIn button and overlay are on top */
-.tilted-card-figure .z-30 {
-  z-index: 30 !important;
-}
-
-/* keep the card visually fixed when scrolling (helps avoid painting issues) */
-.tilted-card-figure {
-  will-change: transform;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-}
-
-/* optional: adapt for small screens - scale down slightly */
-@media (max-width: 640px) {
-  .tilted-card-figure {
-    transform: none !important;
-  }
-}
-
-/* Uniform section parallax effect */
 .parallax-section {
-  transform-origin: center center;
-  will-change: transform;
-  backface-visibility: hidden;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
-@media (max-width: 640px) {
-  .parallax-section {
-    /* allow transforms on mobile but keep them subtle */
-    transition: transform 0.45s ease-out;
-    will-change: transform;
-  }
-}
+/* Ensure developer cards and other assets don't lose their styling */
+@import './styles/luxury.css';
+@import './styles/developer.css';
+@import './styles/about.css';
+@import './styles/Footer.css';

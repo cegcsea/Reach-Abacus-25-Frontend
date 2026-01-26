@@ -1,170 +1,232 @@
-// src/pages/HomePage.jsx
-import React, { useEffect, useState, useRef } from "react";
-import "../styles/global.css";
-import "../styles/about.css";
-import "../assets/images/logo.jpeg";
+import React, { useEffect, useState, useRef, useCallback } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
-import Home from "../components/HomePage/Hero";
+import Hero from "../components/HomePage/Hero";
 import About from "../components/HomePage/About";
-import Sponsors from "../components/Sponsors";
+import EventHighlights from "../components/HomePage/EventHighlights"; // Assuming this exists or replace with Sponsors
 import Developers from "../components/HomePage/Developers";
 import Footer from "../components/HomePage/Footer";
-import ParallaxBackground from "../components/ParallaxBackground";
+
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 
-/**
- * NOTE: This file preserves desktop behavior exactly.
- * Mobile-only adjustments are handled inside each component via useIsMobile hook.
- */
+const SECTIONS = ["hero", "about", "highlights", "developers", "contact"];
 
 const HomePage = () => {
   const { isLoading } = LoaderData();
+  const [active, setActive] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const lockRef = useRef(false);
+  const footerScrollRef = useRef(null);
+  const lastScrollTime = useRef(0);
 
-  const [scrollY, setScrollY] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const goTo = useCallback((dir) => {
+    const now = Date.now();
+    if (lockRef.current || now - lastScrollTime.current < 1000) return;
 
-  const contactRef = useRef(null);
-
-  // Scroll handler for parallax and zoom feeling
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY || window.pageYOffset;
-      const maxScroll =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const progress = maxScroll > 0 ? scrolled / maxScroll : 0;
-
-      setScrollY(scrolled);
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Apply uniform inward/outward transform to sections based on scroll position
-  useEffect(() => {
-    const applySectionTransforms = () => {
-      const sections = document.querySelectorAll('.parallax-section');
-      const vw = window.innerWidth;
-      const viewportCenter = window.innerHeight / 2;
-
-      sections.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        const centerY = rect.top + rect.height / 2;
-        const distance = (centerY - viewportCenter) / viewportCenter; // -1..1
-        const clamped = Math.max(-1, Math.min(1, distance));
-
-        // Mobile: apply a toned-down variant of the same inward/outward effect
-        if (vw < 640) {
-          const translateYMobile = clamped * -12; // smaller translation
-          const scaleMobile = 1 - Math.abs(clamped) * 0.03; // subtler scale
-          const rotateXMobile = clamped * 1.2; // smaller tilt
-
-          el.style.transform = `translateY(${translateYMobile}px) scale(${scaleMobile}) rotateX(${rotateXMobile}deg)`;
-          el.style.transition = 'transform 0.45s ease-out';
-          el.style.transformStyle = 'preserve-3d';
-          return;
-        }
-
-        const translateY = clamped * -30;
-        const scale = 1 - Math.abs(clamped) * 0.06;
-        const rotateX = clamped * 3;
-
-        el.style.transform = `translateY(${translateY}px) scale(${scale}) rotateX(${rotateX}deg)`;
-        el.style.transition = 'transform 0.6s cubic-bezier(0.2,0.8,0.2,1)';
-        el.style.transformStyle = 'preserve-3d';
-      });
-    };
-
-    applySectionTransforms();
-
-    const onResize = () => applySectionTransforms();
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, [scrollY]);
-
-  const scrollToContact = () => {
-    if (contactRef.current) {
-      contactRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+    // FOOTER FREE SCROLL LOGIC
+    if (active === SECTIONS.length - 1 && footerScrollRef.current) {
+      const box = footerScrollRef.current;
+      if (dir === 1) {
+        const isAtBottom = Math.abs(box.scrollHeight - box.clientHeight - box.scrollTop) < 5;
+        if (!isAtBottom) return; 
+      }
+      if (dir === -1) {
+        if (box.scrollTop > 5) return;
+      }
     }
+
+    const next = active + dir;
+    if (next < 0 || next >= SECTIONS.length) return;
+
+    lastScrollTime.current = now;
+    lockRef.current = true;
+    setDirection(dir);
+    setActive(next);
+
+    setTimeout(() => { lockRef.current = false; }, 900);
+  }, [active]);
+
+  // ✅ STRICT Apple Scroll Trigger Control
+useEffect(() => {
+  let scrollAccum = 0;
+
+  const onWheel = (e) => {
+    e.preventDefault();
+
+    if (lockRef.current) return;
+
+    // Accumulate wheel movement
+    scrollAccum += e.deltaY;
+
+    // Threshold reached → trigger ONE move
+    if (scrollAccum > 120) {
+      goTo(1);
+      scrollAccum = 0;
+    }
+
+    if (scrollAccum < -120) {
+      goTo(-1);
+      scrollAccum = 0;
+    }
+  };
+
+  window.addEventListener("wheel", onWheel, { passive: false });
+
+  return () => window.removeEventListener("wheel", onWheel);
+}, [goTo]);
+
+
+  useEffect(() => {
+    let startY = 0;
+    const touchStart = (e) => { startY = e.touches[0].clientY; };
+    const touchEnd = (e) => {
+      const diff = startY - e.changedTouches[0].clientY;
+      if (Math.abs(diff) < 60) return;
+      goTo(diff > 0 ? 1 : -1);
+    };
+    window.addEventListener("touchstart", touchStart, { passive: true });
+    window.addEventListener("touchend", touchEnd, { passive: true });
+    return () => {
+      window.removeEventListener("touchstart", touchStart);
+      window.removeEventListener("touchend", touchEnd);
+    };
+  }, [goTo]);
+
+  const variants = {
+    initial: (dir) => ({
+      opacity: 0,
+      scale: dir > 0 ? 0.8 : 1.2,
+      z: dir > 0 ? 200 : -200,
+      filter: "blur(10px)",
+    }),
+    animate: {
+      opacity: 1,
+      scale: 1,
+      z: 0,
+      filter: "blur(0px)",
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    },
+    exit: (dir) => ({
+      opacity: 0,
+      scale: dir > 0 ? 1.2 : 0.8,
+      z: dir > 0 ? -200 : 200,
+      filter: "blur(10px)",
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    }),
   };
 
   if (isLoading) return <Loader />;
 
   return (
-    <div
-      className="relative bg-transparent text-white overflow-x-hidden"
-      style={{ perspective: "1000px" }} // camera perspective for 3D feel
+    <div 
+      className="relative w-full h-screen overflow-hidden select-none"
+      style={{ background: active === 0 ? "black" : "transparent" }}
     >
-      {/* Deep parallax background layers */}
-      <ParallaxBackground scrollY={scrollY} scrollProgress={scrollProgress} />
-
-      {/* Main content sections */}
-      <main>
-        {/* HOME / HERO */}
-        {/* HOME / HERO */}
-        <section
-          id="home"
-          className="relative flex items-center justify-center parallax-section"
-          style={{
-            minHeight: "110vh",   // ✅ taller than screen
-            overflow: "hidden",
-          }}
+      <AnimatePresence mode="wait" custom={direction}>
+        <motion.div
+          key={active}
+          custom={direction}
+          variants={variants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          className="w-full h-full absolute inset-0"
+          style={{ transformStyle: "preserve-3d" }}
         >
-          {/* ✅ EXTENDED BLACK BACKDROP (covers Galaxy bleed) */}
-          <div
-            className="absolute"
-            style={{
-              top: "-240px",       // ✅ cover top overscroll
-              left: "-120px",      // ✅ cover left bleed
-              right: "-120px",     // ✅ cover right bleed
-              bottom: "100px",    // ✅ cover bottom bleed
-              background: "black",
-              zIndex: 0,
-            }}
-          />
+          {active === 0 && <Hero scrollY={0} />}
+          {active === 1 && <About scrollY={1000} />}
+          {active === 2 && <EventHighlights scrollY={2500} />}
+          {active === 3 && <Developers scrollY={4000} />}
+          {active === 4 && (
+  <div
+    ref={footerScrollRef}
+    className="w-full h-full overflow-y-auto"
+    style={{
+      WebkitOverflowScrolling: "touch",
+      overscrollBehavior: "contain",
+      paddingBottom: "120px",
+    }}
+    onWheel={(e) => {
+      const box = footerScrollRef.current;
+      if (!box) return;
 
-          {/* Hero Content */}
-          <div className="relative z-10 w-full">
-            <Home scrollY={scrollY} scrollToContact={scrollToContact} />
-          </div>
-        </section>
+      const atTop = box.scrollTop <= 5;
+      const atBottom =
+        box.scrollHeight - box.clientHeight - box.scrollTop <= 5;
+
+      // ✅ Scroll UP at top → allow snap back to Developers
+      if (e.deltaY < 0 && atTop) return;
+
+      // ✅ Scroll DOWN at bottom → block (no next section exists)
+      if (e.deltaY > 0 && atBottom) {
+        e.preventDefault();
+        return;
+      }
+
+      // ✅ Otherwise → footer scroll only (no snap)
+      e.stopPropagation();
+    }}
+    onTouchMove={(e) => {
+      const box = footerScrollRef.current;
+      if (!box) return;
+
+      const atTop = box.scrollTop <= 5;
+      const atBottom =
+        box.scrollHeight - box.clientHeight - box.scrollTop <= 5;
+
+      // Allow swipe UP at top → go back
+      if (atTop) return;
+
+      // Allow swipe DOWN at bottom → stop
+      if (atBottom) return;
+
+      // Otherwise lock snap
+      e.stopPropagation();
+    }}
+  >
+    <Footer disableSnap={true} />
+    <div className="footer-line p-0 text-sm text-center text-gray-500">
+      &copy; Copyright 2026 CSEA. All rights reserved.
+    </div>
+  </div>
+
+)}
 
 
-        {/* ABOUT */}
-        <section
-          id="about"
-          className="relative min-h-screen flex items-center parallax-section"
-        >
-          <About scrollY={scrollY} />
-        </section>
+        </motion.div>
+      </AnimatePresence>
 
-        {/* DEVELOPERS */}
-        <section
-          id="developers"
-          className="relative min-h-screen flex items-center parallax-section"
-        >
-          <Developers scrollY={scrollY} />
-        </section>
+      {/* Navigation Dots */}
+<div
+  className="
+    absolute z-50 flex gap-4
 
-        {/* CONTACT */}
-        <section
-          id="contact"
-          ref={contactRef}
-          className="relative min-h-screen flex items-center parallax-section"
-        >
-          <Footer scrollY={scrollY} />
-        </section>
-        <div className="footer-line p-5 text-sm text-center">
-            &copy; Copyright 2026 CSEA. All rights reserved.
-        </div>
-      </main>
+    /* Desktop (default): right middle vertical */
+    right-6 top-1/2 -translate-y-1/2 flex-col
+
+    /* Mobile: bottom center horizontal */
+    max-md:bottom-6 max-md:top-auto max-md:right-1/2 
+    max-md:translate-x-1/2 max-md:translate-y-0
+    max-md:flex-row
+  "
+>
+  {SECTIONS.map((_, i) => (
+    <div
+      key={i}
+      onClick={() => {
+        setDirection(i > active ? 1 : -1);
+        setActive(i);
+      }}
+      className={`transition-all duration-500 rounded-full cursor-pointer ${
+        i === active
+          ? "w-4 h-4 bg-[#c0a068] shadow-[0_0_15px_#c0a068]"
+          : "w-2 h-2 bg-white/20"
+      }`}
+    />
+  ))}
+</div>
+
     </div>
   );
 };

@@ -15,7 +15,8 @@ const useIsMobile = () => {
   return isMobile;
 };
 
-const Footer = ({ scrollY }) => {
+const Footer = ({disableSnap }) => {
+  const [scrollY, setScrollY] = useState(0);
   const [inView, setInView] = useState(false);
   const ref = useRef(null);
   const isMobile = useIsMobile();
@@ -89,15 +90,19 @@ const Footer = ({ scrollY }) => {
 
   return (
     <section
-      id="contact"
-      className="relative py-8 px-4 sm:px-6 lg:px-8"
-      style={{
-        transform: `scale(${scale}) translateZ(${inView ? 0 : -100}px)`,
-        opacity,
-        transformStyle: "preserve-3d",
-        transition: "all 0.6s ease-out",
-      }}
-    >
+  id="contact"
+  className="relative py-8 px-4 sm:px-6 lg:px-8"
+  style={{
+    transform: disableSnap ? "none" : `scale(${scale}) translateZ(${inView ? 0 : -100}px)`,
+    opacity: disableSnap ? 1 : opacity,
+    transformStyle: "preserve-3d",
+    transition: "all 0.6s ease-out",
+  }}
+>
+
+  <br></br>
+  <br></br>
+
       {/* Spotlight Effect */}
       <div
         className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-36 blur-3xl"
@@ -305,7 +310,7 @@ const Footer = ({ scrollY }) => {
           className="mt-6"
         >
           <div
-            className="relative p-4 md:p-6 rounded-xl w-full"
+            className="relative p-4 md:p-4 rounded-xl w-full"
             style={{
               background: "rgba(0, 0, 0, 0.5)",
               border: "3px solid rgba(212, 175, 55, 0.2)",

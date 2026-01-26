@@ -122,68 +122,6 @@ const About = ({ scrollY }) => {
             all the events.
           </p>
         </motion.div>
-        
-        
-        {/* Event Highlights */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center"
-        >
-          <h3
-            className={`${isMobile ? "text-lg mb-6 font-semibold" : "mb-8 text-xl md:text-2xl font-semibold"}`}
-            style={{
-              color: "#c0a068",
-              textShadow: "0 0 10px rgba(212, 175, 55, 0.3)",
-            }}
-          >
-            Event Highlights
-          </h3>
-          
-          <div className={`flex ${isMobile ? "flex-col" : "flex-row md:flex-row"} justify-center items-stretch gap-6 max-w-5xl mx-auto`}>
-            {features.map((feature, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                className="flex-1 p-5 rounded-xl text-center min-h-[160px] flex flex-col"
-                style={{
-                  background: "rgba(0, 0, 0, 0.4)",
-                  border: "3px solid rgba(212, 175, 55, 0.2)",
-                  boxShadow: "0 0 15px rgba(212, 175, 55, 0.1)",
-                }}
-              >
-                <div className="flex justify-center mb-3">
-                  <div
-                    className="p-3 rounded-lg"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(184, 134, 11, 0.2) 100%)",
-                      border: "1px solid rgba(212, 175, 55, 0.3)",
-                      color: "#c0a068",
-                    }}
-                  >
-                    {feature.icon}
-                  </div>
-                </div>
-                <h4
-                  className="mb-2 font-semibold flex-1"
-                  style={{
-                    color: "#c0a068",
-                    textShadow: "0 0 10px rgba(212, 175, 55, 0.3)",
-                  }}
-                >
-                  {feature.title}
-                </h4>
-                <p className="text-gray-400 text-sm">
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   );
