@@ -323,7 +323,7 @@ const Developers = ({ scrollY = 0 }) => {
             }}
           />
           <p className="text-gray-300 text-md sm:text-lg md:text-xl max-w-2xl mx-auto px-4">
-            Meet the talented team behind Reach&apos;26, crafting exceptional experiences with passion and precision.
+            Meet the talented team behind Abacus&apos;26, crafting exceptional experiences with passion and precision.
           </p>
         </motion.div>
 
@@ -461,26 +461,26 @@ const Developers = ({ scrollY = 0 }) => {
         </div>
 
         {/* Indicator Dots - mt-4 keeps them visible below the shrunk card area */}
-        <div className="flex justify-center mt-4 p-3 sm:p-0.5 space-x-3 sm:space-x-5 relative z-30">
+        <div className="flex justify-center mt-4 space-x-3 z-30">
           {developers.map((_, index) => (
             <button
               key={index}
-              onClick={() => {
-                setIsAutoPlaying(false);
-                setCurrentIndex(index);
-                setTimeout(() => setIsAutoPlaying(true), 5000);
-              }}
-              className={`transition-all duration-300 ${index === currentIndex ? "scale-125" : "scale-100"}`}
+              onClick={() => setCurrentIndex(index)}
+              className="transition-all duration-300"
               style={{
-                width: isMobile ? "12px" : "16px",
-                height: isMobile ? "12px" : "16px",
-                borderRadius: "50%",
-                background: index === currentIndex
-                  ? "linear-gradient(135deg, #c0a068, #b8956a)"
-                  : "rgba(192, 160, 104, 0.3)",
-                boxShadow: index === currentIndex
-                  ? "0 0 20px rgba(212, 175, 55, 0.8)"
-                  : "0 0 8px rgba(212, 175, 55, 0.3)",
+                width: index === currentIndex ? "28px" : "14px",
+                height: "6px",
+                borderRadius: "999px",
+
+                background:
+                  index === currentIndex
+                    ? "linear-gradient(90deg, #c0a068, #b8956a)"
+                    : "rgba(192,160,104,0.25)",
+
+                boxShadow:
+                  index === currentIndex
+                    ? "0 0 14px rgba(212,175,55,0.8)"
+                    : "none",
               }}
             />
           ))}

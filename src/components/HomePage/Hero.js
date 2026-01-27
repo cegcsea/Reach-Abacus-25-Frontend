@@ -61,7 +61,8 @@ const Hero = () => {
         </div>
 
         {/* Bottom Title */}
-        <div className="mb-10 sm:mt-10">
+        <div className="mb-10 lg:translate-y-12">
+
           <h1
             className="text-5xl sm:text-8xl tracking-[0.15em]"
             style={{
