@@ -1,15 +1,13 @@
 /* Profile.css */
 
-:root {
-  --simp-gold-primary: #c0a068;
-  --simp-gold-dim: #aa8c2c;
-  --simp-text-color: #ffffffe6;
-  --simp-gold-glow: rgba(192, 160, 104, 0.15);
-  --simp-red-accent: #c53939;
-}
-
 /* Main Container */
 .user-profile-container {
+--simp-gold-primary: #c0a068;
+--simp-gold-dim: #aa8c2c;
+--simp-text-color: #ffffffe6;
+--simp-gold-glow: rgba(192, 160, 104, 0.15);
+--simp-red-accent: #c53939;
+
   min-height: 100vh;
   width: 100%;
   display: flex;

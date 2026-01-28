@@ -134,6 +134,7 @@ const App = () => {
 
             <Route path="/about" element={<AboutPage/>}/>
             <Route path="/SponsorsPage" element={<SponsorsPage/>}/>
+            
           </Routes>
         </div>
       </Suspense>
