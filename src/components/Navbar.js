@@ -30,12 +30,13 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   // All navigation items
   const navItems = [
     { name: "home", label: "Home", icon: <AiFillHome />, path: "/" },
-    // {
-    //   name: "sponsors",
-    //   label: "Sponsors",
-    //   icon: <FaHandshake />,
-    //   path: "/sponsors",
-    // },
+    { name: "about", label: "About", icon: <FaInfoCircle />, path: "/about" },
+    {
+      name: "SponsorsPage",
+      label: "Sponsors",
+      icon: <FaHandshake />,
+      path: "/SponsorsPage",
+    },
     { name: "events", label: "Events", icon: <MdEvent />, path: "/events" },
     {
       name: "workshops",
@@ -180,13 +181,18 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
       {/* Navigation Menu */}
       <div
-        className={`flex lg:space-x-0 lg:px-2 xl:space-x-2 xl:mx-2 xl:py-2 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row lg:h-auto transition-transform duration-300 ease-in-out px-4 rounded-3xl z-50 lg:bg-black ${
+        className={`flex lg:space-x-0 lg:px-2 xl:space-x-2 xl:mx-2 xl:py-2 items-start lg:items-center justify-start lg:justify-center pl-4 lg:pl-2 pt-28 lg:pt-0 overflow-hidden lg:static lg:transform-none flex-col lg:flex-row lg:h-auto transition-transform duration-300 ease-in-out px-2 rounded-3xl z-50 lg:bg-black ${
+          /* Changed pl-6 to pl-4 to reduce left indentation */
+          /* Changed px-4 to px-2 to reduce overall horizontal padding */
           isMenuOpen
-            ? "block transform translate-x-0 fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl bg-black border-2 border-[#c0a068]"
-            : "transform -translate-x-full hidden lg:block my-auto"
+            ? "transform translate-x-0 fixed top-0 right-0 w-[40%] sm:w-[30%] h-screen m-0 rounded-r-none rounded-l-2xl bg-black border-l-2 border-y-0 border-r-0 border-[#c0a068]"
+            /* Changed w-[55%] to w-[40%] to take up less than half the screen */
+            /* Changed sm:w-[35%] to sm:w-[30%] */
+            : "transform translate-x-full fixed top-0 right-0 w-[40%] h-screen m-0 lg:static lg:translate-x-0 lg:h-auto lg:w-auto"
+            /* Updated closed state width to match open state */
         }`}
         style={isMenuOpen ? {
-          boxShadow: "0 0 30px rgba(212, 175, 55, 0.5)",
+          boxShadow: "-10px 0 30px rgba(212, 175, 55, 0.5)",
         } : {}}
       >
         <button
@@ -215,7 +221,8 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           return (
             <button
               key={item.name}
-              className="relative group overflow-hidden rounded-xl font-semibold m-2 lg:m-0 transition-all duration-300"
+              className="relative group overflow-hidden rounded-xl font-semibold my-2 mx-0 lg:m-0 transition-all duration-300 text-sm lg:text-base"
+              /* Added text-sm to reduce font size on mobile (lg:text-base resets it for desktop) */
               onClick={() => handleIcon(item)}
             >
               <div
@@ -229,7 +236,8 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
                 } : {}}
               >
                 <div className="my-auto bg-transparent">{item.icon}</div>
-                <span className="px-1 rounded-xl transition-all duration-300 cursor-pointer">
+                <span className="px-1 rounded-xl transition-all duration-300 cursor-pointer text-left">
+                  {/* Added text-left to ensure text stays aligned if it wraps */ }
                   {item.label}
                 </span>
               </div>

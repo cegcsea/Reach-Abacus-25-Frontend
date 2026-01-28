@@ -2,6 +2,7 @@ import React, { Suspense, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import "./LightRays.css"; 
+import "./styles/global.css"
 import LightRays from "./components/LightRays/LightRays"; 
 import Galaxy from "./components/Galaxy/Galaxy"; 
 import EventPage from "./pages/EventPage";
@@ -25,6 +26,8 @@ import { UserData } from "./context/userContext";
 import { LoaderData } from "./context/loaderContext";
 import Loader from "./components/Loader/Loader";
 
+import AboutPage from "./pages/about-page/AboutPage"
+import SponsorsPage from "./pages/sponsors-page/SponsorsPage"
 const App = () => {
   const { isMenuOpen, setIsMenuOpen } = UserData();
   const { isLoading, setIsLoading } = LoaderData();
@@ -113,7 +116,6 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/sponsors" element={<HomePage />} />
             <Route path="/workshops" element={<Workshops />} />
             <Route path="/workshops/:id" element={<IndividualWorkshops />} />
             <Route path="/workshops/:id/payment" element={<Payment />} />
@@ -129,6 +131,9 @@ const App = () => {
             <Route path="/events/non-technical-events" element={<TechnicalPage />} />
             <Route path="/auth" element={<AuthPage />} />
             <Route path="/events/:id" element={<NoviceInit />} />
+
+            <Route path="/about" element={<AboutPage/>}/>
+            <Route path="/SponsorsPage" element={<SponsorsPage/>}/>
           </Routes>
         </div>
       </Suspense>

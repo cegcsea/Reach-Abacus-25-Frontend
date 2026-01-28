@@ -1,6 +1,5 @@
 // src/pages/HomePage.jsx
 import React, { useEffect, useState, useRef } from "react";
-import "../styles/global.css";
 import "../styles/about.css";
 import "../assets/images/logo.jpeg";
 

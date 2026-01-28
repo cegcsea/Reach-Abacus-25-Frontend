@@ -1,22 +1,16 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/dashboard.css";
 import { UserData } from "../context/userContext";
 import { FaLocationDot } from "react-icons/fa6";
-import { TbHanger } from "react-icons/tb";
-//import devrloper from "../assets/Hero/profile.png";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 import { sessions, workshopsReach } from "../constants/workshops";
-const Profile = () => {
-  const { profile, user, userEvents, session } = UserData(); // Get the profile method and user data from context
+import "../styles/profile.css"
 
-  // useEffect(() => {
-  //   profile(); // Fetch the profile when the component mounts
-  //   console.log("profile:", userData.events,userData.workshops); // Debugging: Check the user data fetched
-  // }, [user]);
-  //console.log(user.WorkshopPayment);
+const Profile = () => {
+  const { profile, user, userEvents, session } = UserData();
   const navigate = useNavigate();
+  const { isLoading } = LoaderData();
 
   const navigateTo = (page) => {
     const routes = {
@@ -26,27 +20,24 @@ const Profile = () => {
       dashboard: "/dashboard",
       "change-password": "/profile/change-password",
     };
-
     navigate(routes[page]);
   };
 
-  // Fallback data if the user is undefined
+  // Fallback data
   const fallbackUser = {
-    id: "",
-    name: "",
-    email: "",
-    mobile: "",
-    abacusId: "",
-    college: "",
-    year: "",
-    dept: "",
-    //hostCollege: "",
-    registeredEvents: [],
-    registeredWorkshops: [],
+    id: "10001",
+    name: "Guest",
+    email: "guest@cse.com",
+    mobile: "123456789",
+    abacusId: "999",
+    college: "College of Engineering Guindy, Anna University",
+    year: "4",
+    dept: "CSE",
+    registeredEvents: [1, 2, 3],
+    registeredWorkshops: [1, 2, 3],
   };
 
   const userData = user || fallbackUser;
-  const { isLoading } = LoaderData();
 
   if (isLoading) {
     return <Loader />;
@@ -56,23 +47,27 @@ const Profile = () => {
     <div className="user-profile-container">
       <div className="user-card">
         <div className="user-header">
-          <h2>Profile</h2>
-          <p>
-            <strong>Name:</strong> {userData.name}
-          </p>
-          <p>
-            <strong>ID:</strong> {userData.id}
-          </p>
-          <p>
-            <strong>Email:</strong> {userData.email}
-          </p>
-          <p>
-            <strong>Mobile:</strong> {userData.mobile}
-          </p>
-        </div>
+  <h2>Profile</h2>
+  
+  <div className="user-details-grid">
+    <p>
+      <strong>Name:</strong> {userData.name}
+    </p>
+    <p>
+      <strong>ID:</strong> {userData.id}
+    </p>
+    <p>
+      <strong>Email:</strong> {userData.email}
+    </p>
+    <p>
+      <strong>Mobile:</strong> {userData.mobile}
+    </p>
+  </div>
+</div>
 
-        <div className="user-content flex flex-col lg:flex-row">
-          {/* Registered Events Section */}
+        {/* Content Section: Events & Workshops */}
+        <div className="user-content">
+          {/* Registered Events */}
           <div className="user-section events">
             <h3>Registered Events</h3>
             {user.events?.length > 0 ? (
@@ -83,7 +78,7 @@ const Profile = () => {
               </ul>
             ) : (
               <p>
-                <button
+ <button
                   onClick={() => navigateTo("events")}
                   className="hover:text-slate-100"
                 >
@@ -93,103 +88,85 @@ const Profile = () => {
             )}
           </div>
 
-          {/* Registered Workshops Section */}
+          {/* Registered Workshops */}
           <div className="user-section workshops">
             <h3>Registered Workshops</h3>
-
             {user.WorkshopPayment?.length > 0 ? (
               <ul>
+                {/* Successful Payments */}
                 {user.WorkshopPayment.map((workshop, index) => {
                   const matchingWorkshop = workshopsReach.find(
-                    (ws) =>
-                      ws.code === workshop.workshopId &&
-                      workshop.status === "SUCCESS"
+                    (ws) => ws.code === workshop.workshopId && workshop.status === "SUCCESS"
                   );
                   return matchingWorkshop ? (
-                    <li key={index} className="!text-green-600">
+                    <li key={`success-${index}`} className="status-success">
                       {matchingWorkshop.title}
                     </li>
                   ) : null;
                 })}
+
+                {/* Pending Payments */}
                 {user.WorkshopPayment.map((workshop, index) => {
                   const matchingWorkshop = workshopsReach.find(
-                    (ws) =>
-                      ws.code === workshop.workshopId &&
-                      workshop.status === "PENDING"
+                    (ws) => ws.code === workshop.workshopId && workshop.status === "PENDING"
                   );
                   return matchingWorkshop ? (
-                    <li key={index} className="!text-orange-800">
-                      {matchingWorkshop.title} - Pending
+                    <li key={`pending-${index}`} className="status-pending">
+                      {matchingWorkshop.title} (Pending)
                     </li>
                   ) : null;
                 })}
+
+                {/* Session Data */}
                 {session.length > 0 &&
                   user.workshops.map((workshop, index) => {
-                    //console.log(workshop);
                     const matchingWorkshop = sessions.find(
                       (ws) => ws.code === workshop.workshopId
                     );
                     return matchingWorkshop ? (
-                      <li key={index}>{matchingWorkshop.title}</li>
+                      <li key={`session-${index}`}>{matchingWorkshop.title}</li>
                     ) : null;
                   })}
               </ul>
             ) : (
               <p>
-                <button
-                  onClick={() => navigateTo("workshops")}
-                  className="hover:text-slate-100"
-                >
-                  Click here to Register for Workshops
-                </button>
-              </p>
+   <button
+    onClick={() => navigateTo("workshops")}
+     className="hover:text-slate-100"
+   >
+     Click here to Register for Workshops
+  </button>
+               </p>
             )}
           </div>
         </div>
 
-        {/* Additional Profile Details */}
-        <div className="flex items-center flex-col my-2 ">
-          <p className="flex flex-row !text-white">
-            <div className="pr-4 pt-5 lg:pt-1">
-              <FaLocationDot className="icon text-center self-center my-auto" />{" "}
-            </div>
-            <div className="overflow-x-clip ">
-              Studying in {userData.college}. Striding through year{" "}
-              {userData.year} in the {userData.dept} department!
-            </div>
-          </p>
+        {/* Info Bar / Location */}
+        <div className="user-info-bar">
+          <div className="info-text">
+            <FaLocationDot className="icon-location" />
+            <span>
+              Studying in {userData.college}. <br/>Striding through year {userData.year} in the {userData.dept} department!
+            </span>
+          </div>
         </div>
 
         {/* Action Buttons */}
         <div className="user-actions">
           {[
-            {
-              label: "Update Profile",
-              page: "update",
-              className: "btn-update",
-            },
-            {
-              label: "Dashboard",
-              page: "dashboard",
-              className: "btn-dashboard",
-            },
-            {
-              label: "Change Password",
-              page: "change-password",
-              className: "btn-password",
-            },
+            { label: "Update Profile", page: "update", className: "btn-update" },
+            { label: "Dashboard", page: "dashboard", className: "btn-dashboard" },
+            { label: "Change Password", page: "change-password", className: "btn-profile-password" },
           ].map(({ label, page, onClick, className }) => (
             <button
               key={label}
-              className="p-2  mx-2 text-white border border-[#c53939] hover:bg-[#c5393936] duration-150"
+              className={`action-btn ${className}`}
               onClick={onClick || (() => navigateTo(page))}
             >
               {label}
             </button>
           ))}
         </div>
-
-        {/* Profile Image and Details */}
       </div>
     </div>
   );
