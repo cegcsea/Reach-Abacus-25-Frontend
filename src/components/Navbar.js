@@ -32,10 +32,10 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
     { name: "home", label: "Home", icon: <AiFillHome />, path: "/" },
     { name: "about", label: "About", icon: <FaInfoCircle />, path: "/about" },
     {
-      name: "SponsorsPage",
+      name: "sponsors",
       label: "Sponsors",
       icon: <FaHandshake />,
-      path: "/SponsorsPage",
+      path: "/sponsors",
     },
     { name: "events", label: "Events", icon: <MdEvent />, path: "/events" },
     {
