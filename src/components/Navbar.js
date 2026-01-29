@@ -12,10 +12,10 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { handleLogout, isAuth, refreshauth, active, setActive } = UserData();
-  
+
   // Add mobile detection
   const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 1200
+    typeof window !== "undefined" ? window.innerWidth : 1200,
   );
 
   useEffect(() => {
@@ -30,12 +30,13 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   // All navigation items
   const navItems = [
     { name: "home", label: "Home", icon: <AiFillHome />, path: "/" },
-    // {
-    //   name: "sponsors",
-    //   label: "Sponsors",
-    //   icon: <FaHandshake />,
-    //   path: "/sponsors",
-    // },
+    { name: "about", label: "About", icon: <FaInfoCircle />, path: "/about" },
+    {
+      name: "SponsorsPage",
+      label: "Sponsors",
+      icon: <FaHandshake />,
+      path: "/SponsorsPage",
+    },
     { name: "events", label: "Events", icon: <MdEvent />, path: "/events" },
     {
       name: "workshops",
@@ -111,12 +112,16 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
         }`}
       >
         {/* Inline CSS for logo shining outline */}
-        <style dangerouslySetInnerHTML={{ __html: `
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
           .reach-logo-wrap{display:inline-block;line-height:0}
           .reach-logo{display:block;height:64px;width:auto;filter:drop-shadow(0 0 6px rgba(192,160,104,0.6)) drop-shadow(0 0 12px rgba(192,160,104,0.35));transition:filter 250ms ease}
           .reach-logo.shine{animation:reach-shine 3.2s ease-in-out infinite}
           @keyframes reach-shine{0%{filter:drop-shadow(0 0 2px rgba(192,160,104,0.15)) drop-shadow(0 0 6px rgba(192,160,104,0.12))}50%{filter:drop-shadow(0 0 14px rgba(192,160,104,0.95)) drop-shadow(0 0 28px rgba(192,160,104,0.5))}100%{filter:drop-shadow(0 0 2px rgba(192,160,104,0.15)) drop-shadow(0 0 6px rgba(192,160,104,0.12))}}
-        ` }} />
+        `,
+          }}
+        />
 
         <a href="#home" className="flex items-center">
           <span className="reach-logo-wrap">
@@ -127,7 +132,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               style={{ borderRadius: 0 }}
             />
           </span>
-          
+
           {/* ABACUS '26 Text */}
           <motion.div
             initial={{ opacity: 0, x: -10 }}
@@ -140,7 +145,8 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
               style={{
                 fontSize: isMobile ? "1.3rem" : isTablet ? "1.5rem" : "1.8rem",
                 letterSpacing: "0.05em",
-                background: "linear-gradient(135deg, #d4af37, #c0a068, #9d7f52)",
+                background:
+                  "linear-gradient(135deg, #d4af37, #c0a068, #9d7f52)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -180,14 +186,23 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
 
       {/* Navigation Menu */}
       <div
-        className={`flex lg:space-x-0 lg:px-2 xl:space-x-2 xl:mx-2 xl:py-2 items-center justify-center overflow-hidden lg:static lg:transform-none flex-col lg:flex-row lg:h-auto transition-transform duration-300 ease-in-out px-4 rounded-3xl z-50 lg:bg-black ${
+        className={`flex lg:space-x-0 lg:px-2 xl:space-x-2 xl:mx-2 xl:py-2 items-start lg:items-center justify-start lg:justify-center pl-4 lg:pl-2 pt-28 lg:pt-0 overflow-hidden lg:static lg:transform-none flex-col lg:flex-row lg:h-auto transition-transform duration-300 ease-in-out px-2 rounded-3xl z-50 lg:bg-black ${
+          /* Changed pl-6 to pl-4 to reduce left indentation */
+          /* Changed px-4 to px-2 to reduce overall horizontal padding */
           isMenuOpen
-            ? "block transform translate-x-0 fixed top-0 left-0 w-[70%] h-[70%] mx-[15%] my-[30%] rounded-2xl bg-black border-2 border-[#c0a068]"
-            : "transform -translate-x-full hidden lg:block my-auto"
+            ? "transform translate-x-0 fixed top-0 right-0 w-[40%] sm:w-[30%] h-screen m-0 rounded-r-none rounded-l-2xl bg-black border-l-2 border-y-0 border-r-0 border-[#c0a068]"
+            : /* Changed w-[55%] to w-[40%] to take up less than half the screen */
+              /* Changed sm:w-[35%] to sm:w-[30%] */
+              "transform translate-x-full fixed top-0 right-0 w-[40%] h-screen m-0 lg:static lg:translate-x-0 lg:h-auto lg:w-auto"
+          /* Updated closed state width to match open state */
         }`}
-        style={isMenuOpen ? {
-          boxShadow: "0 0 30px rgba(212, 175, 55, 0.5)",
-        } : {}}
+        style={
+          isMenuOpen
+            ? {
+                boxShadow: "-10px 0 30px rgba(212, 175, 55, 0.5)",
+              }
+            : {}
+        }
       >
         <button
           className="absolute top-5 right-5 lg:hidden text-white transition-colors duration-300 hover:text-[#c0a068]"
@@ -215,7 +230,8 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           return (
             <button
               key={item.name}
-              className="relative group overflow-hidden rounded-xl font-semibold m-2 lg:m-0 transition-all duration-300"
+              className="relative group overflow-hidden rounded-xl font-semibold my-2 mx-0 lg:m-0 transition-all duration-300 text-sm lg:text-base"
+              /* Added text-sm to reduce font size on mobile (lg:text-base resets it for desktop) */
               onClick={() => handleIcon(item)}
             >
               <div
@@ -224,26 +240,35 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
                     ? "text-[#c0a068]"
                     : "text-gray-300 hover:text-[#c0a068]"
                 }`}
-                style={isActive ? {
-                  textShadow: "0 0 10px rgba(212, 175, 55, 0.6)",
-                } : {}}
+                style={
+                  isActive
+                    ? {
+                        textShadow: "0 0 10px rgba(212, 175, 55, 0.6)",
+                      }
+                    : {}
+                }
               >
                 <div className="my-auto bg-transparent">{item.icon}</div>
-                <span className="px-1 rounded-xl transition-all duration-300 cursor-pointer">
+                <span className="px-1 rounded-xl transition-all duration-300 cursor-pointer text-left">
+                  {/* Added text-left to ensure text stays aligned if it wraps */}
                   {item.label}
                 </span>
               </div>
-              <span 
+              <span
                 className={`absolute left-0 bottom-0 h-0.5 w-full transform transition-transform origin-left duration-300 ${
-                  isActive 
-                    ? "scale-x-100 bg-[#c0a068]" 
+                  isActive
+                    ? "scale-x-100 bg-[#c0a068]"
                     : "scale-x-0 group-hover:scale-x-100 bg-[#c0a068]"
                 }`}
-                style={isActive ? {
-                  boxShadow: "0 0 10px rgba(212, 175, 55, 0.8)",
-                } : {
-                  boxShadow: "0 0 5px rgba(212, 175, 55, 0.5)",
-                }}
+                style={
+                  isActive
+                    ? {
+                        boxShadow: "0 0 10px rgba(212, 175, 55, 0.8)",
+                      }
+                    : {
+                        boxShadow: "0 0 5px rgba(212, 175, 55, 0.5)",
+                      }
+                }
               ></span>
             </button>
           );
