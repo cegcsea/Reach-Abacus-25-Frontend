@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { LoaderData } from "../context/loaderContext";
 import { UserData } from "../context/userContext";
 import toast from "react-hot-toast";
 import price from "../assets/images/price.png";
 import Loader from "../components/Loader/Loader";
 import { useNavigate } from "react-router-dom";
+
 function Accommodation() {
   const { isLoading } = LoaderData();
   const { handleAccomodationPayment, user } = UserData();
@@ -129,7 +130,6 @@ function Accommodation() {
     if (e.target.value === "" || regex.test(e.target.value)) {
       setFormData((prev) => ({ ...prev, paymentMobile: e.target.value }));
     }
-    
   };
 
   const handleChange = (e) => {
@@ -159,17 +159,17 @@ function Accommodation() {
         formData: formReqData,
         users: userArray,
       },
-      navigate
+      navigate,
     );
   };
 
   return (
-    <div className="flex justify-center items-center py-10 sm:px-0 min-h-screen px-4 mt-10 gap-5 bg-black">
-      <div className="querybox flex flex-col gap-4 w-full sm:w-2/5 bg-gray-900 border-2 border-[#8a1818] rounded-lg shadow-lg p-5 sm:p-10 text-white">
-        <div className="text-2xl md:text-3xl font-bold text-center border-b-2 border-[#8a1818] pb-2">
-          <span className="text-[#8a1818]">{"<"}</span>
-          Accommodation
-          <span className="text-[#8a1818]">{">"}</span>
+    <div className="flex justify-center items-center py-10 sm:px-0 min-h-screen px-4 mt-10 gap-5 bg-transparent">
+      <div className="querybox flex flex-col gap-4 w-full sm:w-2/5 bg-[#1a1a1a] border border-[#c0a068] rounded-lg shadow-lg p-5 sm:p-10 text-[#ffffffe6]">
+        <div className="text-2xl md:text-3xl font-bold text-center border-b border-[#c0a068] pb-2">
+          <span className="text-[#c0a068]">{"<"}</span>
+          &nbsp;Accommodation&nbsp;
+          <span className="text-[#c0a068]">{">"}</span>
         </div>
 
         <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
@@ -180,13 +180,17 @@ function Accommodation() {
             <select
               value={selectionDates?.value || ""}
               onChange={handleDayCountChange}
-              className="p-2 outline-none border border-[#8a1818] text-[18px] bg-black text-white rounded-md"
+              className="p-2 outline-none border border-[#c0a068] text-[18px] bg-[#050505] text-[#ffffffe6] rounded-md focus:bg-[#c0a068]/10 transition-colors"
             >
-              <option value="" disabled>
+              <option value="" disabled className="bg-[#050505] text-gray-500">
                 Select how many days
               </option>
               {dayCountOptions.map((option) => (
-                <option key={option.value} value={option.value}>
+                <option
+                  key={option.value}
+                  value={option.value}
+                  className="bg-[#050505] text-[#ffffffe6]"
+                >
                   {option.label}
                 </option>
               ))}
@@ -201,20 +205,28 @@ function Accommodation() {
               <select
                 value={selectionDay?.label || ""}
                 onChange={handleDateSelection}
-                className="p-2 outline-none border border-[#8a1818] text-[18px] bg-black text-white rounded-md"
+                className="p-2 outline-none border border-[#c0a068] text-[18px] bg-[#050505] text-[#ffffffe6] rounded-md focus:bg-[#c0a068]/10 transition-colors"
               >
-                <option value="" disabled>
+                <option
+                  value=""
+                  disabled
+                  className="bg-[#050505] text-gray-500"
+                >
                   Select dates of your stay
                 </option>
                 {(selectionDates.value === "1"
                   ? singleDayOptions
                   : selectionDates.value === "2"
-                  ? doubleDayOptions
-                  : selectionDates.value === "3"
-                  ? tripleDayOptions
-                  : allDayOptions
+                    ? doubleDayOptions
+                    : selectionDates.value === "3"
+                      ? tripleDayOptions
+                      : allDayOptions
                 ).map((option) => (
-                  <option key={option.label} value={option.label}>
+                  <option
+                    key={option.label}
+                    value={option.label}
+                    className="bg-[#050505] text-[#ffffffe6]"
+                  >
                     {option.label}
                   </option>
                 ))}
@@ -222,10 +234,10 @@ function Accommodation() {
             </div>
           )}
 
-          <div className="flex flex-col gap-2 text-gray-400">
+          <div className="flex flex-col gap-2 text-[#ffffffe6]">
             <p>Do you need food for your stay?</p>
             <div className="flex gap-5">
-              <div className="flex gap-3">
+              <div className="flex gap-3 items-center">
                 <input
                   type="radio"
                   name="food"
@@ -233,10 +245,11 @@ function Accommodation() {
                   value="true"
                   checked={food === "true"}
                   onChange={handleFood}
+                  className="accent-[#c0a068]"
                 />
                 <label htmlFor="radio-yes">Yes</label>
               </div>
-              <div className="flex gap-3">
+              <div className="flex gap-3 items-center">
                 <input
                   type="radio"
                   name="food"
@@ -244,6 +257,7 @@ function Accommodation() {
                   value="false"
                   checked={food === "false"}
                   onChange={handleFood}
+                  className="accent-[#c0a068]"
                 />
                 <label htmlFor="radio-no">No</label>
               </div>
@@ -252,15 +266,15 @@ function Accommodation() {
 
           {hide && (
             <>
-              <hr className="opacity-50 border-[#8a1818]" />
-              <div className="text-2xl md:text-3xl font-bold text-center border-b-2 border-[#8a1818] pb-2">
-                <span className="text-[#8a1818]">{"<"}</span>
-                Payment
-                <span className="text-[#8a1818]">{">"}</span>
+              <hr className="opacity-50 border-[#c0a068]" />
+              <div className="text-2xl md:text-3xl font-bold text-center border-b border-[#c0a068] pb-2">
+                <span className="text-[#c0a068]">{"<"}</span>
+                &nbsp;Payment&nbsp;
+                <span className="text-[#c0a068]">{">"}</span>
               </div>
               <button
                 type="button"
-                className="bg-[#8a1818] p-2 text-white font-semibold py-2 rounded w-full"
+                className="bg-[#c0a068] hover:bg-[#aa8c2c] duration-150 p-2 text-black font-bold py-2 rounded w-full border border-[#c0a068]"
                 onClick={() => setIsOpen(!isOpen)}
               >
                 {isOpen ? "Hide QR Code!" : "Show QR Code!"} {"<~>"}
@@ -270,7 +284,7 @@ function Accommodation() {
                   <img
                     src={price}
                     alt="payment-qr"
-                    className="w-64 h-88 border-2 border-[#8a1818] rounded-md"
+                    className="w-64 h-88 border-2 border-[#c0a068] rounded-md"
                   />
                 </div>
               )}
@@ -281,7 +295,7 @@ function Accommodation() {
                 placeholder="Transaction ID"
                 onChange={handleChange}
                 value={formData.transactionId}
-                className="w-full p-3 bg-black border border-[#8a1818] text-white rounded-md"
+                className="w-full p-3 bg-[#050505] border border-[#c0a068] text-[#ffffffe6] placeholder-gray-500 rounded-md focus:outline-none focus:bg-[#c0a068]/10"
                 required
               />
 
@@ -291,19 +305,21 @@ function Accommodation() {
                 placeholder="Payment Mobile No."
                 onChange={handleMobileChange}
                 value={formData.paymentMobile}
-                className="w-full p-3 bg-black border border-[#8a1818] text-white rounded-md"
+                className="w-full p-3 bg-[#050505] border border-[#c0a068] text-[#ffffffe6] placeholder-gray-500 rounded-md focus:outline-none focus:bg-[#c0a068]/10"
                 required
               />
 
               <div className="flex flex-col items-center">
                 <label
                   htmlFor="screenshot"
-                  className="flex items-center gap-2 bg-black border border-[#8a1818] px-4 py-2 rounded-md cursor-pointer w-full justify-center"
+                  className="flex items-center gap-2 bg-[#050505] border border-[#c0a068] px-4 py-2 rounded-md cursor-pointer w-full justify-center hover:bg-[#c0a068]/10 transition-colors"
                 >
-                  <span className="bg-[#8a1818] text-white pl-2 pr-4 py-1 rounded">
+                  <span className="bg-[#c0a068] text-black font-semibold pl-2 pr-4 py-1 rounded">
                     Upload
                   </span>
-                  <span className="text-gray-400 text-sm">{fileName}</span>
+                  <span className="text-gray-400 text-sm truncate max-w-[200px]">
+                    {fileName}
+                  </span>
                 </label>
                 <input
                   type="file"
@@ -316,10 +332,10 @@ function Accommodation() {
                 />
               </div>
 
-              <div className="self-center">
+              <div className="self-center w-full">
                 <button
                   type="submit"
-                  className="bg-[#8a1818] text-white py-2 rounded w-full"
+                  className="bg-[#c0a068] hover:bg-[#aa8c2c] duration-150 text-black font-bold py-2 rounded w-full border border-[#c0a068]"
                 >
                   Book Accommodation {"<~>"}
                 </button>
