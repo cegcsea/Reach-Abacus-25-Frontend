@@ -171,7 +171,7 @@ const Footer = ({ scrollY }) => {
                   Location
                 </h3>
                 <p className="text-sm sm:text-sm leading-relaxed mb-2 text-gray-300">
-                  College of Engineering Guindy , CEG - Anna University, Chennai
+                  College of Engineering Guindy, CEG - Anna University, Chennai
                   600028
                 </p>
               </div>
