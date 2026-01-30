@@ -6,7 +6,6 @@ import "../assets/images/logo.jpeg";
 
 import Home from "../components/Hero";
 import About from "../components/About";
-import Sponsors from "../components/Sponsors";
 import Developers from "../components/Developers";
 import Footer from "../components/Footer";
 import ParallaxBackground from "../components/ParallaxBackground";

@@ -9,7 +9,7 @@ function RegisterDetails() {
   const { email, token } = useParams();
   const navigate = useNavigate();
   const { register } = UserData();
-  const [btnLoading, setBtnLoading] = useState(false);
+  const [btnLoading] = useState(false); // or delete fully
   const [isPassword, setIsPassword] = useState("password");
   const [isConfirmPassword, setIsConfirmPassword] = useState("password");
   const [formData, setFormData] = useState({

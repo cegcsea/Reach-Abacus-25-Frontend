@@ -34,7 +34,7 @@ export const workshopsReach = [
       takeaways: "Takeaways",
       time: "9:00 AM to 12:00 PM",
       date: "21st February, 2025",
-      venue: "Your college audi/lab",
+      venue: "J.J. College of Engineering and Technology,Tiruchirappalli",
       entryFee: "Rs. 300/-",
     },
     contact: [

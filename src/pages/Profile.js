@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/dashboard.css";
 import { UserData } from "../context/userContext";
@@ -9,7 +9,7 @@ import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 import { sessions, workshopsReach } from "../constants/workshops";
 const Profile = () => {
-  const { profile, user, userEvents, session } = UserData(); // Get the profile method and user data from context
+  const { user, userEvents, session } = UserData(); // Get the profile method and user data from context
 
   // useEffect(() => {
   //   profile(); // Fetch the profile when the component mounts

@@ -8,7 +8,7 @@ function UpdateProfile() {
   const { updateProfile, user, profile } = UserData();
 
   const { isLoading } = LoaderData();
-  const [btnLoading, setBtnLoading] = useState(false);
+  const [btnLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: user.name,
     college: user.college,
