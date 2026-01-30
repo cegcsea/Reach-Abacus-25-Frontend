@@ -10,21 +10,21 @@ import BACKEND from '../assets/Reach/pythonwo.png';
 
 export const workshopsReach = [
   {
-    title: "Building LLM Applications from Scratch",
+    title: "Breaking the Web: A Hands-On Web Exploitation Workshop",
     to: "LLM",
     image: LLM,
 
     qr: UI_300,
     venue: [
       {
-        name: "PSNA College of Engineering and Technology",
+        name: "J.J. College of Engineering and Technology,Tiruchirappalli ",
         time: "09:00 AM to 12:00 PM",
         location: "CSE Department, First Floor Lab",
       },
     ],
     code: 1,
     content:
-      "This workshop introduces students to the fascinating world of Large Language Models (LLMs) and modern AI applications. Participants will explore how LLMs work behind the scenes, understand the principles of prompt engineering, and learn how to build practical AI tools without heavy frameworks.You will also dive into topics like conversational memory, system prompts, and retrieval-augmented generation (RAG).A guided hands-on session will help students build a working AI chatbot or a document-based Q&A system using direct LLM APIs and vector search.By the end of the workshop, participants will gain practical skills applicable to internships, projects, and real-world AI development.",
+      "This hands-on “Website Breaking” workshop introduces participants to real-world web security vulnerabilities through practical demonstrations, including Cross-Site Scripting (XSS), SQL injection for login bypass, cookie and session manipulation, insecure direct object references (IDOR), and path and directory traversal. A CTF-style live demo by the CEG Tech Forum will walk students through the complete attack lifecycle—starting with scanning and enumeration, identifying an entry point, gaining initial access, escalating privileges, and finally executing a full attack chain—helping participants understand how attackers think and how to build more secure applications.",
     prerequisites:
       "Basic programming understanding is helpful but not mandatory.\nLaptops required.\nInternet connectivity required",
 

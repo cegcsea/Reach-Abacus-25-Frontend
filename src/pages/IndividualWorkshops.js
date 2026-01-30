@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { workshopsReach as workshops } from "../constants/workshops";
 import { Link } from "react-router-dom";
@@ -29,39 +28,40 @@ const IndividualWorkshops = () => {
     if (status === "FAILURE") return "text-red-400";
   };
   const { isLoading } = LoaderData();
-  const getbestPayment = () => {
-    if (!user?.WorkshopPayment || !Array.isArray(user.WorkshopPayment)) {
-      return null;
+  const getbestPayment = useCallback(() => {
+  if (!user?.WorkshopPayment || !Array.isArray(user.WorkshopPayment)) {
+    return null;
+  }
+
+  const workshopPayments = user.WorkshopPayment.filter(
+    (payment) => payment.workshopId === workshop.code
+  );
+
+  let bestPayment = null;
+
+  for (const payment of workshopPayments) {
+    if (payment.status === "SUCCESS") {
+      return payment;
+    } else if (
+      payment.status === "PENDING" &&
+      (bestPayment?.status === "FAILURE" || !bestPayment)
+    ) {
+      bestPayment = payment;
+    } else if (!bestPayment) {
+      bestPayment = payment;
     }
-    const workshopPayments = user.WorkshopPayment.filter(
-      (payment) => payment.workshopId === workshop.code
-    );
+  }
 
-    let bestPayment = null;
-
-    for (const payment of workshopPayments) {
-      if (payment.status === "SUCCESS") {
-        return payment; 
-      } else if (
-        payment.status === "PENDING" &&
-        (bestPayment?.status === "FAILURE" || !bestPayment)
-      ) {
-        bestPayment = payment;
-      } else if (!bestPayment) {
-        bestPayment = payment;
-      }
-    }
-
-    return bestPayment;
-  };
+  return bestPayment;
+}, [user?.WorkshopPayment, workshop.code]);
 
   useEffect(() => {
     setBestPayment(getbestPayment());
-  }, [user?.WorkshopPayment]);
+  }, [getbestPayment]);
 
   useEffect(() => {
-      refreshauth();
-    }, [user?.WorkshopPayment?.length]);
+    refreshauth();
+  }, [refreshauth, user?.WorkshopPayment?.length]);
 
   if (isLoading) {
     return <Loader />;
