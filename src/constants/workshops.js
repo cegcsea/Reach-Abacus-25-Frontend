@@ -30,10 +30,10 @@ export const workshopsReach = [
 
     // speakers: "John Doe, Jane Smith",
     moreInfo: {
-      certificate: "E-Certificate",
+      certificate: "Physical Certificate",
       takeaways: "Takeaways",
       time: "9:00 AM to 01:00 PM",
-      date: "21st February, 2025",
+      date: "7th February, 2026",
       venue: "J.J. College of Engineering and Technology,Tiruchirappalli",
       entryFee: "Rs. 200/-",
     },
@@ -54,8 +54,8 @@ export const workshopsReach = [
     qr: UI_150,
     venue: [
       {
-        name: "PSNA College of Engineering and Technology",
-        time: "09:30 AM to 04:00 PM",
+        name: "J.J. College of Engineering and Technology,Tiruchirappalli",
+        time: "09:00 AM to 01:00 PM",
         location: "CSE Department, Second Floor Lab",
       },
     ],
@@ -65,10 +65,10 @@ export const workshopsReach = [
       "1.Laptops required.\nBasic Python knowledge recommended but not mandatory.\nNo prior backend experience needed",
     // speakers: "John Doe, Jane Smith",
     moreInfo: {
-      certificate: "E-Certificate",
+      certificate: "Physical Certificate",
       takeaways: "Takeaways",
-      time: "9:00 AM to 12:00 PM",
-      date: "21st February, 2025",
+      time: "9:00 AM to 01:00 PM",
+      date: "7th February, 2026",
       venue: "Your audi/lab",
       entryFee: "Rs. 150/-",
     },
