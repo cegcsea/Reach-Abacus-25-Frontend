@@ -33,7 +33,7 @@ export const workshopsReach = [
       certificate: "Physical Certificate",
       takeaways: "Takeaways",
       time: "9:00 AM to 01:00 PM",
-      date: "7th February, 2026",
+      date: "6th February 2026",
       venue: "J.J. College of Engineering and Technology,Tiruchirappalli",
       entryFee: "Rs. 200/-",
     },

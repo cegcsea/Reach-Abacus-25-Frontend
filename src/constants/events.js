@@ -32,7 +32,7 @@ export const events = [
         path: "/events/uiodyssey",
 
         team: "Two or three members",
-        Date: "21st February 2026",
+        Date: "6th February 2026",
         prize: "Rs 1.5k+",
         to: "uiodyssey",
         rounds: [
@@ -76,7 +76,7 @@ export const events = [
         path: "/events/codequest",
 
         team: "Two or three members",
-        Date: "21st February 2025",
+        Date: "6th February 2025",
         prize: "Rs 1.5k+",
         to: "codequest",
         rounds: [
@@ -123,7 +123,7 @@ export const events = [
         image: img6, // Replace with your image path
         path: "/events/querykernel",
         team: "Two or three members",
-        Date: "21st February 2025",
+        Date: "6th February 2025",
         prize: "Rs 1.5k+",
         to: "querykernel",
         rounds: [
@@ -166,14 +166,14 @@ export const events = [
   {
     title: "Non-Tech Events",
     image: img2, // Event image,
-    Date: "20 February 2025",
+    Date: "5th February 2026",
     
     event: [
       {
         id: 4,
         title: "Musical Mania",
         time: "01:30 PM to 04:00 PM",
-        Date: "20 February 2025",
+        Date: "5th February 2026",
         team: "Two or three members",
         description:
           "A music quiz event focused on the Tamil music industry, testing knowledge of music directors, singers, lyricists, songs, and movie trivia through written and interactive rounds.",
