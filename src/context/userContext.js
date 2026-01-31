@@ -50,6 +50,7 @@ export const UserContextProvider = ({ children }) => {
     setIsLoading(true);
     //console.log(email, typeof email);
     try {
+      //adfadf
       const response = await axios.post(
         `${server}/user/get-registration-link`,
         { email }
