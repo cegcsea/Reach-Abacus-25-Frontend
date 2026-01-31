@@ -32,7 +32,7 @@ export const events = [
         path: "/events/uiodyssey",
 
         team: "Two or three members",
-        Date: "21st February 2025",
+        Date: "21st February 2026",
         prize: "Rs 1.5k+",
         to: "uiodyssey",
         rounds: [
