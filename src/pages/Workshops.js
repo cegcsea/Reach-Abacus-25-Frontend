@@ -28,7 +28,7 @@ const Workshops = () => {
           {workshops.map((workshop) => (
             <div
               key={workshop.id}
-              className="border-[2px]  border-[#ab8e5c] bg-[#1d1d1d] text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow "
+              className="border-[2px] border-[#ab8e5c] bg-[#1d1d1d] text-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow lg:col-span-2 mx-auto w-full max-w-xl"
             >
               <h3
                 className="text-xl font-semibold mb-4 border-b-2 pb-4"

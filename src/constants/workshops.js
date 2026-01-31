@@ -46,41 +46,41 @@ export const workshopsReach = [
       { id: 1, name: "Sanjay Ganesan", phone: "+91 8148358787" },
     ],
   },
-  {
-    title: "Backend Development from Zero to API (Python + FastAPI)",
-    to: "backend",
-    image: BACKEND,
-    // bulkBooking: PAY,
-    qr: UI_150,
-    venue: [
-      {
-        name: "J.J. College of Engineering and Technology,Tiruchirappalli",
-        time: "09:00 AM to 01:00 PM",
-        location: "CSE Department, Second Floor Lab",
-      },
-    ],
-    code: 2,
-    content:"This workshop provides a complete beginner-friendly introduction to backend development, covering how web applications work behind the scenes.Participants will learn fundamental concepts like client–server architecture, REST principles, HTTP methods, and API behavior.Through guided coding, students will build their own backend using Python + FastAPI, including request validation, routing, and structured responses.The workshop also covers database integration using SQLite, CRUD operations, and interactive API testing through Swagger UI.This hands-on session equips learners with the skills to build real-world backend systems and progress into full-stack development.",
-    prerequistes:
-      "1.Laptops required.\nBasic Python knowledge recommended but not mandatory.\nNo prior backend experience needed",
-    // speakers: "John Doe, Jane Smith",
-    moreInfo: {
-      certificate: "Physical Certificate",
-      takeaways: "Takeaways",
-      time: "9:00 AM to 01:00 PM",
-      date: "7th February, 2026",
-      venue: "Your audi/lab",
-      entryFee: "Rs. 150/-",
-    },
-    contact: [
-      // {
-      //   id: 1,
-      //   name: "Ajai Krishna",
-      //   phone: "+91 7010707652",
-      // },
-      { id: 1, name: "Sanjay Ganesan", phone: "+91 8148358787" },
-    ],
-  },
+  // {
+  //   title: "Backend Development from Zero to API (Python + FastAPI)",
+  //   to: "backend",
+  //   image: BACKEND,
+  //   // bulkBooking: PAY,
+  //   qr: UI_150,
+  //   venue: [
+  //     {
+  //       name: "J.J. College of Engineering and Technology,Tiruchirappalli",
+  //       time: "09:00 AM to 01:00 PM",
+  //       location: "CSE Department, Second Floor Lab",
+  //     },
+  //   ],
+  //   code: 2,
+  //   content:"This workshop provides a complete beginner-friendly introduction to backend development, covering how web applications work behind the scenes.Participants will learn fundamental concepts like client–server architecture, REST principles, HTTP methods, and API behavior.Through guided coding, students will build their own backend using Python + FastAPI, including request validation, routing, and structured responses.The workshop also covers database integration using SQLite, CRUD operations, and interactive API testing through Swagger UI.This hands-on session equips learners with the skills to build real-world backend systems and progress into full-stack development.",
+  //   prerequistes:
+  //     "1.Laptops required.\nBasic Python knowledge recommended but not mandatory.\nNo prior backend experience needed",
+  //   // speakers: "John Doe, Jane Smith",
+  //   moreInfo: {
+  //     certificate: "Physical Certificate",
+  //     takeaways: "Takeaways",
+  //     time: "9:00 AM to 01:00 PM",
+  //     date: "7th February, 2026",
+  //     venue: "Your audi/lab",
+  //     entryFee: "Rs. 150/-",
+  //   },
+  //   contact: [
+  //     // {
+  //     //   id: 1,
+  //     //   name: "Ajai Krishna",
+  //     //   phone: "+91 7010707652",
+  //     // },
+  //     { id: 1, name: "Sanjay Ganesan", phone: "+91 8148358787" },
+  //   ],
+  // },
 ];
 
 // export   const abacusWorkshops = [
