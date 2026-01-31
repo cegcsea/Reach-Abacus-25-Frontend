@@ -65,8 +65,9 @@ const IndividualWorkshops = () => {
   }, [getbestPayment]);
 
   useEffect(() => {
-    refreshauth();
-  }, [refreshauth, user?.WorkshopPayment?.length]);
+  refreshauth();
+}, []);
+
 
   if (isLoading) {
     return <Loader />;
