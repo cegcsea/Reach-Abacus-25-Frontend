@@ -146,6 +146,7 @@ useEffect(() => {
       WebkitOverflowScrolling: "touch",
       overscrollBehavior: "contain",
       paddingBottom: "120px",
+      touchAction: "pan-y"
     }}
     onWheel={(e) => {
       const box = footerScrollRef.current;
