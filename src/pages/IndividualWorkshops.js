@@ -6,7 +6,12 @@ import { UserData } from "../context/userContext";
 import { FaInfo } from "react-icons/fa";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
+import { useNavigate } from "react-router-dom";
+
+
+
 const IndividualWorkshops = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const { user, isAuth ,refreshauth} = UserData();
   const workshop = workshops.find((ws) => ws.to === id);
@@ -277,12 +282,13 @@ const IndividualWorkshops = () => {
           )}
 
           {!isAuth && (
-            <Link to="/auth">
-              <button className="m-3 w-fit rounded-full border border-[#ab8e5c] px-4 py-2 text-white duration-150 hover:bg-[#ab8e5c]">
-                Login to Register {"<"}~{">"}
-              </button>
-            </Link>
-          )}
+          <button
+            onClick={() => navigate("/auth")}
+            className="m-3 w-fit rounded-full border border-[#ab8e5c] px-4 py-2 text-white duration-150 hover:bg-[#ab8e5c]"
+          >
+            Login to Register {"<"}~{">"}
+          </button>
+        )}
         </div>
       </div>
       
