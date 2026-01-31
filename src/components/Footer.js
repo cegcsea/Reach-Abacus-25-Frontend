@@ -224,14 +224,12 @@ const Footer = ({ scrollY }) => {
                     >
                       cseaceg26@gmail.com
                     </a>
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-400 mb-0.5">Marketing</p>
+
                     <a
-                      href="mailto:marketing@abacus.org.in"
+                      href="mailto:generalsecretary@abacus.org.in"
                       className="text-gray-300 text-sm hover:text-[#c0a068] transition-colors block break-words"
                     >
-                      marketing@abacus.org.in
+                      generalsecretary@abacus.org.in
                     </a>
                   </div>
                 </div>
