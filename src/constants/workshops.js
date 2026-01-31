@@ -1,7 +1,7 @@
 import ML from "../assets/Reach/ML.png";
 import placement from "../assets/Reach/placement.svg";
 import UI from "../assets/images/mobile-app-ux-ui-basics.jpg";
-import UI_300 from "../assets/Reach/300.jpg";
+import UI_200 from "../assets/Reach/200.jpg";
 import UI_150 from "../assets/Reach/150.jpg";
 import UI_1200 from "../assets/Reach/1200.jpg";
 import PAY from "../assets/Reach/new.jpg"
@@ -14,7 +14,7 @@ export const workshopsReach = [
     to: "LLM",
     image: LLM,
 
-    qr: UI_300,
+    qr: UI_200,
     venue: [
       {
         name: "J.J. College of Engineering and Technology,Tiruchirappalli ",
@@ -35,7 +35,7 @@ export const workshopsReach = [
       time: "9:00 AM to 01:00 PM",
       date: "21st February, 2025",
       venue: "J.J. College of Engineering and Technology,Tiruchirappalli",
-      entryFee: "Rs. 300/-",
+      entryFee: "Rs. 200/-",
     },
     contact: [
       // {
