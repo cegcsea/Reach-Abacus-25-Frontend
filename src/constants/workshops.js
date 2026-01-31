@@ -5,7 +5,7 @@ import UI_300 from "../assets/Reach/300.jpg";
 import UI_150 from "../assets/Reach/150.jpg";
 import UI_1200 from "../assets/Reach/1200.jpg";
 import PAY from "../assets/Reach/new.jpg"
-import LLM from '../assets/Reach/llm.png';
+import LLM from '../assets/Reach/web.png';
 import BACKEND from '../assets/Reach/pythonwo.png';
 
 export const workshopsReach = [
@@ -18,7 +18,7 @@ export const workshopsReach = [
     venue: [
       {
         name: "J.J. College of Engineering and Technology,Tiruchirappalli ",
-        time: "09:00 AM to 12:00 PM",
+        time: "09:00 AM to 01:00 PM",
         location: "CSE Department, First Floor Lab",
       },
     ],
@@ -32,7 +32,7 @@ export const workshopsReach = [
     moreInfo: {
       certificate: "E-Certificate",
       takeaways: "Takeaways",
-      time: "9:00 AM to 12:00 PM",
+      time: "9:00 AM to 01:00 PM",
       date: "21st February, 2025",
       venue: "J.J. College of Engineering and Technology,Tiruchirappalli",
       entryFee: "Rs. 300/-",
