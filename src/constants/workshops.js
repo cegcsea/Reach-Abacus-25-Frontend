@@ -24,7 +24,7 @@ export const workshopsReach = [
     ],
     code: 1,
     content:
-      "This hands-on “Website Breaking” workshop introduces participants to real-world web security vulnerabilities through practical demonstrations, including Cross-Site Scripting (XSS), SQL injection for login bypass, cookie and session manipulation, insecure direct object references (IDOR), and path and directory traversal. A CTF-style live demo by the CEG Tech Forum will walk students through the complete attack lifecycle—starting with scanning and enumeration, identifying an entry point, gaining initial access, escalating privileges, and finally executing a full attack chain—helping participants understand how attackers think and how to build more secure applications.",
+      "This hands-on “Website Breaking” workshop introduces participants to real-world web security vulnerabilities through practical demonstrations, including Cross-Site Scripting (XSS), SQL injection for login bypass, cookie and session manipulation, insecure direct object references (IDOR), and path and directory traversal. A CTF-style live demo will walk students through the complete attack lifecycle—starting with scanning and enumeration, identifying an entry point, gaining initial access, escalating privileges, and finally executing a full attack chain—helping participants understand how attackers think and how to build more secure applications.",
     prerequisites:
       "Burp Suite Community Edition pre-installed (WSL users: ensure Java is installed and the GUI is tested).\nLaptops required.\nInternet connectivity required",
 

@@ -17,10 +17,10 @@ function Session() {
   const contacts = [
     {
       id: 1,
-      name: "Kamalesh N",
-      phone: "+91 8610386055"
+      name: "Madhubaalika M",
+      phone: "+91 73058 97553"
     },
-    { id: 2, name: "Sanjay Ganesan", phone: "+91 8148358787" }
+    { id: 2, name: "Ishwarya D", phone: "+91 9345214813" }
   ];
   const isRegistered =
     Array.isArray(session) &&
@@ -73,16 +73,16 @@ function Session() {
                 expectations, positioning yourself effectively during placement
                 processes.
               </p>
-              <p className="text-[#c9c9c9] p-3 text-base">
+              {/* <p className="text-[#c9c9c9] p-3 text-base">
                 <span className="font-bold text-lg">Mock Interviews: </span>
                 <br />
                 Engage in simulated interview experiences, receiving valuable
                 feedback to optimize your performance in real-world placements.
-              </p>
+              </p> */}
 
               <p className="text-[#c9c9c9] p-3 text-base">
-                <span className="font-bold text-lg">Date: </span> 20th February
-                2025
+                <span className="font-bold text-lg">Date: </span> 5th February
+                2026
               </p>
               <p className="text-[#c9c9c9] p-3 text-base">
                 <span className="font-bold text-lg">Time: </span> 02:00 PM to

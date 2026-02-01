@@ -41,7 +41,7 @@ export const events = [
             content:
               "Create a fast wireframe based on a futuristic theme.",
               
-            duration: "30 minutes",
+            duration: "45 minutes",
             time: "09:00 AM to 12:30 PM",
             // venue: "Main Building Room No 238",
           },
@@ -84,7 +84,7 @@ export const events = [
             title: "Round 1 – Algorithmic Sprint",
             content:
               "Participants solve 4–5 DSA-based problems covering arrays, strings, recursion, trees, graphs, and other core concepts. Points earned here determine ranking and unlock advantages for the next round.",
-            duration: "30 minutes",
+            duration: "45 minutes",
             time: "09:00 AM to 12:30 PM",
             // venue: "Main Building Room No 238",
           },
@@ -130,7 +130,7 @@ export const events = [
           {
             title: "Round 1",
             content: "MCQs on DBMS & OS fundamentals, A Technical Crossword Puzzle, Spot-the-Error tasks in SQL/OS pseudo codes, ER Diagram Construction from table instances. 6-10 qualifying teams proceed to round 2.",
-            duration: "30 minutes",
+            duration: "45 minutes",
             time: "09:00 AM to 12:30 PM",
             // venue: "Main Building Room No 238",
           },
@@ -186,7 +186,7 @@ export const events = [
             title: "Round 1 – Pen and Paper Screening",
             content:
               "20-minute written quiz about the Tamil music industry. Questions on music directors, singers, lyricists, songs, and movie trivia. Top 6 teams qualify for Round 2.",
-            duration: "20 minutes",
+            duration: "45 minutes",
             time: "01:30 PM to 02:00 PM",
           },
           {
