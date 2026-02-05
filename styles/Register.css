@@ -2,28 +2,81 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 75px;
-  min-height: 100vh;
-  background-color: #000000;
-  background-size: cover;
-  background-position: center;
+  padding-top: 80px;
+  min-height: calc(100vh - 80px);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  perspective: 1400px;
 }
 
 .register-box {
-  background: #1d1d1d;
-  padding: 2rem;
-  border-radius: 15px;
-  width: 360px;
-  box-shadow: 0px 4px 15px rgba(169, 169, 169, 0.6);
-  border: 1px solid rgba(169, 169, 169, 0.6);
+  position: relative;
+  width: 380px;
+  padding: 2.5rem 2.25rem;
+  border-radius: 20px;
+  background: radial-gradient(circle at top, rgba(192, 160, 104, 0.18), rgba(15, 15, 16, 0.96));
+  border: 1px solid rgba(192, 160, 104, 0.35);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.85),
+    0 0 40px rgba(192, 160, 104, 0.25);
+  backdrop-filter: blur(18px);
+  transform-style: preserve-3d;
+  animation: auth-float 16s ease-in-out infinite alternate;
+  overflow: hidden;
+}
+
+.register-box::before,
+.register-box::after {
+  content: "";
+  position: absolute;
+  inset: -120%;
+  background: conic-gradient(
+    from 180deg,
+    rgba(192, 160, 104, 0.55),
+    transparent,
+    transparent,
+    rgba(192, 160, 104, 0.55),
+    transparent
+  );
+  opacity: 0.22;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: auth-orbit 24s linear infinite;
+}
+
+.register-box::after {
+  animation-duration: 32s;
+  animation-direction: reverse;
+  opacity: 0.16;
+}
+
+.register-container:hover .register-box {
+  transform: rotateX(6deg) rotateY(8deg) translateY(-6px);
+  transition:
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.6s ease;
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.9),
+    0 0 55px rgba(192, 160, 104, 0.35);
+}
+
+.register-container:not(:hover) .register-box {
+  transition:
+    transform 0.8s ease-out,
+    box-shadow 0.8s ease-out;
 }
 
 .register-toggle {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  gap: 0.75rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.7));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
 }
 
 .register-toggle button {
@@ -35,7 +88,11 @@
   color: rgba(255, 255, 255, 0.6);
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 1;
+  transition:
+    color 0.35s ease,
+    transform 0.25s ease;
 }
 
 .register-toggle button:hover {
@@ -43,32 +100,61 @@
 }
 
 .register-toggle button.active-tab {
-  color: #c0a068;
-  border-bottom: 2px solid #c0a068;
+  color: #0b0b0c;
+  transform: translateY(-1px);
+}
+
+.register-toggle::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  width: 50%;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f7e3a7, #c0a068, #f6e6b9);
+  box-shadow: 0 0 30px rgba(192, 160, 104, 0.6);
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.register-toggle:has(button:first-child.active-tab)::before {
+  transform: translateX(0);
 }
 
 .register-title {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: bold;
   text-align: center;
   color: white;
   margin-bottom: 1.5rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 15px rgba(0, 0, 0, 0.7),
+    0 0 18px rgba(192, 160, 104, 0.35);
 }
 
 .register-input {
   width: 100%;
   padding: 0.8rem;
   font-size: 1rem;
-  background: #333333;
+  background: #050507bf;
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   outline: none;
-  transition: border 0.3s ease-in-out;
+  transition:
+    border 0.25s ease-in-out,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.18s ease;
 }
 
 .register-input:focus {
   border-color: #c0a068;
+  background-color: rgba(10, 10, 14, 0.95);
+  box-shadow: 0 0 18px rgba(192, 160, 104, 0.4);
+  transform: translateY(-1px);
 }
 
 .register-button {
@@ -76,15 +162,30 @@
   padding: 0.8rem;
   font-size: 1rem;
   color: #ffffff;
-  background-color: #c0a068;
+  background-image: linear-gradient(135deg, #f6e6b9, #c0a068, #f7e3a7);
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.85),
+    0 0 22px rgba(192, 160, 104, 0.55);
+  transition:
+    background-position 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  background-size: 200% 100%;
+  background-position: 100% 50%;
 }
 
 .register-button:hover {
-  background-color: #c0a068
+  transform: translateY(-2px);
+  background-position: 0% 50%;
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(250, 234, 177, 0.8);
 }
 
 .forgot-password {
