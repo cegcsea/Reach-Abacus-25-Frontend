@@ -202,14 +202,14 @@ const IndividualWorkshops = () => {
           {renderContent()}
 
           <div className="flex justify-center gap-3">
-            {isAuth && !isRegistered && (
+            {/* {isAuth && !isRegistered && (
               <Link to={`/workshops/${workshop.code}/payment`}>
                 <button className="m-3 w-fit border-[#c0a068] border-[1.7px] px-4 py-2 text-white duration-150 hover:bg-[#D2BC8E]">
                   Register {"<"}~{">"}
                 </button>
               </Link>
-            )}
-            {workshop.bulkBooking &&
+            )} */}
+            {/* {workshop.bulkBooking &&
               isAuth &&
               ((isRegistered && bestPayment?.status === "FAILURE") ||
                 !isRegistered) && (
@@ -221,7 +221,15 @@ const IndividualWorkshops = () => {
                     Bulk Register {"<"}~{">"}
                   </button>
                 </Link>
-              )}
+              )} */}
+              <button
+              disabled
+              className="m-3 w-fit cursor-not-allowed rounded-full 
+                        border border-gray-400 px-6 py-2 
+                        text-gray-400 bg-transparent"
+            >
+              Registrations Closed
+            </button>
           </div>
 
           {/* Payment status sections */}

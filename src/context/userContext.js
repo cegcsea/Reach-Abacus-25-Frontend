@@ -49,6 +49,7 @@ export const UserContextProvider = ({ children }) => {
     setBtnLoading(true);
     setIsLoading(true);
     //console.log(email, typeof email);
+    console.log("API SERVER:", server);
     try {
       const response = await axios.post(
         `${server}/user/get-registration-link`,
