@@ -2,9 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 75px;
   min-height: 100vh;
-  background-color: #000000;
+  padding-top: 75px;
+  background-color: transparent;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -12,18 +12,91 @@
 }
 
 .register-box {
-  background: #1d1d1d;
-  padding: 2rem;
-  border-radius: 15px;
-  width: 360px;
-  box-shadow: 0px 4px 15px rgba(169, 169, 169, 0.6);
-  border: 1px solid rgba(169, 169, 169, 0.6);
+  /* same futuristic glass panel as login */
+  position: relative;
+  width: min(420px, 92vw);
+  padding: 2.6rem 2.4rem;
+  color: #fff;
+
+  /* Asymmetric cut-corner shape */
+  border-radius: 26px 10px 26px 10px;
+  clip-path: polygon(
+    0% 14px,
+    14px 0%,
+    calc(100% - 18px) 0%,
+    100% 18px,
+    100% calc(100% - 14px),
+    calc(100% - 14px) 100%,
+    18px 100%,
+    0% calc(100% - 18px)
+  );
+
+  background:
+    radial-gradient(circle at 15% 10%, rgba(192, 160, 104, 0.22), transparent 55%),
+    linear-gradient(145deg, rgba(10, 10, 14, 0.78), rgba(10, 10, 14, 0.38));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 22px 70px rgba(0, 0, 0, 0.78),
+    0 0 40px rgba(192, 160, 104, 0.18);
+  overflow: hidden;
+  transform: translateZ(0);
+  transition:
+    transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.register-box::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: conic-gradient(
+    from 180deg,
+    rgba(192, 160, 104, 0.85),
+    rgba(255, 255, 255, 0.18),
+    rgba(192, 160, 104, 0.35),
+    rgba(255, 255, 255, 0.12),
+    rgba(192, 160, 104, 0.85)
+  );
+  opacity: 0.35;
+  filter: blur(10px);
+  animation: auth-spin 16s linear infinite;
+  pointer-events: none;
+}
+
+.register-box::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: 18px 6px 18px 6px;
+  border: 1px dashed rgba(192, 160, 104, 0.28);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.register-container:hover .register-box {
+  transform: translateY(-6px) rotateX(3deg) rotateY(4deg);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.82),
+    0 0 55px rgba(192, 160, 104, 0.26);
+}
+
+.register-container:hover .register-box::before {
+  opacity: 0.55;
 }
 
 .register-toggle {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  gap: 0.75rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  position: relative;
+  overflow: hidden;
 }
 
 .register-toggle button {
@@ -35,7 +108,11 @@
   color: rgba(255, 255, 255, 0.6);
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 1;
+  transition:
+    color 0.3s ease,
+    transform 0.25s ease;
 }
 
 .register-toggle button:hover {
@@ -43,32 +120,61 @@
 }
 
 .register-toggle button.active-tab {
-  color: #c0a068;
-  border-bottom: 2px solid #c0a068;
+  color: #0b0b0c;
+  transform: translateY(-1px);
+}
+
+.register-toggle::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  width: 50%;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f7e3a7, #c0a068, #f6e6b9);
+  box-shadow: 0 0 26px rgba(192, 160, 104, 0.55);
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.register-toggle:has(button:first-child.active-tab)::before {
+  transform: translateX(0);
 }
 
 .register-title {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: bold;
   text-align: center;
   color: white;
   margin-bottom: 1.5rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 16px rgba(0, 0, 0, 0.7),
+    0 0 18px rgba(192, 160, 104, 0.28);
 }
 
 .register-input {
   width: 100%;
   padding: 0.8rem;
   font-size: 1rem;
-  background: #333333;
+  background-color: rgba(5, 5, 7, 0.68);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   outline: none;
-  transition: border 0.3s ease-in-out;
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.18s ease;
 }
 
 .register-input:focus {
   border-color: #c0a068;
+  background-color: rgba(10, 10, 14, 0.92);
+  box-shadow: 0 0 18px rgba(192, 160, 104, 0.35);
+  transform: translateY(-1px);
 }
 
 .register-button {
@@ -76,15 +182,30 @@
   padding: 0.8rem;
   font-size: 1rem;
   color: #ffffff;
-  background-color: #c0a068;
+  background-image: linear-gradient(135deg, #f6e6b9, #c0a068, #f7e3a7);
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.85),
+    0 0 22px rgba(192, 160, 104, 0.50);
+  transition:
+    background-position 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  background-size: 200% 100%;
+  background-position: 100% 50%;
 }
 
 .register-button:hover {
-  background-color: #c0a068
+  transform: translateY(-2px);
+  background-position: 0% 50%;
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(250, 234, 177, 0.75);
 }
 
 .forgot-password {

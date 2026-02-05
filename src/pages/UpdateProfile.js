@@ -28,7 +28,7 @@ function UpdateProfile() {
       mobile: user.mobile,
       //accomodation: user.accomodation,
     });
-  },[user]);
+  }, [user]);
   // useEffect(() => {
   //   profile();
   //   //console.log("updateprofile:", user);
@@ -75,7 +75,7 @@ function UpdateProfile() {
         mobile: formData.mobile,
         //accomodation: formData.accomodation,
       },
-      navigate
+      navigate,
     );
   };
 
@@ -83,52 +83,68 @@ function UpdateProfile() {
     return <Loader />;
   }
   return (
-    <div className="mt-20 lg:mt-28 flex justify-center items-center py-10 sm:px-0 px-4 bg-[#1d1d1d] gap-5 ">
-      <div className="querybox flex flex-col gap-7 w-full sm:w-2/5 border border-[#c53939] text-white p-5 sm:p-10 bg-[#1d1d1d]">
-        <div className="text-2xl text-center">
-          <span className="text-[#c53939]">&#60;</span>
+    <div className="mt-20 lg:mt-28 flex justify-center items-center py-10 px-4 ">
+      <div
+        className="
+        flex flex-col gap-7 w-full sm:w-2/5
+        p-6 sm:p-10
+        border border-[#c0a06833]
+        text-[#ffffffe6]
+        rounded-xl
+        backdrop-blur-xl
+        bg-[radial-gradient(circle_at_center,rgba(192,160,104,0.18)_0%,rgba(192,160,104,0.08)_35%,rgba(255,255,255,0.02)_65%,transparent_100%)]
+        shadow-[0_8px_32px_rgba(0,0,0,0.45),inset_0_0_30px_rgba(255,255,255,0.05)]
+      "
+      >
+        <div className="text-2xl text-center tracking-wide">
+          <span className="text-[#c0a068]">&#60;</span>
           &nbsp;Update Info&nbsp;
-          <span className="text-[#c53939]">&#62;</span>
+          <span className="text-[#c0a068]">&#62;</span>
         </div>
+
         <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-
-          <input
-            type="text"
-            name="college"
-            placeholder="College"
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
-            value={formData.college}
-            onChange={handleChange}
-            required
-          />
-
-          <input
-            type="text"
-            name="dept"
-            placeholder="Department"
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
-            value={formData.dept}
-            onChange={handleChange}
-            required
-          />
+          {["name", "college", "dept"].map((field) => (
+            <input
+              key={field}
+              type="text"
+              name={field}
+              placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
+              className="
+              p-2 text-[18px]
+              bg-transparent
+              border border-[#aa8c2c66]
+              outline-none
+              rounded-md
+              focus:border-[#c0a068]
+              focus:shadow-[0_0_12px_rgba(192,160,104,0.35)]
+              placeholder:text-[#ffffff99]
+            "
+              value={formData[field]}
+              onChange={handleChange}
+              required
+            />
+          ))}
 
           <select
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            className="
+            p-2 text-[18px]
+            bg-transparent
+            border border-[#aa8c2c66]
+            outline-none
+            rounded-md
+            focus:border-[#c0a068]
+            text-[#ffffffe6]
+          "
             value={formData.year}
             onChange={(e) => handleSelectChange("year", e.target.value)}
             required
           >
             {optionsYear.map((option) => (
-              <option key={option.value} value={option.value}>
+              <option
+                key={option.value}
+                value={option.value}
+                className="bg-[#050505]"
+              >
                 {option.label}
               </option>
             ))}
@@ -138,50 +154,52 @@ function UpdateProfile() {
             type="text"
             name="mobile"
             placeholder="Mobile"
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            className="
+            p-2 text-[18px]
+            bg-transparent
+            border border-[#aa8c2c66]
+            outline-none
+            rounded-md
+            focus:border-[#c0a068]
+            focus:shadow-[0_0_12px_rgba(192,160,104,0.35)]
+            placeholder:text-[#ffffff99]
+          "
             value={formData.mobile}
             onChange={handleMobileChange}
             required
           />
 
-          {/* <select
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
-            value={
-              formData.accomodation !== undefined &&
-              formData.accomodation !== null
-                ? formData.accomodation.toString()
-                : ""
-            }
-            onChange={(e) =>
-              handleSelectChange(
-                "accomodation",
-                e.target.value === "true"
-                  ? true
-                  : e.target.value === "false"
-                  ? false
-                  : null
-              )
-            }
-            required
-          >
-            <option value="" disabled>
-              Accommodation status
-            </option>
-            <option key="Yes" value={true}>
-              Yes
-            </option>
-            <option key="No" value={false}>
-              No
-            </option>
-          </select> */}
-
-          <div className="self-center">
+          <div className="self-center pt-2 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <button
               type="submit"
-              className="py-2 px-4 text-white border border-[#c53939] hover:bg-[#c5393936] duration-150"
+              className="
+      px-6 py-2
+      border border-[#c0a068]
+      rounded-md
+      text-[#ffffffe6]
+      hover:bg-[#c0a06822]
+      hover:shadow-[0_0_20px_rgba(192,160,104,0.4)]
+      transition-all duration-200
+    "
               disabled={btnLoading}
             >
               {btnLoading ? "Updating..." : "Update Info"}
+            </button>
+
+            <button
+              type="button"
+              onClick={() => navigate(-1)}
+              className="
+      px-6 py-2
+      border border-[#c0a068]
+      rounded-md
+      text-[#ffffffe6]
+      hover:bg-[#c0a06822]
+      hover:shadow-[0_0_20px_rgba(192,160,104,0.4)]
+      transition-all duration-200
+    "
+            >
+              Cancel
             </button>
           </div>
         </form>
