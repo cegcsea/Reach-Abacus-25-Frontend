@@ -1,4 +1,20 @@
 /* Reset and base styles */
+.sponsor {
+  margin-top: 2rem;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fcfcfc;
+  margin-bottom: 3rem;
+  overflow: hidden;
+  text-align: center;
+  text-shadow: 6px 2px 4px rgba(192, 160, 104, 0.8);
+  width: 100%;
+  padding: 0 1rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding-top: 30px;
+}
+
 .sptotal {
   min-height: 100vh;
   background: transparent; /* Preserving galaxy background from main theme */

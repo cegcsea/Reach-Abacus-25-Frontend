@@ -58,7 +58,7 @@ const SponsorsPage = () => {
   return (
     <div className="sptotal">
       <div>
-        <div className="sphead">
+        <div className="sponsor">
           Sponsors
         </div>
         <div className="spout">
