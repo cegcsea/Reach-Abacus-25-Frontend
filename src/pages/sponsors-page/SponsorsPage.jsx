@@ -74,6 +74,7 @@ const SponsorsPage = () => {
                 <div className="crater cr3"></div>
               </div>
               
+              <br/>
               {/* Logo Image */}
               <img src={sponsor.logo} alt={sponsor.name} />
               
