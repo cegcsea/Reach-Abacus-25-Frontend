@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./SponsorsPage.css";
 import { LoaderData } from "../../context/loaderContext";
 import Loader from "../../components/Loader/Loader";
-import MOTORQ from "../../assets/Sponsors/MOTORQ.png";
+import MOTORQ from "../../assets/Sponsors/motoroq.png";
 import CONGRUENT from "../../assets/Sponsors/Congruent.png";
 
 const sponsors = [
-  
   {
     name: "Congruent - Title Sponsor",
     logo: CONGRUENT,
@@ -18,34 +17,68 @@ const sponsors = [
     name: "MOTORQ - Events Sponsor",
     logo: MOTORQ,
     description:
-      "Headquartered in the San Francisco Bay Area, Motorq is an analytics software platform company that was created for the sole purpose of realizing the potential of connected-car data. The possibilities are virtually endless. They’re committed to leveraging this data to help businesses unlock the power of raw data by deciphering and creating actionable insights from a variety of disparate connected-car systems. Their cloud-based system allows them to deliver better, faster and more cost-effective insights so the clients can focus on what they do best.",
+      "Headquartered in the San Francisco Bay Area, Motorq is an analytics software platform company that was created for the sole purpose of realizing the potential of connected-car data. The possibilities are virtually endless. They're committed to leveraging this data to help businesses unlock the power of raw data by deciphering and creating actionable insights from a variety of disparate connected-car systems. Their cloud-based system allows them to deliver better, faster and more cost-effective insights so the clients can focus on what they do best.",
     website: "https://motorq.com/",
   },
 ];
 
 const SponsorsPage = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { isLoading } = LoaderData();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isLoading } = LoaderData();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-    if (isLoading) {
-      return <Loader />;
+  
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  // Generate snowflakes with random horizontal positions
+  const generateSnowflakes = () => {
+    const snowflakes = [];
+    const positions = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.15, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85, 0.95];
+    
+    for (let i = 0; i < 18; i++) {
+      snowflakes.push(
+        <div 
+          key={i} 
+          style={{ 
+            "--i": `${Math.floor(Math.random() * 15) + 8}`, 
+            "--j": `${(Math.random() * 1.5) + 1.5}`,
+            "--k": `${positions[i]}`
+          }} 
+          className="snowflake"
+        ></div>
+      );
     }
+    return snowflakes;
+  };
 
   return (
     <div className="sptotal">
       <div>
         <div className="sphead">
-          <h1 style={{ textAlign: "center", color: "#fff", marginTop: "50px" }}>
-            Sponsors
-          </h1>
+          Sponsors
         </div>
         <div className="spout">
           {sponsors.map((sponsor, index) => (
-            <div key={index} className={`spcontent-container `}>
+            <div key={index} className="spcontent-container">
+              {/* Snowflake Effects - Randomly positioned */}
+              {generateSnowflakes()}
+              
+              {/* Moon */}
+              <div className="moon">
+                <div className="crater cr1"></div>
+                <div className="crater cr2"></div>
+                <div className="crater cr3"></div>
+              </div>
+              
+              <br/>
+              {/* Logo Image */}
               <img src={sponsor.logo} alt={sponsor.name} />
+              
+              {/* Text Content Container */}
               <div className="sptext-container">
                 <h1 className="sptitle">{sponsor.name}</h1>
                 <p>{sponsor.description}</p>
@@ -68,4 +101,3 @@ const SponsorsPage = () => {
 };
 
 export default SponsorsPage;
-
