@@ -203,15 +203,17 @@ useEffect(() => {
   className="
     absolute z-50 flex gap-4
 
-    /* Desktop (default): right middle vertical */
+    /* Desktop: right middle */
     right-6 top-1/2 -translate-y-1/2 flex-col
 
-    /* Mobile: bottom center horizontal */
-    max-md:bottom-6 max-md:top-auto max-md:right-1/2 
-    max-md:translate-x-1/2 max-md:translate-y-0
+    /* Mobile: bottom center (moved up) */
+    max-md:bottom-12 max-md:top-auto
+    max-md:right-1/2 max-md:translate-x-1/2
+    max-md:translate-y-0
     max-md:flex-row
   "
 >
+
   {SECTIONS.map((_, i) => (
     <div
       key={i}

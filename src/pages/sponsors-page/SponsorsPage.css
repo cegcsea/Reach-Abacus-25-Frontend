@@ -1,237 +1,243 @@
-/* Reset and base styles */
-.sponsor {
-  margin-top: 2rem;
-  font-size: 3rem;
-  font-weight: bold;
-  color: #fcfcfc;
-  margin-bottom: 3rem;
-  overflow: hidden;
-  text-align: center;
-  text-shadow: 6px 2px 4px rgba(192, 160, 104, 0.8);
-  width: 100%;
-  padding: 0 1rem;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  padding-top: 30px;
+:root {
+  --simp-gold-primary: #c0a068;
+  --simp-gold-dim: #aa8c2c;
+  --simp-gold-bright: #ffefc0;
+  --simp-black-bg: #050505;
+  --simp-card-glass: rgba(10, 10, 10, 0.95);
+  --simp-text-color: #ffffffe6;
+}
+
+/* ================= OVERALL THEME BG (RESTORED) ================= */
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(192,160,104,0.08),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      #060606 0%,
+      #040404 50%,
+      #020202 100%
+    );
+  background-color: var(--simp-black-bg);
 }
 
 .sptotal {
   min-height: 100vh;
-  background: transparent; /* Preserving galaxy background from main theme */
-  padding: 20px;
+  padding: 40px 20px;
   overflow-x: hidden;
+  background: transparent; /* IMPORTANT */
 }
 
-.sphead {
-  padding: 40px 0;
-  font-size: 3.8rem;
-  font-weight: bold;
-  color: #c0a068;
-  text-align: center;
-  text-shadow: 6px 2px 4px rgba(170, 140, 44, 0.4);
-}
+/* ================= FLOAT ================= */
 
-/* Main container for cards */
-.spout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 60px;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Sponsor Card - New Design with Moon */
-.spcontent-container {
-  width: 100%;
+.sp-wrapper {
+  margin: 60px auto;
   max-width: 1000px;
-  min-height: 400px;
-  background: rgba(10, 10, 10, 0.95); /* Darker background for better snow visibility */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(192, 160, 104, 0.3);
-  border-radius: 12px;
   position: relative;
-  overflow: hidden; /* This contains snowflakes inside */
-  padding: 30px;
-  display: flex;
-  gap: 40px;
-  animation: float 4s ease-in-out infinite;
-  box-shadow: 
-    0 8px 32px 0 rgba(0, 0, 0, 0.37),
-    0 0 30px rgba(192, 160, 104, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  animation: floatUpDown 6s ease-in-out infinite;
 }
 
-.spcontent-container:hover {
-  transform: scale(1.03) translateY(-8px);
-  box-shadow: 
-    0px 10px 30px rgba(192, 160, 104, 0.3),
-    0 0 60px rgba(192, 160, 104, 0.15);
-  border-color: #c0a068;
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0px) rotate(0.5deg);
-  }
-  25% {
-    transform: translateY(-12px) rotate(0.2deg);
-  }
-  50% {
-    transform: translateY(-5px) rotate(-0.5deg);
-  }
-  75% {
-    transform: translateY(-8px) rotate(0.3deg);
-  }
-  100% {
-    transform: translateY(0px) rotate(0.5deg);
-  }
-}
+/* ================= HEADER TITLE (FIXED SHIMMER) ================= */
 
-/* Moon Styling */
-.moon {
-  position: absolute;
-  height: 100px;
-  width: 100px;
-  background: linear-gradient(145deg, #fffaf0, #ffefd5);
-  border-radius: 50%;
-  right: 40px;
-  top: 40px;
-  box-shadow: 
-    0 0 60px rgba(255, 250, 240, 0.7),
-    0 0 100px rgba(255, 250, 240, 0.3),
-    inset -8px -8px 25px rgba(0, 0, 0, 0.2),
-    inset 5px 5px 15px rgba(255, 255, 255, 0.3);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 2;
-}
+.sphead h1 {
+  font-size: 3.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
 
-.spcontent-container:hover .moon {
-  box-shadow: 
-    0 0 80px rgba(255, 250, 240, 0.9),
-    0 0 120px rgba(255, 250, 240, 0.4),
-    inset -10px -10px 30px rgba(0, 0, 0, 0.3),
-    inset 8px 8px 20px rgba(255, 255, 255, 0.4);
-  background: linear-gradient(145deg, #fffaf0, #fff8dc);
-}
+  background: linear-gradient(
+    110deg,
+    var(--simp-gold-primary) 20%,
+    #edd9a3 40%,
+    #ffffff 50%,
+    #edd9a3 60%,
+    var(--simp-gold-primary) 80%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
-/* Moon Craters */
-.crater {
-  position: absolute;
-  background: rgba(220, 200, 180, 0.4);
-  border-radius: 50%;
-  box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.3);
-}
-
-.cr1 {
-  width: 20px;
-  height: 20px;
-  top: 25px;
-  left: 20px;
-}
-.cr2 {
-  width: 25px;
-  height: 25px;
-  top: 55px;
-  left: 50px;
-}
-.cr3 {
-  width: 15px;
-  height: 15px;
-  top: 70px;
-  left: 25px;
-}
-
-/* Snowflake Effects - Fixed and Visible */
-.snowflake {
-  position: absolute;
-  height: calc(3px * var(--j));
-  width: calc(1px * var(--j));
-  background: #fffaf0;
-  border-radius: 50%;
-  box-shadow: 
-    0 0 15px #fffaf0,
-    0 0 25px rgba(255, 250, 240, 0.8);
-  animation: snowfall linear infinite;
-  animation-duration: calc(25s / var(--i));
-  rotate: 25deg;
-  opacity: 0.9;
-  filter: blur(calc(0.5px * var(--j)));
-  z-index: 1;
-  pointer-events: none;
-  /* Position snowflakes randomly across card width */
-  left: calc(var(--k) * 100%);
-}
-
-@keyframes snowfall {
-  0% {
-    transform: translateY(-100px) scale(0.4) rotate(25deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.9;
-  }
-  90% {
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateY(450px) scale(1) rotate(25deg);
-    opacity: 0;
-  }
-}
-
-.spcontent-container:hover .snowflake {
-  animation-duration: calc(18s / var(--i));
-  opacity: 1;
-}
-
-/* Logo Image (Left side) */
-.spcontent-container > img {
-  width: 300px;
-  height: 200px;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 
-    0 0 20px rgba(170, 140, 44, 0.3),
-    0 0 40px rgba(192, 160, 104, 0.1);
-  align-self: center;
-  position: relative;
-  z-index: 3;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(192, 160, 104, 0.2);
-}
-
-/* Text Container */
-.sptext-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  z-index: 3;
-  position: relative;
+  animation: gold-shimmer 8s linear infinite;
+  text-shadow: 0 0 30px rgba(192,160,104,0.35);
 }
 
 /* Title with gold shimmer effect - Desktop Size */
 @keyframes gold-shimmer {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
+  to { background-position: 200% center; }
+}
+
+/* ================= CARD ================= */
+
+.sp-card-container {
+  position: relative;
+  background: var(--simp-card-glass);
+  border-radius: 20px;
+  overflow: visible;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* ================= ELECTRIC BORDER (UNCHANGED) ================= */
+
+.electric-line {
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  pointer-events: none;
+  z-index: 1;
+  border: 2.5px solid var(--simp-gold-primary);
+  filter: url(#fast-uneven-electric);
+  box-shadow:
+    0 0 15px rgba(192,160,104,0.6),
+    inset 0 0 10px rgba(192,160,104,0.4);
+  animation: jitterOpacity 0.15s infinite;
+}
+
+@keyframes jitterOpacity {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+/* ================= SHIMMER OVERLAYS (UNCHANGED) ================= */
+
+.sp-overlay-1,
+.sp-overlay-2 {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  opacity: 0.2;
+  mix-blend-mode: overlay;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255,255,255,0.15) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+  background-size: 200% 200%;
+}
+
+.sp-overlay-1 { animation: shimmerMove 4s linear infinite; }
+.sp-overlay-2 { animation: shimmerMove 6s linear infinite reverse; }
+
+@keyframes shimmerMove {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+
+/* ================= CONFETTI (EXACT AS REQUESTED) ================= */
+
+.sp-confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.sp-confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  top: -20px;
+  opacity: 0.9;
+  animation: sp-makeItRain 3000ms infinite linear;
+}
+
+.sp-confetti-piece:nth-child(4n) { background-color: #FFD700; }
+.sp-confetti-piece:nth-child(4n+1) { background-color: #FF6B6B; }
+.sp-confetti-piece:nth-child(4n+2) { background-color: #4ECDC4; }
+.sp-confetti-piece:nth-child(4n+3) { background-color: #A663CC; }
+
+.sp-confetti-piece:nth-child(1) { left: 5%; animation-delay: 0s; }
+.sp-confetti-piece:nth-child(2) { left: 15%; animation-delay: 0.2s; }
+.sp-confetti-piece:nth-child(3) { left: 25%; animation-delay: 0.5s; }
+.sp-confetti-piece:nth-child(4) { left: 35%; animation-delay: 0.1s; }
+.sp-confetti-piece:nth-child(5) { left: 45%; animation-delay: 0.7s; }
+.sp-confetti-piece:nth-child(6) { left: 55%; animation-delay: 0.3s; }
+.sp-confetti-piece:nth-child(7) { left: 65%; animation-delay: 0.9s; }
+.sp-confetti-piece:nth-child(8) { left: 75%; animation-delay: 0.4s; }
+.sp-confetti-piece:nth-child(9) { left: 85%; animation-delay: 0.6s; }
+.sp-confetti-piece:nth-child(10) { left: 95%; animation-delay: 0.2s; }
+
+@keyframes sp-makeItRain {
+  from { opacity: 0; transform: translateY(-50px) rotate(0); }
+  10%, 90% { opacity: 1; }
+  to { opacity: 0; transform: translateY(600px) rotate(360deg); }
+}
+
+/* ================= CONTENT ================= */
+
+.sp-content-container {
+  padding: 40px;
+  position: relative;
+  z-index: 10;
+}
+
+.sp-card-content {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.sp-logo {
+  width: 240px;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.sp-text-container p {
+  color: var(--simp-text-color);
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.spread {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 12px 30px;
+  background: var(--simp-gold-primary);
+  color: #000;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+}
+
+.spread:hover {
+  background: var(--simp-gold-bright);
+  box-shadow: 0 0 20px var(--simp-gold-primary);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .sp-card-content {
+    flex-direction: column;
+    text-align: center;
   }
 }
 
-.sptitle {
-  font-size: 1.4rem; /* Increased desktop size */
-  margin-bottom: 25px; /* Added space after title */
-  font-weight: 700;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+/* ===== RESTORE SPONSOR TITLE SHIMMER EFFECT ===== */
+
+.sphead h4 {
+  font-size: 2.0rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+
   background: linear-gradient(
     110deg,
     #c0a068 20%,
@@ -244,308 +250,32 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gold-shimmer 13s linear infinite;
-  position: relative;
-  padding-bottom: 15px;
-  width: fit-content;
+
+  animation: gold-shimmer 8s linear infinite;
+  text-shadow: 0 0 20px rgba(192, 160, 104, 0.35);
 }
 
-.sptitle::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 25%;
-  width: 50%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #c0a068, transparent);
-}
+/* FIX CONFETTI FALL ON MOBILE */
+@media (max-width: 900px) {
+  .sp-confetti {
+    height: 120vh; /* allow falling beyond card */
+  }
 
-.sptext-container p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #ffffffe6;
-  text-align: justify;
-  margin: 0;
-  flex: 1;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-  padding-right: 10px;
-  padding-top: 20px;
-}
-
-.spnaive {
-  padding: 20px 0; /* Increased spacing */
-}
-
-/* Visit Website Button - Original Styling */
-.spread {
-  background: linear-gradient(
-    135deg,
-    #c0a068,
-    #aa8c2c
-  );
-  color: #000000;
-  font-size: 16px;
-  font-weight: bold;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 30px;
-  padding: 12px 30px;
-  cursor: pointer;
-  box-shadow: 
-    0 0 20px rgba(192, 160, 104, 0.8),
-    0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease-in-out;
-  text-decoration: none;
-  align-self: flex-start;
-  position: relative;
-  z-index: 3;
-  overflow: hidden;
-}
-
-.spread::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: left 0.5s;
-}
-
-.spread:hover {
-  filter: brightness(1.2);
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 
-    0 0 30px rgba(192, 160, 104, 1),
-    0 6px 15px rgba(0, 0, 0, 0.4);
-}
-
-.spread:hover::before {
-  left: 100%;
-}
-
-/* Mobile Responsive - KEEP AS IS */
-@media (max-width: 1050px) {
-  .spcontent-container {
-    flex-direction: column;
-    text-align: center;
-    padding: 25px 20px;
-    gap: 25px;
-    min-height: auto;
-    animation: float-mobile 4s ease-in-out infinite;
-  
-  transform: scale(1.03) translateY(-8px);
-  box-shadow:
-    0px 10px 30px rgba(192, 160, 104, 0.3),
-    0 0 60px rgba(192, 160, 104, 0.15);
-  border-color: #c0a068;
-}
-  
-  @keyframes float-mobile {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-8px);
-    }
-  }
-  
-  .sphead {
-    font-size: 3.5rem;
-    margin-top: 20px;
-    padding: 30px 0;
-  }
-  
-  .moon {
-    height: 70px;
-    width: 70px;
-    right: 20px;
-    top: 20px;
-  }
-  
-  .cr1 {
-    width: 15px;
-    height: 15px;
-    top: 15px;
-    left: 15px;
-  }
-  .cr2 {
-    width: 18px;
-    height: 18px;
-    top: 40px;
-    left: 35px;
-  }
-  .cr3 {
-    width: 12px;
-    height: 12px;
-    top: 50px;
-    left: 20px;
-  }
-  
-  .spcontent-container > img {
-    width: 80%;
-    max-width: 300px;
-    max-height: 150px;
-    margin: 70px auto 25px auto; /* More space for moon */
-    order: 2;
-    padding: 15px;
-  }
-  
-  .sptext-container {
-    order: 3;
-    gap: 20px;
-  }
-  
-  .sptitle {
+  .sphead h4 {
     font-size: 1.8rem;
-    order: 1;
-    margin-bottom: 20px;
   }
-  
-  .sptitle::after {
-    left: 15%;
-    width: 70%;
-  }
-  
-  .sptext-container p {
-    order: 3;
-    font-size: 1rem;
-    line-height: 1.6;
-            padding-right: 5px;
-      padding-left: 5px;
-  }
-  
-  .spread {
-    order: 4;
-    align-self: center;
-    margin-top: 20px;
-    font-size: 15px;
-    padding: 10px 25px;
-  }
-  
-  .spnaive {
-    padding: 15px 0;
-  }
-  
-  /* Adjust snowflake animation for mobile */
-  @keyframes snowfall {
-    0% {
-      transform: translateY(-80px) scale(0.4) rotate(25deg);
-      opacity: 0;
-    }
-    10% {
-      opacity: 0.9;
-    }
-    90% {
-      opacity: 0.9;
-    }
-    100% {
-      transform: translateY(350px) scale(1) rotate(25deg);
-      opacity: 0;
-    }
-  }
-  
-  .snowflake {
-    height: calc(2.5px * var(--j));
-    width: calc(0.8px * var(--j));
-  }
-}
 
-/* Small Mobile */
-@media (max-width: 690px) {
-  .spcontent-container {
-    padding: 20px 15px;
-  }
-  
-  .sphead {
-    font-size: 2.8rem;
-    padding: 20px 0;
-  }
-  
-  .sptitle {
-    font-size: 1.6rem;
-    margin-bottom: 15px;
-  }
-  
-  .sptext-container p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-          padding-right: 5px;
-      padding-left: 5px;
-  }
-  
-  .moon {
-    height: 60px;
-    width: 60px;
-  }
-  
-  .spcontent-container > img {
-    max-height: 130px;
-    padding: 15px;
-    margin-top: 60px;
-  }
-  
-  .cr1 {
-    width: 12px;
-    height: 12px;
-    top: 12px;
-    left: 12px;
-  }
-  .cr2 {
-    width: 15px;
-    height: 15px;
-    top: 35px;
-    left: 30px;
-  }
-  .cr3 {
-    width: 10px;
-    height: 10px;
-    top: 45px;
-    left: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .sphead {
-    font-size: 2.5rem;
-  }
-  
-  .spcontent-container {
-    padding: 18px 12px;
-  }
-  
-  .spcontent-container > img {
-    max-width: 90%;
-    margin-top: 55px;
-  }
-  
-  .sptitle {
-    font-size: 1.4rem;
-  }
-  
-  .sptext-container p {
-    font-size: 0.9rem;
-    text-align: justify;
-      padding-right: 5px;
-      padding-left: 5px;
-  }
-  
-  .spread {
-    display: table;
-    margin: 20px auto 0 auto;
-    font-size: 14px;
-    padding: 8px 20px;
-  }
-  
-  .moon {
-    height: 55px;
-    width: 55px;
-    right: 15px;
-    top: 15px;
+  @keyframes sp-makeItRain {
+    from {
+      opacity: 0;
+      transform: translateY(-50px) rotate(0);
+    }
+    10%, 90% {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      transform: translateY(900px) rotate(360deg);
+    }
   }
 }
