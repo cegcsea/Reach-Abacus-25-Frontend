@@ -18,7 +18,7 @@ const features = [
   },
   {
     icon: <MdPeople className="text-xl sm:text-3xl" />,
-    title: "2000+ Attendees",
+    title: "1500+ Attendees",
     description: "Industry experts, leaders & innovators",
   },
 ];
