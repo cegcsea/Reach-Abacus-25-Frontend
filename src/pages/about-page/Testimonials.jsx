@@ -37,7 +37,7 @@ const Testimonials = () => {
 
       <div className="notes-grid">
         {testimonials.map((person) => (
-          <div className="sticky-note" key={person.id}>
+          <div className="sticky-note anim-uniq-716" key={person.id}>
             <div className="photo-overlap">
               <img
                 src={person.image}

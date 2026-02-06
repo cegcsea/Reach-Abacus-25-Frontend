@@ -416,6 +416,8 @@
     order: 3;
     font-size: 1rem;
     line-height: 1.6;
+            padding-right: 5px;
+      padding-left: 5px;
   }
   
   .spread {
@@ -473,6 +475,8 @@
   .sptext-container p {
     font-size: 0.95rem;
     line-height: 1.5;
+          padding-right: 5px;
+      padding-left: 5px;
   }
   
   .moon {
@@ -527,6 +531,8 @@
   .sptext-container p {
     font-size: 0.9rem;
     text-align: justify;
+      padding-right: 5px;
+      padding-left: 5px;
   }
   
   .spread {
