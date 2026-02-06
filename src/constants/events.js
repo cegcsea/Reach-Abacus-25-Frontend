@@ -11,10 +11,10 @@ import img8 from "../assets/images/amazon.png";
 export const EventContacts = [
   {
     id: 1,
-    name: "Nikhil Prasanna",
-    phone: "+91 6379066510",
+    name: "Hariharan",
+    phone: "+91 7708 462 392",
   },
-  { id: 2, name: "Padmasharan", phone: "+91 9585612262" },
+  { id: 2, name: "Ishwarya", phone: "+91 93452 14813" },
 ];
 
 // List of events
