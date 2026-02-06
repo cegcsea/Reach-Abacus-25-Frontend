@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import { useLocation } from "react-router-dom"; // Import useLocation
-import "../styles/Eventinner.css";
+import "../styles/TechnicalPage.css";
 //import img1 from "../assets/images/events pic/1.png";
 import { EventContacts } from "../constants/events";
 import { LoaderData } from "../context/loaderContext";

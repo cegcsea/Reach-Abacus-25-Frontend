@@ -167,7 +167,7 @@ const NoviceInit = () => {
               {!isAuth && (
                 <button
                   className="m-3 w-fit border border-[#c0a068] px-4 py-2 text-white duration-150 hover:bg-[#c0a068]"
-                  onClick={() => navigate("/login")}
+                  onClick={() => navigate("/auth")}
                 >
                   Login to Register
                 </button>
