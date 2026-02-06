@@ -120,7 +120,7 @@ useEffect(() => {
 
   return (
     <div 
-      className="relative w-full h-screen overflow-hidden select-none"
+      className="relative w-full h-[100dvh] overflow-hidden select-none"
       style={{ background: active === 0 ? "black" : "transparent" }}
     >
       <AnimatePresence mode="wait" custom={direction}>

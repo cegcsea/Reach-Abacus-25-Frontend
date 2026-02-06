@@ -16,14 +16,14 @@ const ForgotPassword = ({ setIsLogin }) => {
   };
   const { isLoading } = LoaderData();
 
-  if (isLoading) {
-    return <Loader />;
-  }
+  // if (isLoading) {
+  //   return <Loader />;
+  // }
 
   return (
     <div className="register-container ">
       <div className="register-box !h-[325px] ">
-        <div className="register-toggle ">
+        <div className="register-toggle">
           <button className="active-tab !text-2xl">Forgot Password</button>
         </div>
         {/* <h2 className="register-title">REGISTER</h2> */}
