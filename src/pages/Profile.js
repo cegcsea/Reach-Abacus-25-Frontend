@@ -6,6 +6,7 @@ import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 import { sessions, workshopsReach } from "../constants/workshops";
 import "../styles/profile.css";
+import axios from "axios";
 
 const Profile = () => {
   const { profile, user, userEvents, session } = UserData();
@@ -48,6 +49,26 @@ const Profile = () => {
       <div className="user-card">
         <div className="user-header">
           <h2>Profile</h2>
+          <button
+            className="action-btn m-5 ambassador"
+            onClick={async () => {
+            console.log("user:", user);
+            console.log("userData:", userData);
+
+            try {
+              const res = await axios.post(
+                `${process.env.REACT_APP_API_BASE_URL}/admin/register-ca-from-user`,
+                { abacusId: userData.abacusId },
+                { withCredentials: true }
+              );
+              alert(`Registered! Referral code: ${res.data.campusAmbassador.referralCode}`);
+            } catch (err) {
+              alert(err.response?.data?.message || "Error registering CA");
+            }
+          }}
+          >
+            Register as Student Ambassador
+          </button>
 
           <div className="user-details-grid">
             <p>
