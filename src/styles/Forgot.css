@@ -1,0 +1,142 @@
+/* Forgot password page – unique layout */
+
+.forgot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 75px;
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.forgot-card {
+  position: relative;
+  width: min(420px, 92vw);
+  padding: 2.3rem 2.1rem 2rem;
+  border-radius: 28px;
+
+  /* Completely different look from dark glass login/register:
+     bright, soft, card on dark galaxy background */
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(241, 228, 196, 0.97));
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.65),
+    0 0 35px rgba(249, 231, 172, 0.9);
+
+  transform: translateY(18px);
+  opacity: 0;
+  animation: forgot-enter 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Simple heading, no pill/toggle look */
+.forgot-heading {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: left;
+  color: #111111;
+  margin-bottom: 0.9rem;
+}
+
+.forgot-subtitle {
+  margin-bottom: 1.6rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #3b3b3b;
+}
+
+.forgot-input {
+  width: 100%;
+  padding: 0.85rem 0.95rem 0.85rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.95);
+  color: #222222;
+  font-size: 0.95rem;
+  outline: none;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.18s ease;
+}
+
+.forgot-input::placeholder {
+  color: rgba(120, 120, 120, 0.85);
+}
+
+.forgot-input:focus {
+  border-color: #c0a068;
+  background-color: #ffffff;
+  box-shadow: 0 0 12px rgba(192, 160, 104, 0.45);
+  transform: translateY(-1px);
+}
+
+.forgot-button {
+  width: 100%;
+  margin-top: 1.1rem;
+  padding: 0.85rem;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #111111;
+  background-image: linear-gradient(135deg, #f6e6b9, #c0a068, #f7e3a7);
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.85),
+    0 0 26px rgba(250, 234, 177, 0.85);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-position 0.3s ease;
+  background-size: 180% 100%;
+  background-position: 0% 50%;
+}
+
+.forgot-button:hover {
+  transform: translateY(-2px);
+  background-position: 100% 50%;
+  box-shadow:
+    0 20px 44px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(250, 234, 177, 0.95);
+}
+
+.forgot-helper {
+  margin-top: 0.9rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #5a5a5a;
+}
+
+.forgot-helper-strong {
+  color: #fdf5cf;
+  font-weight: 500;
+}
+
+@keyframes forgot-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .forgot-card {
+    padding: 2rem 1.6rem 1.8rem;
+    border-radius: 26px;
+  }
+}
+
