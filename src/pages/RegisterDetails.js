@@ -74,6 +74,7 @@ function RegisterDetails() {
       toast.error("Passwords do not match!");
       return;
     }
+    setBtnLoading(true);
     // console.log({
     //   name: formData.name,
     //   email: email,
@@ -87,22 +88,24 @@ function RegisterDetails() {
     //   password: formData.password,
     // });
 
-    register(
-      {
-        name: formData.name,
-        email: email,
-        token: token,
-        college: formData.college,
-        //hostCollege: hostCollege,
-        accomodation: formData.accomodation,
-        dept: formData.dept,
-        year: parseInt(formData.year),
-        mobile: formData.mobile,
-        referralCode: formData.referralCode,
-        password: formData.password,
-      },
-      navigate
-    );
+    try {
+    await register({
+      name: formData.name,
+      email,
+      token,
+      college: formData.college,
+      accomodation: formData.accomodation,
+      dept: formData.dept,
+      year: parseInt(formData.year),
+      mobile: formData.mobile,
+      referralCode: formData.referralCode,
+      password: formData.password,
+    }, navigate);
+  } catch (err) {
+    toast.error(err.message || "Registration failed");
+  } finally {
+    setBtnLoading(false);
+  }
   };
   const { isLoading } = LoaderData();
 
