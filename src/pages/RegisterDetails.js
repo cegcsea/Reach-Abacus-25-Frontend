@@ -6,6 +6,7 @@ import { UserData } from "../context/userContext";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 import "../styles/RegisterDetails.css";
+/* Need to ensure that this page has been deployed and changed correctly */
 function RegisterDetails() {
   const { email, token } = useParams();
   const navigate = useNavigate();

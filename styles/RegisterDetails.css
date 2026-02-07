@@ -1,5 +1,5 @@
 /* RegisterDetails – galaxy theme matching Home/Login/Register */
-
+/* Just a comment to ensure that the register details page has its own unique styling file, separate from the main Home/Login/Register styles. This allows for more specific and tailored styles that fit the galaxy theme of the details page, while keeping the main styles clean and focused on the core components. */
 .register-details-container {
   display: flex;
   justify-content: center;
