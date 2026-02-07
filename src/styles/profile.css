@@ -132,6 +132,10 @@
   .info-text {
     font-size: 13px;
   }
+  .ambassador{
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
 }
 
 /* --- CONTENT GRID (Events & Workshops) --- */
