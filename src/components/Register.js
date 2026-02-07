@@ -44,12 +44,7 @@ const Register = ({ setIsLogin }) => {
             Register
           </button>
         </form>
-        <p className="forgot-password">
-          Didn't receive the link?{" "}
-          <a href="#" className="forgot-link">
-            Check your email.
-          </a>
-        </p>
+       
       </div>
     </div>
   );
