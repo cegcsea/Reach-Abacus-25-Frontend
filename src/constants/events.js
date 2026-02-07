@@ -82,7 +82,7 @@ export const events = [
         image: rand3,
         path: "/events/byte-begin",
         team: "2-3 members",
-        Date: "21 February 2026",
+        Date: "19 February 2026",
         prize: "Rs 5k",
         to: "byte-begin",
         rounds: [
@@ -91,15 +91,15 @@ export const events = [
             content:
               "This round is a screening-based MCQ test designed to evaluate first-year students’ core technical knowledge, logical reasoning, and problem-solving speed. This round shortlists teams for the next stage of the event.",
             duration: "30 minutes",
-            time: "09:00 AM to 12:30 PM",
-            // venue: "Main Building Room No 238",
+            time: "10:00 AM to 1:00 PM",
+             venue: "RUSA Gallery",
           },
           {
             title: "Round 2 – GET SET CODE",
             content:
               "This round is a time-bound coding challenge designed to test participants’ programming skills, logical thinking, and teamwork. Teams must solve programming problems from different difficulty levels within the given time using a test-case-based evaluation method.",
-            time: "01:30 PM to 03:00 PM",
-            // venue: "Main Building Room No 238",
+            time: "02:00 PM to 05:00 PM",
+             venue: "Third Floor Lab",
           },
         ],
         contact: [
