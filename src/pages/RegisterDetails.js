@@ -17,7 +17,7 @@ function RegisterDetails() {
   const [formData, setFormData] = useState({
     name: "",
     college: "",
-    accomodation: false,
+    accomodation: null,
     dept: "",
     year: "",
     mobile: "",
