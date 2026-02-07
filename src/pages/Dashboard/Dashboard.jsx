@@ -39,16 +39,6 @@ function Dashboard() {
               Events
             </button>
           </div>
-          <div>
-            <button
-              type="submit"
-              className={`py-2 px-4 sm:text-base text-xs text-[#ffffffe6] border border-[#c0a068] hover:bg-[#c0a068]/20 duration-150
-                            ${!isEvents ? "bg-[#c0a068]/20" : "bg-transparent"}`}
-              onClick={() => setIsEvents(false)}
-            >
-              Workshops
-            </button>
-          </div>
         </div>
 
         {/* Content Section */}

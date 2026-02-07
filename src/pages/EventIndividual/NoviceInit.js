@@ -146,9 +146,9 @@ const NoviceInit = () => {
                     <p>
                       <strong>Time:</strong> {round.time}
                     </p>
-                    {/* <p>
+                    <p>
                       <strong>Venue:</strong> {round.venue}
-                    </p> */}
+                    </p>
                   </div>
                 ))}
               </div>
