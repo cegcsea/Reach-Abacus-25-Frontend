@@ -1,0 +1,304 @@
+/* RegisterDetails – galaxy theme matching Home/Login/Register */
+
+.register-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 80px 1rem 40px;
+  background-color: transparent;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Glass panel – same cut-corner style as Login/Register (Home theme) */
+.register-details-card {
+  position: relative;
+  width: min(420px, 92vw);
+  max-width: 480px;
+  padding: 2.6rem 2.4rem;
+  color: #fff;
+
+  border-radius: 26px 10px 26px 10px;
+  clip-path: polygon(
+    0% 14px,
+    14px 0%,
+    calc(100% - 18px) 0%,
+    100% 18px,
+    100% calc(100% - 14px),
+    calc(100% - 14px) 100%,
+    18px 100%,
+    0% calc(100% - 18px)
+  );
+
+  background:
+    radial-gradient(circle at 15% 10%, rgba(192, 160, 104, 0.22), transparent 55%),
+    linear-gradient(145deg, rgba(10, 10, 14, 0.78), rgba(10, 10, 14, 0.38));
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 22px 70px rgba(0, 0, 0, 0.78),
+    0 0 40px rgba(192, 160, 104, 0.18);
+  overflow: hidden;
+  transform: translateZ(0);
+  transition:
+    transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 450ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Animated gradient border – same as Login */
+.register-details-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: conic-gradient(
+    from 180deg,
+    rgba(192, 160, 104, 0.85),
+    rgba(255, 255, 255, 0.18),
+    rgba(192, 160, 104, 0.35),
+    rgba(255, 255, 255, 0.12),
+    rgba(192, 160, 104, 0.85)
+  );
+  opacity: 0.35;
+  filter: blur(10px);
+  animation: register-details-auth-spin 16s linear infinite;
+  pointer-events: none;
+}
+
+.register-details-card::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: 18px 6px 18px 6px;
+  border: 1px dashed rgba(192, 160, 104, 0.28);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.register-details-container:hover .register-details-card {
+  transform: translateY(-6px) rotateX(3deg) rotateY(4deg);
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.82),
+    0 0 55px rgba(192, 160, 104, 0.26);
+}
+
+.register-details-container:hover .register-details-card::before {
+  opacity: 0.55;
+}
+
+@keyframes register-details-auth-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.register-details-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  letter-spacing: 0.12em;
+}
+
+.register-details-title span {
+  color: var(--gold, #c0a068);
+}
+
+.register-details-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.register-details-input,
+.register-details-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(5, 5, 7, 0.75);
+  color: #fff;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.18s ease;
+  box-sizing: border-box;
+}
+
+.register-details-input::placeholder,
+.register-details-select option {
+  color: rgba(200, 200, 200, 0.7);
+}
+
+.register-details-input:focus,
+.register-details-select:focus {
+  border-color: #c0a068;
+  box-shadow: 0 0 16px rgba(192, 160, 104, 0.35);
+  transform: translateY(-1px);
+}
+
+.register-details-password-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  background: rgba(5, 5, 7, 0.75);
+  overflow: hidden;
+}
+
+.register-details-password-wrap:focus-within {
+  border-color: #c0a068;
+  box-shadow: 0 0 16px rgba(192, 160, 104, 0.35);
+}
+
+.register-details-password-wrap input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background: transparent;
+  color: #fff;
+  border: none;
+  outline: none;
+}
+
+.register-details-password-wrap input::placeholder {
+  color: rgba(200, 200, 200, 0.7);
+}
+
+.register-details-password-icon {
+  padding: 0.75rem 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: color 0.25s ease;
+  flex-shrink: 0;
+}
+
+.register-details-password-icon:hover {
+  color: #c0a068;
+}
+
+.register-details-submit {
+  align-self: center;
+  margin-top: 0.5rem;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #111;
+  background: linear-gradient(135deg, #f6e6b9, #c0a068, #f7e3a7);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(192, 160, 104, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.register-details-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7), 0 0 28px rgba(192, 160, 104, 0.5);
+}
+
+.register-details-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------- Mobile: tablet ---------- */
+@media (max-width: 768px) {
+  .register-details-container {
+    padding: 80px 1rem 24px;
+    align-items: flex-start;
+    min-height: calc(100vh - 80px);
+  }
+
+  .register-details-card {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    clip-path: none;
+    border-radius: 20px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .register-details-container:hover .register-details-card {
+    transform: none;
+  }
+
+  .register-details-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .register-details-form {
+    gap: 0.875rem;
+  }
+
+  .register-details-input,
+  .register-details-select {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .register-details-password-wrap input {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .register-details-password-icon {
+    padding: 0.7rem 0.9rem;
+  }
+
+  .register-details-submit {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* ---------- Mobile: small phones ---------- */
+@media (max-width: 480px) {
+  .register-details-container {
+    padding: 72px 0.75rem 20px;
+  }
+
+  .register-details-card {
+    max-width: 100%;
+    padding: 1.5rem 1.25rem;
+    border-radius: 16px;
+    max-height: calc(100vh - 100px);
+  }
+
+  .register-details-title {
+    font-size: 1.25rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+  }
+
+  .register-details-form {
+    gap: 0.75rem;
+  }
+
+  .register-details-input,
+  .register-details-select {
+    padding: 0.65rem 0.85rem;
+    font-size: 16px; /* prevents zoom on focus on iOS */
+  }
+
+  .register-details-password-wrap input {
+    padding: 0.65rem 0.85rem;
+    font-size: 16px;
+  }
+
+  .register-details-password-icon {
+    padding: 0.65rem 0.85rem;
+  }
+
+  .register-details-submit {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+}

@@ -5,6 +5,9 @@ import toast from "react-hot-toast";
 import { UserData } from "../context/userContext";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
+import "../styles/RegisterDetails.css";
+
+// This is to note that I need to commit something 
 function RegisterDetails() {
   const { email, token } = useParams();
   const navigate = useNavigate();
@@ -110,48 +113,39 @@ function RegisterDetails() {
     return <Loader />;
   }
   return (
-    <div className="mt-16 flex justify-center items-center py-10 sm:px-0 px-4 bg-[#1d1d1d] gap-5">
-      <div className="querybox flex flex-col gap-7 w-full sm:w-2/5 border border-[#c53939] text-white p-5 sm:p-10 bg-[#1d1d1d]">
-        <div className="text-2xl text-center">
-          <span className="text-[#c53939]">&#60;</span>
-          &nbsp;Sign up&nbsp;
-          <span className="text-[#c53939]">&#62;</span>
+    <div
+      className="register-details-container"
+      style={{
+        minHeight: "calc(100vh - 80px)",
+        paddingTop: "80px",
+        paddingBottom: "40px",
+      }}
+    >
+      <div className="register-details-card">
+        <div className="register-details-title">
+          <span>&#60;</span> Sign up <span>&#62;</span>
         </div>
-        <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
+        <form className="register-details-form" onSubmit={handleSubmit}>
           <input
             type="text"
             name="name"
             placeholder="Name"
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            className="register-details-input"
             value={formData.name}
             onChange={handleChange}
             required
           />
-
           <input
             type="text"
             name="college"
             placeholder="College"
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            className="register-details-input"
             value={formData.college}
             onChange={handleChange}
             required
           />
-
-          {/* <select
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
-            value={formData.hostCollege}
-            onChange={(e) => handleSelectChange("hostCollege", e.target.value)}
-            disabled
-            required
-          >
-            {optionsHostCollege.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option
-          </select> */}
           <select
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            className="register-details-select"
             value={
               formData.accomodation !== undefined &&
               formData.accomodation !== null
@@ -168,12 +162,11 @@ function RegisterDetails() {
                   : null
               )
             }
-            //disabled
             required
           >
-            {/* <option value="" disabled>
+            <option value="" disabled>
               Accommodation required?
-            </option> */}
+            </option>
             <option key="Yes" value={true}>
               Yes
             </option>
@@ -181,19 +174,17 @@ function RegisterDetails() {
               No
             </option>
           </select>
-
           <input
             type="text"
             name="dept"
             placeholder="Department"
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            className="register-details-input"
             value={formData.dept}
             onChange={handleChange}
             required
           />
-
           <select
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            className="register-details-select"
             value={formData.year}
             onChange={(e) => handleSelectChange("year", e.target.value)}
             required
@@ -207,12 +198,11 @@ function RegisterDetails() {
               </option>
             ))}
           </select>
-
           <input
             type="text"
             name="mobile"
             placeholder="Mobile"
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            className="register-details-input"
             value={formData.mobile}
             onChange={handleMobileChange}
             required
@@ -220,26 +210,31 @@ function RegisterDetails() {
           <input
             type="text"
             name="referralCode"
-            placeholder="referralCode"
-            className="p-2 outline-none border border-[#c53939] text-[18px] bg-[#1d1d1d]"
+            placeholder="Referral Code (optional)"
+            className="register-details-input"
             value={formData.referralCode}
             onChange={handleChange}
-            required
           />
-
-          <div className="flex items-center border border-[#c53939]">
+          <div className="register-details-password-wrap">
             <input
               type={isPassword}
               name="password"
               placeholder="Password"
               onChange={handleChange}
               value={formData.password}
-              className="p-2 outline-none text-[18px] bg-[#1d1d1d] w-full"
               required
             />
             <span
-              className="p-3 text-2xl bg-[#1d1d1d] cursor-pointer"
+              className="register-details-password-icon"
               onClick={() =>
+                setIsPassword((prev) =>
+                  prev === "password" ? "text" : "password"
+                )
+              }
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) =>
+                e.key === "Enter" &&
                 setIsPassword((prev) =>
                   prev === "password" ? "text" : "password"
                 )
@@ -248,20 +243,26 @@ function RegisterDetails() {
               {isPassword === "password" ? <FaEye /> : <FaEyeSlash />}
             </span>
           </div>
-
-          <div className="flex items-center border border-[#c53939]">
+          <div className="register-details-password-wrap">
             <input
               type={isConfirmPassword}
               name="confirmPassword"
               placeholder="Confirm Password"
               onChange={handleChange}
               value={formData.confirmPassword}
-              className="p-2 outline-none text-[18px] bg-[#1d1d1d] w-full"
               required
             />
             <span
-              className="p-3 text-2xl bg-[#1d1d1d] cursor-pointer"
+              className="register-details-password-icon"
               onClick={() =>
+                setIsConfirmPassword((prev) =>
+                  prev === "password" ? "text" : "password"
+                )
+              }
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) =>
+                e.key === "Enter" &&
                 setIsConfirmPassword((prev) =>
                   prev === "password" ? "text" : "password"
                 )
@@ -270,16 +271,13 @@ function RegisterDetails() {
               {isConfirmPassword === "password" ? <FaEye /> : <FaEyeSlash />}
             </span>
           </div>
-
-          <div className="self-center">
-            <button
-              type="submit"
-              className="py-2 px-4 text-white border border-[#c53939] hover:bg-[#c5393936] duration-150"
-              disabled={btnLoading}
-            >
-              {btnLoading ? "Registering..." : "Register"}
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="register-details-submit"
+            disabled={btnLoading}
+          >
+            {btnLoading ? "Registering..." : "Register"}
+          </button>
         </form>
       </div>
     </div>
