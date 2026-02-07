@@ -42,7 +42,7 @@ export const events = [
         path: "/events/ospc",
         Qr: true,
         team: "1-2 members",
-        Date: "20 February 2026",
+        Date: "20 February 2026 and 21 February 2026",
         prize: "Rs 5k",
         to: "ospc",
         rounds: [
@@ -52,12 +52,14 @@ export const events = [
               "Test your mettle in a quiz spanning core Computer Science domains:DSA, OOPs and General Problem Solving. Showcase your expertise to advance!",
 
             duration: "45 minutes",
-            time: "09:00 AM to 12:30 PM",
+            time: "20 February 2026, 09:30 AM to 12:30 PM",
+            venue: "RUSA Gallery",
           },
           {
             title: "Round 2 – Coding Challenge",
             content: `Solve 4 to 5 coding problems on an online coding platform. Problems range from easy to hard, testing logic, efficiency,and speed. Points awarded based on correctness and time taken.`,
-            time: "01:30 PM to 03:00 PM",
+            time: "21 February 2026, 09:30 AM to 12:30 PM",
+            venue: "Ground Floor Lab",
           },
         ],
         contact: [
@@ -92,14 +94,14 @@ export const events = [
               "This round is a screening-based MCQ test designed to evaluate first-year students’ core technical knowledge, logical reasoning, and problem-solving speed. This round shortlists teams for the next stage of the event.",
             duration: "30 minutes",
             time: "10:00 AM to 1:00 PM",
-             venue: "RUSA Gallery",
+            venue: "RUSA Gallery",
           },
           {
             title: "Round 2 – GET SET CODE",
             content:
               "This round is a time-bound coding challenge designed to test participants’ programming skills, logical thinking, and teamwork. Teams must solve programming problems from different difficulty levels within the given time using a test-case-based evaluation method.",
             time: "02:00 PM to 05:00 PM",
-             venue: "Third Floor Lab",
+            venue: "Third Floor Lab",
           },
         ],
         contact: [
@@ -118,13 +120,13 @@ export const events = [
       },
       {
         id: 3,
-        title: "ML ESCAPE ROOM",
+        title: "PREDICTRIX: ML EDITION",
         description:
-          "ML Escape Room is a gamified Machine Learning event where participants must solve ML-based puzzles to “escape” from a virtual room. Each puzzle represents a core ML concept. Solving one unlocks the next.",
+          "PREDICTRIX is a gamified Machine Learning event where participants must solve ML-based puzzles to “escape” from a virtual room. Each puzzle represents a core ML concept. Solving one unlocks the next.",
         image: rand2, // Replace with your image path
         path: "/events/brainwave.ml",
         team: "3 members",
-        Date: "21 February 2026",
+        Date: "19 February 2026",
         prize: "Rs 5k",
         to: "brainwave.ml",
         rounds: [
@@ -133,15 +135,15 @@ export const events = [
             content:
               "Identify the correct ML algorithm for given real-world problems to unlock clues. Each team is given a problem card, several algorithm options, and a lock code sheet. Teams read the problem, decide which algorithm correctly solves it, and write down the corresponding algorithm code word. When the choice is correct, they earn a digit or letter that contributes to the final escape code.",
             duration: "30 minutes",
-            time: "09:00 AM to 12:30 PM",
-            // venue: "Main Building Room No 238",
+            time: "10:00 AM to 01:00 PM",
+            venue: "Knowledge Park - 210,211",
           },
           {
             title: "Round 2 - Metric Maze",
             content:
               "Escape by solving evaluation and performance traps. Teams use confusion matrices, model performance reports, and ROC curve sketches to evaluate their models and make decisions. The challenge is won either by the first team to successfully escape or by the team that accumulates the highest number of correct answers within the allotted time.",
-            time: "01:30 PM to 03:00 PM",
-            // venue: "Main Building Room No 238",
+            time: "02:00 PM to 05:00 PM",
+            venue: "Second Floor Lab",
           },
         ],
         contact: [
@@ -166,7 +168,7 @@ export const events = [
         image: algob, // Replace with your image path
         path: "/events/ctrl+escape",
         team: "2-3 members",
-        Date: "21st February 2025",
+        Date: "19th February 2026",
         prize: "Rs 7k",
         to: "ctrl+escape",
         rounds: [
@@ -175,8 +177,8 @@ export const events = [
             content:
               "A theme such as Arrays or Linked Lists is announced along with a small hint about the upcoming problem. Teams use their AlgoCoins to bid on and purchase algorithms displayed on the screen before the actual coding question is revealed. Once the question is shown, teams must solve it using only the algorithms they bought, in addition to a few basic algorithms available to everyone. Optionally, teams may trade one algorithm with another team after each round. Scoring is based on correctness (50%), time efficiency (25%), and how smartly the chosen algorithms are used (25%).",
             duration: "30 minutes",
-            time: "09:00 AM to 12:30 PM",
-            // venue: "Main Building Room No 238",
+            time: "02:00 PM to 05:00 PM",
+            venue: "R1",
           },
           // {
           //   title: "Round 2",
@@ -242,13 +244,13 @@ export const events = [
       },
       {
         id: 6,
-        title: "Debug or Die",
+        title: "Bug Busters",
         description:
-          "This event challenges participants to analyze and debug      programs containing syntax, logical, and runtime errors within a limited time. It simulates real-world debugging scenarios, testing participants’ problem-solving ability, logical thinking, and coding proficiency. The event aims to enhance practical debugging skills commonly required in the software industry.",
+          "This event challenges participants to analyze and debug programs containing syntax, logical, and runtime errors within a limited time. It simulates real-world debugging scenarios, testing participants’ problem-solving ability, logical thinking, and coding proficiency. The event aims to enhance practical debugging skills commonly required in the software industry.",
         image: dbg, // Replace with your image path
         path: "/events/debug-or-die",
         team: "2 members",
-        Date: "21st February 2026",
+        Date: "21 February 2026",
         prize: "Rs 5k",
         to: "debug-or-die",
         rounds: [
@@ -257,15 +259,15 @@ export const events = [
             content:
               "This round consists of multiple-choice questions based on output prediction and identifying errors in code snippets, with questions drawn from C, C++, and Java.",
             duration: "30 minutes",
-            time: "09:00 AM to 12:30 PM",
-            // venue: "Main Building Room No 238",
+            time: "09:30 AM to 12:30 PM",
+            venue: "R1",
           },
           {
             title: "Round 2 - Glitch Snitch",
             content:
               "Participants are given one or two faulty programs containing possible syntax, logical, or runtime errors. Their task is to identify and debug these issues to produce the correct output within the given time limit.",
-            time: "01:30 PM to 03:00 PM",
-            // venue: "Main Building Room No 238",
+            time: "02:00 PM to 05:00 PM",
+            venue: "Ground Floor Lab",
           },
         ],
         contact: [
@@ -292,9 +294,9 @@ export const events = [
     event: [
       {
         id: 9,
-        title: "Snap & Seek",
-        time: "01:30 PM to 04:00 PM",
-        Date: "20 February 2026",
+        title: "Tresure Hunt",
+        time: "10:00 AM to 05:00 PM",
+        Date: "19 February 2026",
         team: "2-3 members",
         description:
           "Teams of participants take part in an exciting campus exploration challenge where each team is given a photograph of a location within the campus. The task is to identify the place, reach it, and take a group selfie with the location clearly visible in the background. Once the selfie is submitted and verified through WhatsApp, the team receives the next location photograph. This process continues until the team completes 7–8 locations, and the team that finishes exploring all locations in the shortest time is declared the winner.",
@@ -326,7 +328,7 @@ export const events = [
         id: 10,
         title: "IPL AUCTION",
         time: "01:30 PM to 04:00 PM",
-        Date: "20 February 2025",
+        Date: "21 February 2025",
         team: "1-3 members",
         description:
           "IPL Auction gives you the ultimate chance to build your dream team! Strategize, bid smartly, and assemble a winning squad that can dominate the tournament. Choose wisely—every pick counts in this high-stakes game of skill and strategy!",
@@ -356,12 +358,11 @@ export const events = [
       },
       {
         id: 11,
-        title: "Money Heist",
-        time: "01:30 PM to 04:00 PM",
-        Date: "20 February 2025",
+        title: "Memory Heist",
+        Date: "20 February 2026",
         team: "1-2 members",
         description:
-          "On Round 1, the Blink Test, runs for 20–25 minutes and challenges participants’ observation and attention to detail by showing 10 slides or charts for five seconds each, containing a mix of shapes, words, numbers, colors, famous personalities, and random images. After all slides are shown, answer sheets are given with questions that test recall, such as counting specific objects or identifying details. On Round 2, Rewrite Recall, lasts 25–30 minutes and focuses on memory accuracy, where individual participants read a printed paragraph for one minute before it is collected, and then answer questions that subtly alter facts, numbers, names, or colors to see how well they remember the original content.",
+          "On Round 1, The Blink Test, runs for 20–25 minutes and challenges participants’ observation and attention to detail by showing 10 slides or charts for five seconds each, containing a mix of shapes, words, numbers, colors, famous personalities, and random images. After all slides are shown, answer sheets are given with questions that test recall, such as counting specific objects or identifying details. On Round 2, Rewrite Recall, lasts 25–30 minutes and focuses on memory accuracy, where individual participants read a printed paragraph for one minute before it is collected, and then answer questions that subtly alter facts, numbers, names, or colors to see how well they remember the original content.",
         image: money, // Replace with your image path
         path: "/events/money-heist",
         rules: `• Participants answer survey-based questions on topics like Books, Food, Movies, Lifestyle, and Technology. Responses are ranked (1 = most popular, 7 = least popular).
@@ -373,6 +374,23 @@ export const events = [
               • Top 3 teams with the highest total scores win.`,
         to: "money-heist",
         prize: "Rs 2k",
+        rounds: [
+          {
+            title: "Round 1 ",
+            content:
+              " The Blink Test, runs for 20–25 minutes and challenges participants’ observation and attention to detail by showing 10 slides or charts for five seconds each, containing a mix of shapes, words, numbers, colors, famous personalities, and random images. After all slides are shown, answer sheets are given with questions that test recall, such as counting specific objects or identifying details.",
+            duration: "30 minutes",
+            time: "09:00 AM to 12:30 PM",
+            venue: "R1",
+          },
+          {
+            title: "Round 2",
+            content:
+              "Rewrite Recall, lasts 25–30 minutes and focuses on memory accuracy, where individual participants read a printed paragraph for one minute before it is collected, and then answer questions that subtly alter facts, numbers, names, or colors to see how well they remember the original content",
+            time: "02:00PM to 05:00 PM",
+            venue: "R1",
+          },
+        ],
         contact: [
           {
             id: 1,
@@ -388,9 +406,9 @@ export const events = [
       },
       {
         id: 12,
-        title: "CODE RED: The Final Countdown",
-        time: "01:30 PM to 04:00 PM",
-        Date: "20 February 2025",
+        title: "Escape Room",
+        time: "09:30 AM to 05:00 PM",
+        Date: "21 February 2026",
         team: "Individual",
         description:
           "CODE RED: The Final Countdown is a fast-paced escape room challenge conducted inside a laboratory setting. All participating teams enter the room at the same time and are given a sequence of story-linked puzzles. Each puzzle unlocks the next stage of the mission. Teams must analyze clues, solve puzzles, and record their answers on paper within the given time limit.",
