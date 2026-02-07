@@ -6,12 +6,15 @@ import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 import { sessions, workshopsReach } from "../constants/workshops";
 import "../styles/profile.css";
+import axios from "axios";
 
 const Profile = () => {
   const { profile, user, userEvents, session } = UserData();
   const navigate = useNavigate();
   const { isLoading } = LoaderData();
-
+  const [response,setResponse] = useState(null);
+  const [referralCode, setReferralCode] = useState(null); // store referral code
+  const [isRegistering, setIsRegistering] = useState(false);
   const navigateTo = (page) => {
     const routes = {
       events: "/events",
@@ -43,11 +46,44 @@ const Profile = () => {
     return <Loader />;
   }
 
+  const handleRegisterCA = async () => {
+    setIsRegistering(true); // disable button
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_API_BASE_URL}/admin/register-ca-from-user`,
+        { abacusId: userData.abacusId },
+        { withCredentials: true }
+      );
+      // Store referral code in state
+      setReferralCode(res.data.campusAmbassador.referralCode);
+    } catch (err) {
+      alert(err.response?.data?.message || "Error registering CA");
+    } finally {
+      setIsRegistering(false); // optionally enable again if you want retry
+    }
+  };
+
   return (
     <div className="user-profile-container">
       <div className="user-card">
         <div className="user-header">
           <h2>Profile</h2>
+          <p></p>
+          <button
+            className="action-btn m-5 ambassador"
+            onClick={handleRegisterCA}
+            disabled={!!referralCode || isRegistering} // disable after referral code or during API
+          >
+            {referralCode ? "Registered" : "Register as Student Ambassador"}
+          </button>
+
+          {/* Show referral code once received */}
+          {referralCode && (
+            <p className="referral-code">
+              Your Referral Code: <strong>{referralCode}</strong>
+            </p>
+          )}
+          
 
           <div className="user-details-grid">
             <p>
