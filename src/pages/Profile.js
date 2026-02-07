@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserData } from "../context/userContext";
 import { FaLocationDot } from "react-icons/fa6";
@@ -12,21 +12,11 @@ const Profile = () => {
   const { profile, user, userEvents, session } = UserData();
   const navigate = useNavigate();
   const { isLoading } = LoaderData();
-  const [response,setResponse] = useState(null);
+
   const [referralCode, setReferralCode] = useState(null); // store referral code
   const [isRegistering, setIsRegistering] = useState(false);
-  const navigateTo = (page) => {
-    const routes = {
-      events: "/events",
-      workshops: "/workshops",
-      update: "/profile/update",
-      dashboard: "/dashboard",
-      "change-password": "/profile/change-password",
-    };
-    navigate(routes[page]);
-  };
+  const [loadingReferral, setLoadingReferral] = useState(true); // loading state for referral check
 
-  //Fallback data
   const fallbackUser = {
     id: "10001",
     name: "Guest",
@@ -42,48 +32,84 @@ const Profile = () => {
 
   const userData = user || fallbackUser;
 
-  if (isLoading) {
-    return <Loader />;
-  }
+  const navigateTo = (page) => {
+    const routes = {
+      events: "/events",
+      workshops: "/workshops",
+      update: "/profile/update",
+      dashboard: "/dashboard",
+      "change-password": "/profile/change-password",
+    };
+    navigate(routes[page]);
+  };
 
+  // ✅ Check referral code on mount
+  useEffect(() => {
+    const fetchReferralCode = async () => {
+      try {
+        const res = await axios.get(
+          `${process.env.REACT_APP_API_BASE_URL}/admin/referral-code`,
+          { withCredentials: true }
+        );
+
+        const userCode = res.data.result.find(
+          (amb) => amb.email === userData.email
+        )?.referralCode;
+
+        if (userCode) setReferralCode(userCode);
+      } catch (err) {
+        console.error("Error fetching referral code", err);
+      } finally {
+        setLoadingReferral(false);
+      }
+    };
+
+    if (userData.email) fetchReferralCode();
+  }, [userData.email]);
+
+  // ✅ Handle registration
   const handleRegisterCA = async () => {
-    setIsRegistering(true); // disable button
+    setIsRegistering(true);
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/admin/register-ca-from-user`,
         { abacusId: userData.abacusId },
         { withCredentials: true }
       );
-      // Store referral code in state
       setReferralCode(res.data.campusAmbassador.referralCode);
     } catch (err) {
       alert(err.response?.data?.message || "Error registering CA");
     } finally {
-      setIsRegistering(false); // optionally enable again if you want retry
+      setIsRegistering(false);
     }
   };
+
+  if (isLoading) return <Loader />;
 
   return (
     <div className="user-profile-container">
       <div className="user-card">
         <div className="user-header">
           <h2>Profile</h2>
-          <p></p>
-          <button
-            className="action-btn m-5 ambassador"
-            onClick={handleRegisterCA}
-            disabled={!!referralCode || isRegistering} // disable after referral code or during API
-          >
-            {referralCode ? "Registered" : "Register as Student Ambassador"}
-          </button>
 
-          {/* Show referral code once received */}
-          {referralCode && (
+          {/* 1️⃣ Show button or referral code based on state */}
+          {loadingReferral ? (
+            <p>Checking ambassador status...</p>
+          ) : referralCode ? (
             <p className="referral-code">
               Your Referral Code: <strong>{referralCode}</strong>
             </p>
+          ) : (
+            <button
+              className="action-btn m-5 ambassador"
+              onClick={handleRegisterCA}
+              disabled={isRegistering}
+            >
+              {isRegistering
+                ? "Registering..."
+                : "Register as Student Ambassador"}
+            </button>
           )}
-          
 
           <div className="user-details-grid">
             <p>
@@ -129,12 +155,11 @@ const Profile = () => {
             <h3>Registered Workshops</h3>
             {user.WorkshopPayment?.length > 0 ? (
               <ul>
-                {/* Successful Payments */}
                 {user.WorkshopPayment.map((workshop, index) => {
                   const matchingWorkshop = workshopsReach.find(
                     (ws) =>
                       ws.code === workshop.workshopId &&
-                      workshop.status === "SUCCESS",
+                      workshop.status === "SUCCESS"
                   );
                   return matchingWorkshop ? (
                     <li key={`success-${index}`} className="status-success">
@@ -143,12 +168,11 @@ const Profile = () => {
                   ) : null;
                 })}
 
-                {/* Pending Payments */}
                 {user.WorkshopPayment.map((workshop, index) => {
                   const matchingWorkshop = workshopsReach.find(
                     (ws) =>
                       ws.code === workshop.workshopId &&
-                      workshop.status === "PENDING",
+                      workshop.status === "PENDING"
                   );
                   return matchingWorkshop ? (
                     <li key={`pending-${index}`} className="status-pending">
@@ -157,11 +181,10 @@ const Profile = () => {
                   ) : null;
                 })}
 
-                {/* Session Data */}
                 {session.length > 0 &&
                   user.workshops.map((workshop, index) => {
                     const matchingWorkshop = sessions.find(
-                      (ws) => ws.code === workshop.workshopId,
+                      (ws) => ws.code === workshop.workshopId
                     );
                     return matchingWorkshop ? (
                       <li key={`session-${index}`}>{matchingWorkshop.title}</li>
