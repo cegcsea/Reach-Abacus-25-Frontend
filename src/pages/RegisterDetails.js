@@ -17,7 +17,7 @@ function RegisterDetails() {
   const [formData, setFormData] = useState({
     name: "",
     college: "",
-    accomodation: null,
+    // accomodation: null,
     dept: "",
     year: "",
     mobile: "",
@@ -95,7 +95,7 @@ function RegisterDetails() {
       email,
       token,
       college: formData.college,
-      accomodation: formData.accomodation,
+      // accomodation: formData.accomodation,
       dept: formData.dept,
       year: parseInt(formData.year),
       mobile: formData.mobile,
@@ -145,7 +145,7 @@ function RegisterDetails() {
             onChange={handleChange}
             required
           />
-          <select
+          {/* <select
             className="register-details-select"
             value={
               formData.accomodation !== undefined &&
@@ -174,7 +174,7 @@ function RegisterDetails() {
             <option key="No" value={false}>
               No
             </option>
-          </select>
+          </select> */}
           <input
             type="text"
             name="dept"
