@@ -48,7 +48,7 @@ const Profile = () => {
     const fetchReferralCode = async () => {
       try {
         const res = await axios.get(
-          `${process.env.REACT_APP_API_BASE_URL}/admin/referral-code`,
+          `${process.env.REACT_APP_API_BASE_URL}/admin/referral-code-details`,
           { withCredentials: true }
         );
 
