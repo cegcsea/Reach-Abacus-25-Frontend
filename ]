@@ -1,0 +1,19 @@
+Did some minor UI changes in aboutpage
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Fri Feb 6 11:37:37 2026 +0530
+#
+# On branch abacus
+# Your branch is ahead of 'origin/abacus' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#	modified:   package-lock.json
+#	modified:   src/pages/ForgotPassword.js
+#	modified:   src/pages/about-page/Gallery.css
+#	modified:   src/pages/about-page/Testimonials.css
+#	modified:   src/pages/about-page/Testimonials.jsx
+#	modified:   src/pages/sponsors-page/SponsorsPage.css
+#

@@ -52,7 +52,7 @@ const About = ({ scrollY }) => {
     },
     {
       icon: <MdPeople className="text-xl" />,
-      title: "2000+ Attendees",
+      title: "1500+ Attendees",
       description: "Industry experts, leaders & innovators",
     },
   ];

@@ -1,20 +1,30 @@
-import img1 from "../assets/images/techevent.jpg";
-import img2 from "../assets/images/nontech.jpg"; // Example images
-import img3 from "../assets/images/preevnt.jpg";
-import img4 from "../assets/images/pentacode.png";
-import img5 from "../assets/images/ML Mania.png";
-import img6 from "../assets/images/ospc.png";
-import img7 from "../assets/images/family feud.png";
-import img8 from "../assets/images/amazon.png";
+import img1 from "../assets/images/techevent.png";
+import img2 from "../assets/images/nontech.png"; // Example images
+import img3 from "../assets/images/preevnt.png";
+import algob from "../assets/Events/algob.png";
+import bit from "../assets/Events/bit.png";
+import bm from "../assets/Events/bm.png";
+import click from "../assets/Events/click.png";
+import cric from "../assets/Events/cric.png";
+import dbg from "../assets/Events/dbg.png";
+import fb from "../assets/Events/fb.png";
+import ipl from "../assets/Events/ipl.png";
+import th from "../assets/Events/th.png";
+import rand1 from "../assets/Events/rand1.png";
+import rand2 from "../assets/Events/rand2.png";
+import rand3 from "../assets/Events/rand3.png";
+import rand4 from "../assets/Events/rand4.png";
+import rand5 from "../assets/Events/rand5.png";
+import money from "../assets/Events/money.png";
 // Contacts for the EventPage
 
 export const EventContacts = [
   {
     id: 1,
-    name: "Nikhil Prasanna",
-    phone: "+91 6379066510",
+    name: "Hariharan",
+    phone: "+91 7708 462 392",
   },
-  { id: 2, name: "Padmasharan", phone: "+91 9585612262" },
+  { id: 2, name: "Ishwarya", phone: "+91 93452 14813" },
 ];
 
 // List of events
@@ -27,73 +37,29 @@ export const events = [
         id: 1,
         title: "OSPC",
         description:
-          "Get ready for a high-intensity programming contest where sharp minds compete to crack the toughest coding challenges! Tackle complex problems involving data structures and algorithms, and showcase your speed, skill, and innovation in this high-stakes battle of logic and code!",
-        image: img4, // Replace with your image path
+          "It's a fast-paced programming contest, where innovative minds come together to resolve challenges in the most complicated coding questions, involving data structures and algorithms, dbms, oops.",
+        image: rand1, // Replace with your image path
         path: "/events/ospc",
         Qr: true,
-
-        team: "2-3 members",
-        Date: "21st March 2025",
-        prize: "Rs 7k",
+        team: "1-2 members",
+        Date: "20 February 2026 and 21 February 2026",
+        prize: "Rs 5k",
         to: "ospc",
         rounds: [
           {
             title: "Round 1 – Quiz Challenge",
             content:
-              "Test your mettle in a quiz spanning five core Computer Science domains: Debugging, DSA, OOPs, CN, and DBMS. Showcase your expertise to advance!",
+              "Test your mettle in a quiz spanning core Computer Science domains:DSA, OOPs and General Problem Solving. Showcase your expertise to advance!",
 
-            duration: "30 minutes",
-            time: "09:00 AM to 12:30 PM",
-            // venue: "Main Building Room No 238",
+            duration: "45 minutes",
+            time: "20 February 2026, 09:30 AM to 12:30 PM",
+            venue: "RUSA Gallery",
           },
           {
-            title: "Round 2 – Decode the Pentacode",
-            content:
-              "Solve a challenging DSA problem with the help of hints unlocked from tasks in four other domains. Complete all tasks strategically to crack the final DSA problem and secure victory!",
-            time: "01:30 PM to 03:00 PM",
-            // venue: "Main Building Room No 238",
-          },
-        ],
-        contact: [
-          {
-            id: 1,
-            name: "Sreenithika S",
-            phone: "99650 65777",
-          },
-          {
-            id: 2,
-            name: "Infancy P",
-            phone: "90473 66527",
-          },
-        ],
-        intern: [],
-      },
-      {
-        id: 2,
-        title: "BYTE BEGIN",
-        description:
-          "Designed especially for first-year students, this event is the ultimate kickstart to their coding journey! Dive into the fundamentals of logical reasoning, arithmetic, and programming through interactive challenges that are both fun and beginner-friendly. Get ready to think, solve, and code your way to success!",
-        image: img5,
-        path: "/events/byte-begin",
-        team: "1-2 members",
-        Date: "21st February 2025",
-        prize: "Rs 7k",
-        to: "byte-begin",
-        rounds: [
-          {
-            title: "Round 1 – ML Conquer: Quiz Blitz",
-            content:
-              "Test your theoretical knowledge of machine learning algorithms, concepts, and applications in a fast-paced quiz. Answer quickly and accurately to secure your spot in the next round.",
-            duration: "30 minutes",
-            time: "09:00 AM to 12:30 PM",
-            // venue: "Main Building Room No 238",
-          },
-          {
-            title: "Round 2 – ML Conquer: Model Challenge",
-            content:
-              "Build a powerful ML model to solve a real-world problem. Showcase your coding skills, data analysis, and model optimization techniques to emerge as the ultimate ML conqueror.",
-            time: "01:30 PM to 03:00 PM",
-            // venue: "Main Building Room No 238",
+            title: "Round 2 – Coding Challenge",
+            content: `Solve 4 to 5 coding problems on an online coding platform. Problems range from easy to hard, testing logic, efficiency,and speed. Points awarded based on correctness and time taken.`,
+            time: "21 February 2026, 09:30 AM to 12:30 PM",
+            venue: "Ground Floor Lab",
           },
         ],
         contact: [
@@ -104,37 +70,80 @@ export const events = [
           },
           {
             id: 2,
-            name: "Ajai Krishna T.S",
-            phone: "70107 07652",
+            name: "Sahana S",
+            phone: "74182 47031",
+          },
+        ],
+        intern: [],
+      },
+      {
+        id: 2,
+        title: "GET SET GO",
+        description:
+          "Designed especially for first-year students, this event is the ultimate kickstart to their coding journey! Dive into the fundamentals of logical reasoning, arithmetic, and programming through interactive challenges that are both fun and beginner-friendly. Get ready to think, solve, and code your way to success!",
+        image: rand3,
+        path: "/events/byte-begin",
+        team: "2-3 members",
+        Date: "19 February 2026",
+        prize: "Rs 5k",
+        to: "byte-begin",
+        rounds: [
+          {
+            title: "Round 1 – MCQ Preliminary Round",
+            content:
+              "This round is a screening-based MCQ test designed to evaluate first-year students’ core technical knowledge, logical reasoning, and problem-solving speed. This round shortlists teams for the next stage of the event.",
+            duration: "30 minutes",
+            time: "10:00 AM to 1:00 PM",
+            venue: "RUSA Gallery",
+          },
+          {
+            title: "Round 2 – GET SET CODE",
+            content:
+              "This round is a time-bound coding challenge designed to test participants’ programming skills, logical thinking, and teamwork. Teams must solve programming problems from different difficulty levels within the given time using a test-case-based evaluation method.",
+            time: "02:00 PM to 05:00 PM",
+            venue: "Third Floor Lab",
+          },
+        ],
+        contact: [
+          {
+            id: 1,
+            name: "Renjitha K",
+            phone: "79078 54731",
+          },
+          {
+            id: 2,
+            name: "Sahana S",
+            phone: "74182 47031",
           },
         ],
         intern: [],
       },
       {
         id: 3,
-        title: "BRAINWAVE.ML",
+        title: "PREDICTRIX: ML EDITION",
         description:
-          "Dive into the world of machine learning in this thrilling event! Test your knowledge, solve challenges, and showcase your skills by developing innovative solutions to given problems. Compete with the best and prove your expertise in ML!",
-        image: img6, // Replace with your image path
+          "PREDICTRIX is a gamified Machine Learning event where participants must solve ML-based puzzles to “escape” from a virtual room. Each puzzle represents a core ML concept. Solving one unlocks the next.",
+        image: rand2, // Replace with your image path
         path: "/events/brainwave.ml",
-        team: "1-2 members",
-        Date: "21st February 2025",
+        team: "3 members",
+        Date: "19 February 2026",
         prize: "Rs 5k",
         to: "brainwave.ml",
         rounds: [
           {
-            title: "Round 1",
-            content: "MCQ on Data Structures, Algorithms, and OOPs concepts",
+            title: "Round 1 - Algorithm Lock",
+            content:
+              "Identify the correct ML algorithm for given real-world problems to unlock clues. Each team is given a problem card, several algorithm options, and a lock code sheet. Teams read the problem, decide which algorithm correctly solves it, and write down the corresponding algorithm code word. When the choice is correct, they earn a digit or letter that contributes to the final escape code.",
             duration: "30 minutes",
-            time: "09:00 AM to 12:30 PM",
-            // venue: "Main Building Room No 238",
+            time: "10:00 AM to 01:00 PM",
+            venue: "Knowledge Park - 210,211",
           },
           {
-            title: "Round 2",
+            title: "Round 2 - Metric Maze",
             content:
-              "Solve challenging programming questions based on DSA and algorithms",
-            time: "01:30 PM to 03:00 PM",
-            // venue: "Main Building Room No 238",
+              "Escape by solving evaluation and performance traps. Teams use confusion matrices, model performance reports, and ROC curve sketches to evaluate their models and make decisions. The challenge is won either by the first team to successfully escape or by the team that accumulates the highest number of correct answers within the allotted time.",
+            time: "02:00 PM to 05:00 PM",
+            venue: "Second Floor Lab",
           },
         ],
         contact: [
@@ -153,30 +162,31 @@ export const events = [
 
       {
         id: 4,
-        title: "CTRL+ESCAPE",
+        title: "Algobazzar",
         description:
-          "Ctrl+Escape is a dynamic fusion of a tech quiz and coding challenges, designed to test both your knowledge and programming skills! Solve intriguing quiz questions to unlock coding tasks, where logic and speed are key. Get ready for an electrifying battle of wit and code!",
-        image: img6, // Replace with your image path
+          "ALGOBAZAAR is a fun coding event that mixes problem-solving with strategy. Participants will first prove their coding knowledge and then use their earned coins to buy algorithms in an auction. They must use those algorithms to solve given challenges. It’s a test of coding skill, logic, and smart planning ",
+        image: algob, // Replace with your image path
         path: "/events/ctrl+escape",
         team: "2-3 members",
-        Date: "21st February 2025",
+        Date: "19th February 2026",
         prize: "Rs 7k",
         to: "ctrl+escape",
         rounds: [
           {
-            title: "Round 1",
-            content: "MCQ on Data Structures, Algorithms, and OOPs concepts",
-            duration: "30 minutes",
-            time: "09:00 AM to 12:30 PM",
-            // venue: "Main Building Room No 238",
-          },
-          {
-            title: "Round 2",
+            title: "Single Round",
             content:
-              "Solve challenging programming questions based on DSA and algorithms",
-            time: "01:30 PM to 03:00 PM",
-            // venue: "Main Building Room No 238",
+              "A theme such as Arrays or Linked Lists is announced along with a small hint about the upcoming problem. Teams use their AlgoCoins to bid on and purchase algorithms displayed on the screen before the actual coding question is revealed. Once the question is shown, teams must solve it using only the algorithms they bought, in addition to a few basic algorithms available to everyone. Optionally, teams may trade one algorithm with another team after each round. Scoring is based on correctness (50%), time efficiency (25%), and how smartly the chosen algorithms are used (25%).",
+            duration: "30 minutes",
+            time: "02:00 PM to 05:00 PM",
+            venue: "R1",
           },
+          // {
+          //   title: "Round 2",
+          //   content:
+          //     "Solve challenging programming questions based on DSA and algorithms",
+          //   time: "01:30 PM to 03:00 PM",
+          //   // venue: "Main Building Room No 238",
+          // },
         ],
         contact: [
           {
@@ -191,52 +201,12 @@ export const events = [
           },
         ],
       },
-      // {
-      //   id: 5,
-      //   title: "PAPER PRESENTATION",
-      //   description:
-      //     "Paper Presentation is an intellectual platform where participants showcase their innovative ideas and research on cutting-edge topics. This event challenges individuals to present their findings with clarity, creativity, and confidence, demonstrating both technical depth and communication excellence.",
-      //   image: img6, // Replace with your image path
-      //   path: "/events/paper-presentation",
-      //   team: "Two or three members",
-      //   Date: "21st February 2025",
-      //   prize: "Rs 1.5k+",
-      //   to: "paper-presentation",
-      //   rounds: [
-      //     {
-      //       title: "Round 1",
-      //       content: "MCQ on Data Structures, Algorithms, and OOPs concepts",
-      //       duration: "30 minutes",
-      //       time: "09:00 AM to 12:30 PM",
-      //       // venue: "Main Building Room No 238",
-      //     },
-      //     {
-      //       title: "Round 2",
-      //       content:
-      //         "Solve challenging programming questions based on DSA and algorithms",
-      //       time: "01:30 PM to 03:00 PM",
-      //       // venue: "Main Building Room No 238",
-      //     },
-      //   ],
-      //   contact: [
-      //     {
-      //       id: 1,
-      //       name: "Gautham",
-      //       phone: "+1 234 567 890",
-      //     },
-      //     {
-      //       id: 2,
-      //       name: "Ganesh",
-      //       phone: "+1 234 567 890",
-      //     },
-      //   ],
-      // },
       {
         id: 5,
-        title: "READY.SET.HIRE!",
+        title: "BYTE & BITE -- Think Fast. Snack Smart.",
         description:
-          "Ready. Set. Hire! is your ultimate gateway to the real-world hiring experience! Dive into a competitive coding round, followed by a mock interview that mirrors actual recruitment challenges. Test your technical skills, sharpen your problem-solving abilities, and gain invaluable hands-on experience to ace future job interviews!",
-        image: img6, // Replace with your image path
+          "Byte & Bite is a 2-round interactive tech quiz where participants earn snacks for correct answers.",
+        image: bit, // Replace with your image path
         path: "/events/ready-set-hire",
         team: "Individual",
         Date: "21st February 2025",
@@ -244,16 +214,17 @@ export const events = [
         to: "ready-set-hire",
         rounds: [
           {
-            title: "Round 1",
-            content: "MCQ on Data Structures, Algorithms, and OOPs concepts",
+            title: "Round 1 - Byte Round",
+            content:
+              "Questions shown on projector. Teams write answers on sheets / raise placards.",
             duration: "30 minutes",
             time: "09:00 AM to 12:30 PM",
             // venue: "Main Building Room No 238",
           },
           {
-            title: "Round 2",
+            title: "Round 2 - Bite Round",
             content:
-              "Solve challenging programming questions based on DSA and algorithms",
+              "This round focuses on situation-based questions and visual reasoning, using real-life technology scenarios. Teams work together to analyze the situations, interpret visual cues, and discuss their ideas before answering verbally.",
             time: "01:30 PM to 03:00 PM",
             // venue: "Main Building Room No 238",
           },
@@ -273,40 +244,41 @@ export const events = [
       },
       {
         id: 6,
-        title: "GLITCH SNITCH",
+        title: "Bug Busters",
         description:
-          "Glitch Snitch is an exciting challenge that puts your debugging skills to the test! Hunt down and fix bugs in pre-written code, tackling real-world coding issues under time pressure. Sharpen your problem-solving abilities and level up your coding expertise in this fast-paced, brain-teasing event!",
-        image: img6, // Replace with your image path
-        path: "/events/glitch-snitch",
-        team: "1-2 members",
-        Date: "21st February 2025",
+          "This event challenges participants to analyze and debug programs containing syntax, logical, and runtime errors within a limited time. It simulates real-world debugging scenarios, testing participants’ problem-solving ability, logical thinking, and coding proficiency. The event aims to enhance practical debugging skills commonly required in the software industry.",
+        image: dbg, // Replace with your image path
+        path: "/events/debug-or-die",
+        team: "2 members",
+        Date: "21 February 2026",
         prize: "Rs 5k",
-        to: "glitch-snitch",
+        to: "debug-or-die",
         rounds: [
           {
-            title: "Round 1",
-            content: "MCQ on Data Structures, Algorithms, and OOPs concepts",
+            title: "Round 1 - Error Spotting ",
+            content:
+              "This round consists of multiple-choice questions based on output prediction and identifying errors in code snippets, with questions drawn from C, C++, and Java.",
             duration: "30 minutes",
-            time: "09:00 AM to 12:30 PM",
-            // venue: "Main Building Room No 238",
+            time: "09:30 AM to 12:30 PM",
+            venue: "R1",
           },
           {
-            title: "Round 2",
+            title: "Round 2 - Glitch Snitch",
             content:
-              "Solve challenging programming questions based on DSA and algorithms",
-            time: "01:30 PM to 03:00 PM",
-            // venue: "Main Building Room No 238",
+              "Participants are given one or two faulty programs containing possible syntax, logical, or runtime errors. Their task is to identify and debug these issues to produce the correct output within the given time limit.",
+            time: "02:00 PM to 05:00 PM",
+            venue: "Ground Floor Lab",
           },
         ],
         contact: [
           {
             id: 1,
-            name: "Hariharan A",
+            name: "Dinesh S",
             phone: "77084 62392",
           },
           {
             id: 2,
-            name: "Dinesh S",
+            name: "Infancy P",
             phone: "93603 80769",
           },
         ],
@@ -322,13 +294,13 @@ export const events = [
     event: [
       {
         id: 9,
-        title: "TREASURE HUNT",
-        time: "01:30 PM to 04:00 PM",
-        Date: "20 February 2025",
+        title: "Tresure Hunt",
+        time: "10:00 AM to 05:00 PM",
+        Date: "19 February 2026",
         team: "2-3 members",
         description:
-          "Embark on an exhilarating campus-wide Treasure Hunt! Solve clever clues, uncover hidden locations, and race against time to crack the final mystery. Teams will navigate through a series of challenges, with the fastest ones claiming victory. Get ready for a thrilling adventure of wits, strategy, and speed!",
-        image: img7, // Replace with your image path
+          "Teams of participants take part in an exciting campus exploration challenge where each team is given a photograph of a location within the campus. The task is to identify the place, reach it, and take a group selfie with the location clearly visible in the background. Once the selfie is submitted and verified through WhatsApp, the team receives the next location photograph. This process continues until the team completes 7–8 locations, and the team that finishes exploring all locations in the shortest time is declared the winner.",
+        image: th, // Replace with your image path
         path: "/events/treasure-hunt",
         rules: `• Participants answer survey-based questions on topics like Books, Food, Movies, Lifestyle, and Technology. Responses are ranked (1 = most popular, 7 = least popular).
               • Teams compete to guess the most popular answers.
@@ -356,11 +328,11 @@ export const events = [
         id: 10,
         title: "IPL AUCTION",
         time: "01:30 PM to 04:00 PM",
-        Date: "20 February 2025",
+        Date: "21 February 2025",
         team: "1-3 members",
         description:
           "IPL Auction gives you the ultimate chance to build your dream team! Strategize, bid smartly, and assemble a winning squad that can dominate the tournament. Choose wisely—every pick counts in this high-stakes game of skill and strategy!",
-        image: img7, // Replace with your image path
+        image: ipl, // Replace with your image path
         path: "/events/ipl-auction",
         rules: `• Participants answer survey-based questions on topics like Books, Food, Movies, Lifestyle, and Technology. Responses are ranked (1 = most popular, 7 = least popular).
               • Teams compete to guess the most popular answers.
@@ -386,14 +358,13 @@ export const events = [
       },
       {
         id: 11,
-        title: "CHATGPT PULSE",
-        time: "01:30 PM to 04:00 PM",
-        Date: "20 February 2025",
+        title: "Memory Heist",
+        Date: "20 February 2026",
         team: "1-2 members",
         description:
-          "Put your prompt engineering skills to the test in this exciting AI challenge! With only a few chances, craft the perfect prompts to steer ChatGPT toward a specific target word. Unleash your creativity, refine your logic, and master the art of AI communication in this fun and brain-teasing competition.",
-        image: img7, // Replace with your image path
-        path: "/events/chatgpt-pulse",
+          "On Round 1, The Blink Test, runs for 20–25 minutes and challenges participants’ observation and attention to detail by showing 10 slides or charts for five seconds each, containing a mix of shapes, words, numbers, colors, famous personalities, and random images. After all slides are shown, answer sheets are given with questions that test recall, such as counting specific objects or identifying details. On Round 2, Rewrite Recall, lasts 25–30 minutes and focuses on memory accuracy, where individual participants read a printed paragraph for one minute before it is collected, and then answer questions that subtly alter facts, numbers, names, or colors to see how well they remember the original content.",
+        image: money, // Replace with your image path
+        path: "/events/money-heist",
         rules: `• Participants answer survey-based questions on topics like Books, Food, Movies, Lifestyle, and Technology. Responses are ranked (1 = most popular, 7 = least popular).
               • Teams compete to guess the most popular answers.
               • Buzzers decide who answers first.
@@ -401,8 +372,25 @@ export const events = [
               • Three consecutive wrong guesses result in negative points, and the chance passes to the other team.
               • Each round includes 10 questions.
               • Top 3 teams with the highest total scores win.`,
-        to: "chatgpt-pulse",
+        to: "money-heist",
         prize: "Rs 2k",
+        rounds: [
+          {
+            title: "Round 1 ",
+            content:
+              " The Blink Test, runs for 20–25 minutes and challenges participants’ observation and attention to detail by showing 10 slides or charts for five seconds each, containing a mix of shapes, words, numbers, colors, famous personalities, and random images. After all slides are shown, answer sheets are given with questions that test recall, such as counting specific objects or identifying details.",
+            duration: "30 minutes",
+            time: "09:00 AM to 12:30 PM",
+            venue: "R1",
+          },
+          {
+            title: "Round 2",
+            content:
+              "Rewrite Recall, lasts 25–30 minutes and focuses on memory accuracy, where individual participants read a printed paragraph for one minute before it is collected, and then answer questions that subtly alter facts, numbers, names, or colors to see how well they remember the original content",
+            time: "02:00PM to 05:00 PM",
+            venue: "R1",
+          },
+        ],
         contact: [
           {
             id: 1,
@@ -418,14 +406,14 @@ export const events = [
       },
       {
         id: 12,
-        title: "Checkmate Chronicles (Collab with Castle Red)",
-        time: "01:30 PM to 04:00 PM",
-        Date: "20 February 2025",
+        title: "Escape Room",
+        time: "09:30 AM to 05:00 PM",
+        Date: "21 February 2026",
         team: "Individual",
         description:
-          "Checkmate Chronicles is the ultimate test of strategy, logic, and precision! Outsmart your opponents in intense chess battles where every move shapes your path to victory. Sharpen your tactics, anticipate your rival’s next move, and compete for the title of Chess Champion!",
-        image: img7, // Replace with your image path
-        path: "/events/chatgpt-pulse",
+          "CODE RED: The Final Countdown is a fast-paced escape room challenge conducted inside a laboratory setting. All participating teams enter the room at the same time and are given a sequence of story-linked puzzles. Each puzzle unlocks the next stage of the mission. Teams must analyze clues, solve puzzles, and record their answers on paper within the given time limit.",
+        image: rand4, // Replace with your image path
+        path: "/events/code-red",
         rules: `• Participants answer survey-based questions on topics like Books, Food, Movies, Lifestyle, and Technology. Responses are ranked (1 = most popular, 7 = least popular).
               • Teams compete to guess the most popular answers.
               • Buzzers decide who answers first.
@@ -433,7 +421,7 @@ export const events = [
               • Three consecutive wrong guesses result in negative points, and the chance passes to the other team.
               • Each round includes 10 questions.
               • Top 3 teams with the highest total scores win.`,
-        to: "chatgpt-pulse",
+        to: "code-red",
         prize: "Rs 3.5k",
         contact: [
           {
@@ -458,45 +446,45 @@ export const events = [
     event: [
       {
         id: 14,
-        title: "OLPC",
+        title: "ByteBattle",
         description:
-          "OLPC is the ultimate arena for online programming contests, where sharp minds battle against the clock to solve intricate challenges packed with complex data structures and algorithms. Speed, precision, and problem-solving skills will determine who emerges victorious in this high-stakes digital showdown!",
-        image: img1, // Replace with your image path
-        Date: "20 February 2025",
+          "A one-round online coding challenge conducted on HackerRank, where participants solve algorithmic and logical problems within a fixed time limit. The contest focuses on problem-solving skills, code efficiency, and accuracy. Rankings are based on test case completion and execution performance.",
+        image: rand5, // Replace with your image path
+        Date: "20 February 2026",
         team: "Individual",
-        prize: "Rs 4k",
+        prize: "Rs 5k",
         path: "/events/olpc",
         to: "olpc",
         contact: [
           {
             id: 1,
-            name: "Harini S",
-            phone: "93633 49994",
+            name: "Renjitha K",
+            phone: "79078 54731",
           },
           {
             id: 2,
-            name: "Infancy P",
-            phone: "90473 66527",
+            name: "Sahana S",
+            phone: "74182 47031",
           },
         ],
       },
 
       {
         id: 15,
-        title: "LIGHTS, CAMERA, REEL!",
+        title: "Clickify",
         description:
-          "Unleash your creativity and showcase your talent in this ultimate reels competition! Whether it’s dance, drama, comedy, or art—hit record, shine bright, and make your moment go viral! ",
-        image: img1, // Replace with your image path
-        Date: "20 February 2025",
+          "This photography contest provides participants an opportunity to showcase their creativity and photography skills based on a given theme. Participants submit a theme-based photograph, which will be posted on the official symposium Instagram handle. The winner will be selected based on the highest number of genuine Instagram likes, encouraging fair and ethical social media engagement.",
+        image: click, // Replace with your image path
+        Date: "20 February 2026",
         team: "Individual",
-        prize: "Rs 1.5k",
+        prize: "Rs 5k",
         path: "/events/lights-camera-reel",
         to: "lights-camera-reel",
         contact: [
           {
             id: 1,
-            name: "Sreenithika S",
-            phone: "99650 65777",
+            name: "Renjitha K",
+            phone: "79078 54731",
           },
           {
             id: 2,
@@ -507,13 +495,13 @@ export const events = [
       },
       {
         id: 16,
-        title: "WAR OF THE RACKETS ",
+        title: "Smash Sprint",
         description:
-          "War of the Rackets is an electrifying badminton showdown exclusively for girls! Battle it out in intense, fast-paced matches where agility, precision, and strategy take center stage. Smash your way to victory and claim your spot at the top in this ultimate test of skill and endurance!",
-        image: img1, // Replace with your image path
-        Date: "20 February 2025",
-        team: "Individual (Inter dept)",
-        prize: "Rs 1.5k",
+          "A fast-paced badminton tournament testing agility, precision, and endurance. Matches will be conducted in knockout format with singles and/or doubles categories.",
+        image: bm, // Replace with your image path
+        Date: "20 February 2026",
+        team: "Individual",
+        prize: "Rs 5k",
         path: "/events/war-of-the-rackets",
         to: "war-of-the-rackets",
         contact: [
@@ -531,72 +519,49 @@ export const events = [
       },
       {
         id: 17,
-        title: "Grand Cricket League (GCL)",
+        title: "Abacus Premier League",
         description:
-          "Grand Cricket League is the ultimate battle of skill, strategy, and endurance! Compete in high-energy matches where every run matters, every wicket counts, and teamwork paves the path to victory. Step onto the pitch, showcase your batting, bowling, and fielding prowess, and chase the glory of becoming the champions!",
-        image: img1, // Replace with your image path
-        Date: "20 February 2025",
-        team: "11 members (Intra Dept)",
-        prize: "Rs 2k",
+          "A short-format cricket tournament designed for high-energy gameplay and quick decision-making. Matches will follow limited overs with knockout rounds",
+        image: cric, // Replace with your image path
+        Date: "20 February 2026",
+        team: "6–8 players per team",
+        prize: "Rs 5k",
         path: "/events/gcl",
         to: "gcl",
         contact: [
           {
             id: 1,
-            name: "Hariharan A",
-            phone: "77084 62392",
+            name: "Renjitha K",
+            phone: "79078 54731",
           },
           {
             id: 2,
-            name: "Dinesh S",
-            phone: "93603 80769",
+            name: "Sahana S",
+            phone: "74182 47031",
           },
         ],
       },
       {
         id: 18,
-        title: "CSEA SUPER LEAGUE (CSL) - Kick, Pass, Goal!",
+        title: "AU Campus Football League",
         description:
           "Lace up your boots and get ready for an electrifying intra-departmental football showdown! Form your dream team, showcase your dribbling, passing, and scoring skills, and battle your way to glory in this fast-paced tournament of teamwork, strategy, and passion for the game!",
-        image: img1, // Replace with your image path
-        Date: "20 February 2025",
-        team: "5 members (Intra Dept)",
-        prize: "Rs 2k",
-        path: "/events/gcl",
-        to: "gcl",
+        image: fb, // Replace with your image path
+        Date: "20 February 2026",
+        team: "5–7 players per team",
+        prize: "Rs 5k",
+        path: "/events/au-campus-football-league",
+        to: "au-campus-football-league",
         contact: [
           {
             id: 1,
-            name: "Hariharan A",
-            phone: "77084 62392",
+            name: "Renjitha K",
+            phone: "79078 54731",
           },
           {
             id: 2,
-            name: "Ajai Krishna T.S",
-            phone: "70107 07652",
-          },
-        ],
-      },
-      {
-        id: 16,
-        title: "CHESS!",
-        description: "",
-        image: img1, // Replace with your image path
-        Date: "20 February 2025",
-        team: "5 members (Intra Dept)",
-        prize: "Rs 30   (need to change price as entry fee)",
-        path: "/events/chess",
-        to: "gcl",
-        contact: [
-          {
-            id: 1,
-            name: "Hariharan A",
-            phone: "77084 62392",
-          },
-          {
-            id: 2,
-            name: "Ajai Krishna T.S",
-            phone: "70107 07652",
+            name: "Sahana S",
+            phone: "74182 47031",
           },
         ],
       },

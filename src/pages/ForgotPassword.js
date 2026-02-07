@@ -16,17 +16,28 @@ const ForgotPassword = ({ setIsLogin }) => {
   };
   const { isLoading } = LoaderData();
 
-  if (isLoading) {
-    return <Loader />;
-  }
+  // if (isLoading) {
+  //   return <Loader />;
+  // }
 
   return (
+<<<<<<< HEAD
     <div className="forgot-container">
       <div className="forgot-card">
         <h2 className="forgot-heading">Forgot your password?</h2>
 
         <p className="forgot-subtitle">
           Enter your email address and we&apos;ll send you a secure link to reset your password.
+=======
+    <div className="register-container ">
+      <div className="register-box !h-[325px] ">
+        <div className="register-toggle">
+          <button className="active-tab !text-2xl">Forgot Password</button>
+        </div>
+        {/* <h2 className="register-title">REGISTER</h2> */}
+        <p className="text-center text-gray-400 mb-4">
+          Enter your mail. A link to reset your password will be sent
+>>>>>>> e25a8fb6129acd311303cea0bbd28cf74daf933a
         </p>
 
         <form onSubmit={handleSubmit}>

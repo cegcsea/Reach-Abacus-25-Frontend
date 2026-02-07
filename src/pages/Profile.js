@@ -23,7 +23,7 @@ const Profile = () => {
     navigate(routes[page]);
   };
 
-  // Fallback data
+  //Fallback data
   const fallbackUser = {
     id: "10001",
     name: "Guest",

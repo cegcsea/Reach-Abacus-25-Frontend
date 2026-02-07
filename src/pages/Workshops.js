@@ -24,7 +24,20 @@ const Workshops = () => {
           Workshops
         </h2>
 
-        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-8 ">
+        {/* Coming Soon Card */}
+        <div className="flex justify-center">
+          <div className="border-2 border-dashed border-[#FF5555] bg-[#1d1d1d] text-white p-10 rounded-lg shadow-lg text-center max-w-xl w-full opacity-80">
+            <h3 className="text-3xl font-bold mb-4 text-red-400">
+              🚧 Coming Soon...
+            </h3>
+            <p className="text-lg text-gray-300">
+              Our workshops are currently under preparation.  
+              Stay tuned for exciting sessions 🔥
+            </p>
+          </div>
+        </div>
+
+        {/* <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-8 ">
           {workshops.map((workshop) => (
             <div
               key={workshop.id}
@@ -59,8 +72,8 @@ const Workshops = () => {
               </button>
             </div>
           ))}
-        </div>
-        <Session />
+        </div> */}
+        {/* <Session /> */}
         
        
       </div>

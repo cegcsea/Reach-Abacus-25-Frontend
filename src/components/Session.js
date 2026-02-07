@@ -17,10 +17,10 @@ function Session() {
   const contacts = [
     {
       id: 1,
-      name: "Sunil Kumar",
-      phone: "+91 6383123505",
+      name: "Hariharan",
+      phone: "+91 7708 462 392",
     },
-    { id: 2, name: "Smrithi", phone: "+91 8072869255" },
+    { id: 2, name: "Ishwarya", phone: "+91 93452 14813" },
   ];
   const isRegistered =
     Array.isArray(session) &&
