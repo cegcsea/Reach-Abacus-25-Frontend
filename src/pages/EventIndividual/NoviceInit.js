@@ -35,7 +35,7 @@ const NoviceInit = () => {
 
   // Check if the user is already registered for this event
   const isRegistered = (userEvents || []).some(
-    (event) => event.eventName === selectedEvent.title
+    (event) => event.eventName === selectedEvent.title,
   );
 
   // Handle tab switching
@@ -68,14 +68,14 @@ const NoviceInit = () => {
                 onClick={() => handleTabClick("description")}
                 className={activeTab === "description" ? "active" : ""}
               >
-                Description &lt;~&gt;
+                Description
               </button>
               {selectedEvent.intern?.length > 0 && (
                 <button
                   onClick={() => handleTabClick("internship")}
                   className={activeTab === "internship" ? "active" : ""}
                 >
-                  Internship &lt;~&gt;
+                  Internship
                 </button>
               )}
               {selectedEvent.rounds?.length > 0 && (
@@ -83,7 +83,7 @@ const NoviceInit = () => {
                   onClick={() => handleTabClick("rounds")}
                   className={activeTab === "rounds" ? "active" : ""}
                 >
-                  Rounds &lt;~&gt;
+                  Rounds
                 </button>
               )}
             </div>
@@ -159,26 +159,26 @@ const NoviceInit = () => {
                   className="m-3 w-fit border border-[#c72727] px-4 py-2 text-white duration-150 hover:bg-[#fb525233] "
                   onClick={handleRegister}
                 >
-                  Register{"<"}~{">"}
+                  Register
                 </button>
               )}
             </div>
             <div className="flex justify-center">
               {!isAuth && (
                 <button
-                  className="m-3 w-fit border border-[#c72727] px-4 py-2 text-white duration-150 hover:bg-[#ff4d4d]"
-                  onClick={() => navigate("/login")}
+                  className="m-3 w-fit border border-[#c0a068] px-4 py-2 text-white duration-150 hover:bg-[#c0a068]"
+                  onClick={() => navigate("/auth")}
                 >
-                  Login to Register{"<"}~{">"}
+                  Login to Register
                 </button>
               )}
             </div>
 
             {isRegistered && (
-              <p className="p-2 w-full sm:w-fit flex justify-center items-center text-white text-lg font-semibold text-gray border rounded-lg border-[#c72727] bg-slate-800 mx-auto">
-                <span className="text-lime-400">/*</span>
+              <p className="p-2 w-full sm:w-fit flex justify-center items-center text-white text-lg font-semibold text-gray border rounded-lg border-[#c0a068] bg-[#1a1a1a] mx-auto">
+                <span className="text-[#c0a068]">/*</span>
                 &nbsp;Already registered for this event!&nbsp;
-                <span className="text-lime-400">*/</span>
+                <span className="text-[#c0a068]">*/</span>
               </p>
             )}
           </div>

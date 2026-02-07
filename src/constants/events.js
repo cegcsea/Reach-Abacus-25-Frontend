@@ -1,6 +1,6 @@
-import img1 from "../assets/images/techevent.jpg";
-import img2 from "../assets/images/nontech.jpg"; // Example images
-import img3 from "../assets/images/preevnt.jpg";
+import img1 from "../assets/images/techevent.png";
+import img2 from "../assets/images/nontech.png"; // Example images
+import img3 from "../assets/images/preevnt.png";
 import img4 from "../assets/images/pentacode.png";
 import img5 from "../assets/images/ML Mania.png";
 import img6 from "../assets/images/ospc.png";
@@ -11,10 +11,10 @@ import img8 from "../assets/images/amazon.png";
 export const EventContacts = [
   {
     id: 1,
-    name: "Nikhil Prasanna",
-    phone: "+91 6379066510",
+    name: "Hariharan",
+    phone: "+91 7708 462 392",
   },
-  { id: 2, name: "Padmasharan", phone: "+91 9585612262" },
+  { id: 2, name: "Ishwarya", phone: "+91 93452 14813" },
 ];
 
 // List of events
@@ -458,9 +458,9 @@ export const events = [
     event: [
       {
         id: 14,
-        title: "OLPC",
+        title: "ByteBattle",
         description:
-          "OLPC is the ultimate arena for online programming contests, where sharp minds battle against the clock to solve intricate challenges packed with complex data structures and algorithms. Speed, precision, and problem-solving skills will determine who emerges victorious in this high-stakes digital showdown!",
+          "A one-round online coding challenge conducted on HackerRank, where participants solve algorithmic and logical problems within a fixed time limit. The contest focuses on problem-solving skills, code efficiency, and accuracy. Rankings are based on test case completion and execution performance",
         image: img1, // Replace with your image path
         Date: "20 February 2025",
         team: "Individual",

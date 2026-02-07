@@ -8,7 +8,7 @@ import EventPage from "./pages/EventPage";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar";
 import TechnicalPage from "./pages/TechnicalPage";
-import Workshops from "./pages/Workshops";
+// import Workshops from "./pages/Workshops";
 import IndividualWorkshops from "./pages/IndividualWorkshops";
 import NoviceInit from "./pages/EventIndividual/NoviceInit";
 import AuthPage from "./pages/AuthPage";
@@ -24,7 +24,7 @@ import BulkPayment from "./pages/BulkPayment";
 import { UserData } from "./context/userContext";
 import { LoaderData } from "./context/loaderContext";
 import Loader from "./components/Loader/Loader";
-
+import ComingSoonRobot from "./components/ComingSoonRobot";
 import AboutPage from "./pages/about-page/AboutPage";
 import SponsorsPage from "./pages/sponsors-page/SponsorsPage";
 import Accommodation from "./pages/Accomodation";
@@ -127,8 +127,8 @@ const App = () => {
             <Route path="/sponsors" element={<SponsorsPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/accommodation" element={<Accommodation />} />
-            <Route path="/events/:id" element={<EventPayment />} />
-            <Route path="/workshops" element={<Workshops />} />
+            {/* <Route path="/events/:id" element={<EventPayment />} /> */}
+            <Route path="/workshops" element={<ComingSoonRobot />} />
             <Route path="/workshops/:id" element={<IndividualWorkshops />} />
             <Route path="/workshops/:id/payment" element={<Payment />} />
             <Route

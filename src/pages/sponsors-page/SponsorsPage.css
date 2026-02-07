@@ -1,82 +1,60 @@
 :root {
   --simp-gold-primary: #c0a068;
   --simp-gold-dim: #aa8c2c;
+  --simp-gold-bright: #ffefc0;
   --simp-black-bg: #050505;
-  --simp-card-glass: rgba(26, 26, 26, 0.65);
+  --simp-card-glass: rgba(10, 10, 10, 0.95);
   --simp-text-color: #ffffffe6;
 }
 
+/* ================= OVERALL THEME BG (RESTORED) ================= */
+
 body {
-  font-family: "Arial", sans-serif;
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at top,
+      rgba(192,160,104,0.08),
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      #060606 0%,
+      #040404 50%,
+      #020202 100%
+    );
+  background-color: var(--simp-black-bg);
 }
 
-.sphead {
-  font-size: 3.8rem;
-  font-weight: bold;
-  color: var(--simp-gold-primary);
-  text-align: center;
-  padding: 40px;
-  text-shadow: 6px 2px 4px rgba(170, 140, 44, 0.4);
+.sptotal {
+  min-height: 100vh;
+  padding: 40px 20px;
+  overflow-x: hidden;
+  background: transparent; /* IMPORTANT */
 }
 
-.spcontent-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  margin: auto;
-  margin-bottom: 30px;
+/* ================= FLOAT ================= */
+
+.sp-wrapper {
+  margin: 60px auto;
   max-width: 1000px;
+  position: relative;
+  animation: floatUpDown 6s ease-in-out infinite;
+}
 
-  /* GLASSMORPHISM STYLES */
-  background: var(--simp-card-glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(192, 160, 104, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+@keyframes floatUpDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
 
-  border-radius: 12px;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
+/* ================= HEADER TITLE (FIXED SHIMMER) ================= */
+
+.sphead h1 {
+  font-size: 3.8rem;
+  font-weight: 700;
   text-align: center;
-}
+  margin-bottom: 40px;
 
-.spcontent-container:hover {
-  transform: scale(1.03);
-  box-shadow: 0px 6px 20px rgba(192, 160, 104, 0.25);
-  border-color: var(--simp-gold-primary);
-}
-
-.spcontent-container img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(170, 140, 44, 0.2);
-}
-
-.sptext-container {
-  flex: 1;
-  padding: 20px;
-  color: var(--simp-text-color);
-  text-align: left;
-}
-
-@keyframes gold-shimmer {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
-.sptext-container h1 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  font-weight: 600;
-  color: var(--simp-gold-primary);
   background: linear-gradient(
     110deg,
     var(--simp-gold-primary) 20%,
@@ -85,105 +63,219 @@ body {
     #edd9a3 60%,
     var(--simp-gold-primary) 80%
   );
-
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gold-shimmer 13s linear infinite;
+
+  animation: gold-shimmer 8s linear infinite;
+  text-shadow: 0 0 30px rgba(192,160,104,0.35);
 }
 
-.sptext-container p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: var(--simp-text-color);
+/* Title with gold shimmer effect - Desktop Size */
+@keyframes gold-shimmer {
+  to { background-position: 200% center; }
 }
-.spnaive {
-  padding: 15px;
+
+/* ================= CARD ================= */
+
+.sp-card-container {
+  position: relative;
+  background: var(--simp-card-glass);
+  border-radius: 20px;
+  overflow: visible;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
-.spread {
+
+/* ================= ELECTRIC BORDER (UNCHANGED) ================= */
+
+.electric-line {
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  pointer-events: none;
+  z-index: 1;
+  border: 2.5px solid var(--simp-gold-primary);
+  filter: url(#fast-uneven-electric);
+  box-shadow:
+    0 0 15px rgba(192,160,104,0.6),
+    inset 0 0 10px rgba(192,160,104,0.4);
+  animation: jitterOpacity 0.15s infinite;
+}
+
+@keyframes jitterOpacity {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+/* ================= SHIMMER OVERLAYS (UNCHANGED) ================= */
+
+.sp-overlay-1,
+.sp-overlay-2 {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  opacity: 0.2;
+  mix-blend-mode: overlay;
   background: linear-gradient(
-    135deg,
-    var(--simp-gold-primary),
-    var(--simp-gold-dim)
+    45deg,
+    transparent 0%,
+    rgba(255,255,255,0.15) 50%,
+    transparent 100%
   );
-  color: #000000;
-  font-size: 16px;
+  pointer-events: none;
+  z-index: 2;
+  background-size: 200% 200%;
+}
+
+.sp-overlay-1 { animation: shimmerMove 4s linear infinite; }
+.sp-overlay-2 { animation: shimmerMove 6s linear infinite reverse; }
+
+@keyframes shimmerMove {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+
+/* ================= CONFETTI (EXACT AS REQUESTED) ================= */
+
+.sp-confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.sp-confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  top: -20px;
+  opacity: 0.9;
+  animation: sp-makeItRain 3000ms infinite linear;
+}
+
+.sp-confetti-piece:nth-child(4n) { background-color: #FFD700; }
+.sp-confetti-piece:nth-child(4n+1) { background-color: #FF6B6B; }
+.sp-confetti-piece:nth-child(4n+2) { background-color: #4ECDC4; }
+.sp-confetti-piece:nth-child(4n+3) { background-color: #A663CC; }
+
+.sp-confetti-piece:nth-child(1) { left: 5%; animation-delay: 0s; }
+.sp-confetti-piece:nth-child(2) { left: 15%; animation-delay: 0.2s; }
+.sp-confetti-piece:nth-child(3) { left: 25%; animation-delay: 0.5s; }
+.sp-confetti-piece:nth-child(4) { left: 35%; animation-delay: 0.1s; }
+.sp-confetti-piece:nth-child(5) { left: 45%; animation-delay: 0.7s; }
+.sp-confetti-piece:nth-child(6) { left: 55%; animation-delay: 0.3s; }
+.sp-confetti-piece:nth-child(7) { left: 65%; animation-delay: 0.9s; }
+.sp-confetti-piece:nth-child(8) { left: 75%; animation-delay: 0.4s; }
+.sp-confetti-piece:nth-child(9) { left: 85%; animation-delay: 0.6s; }
+.sp-confetti-piece:nth-child(10) { left: 95%; animation-delay: 0.2s; }
+
+@keyframes sp-makeItRain {
+  from { opacity: 0; transform: translateY(-50px) rotate(0); }
+  10%, 90% { opacity: 1; }
+  to { opacity: 0; transform: translateY(600px) rotate(360deg); }
+}
+
+/* ================= CONTENT ================= */
+
+.sp-content-container {
+  padding: 40px;
+  position: relative;
+  z-index: 10;
+}
+
+.sp-card-content {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.sp-logo {
+  width: 240px;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.sp-text-container p {
+  color: var(--simp-text-color);
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.spread {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 12px 30px;
+  background: var(--simp-gold-primary);
+  color: #000;
   font-weight: bold;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 30px;
-  padding: 10px 25px;
-  cursor: pointer;
-  box-shadow: 0 0 15px rgba(192, 160, 104, 0.6);
-  transition: all 0.3s ease-in-out;
+  border-radius: 50px;
   text-decoration: none;
 }
 
 .spread:hover {
-  filter: brightness(1.15);
-  transform: translateY(-2px);
+  background: var(--simp-gold-bright);
+  box-shadow: 0 0 20px var(--simp-gold-primary);
 }
 
-.spout {
-  text-align: center;
-  margin: auto;
-}
+/* ================= RESPONSIVE ================= */
 
-/* MEDIA QUERIES */
-
-@media (max-width: 1050px) {
-  .spcontent-container {
+@media (max-width: 900px) {
+  .sp-card-content {
     flex-direction: column;
     text-align: center;
   }
-
-  .spcontent-container img {
-    margin-right: 0;
-    margin-bottom: 20px;
-    max-width: 80%;
-    margin: auto;
-  }
-
-  .sptext-container {
-    padding: 15px;
-  }
-
-  .spout {
-    width: 100%;
-    margin: auto;
-  }
-.sphead{
-  font-size: 4rem;
-}
 }
 
-@media (max-width: 690px) {
-  .sptext-container p {
-    font-size: 1rem;
-  }
+/* ===== RESTORE SPONSOR TITLE SHIMMER EFFECT ===== */
+
+.sphead h4 {
+  font-size: 2.0rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+
+  background: linear-gradient(
+    110deg,
+    #c0a068 20%,
+    #edd9a3 40%,
+    #ffffff 50%,
+    #edd9a3 60%,
+    #c0a068 80%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: gold-shimmer 8s linear infinite;
+  text-shadow: 0 0 20px rgba(192, 160, 104, 0.35);
 }
 
-@media (max-width: 500px) {
-  body {
-    padding: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .spcontent-container img {
-    max-width: 100%;
+/* FIX CONFETTI FALL ON MOBILE */
+@media (max-width: 900px) {
+  .sp-confetti {
+    height: 120vh; /* allow falling beyond card */
   }
 
-  .sptext-container p {
-    font-size: 1rem;
-    text-align: justify;
+  .sphead h4 {
+    font-size: 1.8rem;
   }
 
-  .spread {
-    display: table;
-    margin: 0 auto 0 auto;
+  @keyframes sp-makeItRain {
+    from {
+      opacity: 0;
+      transform: translateY(-50px) rotate(0);
+    }
+    10%, 90% {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      transform: translateY(900px) rotate(360deg);
+    }
   }
-.sphead{
-  font-size: 2.5rem;
-}
 }

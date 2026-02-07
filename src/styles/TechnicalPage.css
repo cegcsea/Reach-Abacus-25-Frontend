@@ -1,0 +1,161 @@
+/* Global Reset for Padding/Borders */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: #f4f4f4;
+}
+
+/* Page Layout */
+.technical-page-wrapper {
+  padding: 20px;
+  width: 100%;
+}
+
+.out {
+  padding: 20px;
+  text-align: center;
+  margin: auto;
+  max-width: 1400px;
+  width: 100%;
+}
+
+/* Heading Section */
+.heading {
+  margin-top: 2rem;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fcfcfc;
+  text-align: center;
+  padding-block: 5rem;
+  padding-bottom: 40px;
+  text-shadow: 6px 2px 4px rgba(192, 160, 104, 0.8);
+  word-wrap: break-word;
+}
+
+/* Container Logic */
+.content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  margin: 20px auto;
+  max-width: 1200px;
+  width: 100%;
+  background-color: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(10px);
+  border: 2px solid #c0a068;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(192, 160, 104, 0.3);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  overflow: hidden; /* Safety net */
+}
+
+.content-container:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 6px 20px rgba(192, 160, 104, 0.5);
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Image Logic - FIXED FOR OVERFLOW */
+.content-container img {
+  width: 450px; /* Default desktop width */
+  max-width: 100%; /* Never exceed container */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 12px;
+  box-shadow: 0 0 8px rgba(192, 160, 104, 0.3);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Text Logic */
+.text-container {
+  flex: 1;
+  padding: 25px;
+  color: #f4f4f4;
+  text-align: left;
+}
+
+.text-container h1 {
+  font-size: 1.7rem;
+  color: #c0a068;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.text-container p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #dddddd;
+  margin-bottom: 20px;
+}
+
+/* Responsive Media Queries */
+
+/* Mid-size Screens (Shrinking Desktop/Tablet) */
+@media (max-width: 1024px) {
+  .content-container img {
+    width: 380px;
+  }
+  .heading {
+    font-size: 2.5rem;
+  }
+}
+
+/* Small Tablets & Large Mobiles (The Breakpoint for Stack) */
+@media (max-width: 900px) {
+  .content-container,
+  .reverse {
+    flex-direction: column; /* Stack vertically to prevent horizontal overflow */
+    text-align: center;
+    padding: 20px;
+  }
+
+  .content-container img {
+    width: 100%;
+    max-width: 500px; /* Limits size on tablets */
+    margin-bottom: 20px;
+  }
+
+  .text-container {
+    text-align: center;
+    padding: 10px;
+  }
+}
+
+/* Standard Mobile */
+@media (max-width: 480px) {
+  .heading {
+    font-size: 2rem;
+    padding-block: 2rem;
+  }
+
+  .text-container h1 {
+    font-size: 1.3rem;
+  }
+
+  .text-container p {
+    font-size: 0.95rem;
+  }
+
+  .technical-page-wrapper,
+  .out {
+    padding: 10px;
+  }
+}
+
+/* Button UI Fix for scannability */
+.read-more-button {
+  word-wrap: break-word;
+  display: inline-block;
+}

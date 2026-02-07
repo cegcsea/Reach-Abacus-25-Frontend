@@ -1,93 +1,104 @@
 .contact_details {
-    display: grid;
-    row-gap: 1rem;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr;
-    margin: auto;
-    width: 50%;
-    border: 1px solid #ddd;
-    background-color: #1e1e22;
-    padding: 1.5rem;
-    border-radius: 0.5rem;
-    /* box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); */
-    text-align: center;
-    margin-bottom: 40px;
-    color: #fcfcfc;
-    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3); 
-  }
-  
-  
-  .head h3 {
-    font-size: 32px;
-    margin-bottom: 15px;
-    color: #f1f1f1;
-  
-  text-shadow: 2px 2px 4px rgba(192, 160, 104, 0.6);
+  /* Defined Palette */
+  --simp-gold-primary: #c0a068;
+  --simp-gold-dim: #aa8c2c;
+  --simp-black-bg: #050505;
+  --simp-card-bg: #1a1a1a;
+  --simp-text-color: #ffffffe6;
+  display: grid;
+  row-gap: 1rem;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  margin: auto;
+  width: 50%;
+
+  /* Palette Updates */
+  border: 1px solid var(--simp-gold-dim); /* Changed from #ddd to Gold Dim */
+  background-color: var(--simp-card-bg); /* Changed from #1e1e22 */
+  color: var(--simp-text-color); /* Changed from #fcfcfc */
+
+  /* Changed shadow from Red to Gold Primary with opacity */
+  box-shadow: 0 0 12px rgba(192, 160, 104, 0.2);
+
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-  
-  .head p {
-    font-size: 16px;
-    color: #bbb;
-  }
-  
-  .names {
-    display: grid;
-    grid-template-columns:repeat(2,1fr);
-    gap: 20px;
-  }
-  
-  .names div {
-    border: 1px solid #333;
-    background-color: #2a2a2f;
-    padding: 10px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.3s, background-color 0.3s;
-  }
-  
-  
-  .names div p {
-    margin: 5px 0;
-    color: #fff;
-  }
-  
-  .names div p a {
-  color: #c0a068;
+.head h3 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: var(--simp-gold-primary); /* Optional: Made header gold to pop */
+
+  /* Updated shadow to match gold palette */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.head p {
+  font-size: 16px;
+  color: var(--simp-text-color);
+  opacity: 0.8; /* Slightly dimming the text color for the subheader */
+}
+
+.names {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.names div {
+  /* Creating contrast: Inner cards use the darker black background */
+  border: 1px solid #333; /* Kept subtle, or could use var(--simp-gold-dim) */
+  background-color: var(--simp-black-bg);
+
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition:
+    transform 0.3s,
+    background-color 0.3s,
+    border-color 0.3s;
+}
+
+.names div p {
+  margin: 5px 0;
+  color: var(--simp-text-color);
+}
+
+.names div p a {
+  color: var(--simp-gold-primary);
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s;
 }
 
-  
-  .names div p a:hover {
-    text-decoration: underline;
-  }
-  
-  @media ( max-width:680px ) {
-    .contact_details{
-      width:80%;
-      
-    }
-    .names{
-        grid-template-columns: 1fr;
-    }
-    
-  }
-  @media(max-width:1200px)
-  {
-    .contact_details{
-        width: 80%;
-    }
-  }
+/* Hover Effects */
+.names div:hover {
+  background-color: #151515; /* Slightly lighter than black-bg */
+  border-color: var(--simp-gold-dim); /* Highlight border on hover */
+  transform: translateY(-2px);
+}
 
-  .names div:hover {
-    background-color: #333;
-    transform: translateY(-2px);
-  }
+.names div p a:hover {
+  text-decoration: underline;
+  color: #fff; /* Brighten link on hover */
+}
 
-  .names div p a:hover {
-    text-decoration: underline;
+/* Media Queries (Layout remains the same) */
+@media (max-width: 680px) {
+  .contact_details {
+    width: 80%;
   }
- 
+  .names {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1200px) {
+  .contact_details {
+    width: 80%;
+  }
+}
