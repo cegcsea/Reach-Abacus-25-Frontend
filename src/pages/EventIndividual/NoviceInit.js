@@ -8,6 +8,7 @@ import { UserData } from "../../context/userContext.js";
 import { LoaderData } from "../../context/loaderContext.js";
 import Loader from "../../components/Loader/Loader.jsx";
 import { checkCA20Events } from "../../utils/register_ambassador.js";
+import toast from "react-hot-toast";
 const NoviceInit = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -51,14 +52,22 @@ const NoviceInit = () => {
     // If the event has a formLink (pre-events), open it in a new tab
     if (selectedEvent.formLink) {
       window.open(selectedEvent.formLink, "_blank");
+      toast.success("Opening registration form in new tab!");
       return;
     }
 
     // Otherwise, use the regular event registration
-    await eventRegister({ eventId: Number(selectedEvent.id) });
-    console.log("id" + user.id);
-    if (user?.id) {
-      await checkCA20Events(user.id); // ✅ real user id
+    try {
+      await eventRegister({ eventId: Number(selectedEvent.id) });
+      if (user?.id) {
+        await checkCA20Events(user.id);
+      }
+      toast.success(`Successfully registered for ${selectedEvent.title}!`);
+      // Refresh events to update UI
+      await getEvents();
+    } catch (error) {
+      // Error is handled in context, but show a user-friendly message
+      toast.error("Registration failed. Please try again.");
     }
   };
   const { isLoading } = LoaderData();

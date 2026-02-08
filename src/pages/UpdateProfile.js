@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { UserData } from "../context/userContext";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
+import toast from "react-hot-toast";
 function UpdateProfile() {
   const navigate = useNavigate();
   const { updateProfile, user, profile } = UserData();
@@ -45,10 +46,12 @@ function UpdateProfile() {
   const handleMobileChange = (e) => {
     const regex = /^[0-9\b]+$/;
     if (e.target.value === "" || regex.test(e.target.value)) {
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        mobile: e.target.value,
-      }));
+      if (e.target.value.length <= 10) {
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          mobile: e.target.value,
+        }));
+      }
     }
   };
 
@@ -64,19 +67,32 @@ function UpdateProfile() {
   };
 
   const handleSubmit = async (e) => {
-    //console.log(formData.year);
     e.preventDefault();
-    updateProfile(
-      {
-        name: formData.name,
-        college: formData.college,
-        dept: formData.dept,
-        year: isNaN(formData.year) ? formData.year : parseInt(formData.year),
-        mobile: formData.mobile,
-        //accomodation: formData.accomodation,
-      },
-      navigate,
-    );
+
+    // Validate mobile number
+    if (formData.mobile.length !== 10) {
+      toast.error("Mobile number must be exactly 10 digits!");
+      return;
+    }
+
+    setBtnLoading(true);
+    try {
+      await updateProfile(
+        {
+          name: formData.name,
+          college: formData.college,
+          dept: formData.dept,
+          year: isNaN(formData.year) ? formData.year : parseInt(formData.year),
+          mobile: formData.mobile,
+        },
+        navigate,
+      );
+      toast.success("Profile updated successfully!");
+    } catch (error) {
+      toast.error("Failed to update profile. Please try again.");
+    } finally {
+      setBtnLoading(false);
+    }
   };
 
   if (isLoading) {

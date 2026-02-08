@@ -515,7 +515,7 @@ export const events = [
           "A fast-paced badminton tournament testing agility, precision, and endurance. Matches will be conducted in knockout format with singles and/or doubles categories.",
         image: bm, // Replace with your image path
         Date: "10 February 2026, 4:00 PM onwards",
-        team: "1 (Singles) / 2 (Doubles)",
+        team: "1 (Singles)",
         prize: "Rs 3k",
         venue: "Badminton Court, Main Gallery",
         formLink: "https://forms.gle/iWSSwwpN4AyESWwB8",
@@ -541,7 +541,7 @@ export const events = [
           "A short-format cricket tournament designed for high-energy gameplay and quick decision-making. Matches will follow limited overs with knockout rounds",
         image: cric, // Replace with your image path
         Date: "9 February 2026 onwards",
-        team: "6–8 players per team",
+        team: "11 players per team",
         prize: "Rs 2k",
         venue: "Ground",
         formLink: "https://forms.gle/8HWbae1NivD33Pd18",

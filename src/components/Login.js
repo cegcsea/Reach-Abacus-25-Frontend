@@ -6,7 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 const Login = ({ setIsLogin }) => {
   const [showPassword, setShowPassword] = useState(false);
-  const { login ,forgotPassword,user} = UserData(); // Ensure `UserData` is properly set up and provides the `login` function
+  const [btnLoading, setBtnLoading] = useState(false);
+  const { login, forgotPassword, user } = UserData(); // Ensure `UserData` is properly set up and provides the `login` function
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -25,15 +26,22 @@ const Login = ({ setIsLogin }) => {
   };
 
   // Submits the form data to the login function
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    login(
-      {
-        email: formData.email,
-        password: formData.password,
-      },
-      navigate
-    );
+    setBtnLoading(true);
+    try {
+      await login(
+        {
+          email: formData.email,
+          password: formData.password,
+        },
+        navigate,
+      );
+    } catch (err) {
+      // Error is handled in the context
+    } finally {
+      setBtnLoading(false);
+    }
   };
 
   return (
@@ -73,12 +81,12 @@ const Login = ({ setIsLogin }) => {
             ></span>
           </div>
           {/* Login Button */}
-          <button type="submit" className="login-button">
-            Login
+          <button type="submit" className="login-button" disabled={btnLoading}>
+            {btnLoading ? "Logging in..." : "Login"}
           </button>
         </form>
         {/* Forgot Password */}
-        <p className="forgot-password" >
+        <p className="forgot-password">
           Forgot Password?{" "}
           <a href="/forgot-password" className="forgot-link">
             Click here!

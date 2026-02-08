@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { UserData } from "../context/userContext";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 const ChangePassword = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [btnLoading, setBtnLoading] = useState(false);
   const { changePassword } = UserData();
   const [formData, setFormData] = useState({
     newPassword: "",
@@ -41,27 +42,45 @@ const ChangePassword = () => {
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
 
     // Validate new password as the user types
-    if (name === "password") {
+    if (name === "newPassword") {
       validatePassword(value);
     }
   };
 
   // Submits the form data to the reset function
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    //console.log("changepassword");
-    if (
-      validatePassword(formData.password) &&
-      formData.newPassword === formData.confirmPassword &&
-      formData.password !== formData.newPassword
-    ) {
-      changePassword(formData.password, formData.newPassword, navigate);
-    } else if (formData.password === formData.newPassword) {
+
+    if (formData.password === formData.newPassword) {
       toast.error("The current password and new password should be different");
+      return;
     }
-    else if(formData.newPassword !== formData.confirmPassword)
-    {
-        toast.error("The new password and confirm password fields should match");
+
+    if (formData.newPassword !== formData.confirmPassword) {
+      toast.error("The new password and confirm password fields should match");
+      return;
+    }
+
+    if (!validatePassword(formData.newPassword)) {
+      toast.error("Please fix password validation errors");
+      return;
+    }
+
+    setBtnLoading(true);
+    try {
+      await changePassword(formData.password, formData.newPassword, navigate);
+      // Clear form on success
+      setFormData({
+        newPassword: "",
+        password: "",
+        confirmPassword: "",
+      });
+      setPasswordError([]);
+      toast.success("Password changed successfully!");
+    } catch (error) {
+      // Error handled in context
+    } finally {
+      setBtnLoading(false);
     }
   };
   const { isLoading } = LoaderData();
@@ -125,8 +144,8 @@ const ChangePassword = () => {
           </div>
 
           {/* change Password Button */}
-          <button type="submit" className="login-button">
-            change Password
+          <button type="submit" className="login-button" disabled={btnLoading}>
+            {btnLoading ? "Changing..." : "Change Password"}
           </button>
         </form>
       </div>

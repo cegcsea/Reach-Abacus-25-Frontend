@@ -52,10 +52,12 @@ function RegisterDetails() {
   const handleMobileChange = (e) => {
     const regex = /^[0-9\b]+$/;
     if (e.target.value === "" || regex.test(e.target.value)) {
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        mobile: e.target.value,
-      }));
+      if (e.target.value.length <= 10) {
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          mobile: e.target.value,
+        }));
+      }
     }
   };
 
@@ -70,11 +72,25 @@ function RegisterDetails() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //console.log("Form Data before submit:", formData);
+
+    // Validate password match
     if (formData.password !== formData.confirmPassword) {
       toast.error("Passwords do not match!");
       return;
     }
+
+    // Validate mobile number length
+    if (formData.mobile.length !== 10) {
+      toast.error("Mobile number must be exactly 10 digits!");
+      return;
+    }
+
+    // Validate password strength
+    if (formData.password.length < 6) {
+      toast.error("Password must be at least 6 characters long!");
+      return;
+    }
+
     setBtnLoading(true);
     // console.log({
     //   name: formData.name,
@@ -90,23 +106,45 @@ function RegisterDetails() {
     // });
 
     try {
-    await register({
-      name: formData.name,
-      email,
-      token,
-      college: formData.college,
-      // accomodation: formData.accomodation,
-      dept: formData.dept,
-      year: parseInt(formData.year),
-      mobile: formData.mobile,
-      referralCode: formData.referralCode,
-      password: formData.password,
-    }, navigate);
-  } catch (err) {
-    toast.error(err.message || "Registration failed");
-  } finally {
-    setBtnLoading(false);
-  }
+      await register(
+        {
+          name: formData.name,
+          email,
+          token,
+          college: formData.college,
+          dept: formData.dept,
+          year: parseInt(formData.year),
+          mobile: formData.mobile,
+          referralCode: formData.referralCode,
+          password: formData.password,
+        },
+        navigate,
+      );
+
+      // Show success message and redirect to login
+      toast.success("Registration successful! Please login to continue.");
+
+      // Reset form
+      setFormData({
+        name: "",
+        college: "",
+        dept: "",
+        year: "",
+        mobile: "",
+        referralCode: "",
+        password: "",
+        confirmPassword: "",
+      });
+
+      // Redirect to login page after 2 seconds
+      setTimeout(() => {
+        navigate("/auth");
+      }, 2000);
+    } catch (err) {
+      toast.error(err.message || "Registration failed");
+    } finally {
+      setBtnLoading(false);
+    }
   };
   const { isLoading } = LoaderData();
 
@@ -202,10 +240,12 @@ function RegisterDetails() {
           <input
             type="text"
             name="mobile"
-            placeholder="Mobile"
+            placeholder="Mobile (10 digits)"
             className="register-details-input"
             value={formData.mobile}
             onChange={handleMobileChange}
+            maxLength="10"
+            minLength="10"
             required
           />
           <input
@@ -220,16 +260,17 @@ function RegisterDetails() {
             <input
               type={isPassword}
               name="password"
-              placeholder="Password"
+              placeholder="Password (min 6 characters)"
               onChange={handleChange}
               value={formData.password}
+              minLength="6"
               required
             />
             <span
               className="register-details-password-icon"
               onClick={() =>
                 setIsPassword((prev) =>
-                  prev === "password" ? "text" : "password"
+                  prev === "password" ? "text" : "password",
                 )
               }
               role="button"
@@ -237,7 +278,7 @@ function RegisterDetails() {
               onKeyDown={(e) =>
                 e.key === "Enter" &&
                 setIsPassword((prev) =>
-                  prev === "password" ? "text" : "password"
+                  prev === "password" ? "text" : "password",
                 )
               }
             >
@@ -257,7 +298,7 @@ function RegisterDetails() {
               className="register-details-password-icon"
               onClick={() =>
                 setIsConfirmPassword((prev) =>
-                  prev === "password" ? "text" : "password"
+                  prev === "password" ? "text" : "password",
                 )
               }
               role="button"
@@ -265,7 +306,7 @@ function RegisterDetails() {
               onKeyDown={(e) =>
                 e.key === "Enter" &&
                 setIsConfirmPassword((prev) =>
-                  prev === "password" ? "text" : "password"
+                  prev === "password" ? "text" : "password",
                 )
               }
             >

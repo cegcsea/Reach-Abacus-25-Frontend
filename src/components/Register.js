@@ -1,28 +1,33 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "../styles/Register.css";
 import { UserData } from "../context/userContext";
 import { useNavigate } from "react-router-dom";
 
 const Register = ({ setIsLogin }) => {
-    const { getRegistrationLink } = UserData();
-    const [email, setEmail] = useState("");
-    const navigate=useNavigate();
-    const handleEmailChange = (e) => setEmail(e.target.value);
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      getRegistrationLink({ email },navigate);
+  const { getRegistrationLink } = UserData();
+  const [email, setEmail] = useState("");
+  const [btnLoading, setBtnLoading] = useState(false);
+  const navigate = useNavigate();
+  const handleEmailChange = (e) => setEmail(e.target.value);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setBtnLoading(true);
+    try {
+      await getRegistrationLink({ email }, navigate);
+      setEmail(""); // Clear email on success
+    } catch (err) {
+      // Error handled in context
+    } finally {
+      setBtnLoading(false);
     }
-  
+  };
+
   return (
     <div className="register-container">
       <div className="register-box">
         <div className="register-toggle">
-          <button
-            onClick={() => setIsLogin(true)} 
-          >
-            Login
-          </button>
+          <button onClick={() => setIsLogin(true)}>Login</button>
           <button className="active-tab">Register</button>
         </div>
         <h2 className="register-title">REGISTER</h2>
@@ -34,17 +39,18 @@ const Register = ({ setIsLogin }) => {
             type="email"
             placeholder="Email"
             className="register-input"
+            value={email}
             onChange={handleEmailChange}
+            required
           />
           <button
             type="submit"
             className="register-button"
-            
+            disabled={btnLoading}
           >
-            Register
+            {btnLoading ? "Sending link..." : "Register"}
           </button>
         </form>
-       
       </div>
     </div>
   );
