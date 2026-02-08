@@ -181,7 +181,7 @@ const App = () => {
               path="/profile/change-password"
               element={<ChangePassword />}
             /> */}
-            <Route path="/test" element={<Profile />} />
+            {/* <Route path="/test" element={<Profile />} /> */}
             <Route
               path="/register/:email/:token"
               element={<RegisterDetails />}
