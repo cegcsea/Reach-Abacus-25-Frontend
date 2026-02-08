@@ -44,11 +44,13 @@ const Profile = () => {
   };
 
   // ✅ Check referral code on mount
+  // ✅ Check referral code on mount
 useEffect(() => {
   const checkReferral = async () => {
     try {
       const res = await axios.get(
         `${process.env.REACT_APP_API_BASE_URL}/admin/my-referral-code`,
+          { abacusId: userData.abacusId },
         { withCredentials: true }
       );
 
@@ -67,7 +69,6 @@ useEffect(() => {
 
   checkReferral();
 }, []);
-
 
   // ✅ Handle registration
   const handleRegisterCA = async () => {
