@@ -99,19 +99,45 @@ useEffect(() => {
           {loadingReferral ? (
             <p>Checking ambassador status...</p>
           ) : referralCode ? (
+          <div className="ca-action-wrapper mb-5">
             <p className="referral-code">
-              Your Referral Code: <strong>{referralCode}</strong>
+                        Your Referral Code: <strong>{referralCode}</strong>
             </p>
-          ) : (
-            <button
-              className="action-btn m-5 ambassador"
-              onClick={handleRegisterCA}
-              disabled={isRegistering}
-            >
-              {isRegistering
-                ? "Registering..."
-                : "Register as Student Ambassador"}
-            </button>
+
+              <div className="info-wrapper">
+                <button className="info-btn" type="button">i</button>
+                <div className="info-tooltip">
+                  Student Ambassadors who achieve 25 event registrations will receive a
+                  Selection Certificate endorsed by CSEA, CEG – Anna University.<br/>  
+                  Those who secure 5 workshop registrations get free access to one tech
+                  workshop at ABACUS’26.<br/>
+                  The best-performing ambassador wins exclusive merchandise & goodies.
+                </div>
+              </div>
+            </div>
+           ) : (
+              <div className="ca-action-wrapper mb-5">
+                <button
+                  className="action-btn ambassador"
+                  onClick={handleRegisterCA}
+                  disabled={isRegistering}
+                >
+                  {isRegistering ? "Registering..." : "Register as Student Ambassador"}
+                </button>
+
+                <div className="info-wrapper">
+                  <button className="info-btn" type="button">i</button>
+                  <div className="info-tooltip">
+                    Student Ambassadors who achieve 25 event registrations will receive a
+                    Selection Certificate endorsed by CSEA, CEG – Anna University.<br/>  
+                    Those who secure 5 workshop registrations get free access to one tech
+                    workshop at ABACUS’26.<br/>
+                    The best-performing ambassador wins exclusive merchandise & goodies.
+                  </div>
+                </div>
+              </div>
+  
+
           )}
 
           <div className="user-details-grid">
