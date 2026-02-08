@@ -29,7 +29,7 @@ import AboutPage from "./pages/about-page/AboutPage";
 import SponsorsPage from "./pages/sponsors-page/SponsorsPage";
 import Accommodation from "./pages/Accomodation";
 import EventPayment from "./pages/EventPayment";
-import ProtectedRoute from "./routes/protectedRoute";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
 const App = () => {
   const { isMenuOpen, setIsMenuOpen } = UserData();
