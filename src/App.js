@@ -29,6 +29,7 @@ import AboutPage from "./pages/about-page/AboutPage";
 import SponsorsPage from "./pages/sponsors-page/SponsorsPage";
 import Accommodation from "./pages/Accomodation";
 import EventPayment from "./pages/EventPayment";
+import ProtectedRoute from "./routes/protectedRoute";
 
 const App = () => {
   const { isMenuOpen, setIsMenuOpen } = UserData();
@@ -122,8 +123,44 @@ const App = () => {
         >
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            {/* <Route path="/profile" element={<Profile />} />
+            <Route path="/dashboard" element={<Dashboard />} /> */}
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/profile/update"
+              element={
+                <ProtectedRoute>
+                  <UpdateProfile />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/profile/change-password"
+              element={
+                <ProtectedRoute>
+                  <ChangePassword />
+                </ProtectedRoute>
+              }
+            />
+
             <Route path="/sponsors" element={<SponsorsPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/accommodation" element={<Accommodation />} />
@@ -141,11 +178,11 @@ const App = () => {
               path="/reset-password/:id/:token"
               element={<ResetPassword />}
             />
-            <Route
+            {/* <Route
               path="/profile/change-password"
               element={<ChangePassword />}
-            />
-            <Route path="/profile/update" element={<UpdateProfile />} />
+            /> */}
+            {/* <Route path="/profile/update" element={<UpdateProfile />} /> */}
             <Route
               path="/register/:email/:token"
               element={<RegisterDetails />}
