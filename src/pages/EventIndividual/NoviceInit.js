@@ -49,7 +49,7 @@ const NoviceInit = () => {
     e.preventDefault();
     //console.log(typeof selectedEvent.id);
     await eventRegister({ eventId: Number(selectedEvent.id) });
-
+    console.log("id"+user.id);
     if (user?.id) {
       await checkCA20Events(user.id); // ✅ real user id
     }
