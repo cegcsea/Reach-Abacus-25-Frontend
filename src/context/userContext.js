@@ -52,7 +52,7 @@ export const UserContextProvider = ({ children }) => {
     try {
       const response = await axios.post(
         `${server}/user/get-registration-link`,
-        { email }
+        { email },
       );
       const data = response.data;
       //console.log(data.data.secretKey, data.data.link);
@@ -80,19 +80,18 @@ export const UserContextProvider = ({ children }) => {
           email: formData.email,
           token: formData.token, // If token is required
           college: formData.college,
-         // hostCollege: formData.hostCollege,
+          // hostCollege: formData.hostCollege,
           // accomodation: formData.accomodation,
           dept: formData.dept,
           year: formData.year,
           mobile: formData.mobile,
-          referralCode:formData.referralCode,
+          referralCode: formData.referralCode,
           password: formData.password,
-        }
+        },
       );
       const data = response.data;
-      toast.success(data.message);
+      // Toast and navigation handled by RegisterDetails component
       localStorage.setItem("activationToken", data.activationToken);
-      navigate("/");
     } catch (error) {
       toast.error(error.response?.data?.message || "Registration failed");
     } finally {
@@ -110,7 +109,7 @@ export const UserContextProvider = ({ children }) => {
         `${server}/user/get-password-reset-link`,
         {
           email,
-        }
+        },
       );
       const data = response.data;
       //console.log(data);
@@ -129,7 +128,7 @@ export const UserContextProvider = ({ children }) => {
     token,
     newPassword,
     confirmPassword,
-    navigate
+    navigate,
   ) {
     setBtnLoading(true);
     setIsLoading(true);
@@ -141,7 +140,7 @@ export const UserContextProvider = ({ children }) => {
           confirmPassword: confirmPassword,
           userId: userId,
           token: token,
-        }
+        },
       );
       const data = response.data;
       toast.success(data.message);
@@ -169,7 +168,7 @@ export const UserContextProvider = ({ children }) => {
         },
         {
           headers: { token },
-        }
+        },
       );
       const data = response.data;
       toast.success(data.message);
@@ -215,7 +214,7 @@ export const UserContextProvider = ({ children }) => {
       const response = await axios.put(
         `${server}/user/update-profile`,
         updatedData,
-        { headers: { token } }
+        { headers: { token } },
       );
       const data = response.data;
       setUser(data.updatedUser);
@@ -239,7 +238,7 @@ export const UserContextProvider = ({ children }) => {
         queryData,
         {
           headers: { token },
-        }
+        },
       );
       const data = response.data;
       toast.success(data.message);
@@ -257,7 +256,7 @@ export const UserContextProvider = ({ children }) => {
       const response = await axios.post(
         `${server}/user/event-register`,
         eventId,
-        { headers: { token } }
+        { headers: { token } },
       );
       const data = response.data;
       getEvents();
@@ -283,7 +282,7 @@ export const UserContextProvider = ({ children }) => {
       //console.error("Error fetching events:", error);
       console.error(
         "Error response:",
-        error.response ? error.response.data : "No response data"
+        error.response ? error.response.data : "No response data",
       );
       //toast.error("Error fetching events");
     }
@@ -298,7 +297,7 @@ export const UserContextProvider = ({ children }) => {
       const response = await axios.post(
         `${server}/user/workshop-register`,
         { workshopId },
-        { headers: { token } }
+        { headers: { token } },
       );
       const { data } = response.data;
       //console.log(data.data);
@@ -346,7 +345,7 @@ export const UserContextProvider = ({ children }) => {
       const response = await axios.post(
         `${server}/user/workshop/bulk-payment`,
         formData,
-        { headers: { token, "Content-Type": "multipart/form-data" } }
+        { headers: { token, "Content-Type": "multipart/form-data" } },
       );
       //console.log("response bulk:", response);
       const message = response.data.message;
@@ -385,7 +384,7 @@ export const UserContextProvider = ({ children }) => {
       console.error("Error fetching events:", error);
       console.error(
         "Error response:",
-        error.response ? error.response.data : "No response data"
+        error.response ? error.response.data : "No response data",
       );
       //toast.error("Error fetching workshops");
     }
@@ -399,7 +398,7 @@ export const UserContextProvider = ({ children }) => {
       const response = await axios.post(
         `${server}/user/verify-workshop-payment-details`,
         paymentData,
-        { headers: { token } }
+        { headers: { token } },
       );
       // console.log(
       //   response.data.data.workshopPayment,
@@ -433,7 +432,7 @@ export const UserContextProvider = ({ children }) => {
             token,
             "Content-Type": "multipart/form-data",
           },
-        }
+        },
       );
       const { message } = response.data;
 
@@ -452,7 +451,7 @@ export const UserContextProvider = ({ children }) => {
           transactionId: data.transactionId,
           userIds: data.userIds,
         },
-        navigate
+        navigate,
       ).then((responsesData) => {
         workshopPaymentScreenshot({
           id: responsesData.id,
@@ -470,7 +469,7 @@ export const UserContextProvider = ({ children }) => {
         error: (err) => {
           return typeof err == "object" ? err.message : err;
         },
-      }
+      },
     );
   };
   const handleVerifyWorkshopPayment = (data, navigate) => {
@@ -498,7 +497,7 @@ export const UserContextProvider = ({ children }) => {
         error: (err) => {
           return typeof err == "object" ? err.message : err;
         },
-      }
+      },
     );
   };
   const handleEventPayment = (data, navigate) => {
@@ -517,14 +516,14 @@ export const UserContextProvider = ({ children }) => {
       {
         loading: "Verifying...",
         success: (screenshotData) => {
-          refreshauth(); 
-          navigate(`/events`); 
+          refreshauth();
+          navigate(`/events`);
           return "Payment Details will be verified shortly!";
         },
         error: (err) => {
           return typeof err === "object" ? err.message : err;
         },
-      }
+      },
     );
   };
 
@@ -534,11 +533,11 @@ export const UserContextProvider = ({ children }) => {
       const response = await axios.post(
         `${server}/user/verify-event-payment-details`,
         paymentData,
-        { headers: { token } }
+        { headers: { token } },
       );
       const message = response.data.message;
-      const id = response.data.id; 
-      return {message,id};
+      const id = response.data.id;
+      return { message, id };
     } catch (err) {
       if (err.response) throw err.response.data.message;
       throw err;
@@ -555,7 +554,7 @@ export const UserContextProvider = ({ children }) => {
             token,
             "Content-Type": "multipart/form-data",
           },
-        }
+        },
       );
       const { message } = response.data;
       return { message };
@@ -578,7 +577,7 @@ export const UserContextProvider = ({ children }) => {
           food: accomodationData.food,
           amount: accomodationData.amount,
         },
-        { headers: { token } }
+        { headers: { token } },
       );
       return { message: response.data.message, id: response.data.id };
     } catch (err) {
@@ -586,7 +585,7 @@ export const UserContextProvider = ({ children }) => {
       throw err;
     }
   }
-  
+
   const handleAccomodationPayment = (data, navigate) => {
     const ACCOMMODATION_EVENT_ID = 10;
     toast.promise(
@@ -607,7 +606,7 @@ export const UserContextProvider = ({ children }) => {
               users: data.users,
               formData: data.formData,
             },
-            navigate
+            navigate,
           );
           setTimeout(() => resolve({ message: "Payment processed" }), 1000);
         });
@@ -620,10 +619,10 @@ export const UserContextProvider = ({ children }) => {
         error: (err) => {
           return typeof err === "object" ? err.message : err;
         },
-      }
+      },
     );
   };
- 
+
   async function handleLogout() {
     localStorage.removeItem("abacususer");
     localStorage.removeItem("abacustoken");

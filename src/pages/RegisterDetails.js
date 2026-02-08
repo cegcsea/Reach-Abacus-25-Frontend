@@ -141,7 +141,7 @@ function RegisterDetails() {
         navigate("/auth");
       }, 2000);
     } catch (err) {
-      toast.error(err.message || "Registration failed");
+      // Error toast already handled in context
     } finally {
       setBtnLoading(false);
     }
