@@ -44,28 +44,30 @@ const Profile = () => {
   };
 
   // ✅ Check referral code on mount
-  useEffect(() => {
-    const fetchReferralCode = async () => {
-      try {
-        const res = await axios.get(
-          `${process.env.REACT_APP_API_BASE_URL}/admin/referral-code-details`,
-          { withCredentials: true }
-        );
+useEffect(() => {
+  const checkReferral = async () => {
+    try {
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_BASE_URL}/admin/my-referral-code`,
+        { withCredentials: true }
+      );
 
-        const userCode = res.data.result.find(
-          (amb) => amb.email === userData.email
-        )?.referralCode;
-
-        if (userCode) setReferralCode(userCode);
-      } catch (err) {
-        console.error("Error fetching referral code", err);
-      } finally {
-        setLoadingReferral(false);
+      if (res.data.hasCode) {
+        setReferralCode(res.data.referralCode);
+      } else {
+        setReferralCode(null);
       }
-    };
+    } catch (err) {
+      console.error("Referral check failed", err);
+      setReferralCode(null);
+    } finally {
+      setLoadingReferral(false);
+    }
+  };
 
-    if (userData.email) fetchReferralCode();
-  }, [userData.email]);
+  checkReferral();
+}, []);
+
 
   // ✅ Handle registration
   const handleRegisterCA = async () => {
