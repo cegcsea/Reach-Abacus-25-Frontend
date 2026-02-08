@@ -227,7 +227,7 @@ export default function SaturnRingBackground() {
     const scene = new Transform();
     const system = new Transform();
     system.rotation.x = 0.78;
-    system.rotation.z = 0.4;
+    system.rotation.z = isMobile? -0.4 : -0.2;
     system.setParent(scene);
 
     // Scale factor for mobile responsiveness
