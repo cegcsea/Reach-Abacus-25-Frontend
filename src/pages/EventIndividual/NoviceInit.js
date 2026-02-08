@@ -7,11 +7,12 @@ import { events } from "../../constants/events.js";
 import { UserData } from "../../context/userContext.js";
 import { LoaderData } from "../../context/loaderContext.js";
 import Loader from "../../components/Loader/Loader.jsx";
+import { checkCA20Events } from "../../utils/register_ambassador.js";
 const NoviceInit = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { id } = useParams(); // Ensure the route has a dynamic :id parameter
-  const { userEvents, isAuth, eventRegister, getEvents } = UserData();
+  const { user, userEvents, isAuth, eventRegister, getEvents } = UserData();
   //const selectedEvent = events.find((event) => event.to === id);
   const allEvents = events.flatMap((category) => category.event);
 
@@ -47,7 +48,11 @@ const NoviceInit = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     //console.log(typeof selectedEvent.id);
-    eventRegister({ eventId: Number(selectedEvent.id) });
+    await eventRegister({ eventId: Number(selectedEvent.id) });
+    console.log("id"+user.id);
+    if (user?.id) {
+      await checkCA20Events(user.id); // ✅ real user id
+    }
   };
   const { isLoading } = LoaderData();
 
