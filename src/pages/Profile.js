@@ -94,52 +94,28 @@ useEffect(() => {
       <div className="user-card">
         <div className="user-header">
           <h2>Profile</h2>
-
+        <div className="user-info-bar">
+          <div className="info-text sa-text mb-2">
+             <p><b>Student Ambassadors</b> who achieve <b>25 event</b> registrations will receive a <b>Selection Certificate</b> endorsed by CSEA, CEG – Anna University. Those who secure <b>5 workshop</b> registrations will get <b>free access to one tech workshop</b> at ABACUS’26. The best-performing Student Ambassador will be rewarded with <b>exclusive merchandise and exciting goodies</b>.
+         </p> </div>
+       
           {/* 1️⃣ Show button or referral code based on state */}
           {loadingReferral ? (
             <p>Checking ambassador status...</p>
           ) : referralCode ? (
-          <div className="ca-action-wrapper mb-5">
             <p className="referral-code">
                         Your Referral Code: <strong>{referralCode}</strong>
             </p>
-
-              <div className="info-wrapper">
-                <button className="info-btn" type="button">i</button>
-                <div className="info-tooltip">
-                  Student Ambassadors who achieve 25 event registrations will receive a
-                  Selection Certificate endorsed by CSEA, CEG – Anna University.<br/>  
-                  Those who secure 5 workshop registrations get free access to one tech
-                  workshop at ABACUS’26.<br/>
-                  The best-performing ambassador wins exclusive merchandise & goodies.
-                </div>
-              </div>
-            </div>
            ) : (
-              <div className="ca-action-wrapper mb-5">
                 <button
-                  className="action-btn ambassador"
+                  className="action-btn m-5 ambassador"
                   onClick={handleRegisterCA}
                   disabled={isRegistering}
                 >
                   {isRegistering ? "Registering..." : "Register as Student Ambassador"}
                 </button>
-
-                <div className="info-wrapper">
-                  <button className="info-btn" type="button">i</button>
-                  <div className="info-tooltip">
-                    Student Ambassadors who achieve 25 event registrations will receive a
-                    Selection Certificate endorsed by CSEA, CEG – Anna University.<br/>  
-                    Those who secure 5 workshop registrations get free access to one tech
-                    workshop at ABACUS’26.<br/>
-                    The best-performing ambassador wins exclusive merchandise & goodies.
-                  </div>
-                </div>
-              </div>
-  
-
           )}
-
+ </div>
           <div className="user-details-grid">
             <p>
               <strong>Name:</strong> {userData.name}
