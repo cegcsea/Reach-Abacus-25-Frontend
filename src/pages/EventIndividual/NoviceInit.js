@@ -62,12 +62,11 @@ const NoviceInit = () => {
       if (user?.id) {
         await checkCA20Events(user.id);
       }
-      toast.success(`Successfully registered for ${selectedEvent.title}!`);
+      // Success toast already handled in eventRegister
       // Refresh events to update UI
       await getEvents();
     } catch (error) {
-      // Error is handled in context, but show a user-friendly message
-      toast.error("Registration failed. Please try again.");
+      // Error already handled in context
     }
   };
   const { isLoading } = LoaderData();

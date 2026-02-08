@@ -69,6 +69,7 @@ const ChangePassword = () => {
     setBtnLoading(true);
     try {
       await changePassword(formData.password, formData.newPassword, navigate);
+      // Success toast already handled in context
       // Clear form on success
       setFormData({
         newPassword: "",
@@ -76,7 +77,6 @@ const ChangePassword = () => {
         confirmPassword: "",
       });
       setPasswordError([]);
-      toast.success("Password changed successfully!");
     } catch (error) {
       // Error handled in context
     } finally {

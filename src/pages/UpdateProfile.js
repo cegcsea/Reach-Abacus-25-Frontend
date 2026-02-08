@@ -87,9 +87,9 @@ function UpdateProfile() {
         },
         navigate,
       );
-      toast.success("Profile updated successfully!");
+      // Success toast already handled in context
     } catch (error) {
-      toast.error("Failed to update profile. Please try again.");
+      // Error handled in context
     } finally {
       setBtnLoading(false);
     }
