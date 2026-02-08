@@ -47,9 +47,16 @@ const NoviceInit = () => {
   // Handle event registration
   const handleRegister = async (e) => {
     e.preventDefault();
-    //console.log(typeof selectedEvent.id);
+
+    // If the event has a formLink (pre-events), open it in a new tab
+    if (selectedEvent.formLink) {
+      window.open(selectedEvent.formLink, "_blank");
+      return;
+    }
+
+    // Otherwise, use the regular event registration
     await eventRegister({ eventId: Number(selectedEvent.id) });
-    console.log("id"+user.id);
+    console.log("id" + user.id);
     if (user?.id) {
       await checkCA20Events(user.id); // ✅ real user id
     }
@@ -159,17 +166,24 @@ const NoviceInit = () => {
               </div>
             )}
             <div className="flex justify-center">
-              {isAuth && !isRegistered && (
+              {isAuth && (!isRegistered || selectedEvent.formLink) && (
                 <button
                   className="m-3 w-fit border border-[#c0a068] px-4 py-2 text-white duration-150 hover:bg-[#c0a068] "
                   onClick={handleRegister}
                 >
-                  Register
+                  {selectedEvent.formLink ? "Register via Form" : "Register"}
                 </button>
+              )}
+              {isAuth && isRegistered && !selectedEvent.formLink && (
+                <p className="p-2 w-full sm:w-fit flex justify-center items-center text-white text-lg font-semibold text-gray border rounded-lg border-[#c0a068] bg-[#1a1a1a] mx-auto">
+                  <span className="text-[#c0a068]">/*</span>
+                  &nbsp;Already registered for this event!&nbsp;
+                  <span className="text-[#c0a068]">*/</span>
+                </p>
               )}
             </div>
             <div className="flex justify-center">
-              {!isAuth && (
+              {!isAuth && !selectedEvent.formLink && (
                 <button
                   className="m-3 w-fit border border-[#c0a068] px-4 py-2 text-white duration-150 hover:bg-[#c0a068]"
                   onClick={() => navigate("/auth")}
@@ -177,15 +191,15 @@ const NoviceInit = () => {
                   Login to Register
                 </button>
               )}
+              {!isAuth && selectedEvent.formLink && (
+                <button
+                  className="m-3 w-fit border border-[#c0a068] px-4 py-2 text-white duration-150 hover:bg-[#c0a068]"
+                  onClick={() => window.open(selectedEvent.formLink, "_blank")}
+                >
+                  Register via Form
+                </button>
+              )}
             </div>
-
-            {isRegistered && (
-              <p className="p-2 w-full sm:w-fit flex justify-center items-center text-white text-lg font-semibold text-gray border rounded-lg border-[#c0a068] bg-[#1a1a1a] mx-auto">
-                <span className="text-[#c0a068]">/*</span>
-                &nbsp;Already registered for this event!&nbsp;
-                <span className="text-[#c0a068]">*/</span>
-              </p>
-            )}
           </div>
         </div>
       </div>

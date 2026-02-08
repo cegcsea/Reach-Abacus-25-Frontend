@@ -43,7 +43,7 @@ export const events = [
         Qr: true,
         team: "1-2 members",
         Date: "20 February 2026 and 21 February 2026",
-        prize: "Rs 5k",
+        prize: "Rs 7k",
         to: "ospc",
         rounds: [
           {
@@ -59,8 +59,8 @@ export const events = [
             title: "Round 2 – Coding Challenge",
             content:
               "Solve 4 to 5 coding problems on an online coding platform. Problems range from easy to hard, testing logic, efficiency,and speed. Points awarded based on correctness and time taken.",
-            time: "21 February 2026, 02:00 PM to 05:00 PM",
-            venue: "GFL",
+            time: "21 February 2026, 09:30 AM to 12:30 PM",
+            venue: "GFL (Ground Floor Lab, DCSE)",
           },
         ],
         contact: [
@@ -86,7 +86,7 @@ export const events = [
         path: "/events/byte-begin",
         team: "2-3 members",
         Date: "19 February 2026",
-        prize: "Rs 5k",
+        prize: "Rs 7k",
         to: "byte-begin",
         rounds: [
           {
@@ -102,7 +102,7 @@ export const events = [
             content:
               "This round is a time-bound coding challenge designed to test participants’ programming skills, logical thinking, and teamwork. Teams must solve programming problems from different difficulty levels within the given time using a test-case-based evaluation method.",
             time: "19 February 2026, 02:00 PM to 05:00 PM",
-            venue: "TFL",
+            venue: "TFL (Third Floor Lab, DCSE)",
           },
         ],
         contact: [
@@ -145,7 +145,7 @@ export const events = [
               "This round consists of two parts. Part 1: Analysis & Reasoning (30 minutes, 10 marks) - Contains 2 questions, each carrying 5 marks. Participants will be provided with problem statements and code snippets. Teams must analyze, interpret, and explain the given scenarios. Teams that completed add-on questions in Round 1 are eligible for up to 3 clues for Question 1. Part 2: Coding Challenge (1 hour, 15 marks) - Participants will be provided with a dataset. Teams must apply machine learning concepts to analyze the dataset, build appropriate models, and derive meaningful results.",
             duration: "1 hour 30 minutes",
             time: "19 February 2026, 02:00 PM to 05:00 PM",
-            venue: "SFL",
+            venue: "SFL (Second Floor Lab, DCSE)",
           },
         ],
         contact: [
@@ -171,14 +171,14 @@ export const events = [
         path: "/events/ctrl+escape",
         team: "2 members",
         Date: "19 February 2026",
-        prize: "Rs 7k",
+        prize: "Rs 5k",
         to: "ctrl+escape",
         rounds: [
           {
             title: "Round 1 – Algorithm Aptitude Round",
             content:
               "Participants will answer Multiple Choice Questions (MCQs) on algorithms and short logical questions based on algorithm concepts. This round tests participants' fundamental understanding of algorithms and logical reasoning.",
-            duration: "30-45 minutes",
+            duration: "2-3 hours",
             time: "19 February 2026, 02:00 PM to 05:00 PM",
             venue: "R1",
           },
@@ -230,7 +230,7 @@ export const events = [
               "Each team selects a domain from the given list and a problem statement. Teams prepare a solution and present it via a PowerPoint. Internet usage is not allowed; ideas must come from participants' own knowledge. Teams present and defend their solutions verbally. Evaluation based on creativity and innovation, feasibility and practicality of the solution, and clarity of presentation.",
             duration: "30-40 minutes",
             time: "20 February 2026, 02:00 PM to 05:00 PM",
-            venue: "SFL",
+            venue: "SFL (Second Floor Lab, DCSE)",
           },
         ],
         contact: [
@@ -272,7 +272,7 @@ export const events = [
               "Participants are given one or two faulty programs containing possible syntax, logical, or runtime errors. Their task is to identify and debug these issues to produce the correct output within the given time limit.",
             duration: "30-40 minutes",
             time: "21 February 2026, 02:00 PM to 05:00 PM",
-            venue: "GFL",
+            venue: "GFL (Ground Floor Lab, DCSE)",
           },
         ],
         contact: [
@@ -315,7 +315,7 @@ export const events = [
               • Winner determined by shortest completion time
               • All team members must stay together throughout the quest`,
         to: "treasure-hunt",
-        prize: "Rs 2.5k",
+        prize: "Rs 3k",
         time: "19 February 2026, 10:00 AM onwards",
         venue: "Campus-wide (Registration: CSE Department)",
         contact: [
@@ -383,21 +383,19 @@ export const events = [
         path: "/events/money-heist",
         rules: `Participants must follow on-screen timings strictly during The Blink Test and are not allowed to take notes or photos while slides are shown. In Rewrite Recall, answers must be based only on memory; discussion with other teams or use of external material is not allowed.`,
         to: "money-heist",
-        prize: "Rs 2k",
+        prize: "Rs 2.5k",
         rounds: [
           {
-            title: "Round 1 ",
+            title: "Round 1: Rapid Recall (Qualifier)",
             content:
-              " The Blink Test, runs for 20–25 minutes and challenges participants’ observation and attention to detail by showing 10 slides or charts for five seconds each, containing a mix of shapes, words, numbers, colors, famous personalities, and random images. After all slides are shown, answer sheets are given with questions that test recall, such as counting specific objects or identifying details.",
-            duration: "20-25 minutes",
+              "Observation-based challenge where participants view a sequence of images, objects, or short clips on a projector. Teams present answers quickly and accurately to earn points. Top teams advance to Round 2.",
             time: "20 February 2026, 09:30 AM to 12:30 PM",
             venue: "R1",
           },
           {
-            title: "Round 2",
+            title: "Round 2: Cine-Mind Challenge (Final)",
             content:
-              "Rewrite Recall, lasts 25–30 minutes and focuses on memory accuracy, where individual participants read a printed paragraph for one minute before it is collected, and then answer questions that subtly alter facts, numbers, names, or colors to see how well they remember the original content",
-            duration: "25-30 minutes",
+              "Memory & pattern recognition challenge where teams solve a series of tasks involving movies, dialogues, characters, or visual patterns. Tasks include matching, sequencing, and identifying hidden details. Teams present answers quickly and accurately to earn points.",
             time: "20 February 2026, 02:00 PM to 05:00 PM",
             venue: "R1",
           },
@@ -426,10 +424,12 @@ export const events = [
         path: "/events/code-red",
         rules: `Mobiles and personal devices are not allowed inside the escape room. Teams must use only the props and clues provided, and must record answers on paper. Time and points are tracked by volunteers; hints may carry penalties. Winners are decided based on total points and time taken.`,
         to: "code-red",
-        prize: "Rs 3.5k",
+        prize: "Rs 2.5k",
         rounds: [
           {
-            title: "Round 2",
+            title: "Escape Room Challenge",
+            content:
+              "All participating teams enter the room at the same time and are given a sequence of story-linked puzzles. Each puzzle unlocks the next stage of the mission. Teams must analyze clues, solve puzzles, and record their answers on paper within the given time limit.",
             time: "21 February 2026, 02:00 PM to 05:00 PM",
             venue: "R2",
           },
@@ -461,21 +461,23 @@ export const events = [
         description:
           "A one-round online coding challenge conducted on HackerRank, where participants solve algorithmic and logical problems within a fixed time limit. The contest focuses on problem-solving skills, code efficiency, and accuracy. Rankings are based on test case completion and execution performance.",
         image: rand5, // Replace with your image path
-        Date: "20 February 2026",
+        Date: "15 February 2026, 5:00 PM",
         team: "Individual",
-        prize: "Rs 5k",
+        prize: "Rs 4k",
+        mode: "Online",
+        formLink: "https://forms.gle/yW2LTQwoABK9Yhq69",
         path: "/events/olpc",
         to: "olpc",
         contact: [
           {
             id: 1,
-            name: "Renjitha K",
-            phone: "79078 54731",
+            name: "Renjitha",
+            phone: "7907854731",
           },
           {
             id: 2,
-            name: "Sahana S",
-            phone: "74182 47031",
+            name: "Pradeep",
+            phone: "7904137572",
           },
         ],
       },
@@ -486,21 +488,23 @@ export const events = [
         description:
           "Theme: Campus through my lens. This photography contest provides participants an opportunity to showcase their creativity and photography skills based on a given theme. Participants submit a theme-based photograph, which will be posted on the official symposium Instagram handle. The winner will be selected based on the highest number of genuine Instagram likes, encouraging fair and ethical social media engagement.",
         image: click, // Replace with your image path
-        Date: "20 February 2026",
+        Date: "9 February 2026 - 15 February 2026",
         team: "Individual",
-        prize: "Rs 5k",
+        prize: "Rs 1.5k",
+        mode: "Online",
+        formLink: "https://forms.gle/KjP8uFaraAs1ej219",
         path: "/events/lights-camera-reel",
         to: "lights-camera-reel",
         contact: [
           {
             id: 1,
-            name: "Renjitha K",
-            phone: "79078 54731",
+            name: "Kiruthiga",
+            phone: "88704 13188",
           },
           {
             id: 2,
-            name: "Sahana S",
-            phone: "74182 47031",
+            name: "Balaji",
+            phone: "8220706643",
           },
         ],
       },
@@ -510,20 +514,22 @@ export const events = [
         description:
           "A fast-paced badminton tournament testing agility, precision, and endurance. Matches will be conducted in knockout format with singles and/or doubles categories.",
         image: bm, // Replace with your image path
-        Date: "20 February 2026",
+        Date: "10 February 2026, 4:00 PM onwards",
         team: "1 (Singles) / 2 (Doubles)",
-        prize: "Rs 5k",
+        prize: "Rs 3k",
+        venue: "Badminton Court, Main Gallery",
+        formLink: "https://forms.gle/iWSSwwpN4AyESWwB8",
         path: "/events/war-of-the-rackets",
         to: "war-of-the-rackets",
         contact: [
           {
             id: 1,
-            name: "Renjitha K",
-            phone: "79078 54731",
+            name: "Renjitha",
+            phone: "7907854731",
           },
           {
             id: 2,
-            name: "Sahana S",
+            name: "Sahana",
             phone: "74182 47031",
           },
         ],
@@ -534,21 +540,23 @@ export const events = [
         description:
           "A short-format cricket tournament designed for high-energy gameplay and quick decision-making. Matches will follow limited overs with knockout rounds",
         image: cric, // Replace with your image path
-        Date: "20 February 2026",
+        Date: "9 February 2026 onwards",
         team: "6–8 players per team",
-        prize: "Rs 5k",
+        prize: "Rs 2k",
+        venue: "Ground",
+        formLink: "https://forms.gle/8HWbae1NivD33Pd18",
         path: "/events/gcl",
         to: "gcl",
         contact: [
           {
             id: 1,
-            name: "Renjitha K",
-            phone: "79078 54731",
+            name: "Harisangar",
+            phone: "9952878399",
           },
           {
             id: 2,
-            name: "Sahana S",
-            phone: "74182 47031",
+            name: "Dhanush",
+            phone: "81248 68540",
           },
         ],
       },
@@ -558,21 +566,28 @@ export const events = [
         description:
           "An intense football tournament emphasizing teamwork, strategy, and stamina. Matches will be conducted in knockout or league format based on participation.",
         image: fb, // Replace with your image path
-        Date: "20 February 2026",
+        Date: "12 February 2026 onwards",
         team: "5–7 players per team",
-        prize: "Rs 5k",
+        prize: "Rs 2k",
+        venue: "Main Ground",
+        formLink: "https://forms.gle/pvuT5e6sRvecakrQ8",
         path: "/events/au-campus-football-league",
         to: "au-campus-football-league",
         contact: [
           {
             id: 1,
-            name: "Renjitha K",
-            phone: "79078 54731",
+            name: "Harisangar",
+            phone: "9952878399",
           },
           {
             id: 2,
-            name: "Sahana S",
-            phone: "74182 47031",
+            name: "Balaji",
+            phone: "8220706643",
+          },
+          {
+            id: 3,
+            name: "Pradeep",
+            phone: "7904137572",
           },
         ],
       },
