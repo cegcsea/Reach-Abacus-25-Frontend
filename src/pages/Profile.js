@@ -50,7 +50,7 @@ useEffect(() => {
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/admin/my-referral-code`,
-          { abacusId: userData.abacusId },
+          { email: userData.email },
         { withCredentials: true }
       );
 
