@@ -162,7 +162,14 @@ const App = () => {
 
             <Route path="/sponsors" element={<SponsorsPage />} />
             <Route path="/about" element={<AboutPage />} />
-            <Route path="/accommodation" element={<Accommodation />} />
+            <Route
+              path="/accommodation"
+              element={
+                // <ProtectedRoute>
+                <Accommodation />
+                // </ProtectedRoute>
+              }
+            />
             {/* <Route path="/events/:id" element={<EventPayment />} /> */}
             <Route path="/workshops" element={<ComingSoonRobot />} />
             <Route path="/workshops/:id" element={<IndividualWorkshops />} />

@@ -1,6 +1,6 @@
 import abacus_img from "../assets/images/logo26.png";
 import { AiFillHome, AiOutlineLogin, AiOutlineLogout } from "react-icons/ai";
-import { FaInfoCircle, FaHandshake, FaTools } from "react-icons/fa";
+import { FaInfoCircle, FaHandshake, FaTools, FaHotel } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
 import { UserData } from "../context/userContext";
@@ -54,6 +54,12 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
           label: "Profile",
           icon: <FaInfoCircle />,
           path: "/profile",
+        },
+        {
+          name: "accommodation",
+          label: "Accommodation",
+          icon: <FaHotel />,
+          path: "/accommodation",
         },
         {
           name: "logout",

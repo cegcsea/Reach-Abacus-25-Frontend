@@ -1,349 +1,308 @@
-import React, { useState } from "react";
+import React from "react";
 import { LoaderData } from "../context/loaderContext";
-import { UserData } from "../context/userContext";
-import toast from "react-hot-toast";
-import price from "../assets/images/price.png";
 import Loader from "../components/Loader/Loader";
-import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { FaHotel, FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 function Accommodation() {
   const { isLoading } = LoaderData();
-  const { handleAccomodationPayment, user } = UserData();
-  const [selectionDay, setSelectionDay] = useState(null);
-  const [selectionDates, setSelectionDates] = useState(null);
-  const [food, setFood] = useState("false");
 
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    transactionId: "",
-    paymentMobile: "",
-  });
-  const [file, setFile] = useState(null);
-  const [fileName, setFileName] = useState("Get your payment screenshot...");
-  const [isOpen, setIsOpen] = useState(false);
-  const [hide, setHide] = useState(false);
-  const [basePrice, setBasePrice] = useState(250);
-  const [price, setPrice] = useState(0);
+  const GOOGLE_FORM_URL = "https://forms.gle/ae8G5gc2f6avwgfh7";
 
-  const dayCountOptions = [
-    { label: "Single day", value: "1" },
-    { label: "Two Days", value: "2" },
-    { label: "Three Days", value: "3" },
-    { label: "Four Days", value: "4" },
-  ];
-
-  const singleDayOptions = [
-    { label: "March 20", value: "1", day0: true },
-    { label: "March 21", value: "1", day1: true },
-    { label: "March 22", value: "1", day2: true },
-    { label: "March 23", value: "1", day3: true },
-  ];
-
-  const doubleDayOptions = [
-    { label: "March 20 & 21", value: "2", day0: true, day1: true },
-    { label: "March 21 & 22", value: "2", day1: true, day2: true },
-    { label: "March 22 & 23", value: "2", day2: true, day3: true },
-  ];
-
-  const tripleDayOptions = [
+  const eventDates = [
     {
-      label: "March 20, 21 & 22",
-      value: "3",
-      day0: true,
-      day1: true,
-      day2: true,
+      date: "February 19, 2026",
+      day: "Day 1",
+      icon: <FaCalendarAlt className="text-[#c0a068]" />,
     },
     {
-      label: "March 21, 22 & 23",
-      value: "3",
-      day1: true,
-      day2: true,
-      day3: true,
+      date: "February 20, 2026",
+      day: "Day 2",
+      icon: <FaCalendarAlt className="text-[#c0a068]" />,
     },
-  ];
-
-  const allDayOptions = [
     {
-      label: "March 20 to March 23",
-      value: "4",
-      day0: true,
-      day1: true,
-      day2: true,
-      day3: true,
+      date: "February 21, 2026",
+      day: "Day 3",
+      icon: <FaCalendarAlt className="text-[#c0a068]" />,
     },
   ];
 
   if (isLoading) return <Loader />;
 
-  const handleDayCountChange = (e) => {
-    const selectedValue = e.target.value;
-    const option = dayCountOptions.find((opt) => opt.value === selectedValue);
-    setSelectionDates(option);
-    setSelectionDay(null);
-    setHide(false);
-  };
-
-  const handleDateSelection = (e) => {
-    const selectedValue = e.target.value;
-    let option;
-    switch (selectionDates?.value) {
-      case "1":
-        option = singleDayOptions.find((opt) => opt.label === selectedValue);
-        break;
-      case "2":
-        option = doubleDayOptions.find((opt) => opt.label === selectedValue);
-        break;
-      case "3":
-        option = tripleDayOptions.find((opt) => opt.label === selectedValue);
-        break;
-      case "4":
-        option = allDayOptions.find((opt) => opt.label === selectedValue);
-        break;
-      default:
-        return;
-    }
-    setSelectionDay(option);
-    setHide(true);
-    const newPrice = parseInt(option.value) * basePrice;
-    setPrice(newPrice);
-  };
-
-  const handleFood = (e) => {
-    const foodValue = e.target.value;
-    setFood(foodValue);
-    const newBasePrice = foodValue === "true" ? 400 : 250;
-    setBasePrice(newBasePrice);
-    if (selectionDay) {
-      const newPrice = parseInt(selectionDay.value) * newBasePrice;
-      setPrice(newPrice);
-    }
-  };
-
-  const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    setFileName(selectedFile.name);
-    setFile(selectedFile);
-  };
-
-  const handleMobileChange = (e) => {
-    const regex = /^[0-9\b]+$/;
-    if (e.target.value === "" || regex.test(e.target.value)) {
-      setFormData((prev) => ({ ...prev, paymentMobile: e.target.value }));
-    }
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!file) return toast.error("Upload your payment screenshot!");
-    if (!selectionDay) return toast.error("Select your dates of stay!");
-
-    const formReqData = new FormData();
-    formReqData.append("paymentScreenshot", file);
-    const userArray = [parseInt(user.id)];
-    console.log(user.id, userArray);
-    await handleAccomodationPayment(
-      {
-        day0: selectionDay.day0 || false,
-        day1: selectionDay.day1 || false,
-        day2: selectionDay.day2 || false,
-        day3: selectionDay.day3 || false,
-        food: food === "true",
-        amount: price,
-        paymentMobile: formData.paymentMobile,
-        transactionId: formData.transactionId,
-        formData: formReqData,
-        users: userArray,
-      },
-      navigate,
-    );
-  };
-
   return (
-    <div className="flex justify-center items-center py-10 sm:px-0 min-h-screen px-4 mt-10 gap-5 bg-transparent">
-      <div className="querybox flex flex-col gap-4 w-full sm:w-2/5 bg-[#1a1a1a] border border-[#c0a068] rounded-lg shadow-lg p-5 sm:p-10 text-[#ffffffe6]">
-        <div className="text-2xl md:text-3xl font-bold text-center border-b border-[#c0a068] pb-2">
-          <span className="text-[#c0a068]">{"<"}</span>
+    <div className="flex justify-center items-center py-6 sm:py-10 sm:px-4 min-h-screen px-3 mt-16 sm:mt-10 gap-5 bg-transparent">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="querybox flex flex-col gap-4 sm:gap-6 w-full sm:w-4/5 md:w-3/5 lg:w-2/5 bg-[#1a1a1a] border-2 border-[#c0a068] rounded-lg shadow-lg p-4 sm:p-8 md:p-10 text-[#ffffffe6]"
+        style={{
+          boxShadow: "0 0 30px rgba(192, 160, 104, 0.3)",
+        }}
+      >
+        {/* Title */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.2,
+            duration: 0.6,
+            type: "spring",
+            stiffness: 100,
+          }}
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center border-b-2 border-[#c0a068] pb-3 sm:pb-4"
+        >
+          <motion.span
+            className="text-[#c0a068]"
+            animate={{ rotate: [0, -10, 0] }}
+            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+          >
+            {"<"}
+          </motion.span>
           &nbsp;Accommodation&nbsp;
-          <span className="text-[#c0a068]">{">"}</span>
-        </div>
+          <motion.span
+            className="text-[#c0a068]"
+            animate={{ rotate: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+          >
+            {">"}
+          </motion.span>
+        </motion.div>
 
-        <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
-          <div className="flex flex-col gap-2">
-            <label className="text-sm text-gray-400 font-semibold">
-              For how many days do you need accommodation?
-            </label>
-            <select
-              value={selectionDates?.value || ""}
-              onChange={handleDayCountChange}
-              className="p-2 outline-none border border-[#c0a068] text-[18px] bg-[#050505] text-[#ffffffe6] rounded-md focus:bg-[#c0a068]/10 transition-colors"
+        {/* Icon and Welcome Text */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.6,
+            type: "spring",
+            stiffness: 200,
+          }}
+          className="flex flex-col items-center gap-3 sm:gap-4"
+        >
+          <motion.div
+            animate={{
+              y: [0, -10, 0],
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            style={{
+              filter: "drop-shadow(0 0 10px rgba(192, 160, 104, 0.6))",
+            }}
+          >
+            <FaHotel className="text-4xl sm:text-5xl md:text-6xl text-[#c0a068]" />
+          </motion.div>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="text-center text-gray-300 text-sm sm:text-base md:text-lg px-2"
+          >
+            Book your accommodation for ABACUS '26
+          </motion.p>
+        </motion.div>
+
+        {/* Event Dates Section */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+          className="flex flex-col gap-3 sm:gap-4"
+        >
+          <motion.h3
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="text-base sm:text-lg md:text-xl font-semibold text-[#c0a068] text-center flex items-center justify-center gap-2"
+          >
+            <motion.div
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 2, repeat: Infinity, repeatDelay: 2 }}
             >
-              <option value="" disabled className="bg-[#050505] text-gray-500">
-                Select how many days
-              </option>
-              {dayCountOptions.map((option) => (
-                <option
-                  key={option.value}
-                  value={option.value}
-                  className="bg-[#050505] text-[#ffffffe6]"
-                >
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {selectionDates && (
-            <div className="flex flex-col gap-2">
-              <label className="text-sm text-gray-400 font-semibold">
-                For which dates do you need accommodation?
-              </label>
-              <select
-                value={selectionDay?.label || ""}
-                onChange={handleDateSelection}
-                className="p-2 outline-none border border-[#c0a068] text-[18px] bg-[#050505] text-[#ffffffe6] rounded-md focus:bg-[#c0a068]/10 transition-colors"
+              <FaMapMarkerAlt className="text-sm sm:text-base" />
+            </motion.div>
+            Event Dates
+          </motion.h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+            {eventDates.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                whileHover={{
+                  scale: 1.05,
+                  rotate: 2,
+                  boxShadow: "0 0 20px rgba(192, 160, 104, 0.5)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ delay: 0.5 + index * 0.1, duration: 0.4 }}
+                className="bg-[#050505] border border-[#c0a068] rounded-lg p-3 sm:p-4 text-center hover:bg-[#c0a068]/10 transition-all duration-300 cursor-pointer"
+                style={{
+                  boxShadow: "0 0 10px rgba(192, 160, 104, 0.2)",
+                }}
               >
-                <option
-                  value=""
-                  disabled
-                  className="bg-[#050505] text-gray-500"
+                <motion.div
+                  className="flex justify-center mb-2 text-sm sm:text-base"
+                  animate={{ rotate: [0, 5, -5, 0] }}
+                  transition={{
+                    duration: 2,
+                    delay: index * 0.5,
+                    repeat: Infinity,
+                    repeatDelay: 4,
+                  }}
                 >
-                  Select dates of your stay
-                </option>
-                {(selectionDates.value === "1"
-                  ? singleDayOptions
-                  : selectionDates.value === "2"
-                    ? doubleDayOptions
-                    : selectionDates.value === "3"
-                      ? tripleDayOptions
-                      : allDayOptions
-                ).map((option) => (
-                  <option
-                    key={option.label}
-                    value={option.label}
-                    className="bg-[#050505] text-[#ffffffe6]"
-                  >
-                    {option.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-          )}
-
-          <div className="flex flex-col gap-2 text-[#ffffffe6]">
-            <p>Do you need food for your stay?</p>
-            <div className="flex gap-5">
-              <div className="flex gap-3 items-center">
-                <input
-                  type="radio"
-                  name="food"
-                  id="radio-yes"
-                  value="true"
-                  checked={food === "true"}
-                  onChange={handleFood}
-                  className="accent-[#c0a068]"
-                />
-                <label htmlFor="radio-yes">Yes</label>
-              </div>
-              <div className="flex gap-3 items-center">
-                <input
-                  type="radio"
-                  name="food"
-                  id="radio-no"
-                  value="false"
-                  checked={food === "false"}
-                  onChange={handleFood}
-                  className="accent-[#c0a068]"
-                />
-                <label htmlFor="radio-no">No</label>
-              </div>
-            </div>
+                  {item.icon}
+                </motion.div>
+                <p className="text-[#c0a068] font-bold text-base sm:text-lg">
+                  {item.day}
+                </p>
+                <p className="text-gray-400 text-xs sm:text-sm mt-1">
+                  {item.date}
+                </p>
+              </motion.div>
+            ))}
           </div>
+        </motion.div>
 
-          {hide && (
-            <>
-              <hr className="opacity-50 border-[#c0a068]" />
-              <div className="text-2xl md:text-3xl font-bold text-center border-b border-[#c0a068] pb-2">
-                <span className="text-[#c0a068]">{"<"}</span>
-                &nbsp;Payment&nbsp;
-                <span className="text-[#c0a068]">{">"}</span>
-              </div>
-              <button
-                type="button"
-                className="bg-[#c0a068] hover:bg-[#aa8c2c] duration-150 p-2 text-black font-bold py-2 rounded w-full border border-[#c0a068]"
-                onClick={() => setIsOpen(!isOpen)}
+        {/* Pricing Information */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          whileHover={{ scale: 1.03 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="bg-[#050505] border border-[#c0a068] rounded-lg p-4 sm:p-5 relative overflow-hidden"
+        >
+          <motion.div
+            animate={{
+              background: [
+                "radial-gradient(circle at 50% 50%, rgba(192, 160, 104, 0.1), transparent)",
+                "radial-gradient(circle at 50% 50%, rgba(192, 160, 104, 0.2), transparent)",
+                "radial-gradient(circle at 50% 50%, rgba(192, 160, 104, 0.1), transparent)",
+              ],
+            }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="absolute inset-0 pointer-events-none"
+          />
+          <div className="text-center relative z-10">
+            <motion.p
+              className="text-xl sm:text-2xl md:text-3xl font-bold text-[#c0a068] mb-2 sm:mb-3"
+              animate={{
+                scale: [1, 1.05, 1],
+                textShadow: [
+                  "0 0 5px rgba(192, 160, 104, 0.5)",
+                  "0 0 15px rgba(192, 160, 104, 0.8)",
+                  "0 0 5px rgba(192, 160, 104, 0.5)",
+                ],
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              ₹300 per day
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 0.5 }}
+              className="text-gray-300 text-xs sm:text-sm"
+            >
+              Includes food and comfortable stay
+            </motion.p>
+          </div>
+        </motion.div>
+
+        {/* Information */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.9, duration: 0.6 }}
+          className="bg-[#050505] border border-[#c0a068] rounded-lg p-4 sm:p-5"
+        >
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.1, duration: 0.8 }}
+            className="text-gray-300 text-center leading-relaxed text-xs sm:text-sm md:text-base"
+          >
+            We provide comfortable accommodation facilities for all three days
+            of the event. Fill out the form below to reserve your spot and
+            ensure a hassle-free experience during ABACUS '26.
+          </motion.p>
+        </motion.div>
+
+        {/* Google Form Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20, scale: 0.8 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{
+            delay: 1.1,
+            duration: 0.6,
+            type: "spring",
+            stiffness: 150,
+          }}
+          className="self-center w-full"
+        >
+          <a
+            href={GOOGLE_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block"
+          >
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 8px 25px rgba(192, 160, 104, 0.6)",
+              }}
+              whileTap={{ scale: 0.95 }}
+              animate={{
+                boxShadow: [
+                  "0 4px 15px rgba(192, 160, 104, 0.4)",
+                  "0 6px 20px rgba(192, 160, 104, 0.6)",
+                  "0 4px 15px rgba(192, 160, 104, 0.4)",
+                ],
+              }}
+              transition={{
+                boxShadow: { duration: 2, repeat: Infinity },
+              }}
+              className="bg-[#c0a068] hover:bg-[#aa8c2c] duration-300 text-black font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-lg w-full border-2 border-[#c0a068] relative overflow-hidden"
+            >
+              <motion.div
+                animate={{ x: ["-100%", "200%"] }}
+                transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+                className="absolute inset-0 w-1/4 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
+              />
+              <span className="text-base sm:text-lg relative z-10">
+                Register via Form
+              </span>
+              <motion.span
+                className="ml-2 relative z-10"
+                animate={{ x: [0, 3, 0] }}
+                transition={{ duration: 1, repeat: Infinity, repeatDelay: 1 }}
               >
-                {isOpen ? "Hide QR Code!" : "Show QR Code!"} {"<~>"}
-              </button>
-              {isOpen && (
-                <div className="flex justify-center mt-2">
-                  <img
-                    src={price}
-                    alt="payment-qr"
-                    className="w-64 h-88 border-2 border-[#c0a068] rounded-md"
-                  />
-                </div>
-              )}
+                {"<~>"}
+              </motion.span>
+            </motion.button>
+          </a>
+        </motion.div>
 
-              <input
-                type="text"
-                name="transactionId"
-                placeholder="Transaction ID"
-                onChange={handleChange}
-                value={formData.transactionId}
-                className="w-full p-3 bg-[#050505] border border-[#c0a068] text-[#ffffffe6] placeholder-gray-500 rounded-md focus:outline-none focus:bg-[#c0a068]/10"
-                required
-              />
-
-              <input
-                type="text"
-                name="paymentMobile"
-                placeholder="Payment Mobile No."
-                onChange={handleMobileChange}
-                value={formData.paymentMobile}
-                className="w-full p-3 bg-[#050505] border border-[#c0a068] text-[#ffffffe6] placeholder-gray-500 rounded-md focus:outline-none focus:bg-[#c0a068]/10"
-                required
-              />
-
-              <div className="flex flex-col items-center">
-                <label
-                  htmlFor="screenshot"
-                  className="flex items-center gap-2 bg-[#050505] border border-[#c0a068] px-4 py-2 rounded-md cursor-pointer w-full justify-center hover:bg-[#c0a068]/10 transition-colors"
-                >
-                  <span className="bg-[#c0a068] text-black font-semibold pl-2 pr-4 py-1 rounded">
-                    Upload
-                  </span>
-                  <span className="text-gray-400 text-sm truncate max-w-[200px]">
-                    {fileName}
-                  </span>
-                </label>
-                <input
-                  type="file"
-                  id="screenshot"
-                  accept="image/*"
-                  name="paymentScreenshot"
-                  className="hidden"
-                  onChange={handleFileChange}
-                  required
-                />
-              </div>
-
-              <div className="self-center w-full">
-                <button
-                  type="submit"
-                  className="bg-[#c0a068] hover:bg-[#aa8c2c] duration-150 text-black font-bold py-2 rounded w-full border border-[#c0a068]"
-                >
-                  Book Accommodation {"<~>"}
-                </button>
-              </div>
-            </>
-          )}
-        </form>
-      </div>
+        {/* Note */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{ delay: 1.3, duration: 0.6 }}
+          className="text-center text-xs sm:text-sm text-gray-500 italic px-2"
+        >
+          <motion.p
+            animate={{
+              scale: [1, 1.02, 1],
+            }}
+            transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+          >
+            * Limited slots available. Book early to secure your accommodation!
+          </motion.p>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
