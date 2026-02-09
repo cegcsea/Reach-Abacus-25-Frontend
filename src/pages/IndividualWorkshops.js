@@ -8,6 +8,7 @@ import { FaInfo } from "react-icons/fa";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 import Contact from "../components/Contact";
+import { motion, AnimatePresence } from "framer-motion";
 const IndividualWorkshops = () => {
   const { id } = useParams();
   const { user, isAuth, refreshauth } = UserData();
@@ -144,27 +145,42 @@ const IndividualWorkshops = () => {
   return (
     <div className="min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-12 bg-[#0a0a0a]">
       {/* Title Section */}
-      <div className="max-w-7xl mx-auto mb-10">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-7xl mx-auto mb-10"
+      >
         <h1 className="text-3xl sm:text-4xl lg:text-5xl text-white font-bold text-center">
           <span className="text-[#c0a068]">/</span>
           <span className="ml-2">{workshop.title}</span>
         </h1>
-      </div>
+      </motion.div>
 
       {/* Main Content Container */}
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Workshop Image */}
-          <div className="flex items-start justify-center lg:justify-end">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex items-start justify-center lg:justify-end"
+          >
             <img
               src={workshop.image}
               alt={workshop.title}
-              className="w-full max-w-md rounded-xl shadow-2xl border-2 border-[#c0a068]/30"
+              className="w-full max-w-md rounded-xl shadow-2xl border-2 border-[#c0a068]/30 hover:scale-105 transition-transform duration-300"
             />
-          </div>
+          </motion.div>
 
           {/* Workshop Details */}
-          <div className="flex flex-col">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-col"
+          >
             {/* Section Header */}
             <div className="mb-6">
               <h2 className="text-2xl lg:text-3xl font-bold text-white mb-4">
@@ -199,8 +215,18 @@ const IndividualWorkshops = () => {
             </div>
 
             {/* Content Area */}
-            <div className="bg-[#1a1a1a] rounded-xl p-6 border border-[#c0a068]/20 flex-1">
-              {renderContent()}
+            <div className="bg-[#1a1a1a] rounded-xl p-6 border border-[#c0a068]/20 flex-1 overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeTab}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {renderContent()}
+                </motion.div>
+              </AnimatePresence>
             </div>
 
             {/* Action Buttons */}
@@ -239,13 +265,18 @@ const IndividualWorkshops = () => {
                 </Link>
               )}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Payment Status Section */}
       {isAuth && isRegistered && (
-        <div className="max-w-7xl mx-auto mt-12 p-6 bg-[#1a1a1a] rounded-xl border border-[#c0a068]/20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="max-w-7xl mx-auto mt-12 p-6 bg-[#1a1a1a] rounded-xl border border-[#c0a068]/20"
+        >
           {bestPayment?.status === "PENDING" && (
             <div className="space-y-4 text-center">
               <div className="inline-block px-8 py-3 bg-[#ddb878]/20 border-2 border-[#ddb878] text-[#ddb878] rounded-lg font-semibold">
@@ -299,14 +330,19 @@ const IndividualWorkshops = () => {
               </div>
             </div>
           )}
-        </div>
+        </motion.div>
       )}
 
       {/* Contact Section */}
       {workshop.contact?.length > 0 && (
-        <div className="mt-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="mt-12"
+        >
           <Contact contacts={workshop.contact} />
-        </div>
+        </motion.div>
       )}
     </div>
   );

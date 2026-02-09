@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { LoaderData } from "./loaderContext";
+import { sessions } from "../constants/workshops";
 const server = process.env.REACT_APP_API_BASE_URL;
 const UserContext = createContext();
 
@@ -14,7 +15,7 @@ export const UserContextProvider = ({ children }) => {
   // const [auth, setAuth] = useState(false);
   const [userEvents, setUserEvents] = useState([]);
   const [userWorkshops, setUserWorkshops] = useState([]);
-  const [session, setSession] = useState([]);
+  const [session] = useState(sessions); // Static session data from constants
   const [isMenuOpen, setIsMenuOpen] =
     useState(false); /* need to the userContext*/
   const [active, setActive] = useState("home"); /* need to to the userContext*/
@@ -298,7 +299,7 @@ export const UserContextProvider = ({ children }) => {
       );
       const { data } = response.data;
 
-      getWorkshops();
+      refreshauth();
       toast.success(data.message || "Workshop registration successful!");
 
       return response.data;
@@ -336,7 +337,8 @@ export const UserContextProvider = ({ children }) => {
       //   paymentData.transactionId,
       //   JSON.stringify(paymentData.userIds)
       // );
-      formData.append("workshopId", paymentData.workshopId);
+      // Convert workshopId array to JSON (for both workshop IDs: 1 and 2)
+      formData.append("workshopId", JSON.stringify(paymentData.workshopId));
       //console.log("formData", formData);
       formData.append("paymentMobile", paymentData.paymentMobile);
       formData.append("transactionId", paymentData.transactionId);
@@ -360,31 +362,12 @@ export const UserContextProvider = ({ children }) => {
     }
   };
 
-  // Get Workshops
+  // Get Workshops (static data in constants/workshops.js)
+  // User's workshop payments are in user.WorkshopPayment array
   async function getWorkshops() {
-    const token = localStorage.getItem("abacustoken");
-    try {
-      // Fetch workshop data from server
-      const { data } = await axios.get(`${server}/user/get-workshops`, {
-        headers: { token },
-      });
-      //console.log("Workshops data:", data.data);
-      //console.log("User workshop payments:", data.user);
-
-      // Set session and user workshop data
-      setSession(data.data.workshops);
-      //setUserWorkshops(data.data.workshops);
-      //console.log("sessionworkshop:", data.data.workshops);
-      //setUserWorkshops(data.user.workshopPayments);
-    } catch (error) {
-      // Handle error
-      console.error("Error fetching events:", error);
-      console.error(
-        "Error response:",
-        error.response ? error.response.data : "No response data",
-      );
-      //toast.error("Error fetching workshops");
-    }
+    // Workshops are static - no API call needed
+    // Workshop payments are fetched via refreshauth() in user data
+    return Promise.resolve();
   }
 
   // Verify Workshop Payment Details
@@ -643,11 +626,7 @@ export const UserContextProvider = ({ children }) => {
           setUserEvents(data.events.events);
         })
         .catch((error) => {});
-      getWorkshops()
-        .then((data) => {
-          //setSession(data.workshops.workshops);
-        })
-        .catch((error) => {});
+      // Workshop data is static - payments included in user.WorkshopPayment
     } else {
       setIsAuth(false);
       setUser({});

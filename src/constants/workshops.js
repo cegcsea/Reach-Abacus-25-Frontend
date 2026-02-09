@@ -26,7 +26,7 @@ export const workshopsReach = [
       },
     ],
     moreInfo: {
-      certificate: "Certificate",
+      certificate: "Physical Certificate + E-Certificate",
       takeaways:
         "Hands-on cloud computing skills, AI service experience, Real-world use cases",
       time: "9:00 AM to 4:00 PM",
@@ -55,6 +55,7 @@ export const workshopsReach = [
     bulkQR: BulkQR,
     code: 2,
     price: 300,
+    bulkBooking: true,
     content:
       "Understand MCP (Model Context Protocol) and context-aware AI applications through practical sessions with real-time implementation. Learn how modern AI apps manage context and build your own context-aware applications. Laptop is mandatory for hands-on learning.",
     prerequisites:
@@ -67,7 +68,7 @@ export const workshopsReach = [
       },
     ],
     moreInfo: {
-      certificate: "Certificate",
+      certificate: "Physical Certificate + E-Certificate",
       takeaways:
         "MCP understanding, Context-aware AI skills, Real-time implementation experience",
       time: "9:00 AM to 4:00 PM",
