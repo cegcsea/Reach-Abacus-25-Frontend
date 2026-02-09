@@ -94,7 +94,7 @@ function RegisterDetails() {
       );
 
       // Show success message and redirect to login
-      toast.success("Registration successful! Please login to continue.");
+      toast.success("Registration successful! Redirecting to login...");
 
       // Reset form
       setFormData({
@@ -108,10 +108,10 @@ function RegisterDetails() {
         confirmPassword: "",
       });
 
-      // Redirect to login page after 2 seconds
+      // Redirect to login page immediately
       setTimeout(() => {
-        navigate("/auth");
-      }, 2000);
+        navigate("/auth", { state: { showLogin: true } });
+      }, 500);
     } catch (err) {
       // Error toast already handled in context
     } finally {

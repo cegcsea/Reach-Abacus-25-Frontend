@@ -16,7 +16,6 @@ function UpdateProfile() {
     dept: user.dept,
     year: user.year,
     mobile: user.mobile,
-    //accomodation: user.accomodation,
   });
 
   //console.log(user);
@@ -27,7 +26,6 @@ function UpdateProfile() {
       dept: user.dept,
       year: user.year,
       mobile: user.mobile,
-      //accomodation: user.accomodation,
     });
   }, [user]);
   // useEffect(() => {

@@ -237,7 +237,6 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
             <button
               key={item.name}
               className="relative group overflow-hidden rounded-xl font-semibold my-2 mx-0 lg:m-0 transition-all duration-300 text-sm lg:text-base"
-              /* Added text-sm to reduce font size on mobile (lg:text-base resets it for desktop) */
               onClick={() => handleIcon(item)}
             >
               <div
@@ -254,9 +253,10 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
                     : {}
                 }
               >
-                <div className="my-auto bg-transparent">{item.icon}</div>
-                <span className="px-1 rounded-xl transition-all duration-300 cursor-pointer text-left">
-                  {/* Added text-left to ensure text stays aligned if it wraps */}
+                <div className="my-auto bg-transparent text-base">
+                  {item.icon}
+                </div>
+                <span className="px-1 rounded-xl transition-all duration-300 cursor-pointer text-left whitespace-nowrap">
                   {item.label}
                 </span>
               </div>
