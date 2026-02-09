@@ -165,9 +165,9 @@ const App = () => {
             <Route
               path="/accommodation"
               element={
-                // <ProtectedRoute>
-                <Accommodation />
-                // </ProtectedRoute>
+                <ProtectedRoute>
+                  <Accommodation />
+                </ProtectedRoute>
               }
             />
             {/* <Route path="/events/:id" element={<EventPayment />} /> */}
