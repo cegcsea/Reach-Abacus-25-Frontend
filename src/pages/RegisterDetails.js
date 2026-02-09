@@ -17,7 +17,6 @@ function RegisterDetails() {
   const [formData, setFormData] = useState({
     name: "",
     college: "",
-    // accomodation: null,
     dept: "",
     year: "",
     mobile: "",
@@ -25,21 +24,6 @@ function RegisterDetails() {
     password: "",
     confirmPassword: "",
   });
-  //const hostCollege = "J.J. College of Engineering and Technology,Tiruchirappalli";
-  // const optionsHostCollege = [
-  //   {
-  //     label: "J.J. College of Engineering and Technology,Tiruchirappalli",
-  //     value: "J.J. College of Engineering and Technology,Tiruchirappalli",
-  //   },
-  //   // {
-  //   //   label: "Anna University",
-  //   //   value: "Anna University",
-  //   // },
-  //   // {
-  //   //   label: "IIT Madras",
-  //   //   value: "IIT Madras",
-  //   // },
-  // ];
 
   const optionsYear = [
     { label: "First year", value: "1" },
@@ -92,18 +76,6 @@ function RegisterDetails() {
     }
 
     setBtnLoading(true);
-    // console.log({
-    //   name: formData.name,
-    //   email: email,
-    //   token: token,
-    //   college: formData.college,
-    //   hostCollege: formData.hostCollege,
-    //   accomodation: formData.accomodation,
-    //   dept: formData.dept,
-    //   year: parseInt(formData.year),
-    //   mobile: formData.mobile,
-    //   password: formData.password,
-    // });
 
     try {
       await register(
@@ -183,36 +155,6 @@ function RegisterDetails() {
             onChange={handleChange}
             required
           />
-          {/* <select
-            className="register-details-select"
-            value={
-              formData.accomodation !== undefined &&
-              formData.accomodation !== null
-                ? formData.accomodation.toString()
-                : ""
-            }
-            onChange={(e) =>
-              handleSelectChange(
-                "accomodation",
-                e.target.value === "true"
-                  ? true
-                  : e.target.value === "false"
-                  ? false
-                  : null
-              )
-            }
-            required
-          >
-            <option value="" disabled>
-              Accommodation required?
-            </option>
-            <option key="Yes" value={true}>
-              Yes
-            </option>
-            <option key="No" value={false}>
-              No
-            </option>
-          </select> */}
           <input
             type="text"
             name="dept"

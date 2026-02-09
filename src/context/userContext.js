@@ -78,10 +78,8 @@ export const UserContextProvider = ({ children }) => {
         {
           name: formData.name,
           email: formData.email,
-          token: formData.token, // If token is required
+          token: formData.token,
           college: formData.college,
-          // hostCollege: formData.hostCollege,
-          // accomodation: formData.accomodation,
           dept: formData.dept,
           year: formData.year,
           mobile: formData.mobile,
