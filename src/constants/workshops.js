@@ -1,82 +1,91 @@
-import ML from "../assets/Reach/ML.png";
 import placement from "../assets/Reach/placement.svg";
-import UI from "../assets/images/mobile-app-ux-ui-basics.jpg";
-import GENAI_300 from "../assets/Reach/300.jpg";
-import UI_150 from "../assets/Reach/150.jpg";
-import GENAI_1200 from "../assets/Reach/1200.jpg";
-import PAY from "../assets/Reach/new.jpg"
+import CloudImage from "../assets/Workshops/cloud.png";
+import MCPImage from "../assets/Workshops/mcp.png";
+import QR300 from "../assets/Workshops/300QR.jpeg";
+import BulkQR from "../assets/Workshops/500QR.png";
 
 export const workshopsReach = [
   {
-    title: "Design for Impact: Power of UX",
-    to: "UI-UX",
-    image: UI,
-
-    qr: UI_150,
+    title: "Cloud Computing Essentials in the Era of AI",
+    to: "cloud-computing-ai",
+    image: CloudImage,
+    qr: QR300,
+    bulkQR: BulkQR,
+    code: 1,
+    price: 300,
+    bulkBooking: true,
+    content:
+      "Learn core cloud concepts and AI-powered cloud services with hands-on exposure to real-world use cases. This workshop is designed for beginners and is highly relevant to the industry. Participants are required to bring their laptops for practical sessions.",
+    prerequisites:
+      "Laptop is mandatory. No prior cloud computing knowledge required - beginner-friendly!",
     venue: [
       {
-        name: "PSNA College of Engineering and Technology",
-        time: "09:00 AM to 12:00 PM",
-        location: "CSE Department, First Floor Lab",
+        name: "Hall of 1960, Chemistry Department",
+        time: "09:00 AM to 04:00 PM",
+        location: "Hall of 1960, Chemistry Department",
       },
     ],
-    code: 1,
-    content:
-      "This half-day workshop delves into the world of User Experience (UX) design, exploring its core principles and how psychology influences user behavior. Participants will learn to differentiate between UI and UX, understand the importance of accessibility and inclusive design, and analyze how successful apps leverage UX psychology. A hands-on activity will allow participants to apply these concepts by redesigning a user flow for a mobile app, fostering a practical understanding of creating impactful and user-centered designs.",
-    prerequisites:
-      "Participants are required to bring laptops.No prior knowledge is needed.",
-    // speakers: "John Doe, Jane Smith",
     moreInfo: {
-      certificate: "E-Certificate",
-      takeaways: "Takeaways",
-      time: "9:00 AM to 12:00 PM",
-      date: "21st February, 2025",
-      // venue: "X hall, EEE Department",
-      entryFee: "Rs. 150/-",
+      certificate: "Certificate",
+      takeaways:
+        "Hands-on cloud computing skills, AI service experience, Real-world use cases",
+      time: "9:00 AM to 4:00 PM",
+      date: "20th February, 2026",
+      venue: "Hall of 1960, Chemistry Department",
+      entryFee: "₹300",
     },
     contact: [
       {
         id: 1,
-        name: "Sandhya",
-        phone: "+91 9363319596",
+        name: "Sanjay",
+        phone: "+91 81483 58787",
       },
-      { id: 2, name: "Padmasharan", phone: "+91 9585612262" },
+      {
+        id: 2,
+        name: "Deepak",
+        phone: "+91 63801 56548",
+      },
     ],
   },
   {
-    title: "Workshop on Generative AI",
-    to: "genAI",
-    image: ML,
-    bulkBooking: PAY,
-    qr: GENAI_300,
+    title: "Mastering MCP: Building Context-Aware AI Apps",
+    to: "mcp-context-aware-ai",
+    image: MCPImage,
+    qr: QR300,
+    bulkQR: BulkQR,
+    code: 2,
+    price: 300,
+    content:
+      "Understand MCP (Model Context Protocol) and context-aware AI applications through practical sessions with real-time implementation. Learn how modern AI apps manage context and build your own context-aware applications. Laptop is mandatory for hands-on learning.",
+    prerequisites:
+      "Laptop is mandatory. Basic programming knowledge helpful but not required.",
     venue: [
       {
-        name: "PSNA College of Engineering and Technology",
-        time: "09:30 AM to 04:00 PM",
-        location: "CSE Department, Second Floor Lab",
+        name: "Hall of 1960, Chemistry Department",
+        time: "09:00 AM to 04:00 PM",
+        location: "Hall of 1960, Chemistry Department",
       },
     ],
-    code: 2,
-    content:
-      "Ignite your curiosity in Generative AI!. This one-day workshop provides a comprehensive introduction to Generative AI, focusing on its fundamentals, applications, and practical implementation. Designed for beginners, the session will help participants understand the transformative potential of Generative AI in various domains through engaging lectures and hands-on activities.",
-    prerequistes:
-      "No prior machine learning experience is required. Just bring your curiosity, and let's make the most of this short but impactful ML adventure!",
-    // speakers: "John Doe, Jane Smith",
     moreInfo: {
-      certificate: "E-Certificate",
-      takeaways: "Takeaways",
-      time: "9:30 AM to 04:00 PM",
-      date: "21st February, 2025",
-      // venue: "X hall, EEE Department",
-      entryFee: "Rs. 300/-",
+      certificate: "Certificate",
+      takeaways:
+        "MCP understanding, Context-aware AI skills, Real-time implementation experience",
+      time: "9:00 AM to 4:00 PM",
+      date: "21st February, 2026",
+      venue: "Hall of 1960, Chemistry Department",
+      entryFee: "₹300",
     },
     contact: [
       {
         id: 1,
-        name: "Ajai Krishna",
-        phone: "+91 7010707652",
+        name: "Sanjay",
+        phone: "+91 81483 58787",
       },
-      { id: 2, name: "Nikhil Prasanna", phone: "+91 6379066510" },
+      {
+        id: 2,
+        name: "Deepak",
+        phone: "+91 63801 56548",
+      },
     ],
   },
 ];

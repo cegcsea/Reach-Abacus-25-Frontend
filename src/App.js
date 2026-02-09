@@ -8,7 +8,7 @@ import EventPage from "./pages/EventPage";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/Navbar";
 import TechnicalPage from "./pages/TechnicalPage";
-// import Workshops from "./pages/Workshops";
+import Workshops from "./pages/Workshops";
 import IndividualWorkshops from "./pages/IndividualWorkshops";
 import NoviceInit from "./pages/EventIndividual/NoviceInit";
 import AuthPage from "./pages/AuthPage";
@@ -20,15 +20,13 @@ import ChangePassword from "./pages/ChangePassword";
 import UpdateProfile from "./pages/UpdateProfile";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Payment from "./pages/Payment";
-import BulkPayment from "./pages/BulkPayment";
+import BulkWorkshopPayment from "./pages/BulkWorkshopPayment";
 import { UserData } from "./context/userContext";
 import { LoaderData } from "./context/loaderContext";
 import Loader from "./components/Loader/Loader";
-import ComingSoonRobot from "./components/ComingSoonRobot";
 import AboutPage from "./pages/about-page/AboutPage";
 import SponsorsPage from "./pages/sponsors-page/SponsorsPage";
 import Accommodation from "./pages/Accomodation";
-import EventPayment from "./pages/EventPayment";
 import ProtectedRoute from "./routes/ProtectedRoute";
 
 const App = () => {
@@ -171,12 +169,16 @@ const App = () => {
               }
             />
             {/* <Route path="/events/:id" element={<EventPayment />} /> */}
-            <Route path="/workshops" element={<ComingSoonRobot />} />
+            <Route path="/workshops" element={<Workshops />} />
             <Route path="/workshops/:id" element={<IndividualWorkshops />} />
             <Route path="/workshops/:id/payment" element={<Payment />} />
             <Route
+              path="/workshops/bulk/payment"
+              element={<BulkWorkshopPayment />}
+            />
+            <Route
               path="/workshops/:id/bulkpayment"
-              element={<BulkPayment />}
+              element={<BulkWorkshopPayment />}
             />
             <Route path="/login" element={<HomePage />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />

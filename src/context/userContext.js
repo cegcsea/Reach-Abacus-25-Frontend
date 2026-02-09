@@ -9,7 +9,6 @@ export const UserContextProvider = ({ children }) => {
   const { setIsLoading } = LoaderData();
   const [user, setUser] = useState({});
   const [btnLoading, setBtnLoading] = useState(false);
-  const [loading, setLoading] = useState(true);
   const [isAuth, setIsAuth] = useState(false);
   const [paymentType, setPaymentType] = useState("individual");
   // const [auth, setAuth] = useState(false);
@@ -287,38 +286,42 @@ export const UserContextProvider = ({ children }) => {
   }
 
   // Workshop Registration
-  async function freeWorkshopRegister({ workshopId }) {
+  async function freeWorkshopRegister({ workshopId, claimFree = false }) {
     setBtnLoading(true);
     setIsLoading(true);
     const token = localStorage.getItem("abacustoken");
     try {
       const response = await axios.post(
         `${server}/user/workshop-register`,
-        { workshopId },
+        { workshopId, claimFree },
         { headers: { token } },
       );
       const { data } = response.data;
-      //console.log(data.data);
-      // setSession((prevSession) =>
-      //   Array.isArray(prevSession) ? [...prevSession, data.data] : [data.data]
-      // );
 
       getWorkshops();
-      //console.log(data);
-      // setUserWorkshops((prevWorkshops) => [
-      //   ...prevWorkshops, // Spread the previous workshops
-      //   {
-      //     ...data.data, // Add the new workshop details
-      //     status: null, // Set default payment status as null
-      //     paymentDetails: null, // Set payment details to null initially
-      //   },
-      // ]);
-      toast.success(data.message);
+      toast.success(data.message || "Workshop registration successful!");
+
+      return response.data;
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response?.data?.message || "Registration failed");
+      throw error;
     } finally {
       setBtnLoading(false);
       setIsLoading(false);
+    }
+  }
+
+  // Get Ambassador Status
+  async function getAmbassadorStatus() {
+    const token = localStorage.getItem("abacustoken");
+    try {
+      const response = await axios.get(`${server}/user/ambassador-status`, {
+        headers: { token },
+      });
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching ambassador status:", error);
+      return { isAmbassador: false };
     }
   }
 
@@ -348,16 +351,12 @@ export const UserContextProvider = ({ children }) => {
       //console.log("response bulk:", response);
       const message = response.data.message;
       const payment = response.data.payment;
-      toast.success("Bulk Payment submitted successfully!");
 
       return { message, payment };
     } catch (error) {
       //console.error(error);
       console.error("Bulk Payment failed:", error.response?.data);
-      toast.error(error.response?.data?.message, {
-        duration: 3000,
-      });
-      throw error;
+      throw error.response?.data?.message || error;
     }
   };
 
@@ -452,7 +451,7 @@ export const UserContextProvider = ({ children }) => {
         navigate,
       ).then((responsesData) => {
         workshopPaymentScreenshot({
-          id: responsesData.id,
+          id: responsesData.payment.id,
           formData: data.formData,
         });
       }),
@@ -658,6 +657,7 @@ export const UserContextProvider = ({ children }) => {
   useEffect(() => {
     refreshauth();
     //console.log(user);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
     //   console.log("active", active);
@@ -676,7 +676,6 @@ export const UserContextProvider = ({ children }) => {
         isAuth,
         setIsAuth,
         btnLoading,
-        loading,
         login,
         handleLogout,
         register,
@@ -690,6 +689,7 @@ export const UserContextProvider = ({ children }) => {
         eventRegister,
         getEvents,
         freeWorkshopRegister,
+        getAmbassadorStatus,
         getWorkshops,
         refreshauth,
         handleVerifyWorkshopPayment,

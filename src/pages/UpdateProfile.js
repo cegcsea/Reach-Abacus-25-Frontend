@@ -6,7 +6,7 @@ import Loader from "../components/Loader/Loader";
 import toast from "react-hot-toast";
 function UpdateProfile() {
   const navigate = useNavigate();
-  const { updateProfile, user, profile } = UserData();
+  const { updateProfile, user } = UserData();
 
   const { isLoading } = LoaderData();
   const [btnLoading, setBtnLoading] = useState(false);

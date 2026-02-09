@@ -5,7 +5,6 @@ import { MdEvent } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";
 import { UserData } from "../context/userContext";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
@@ -85,6 +84,7 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
     const activePath = pathParts[1] ? pathParts[1] : "home";
 
     setActive(activePath);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
   const toggleMenu = () => {
