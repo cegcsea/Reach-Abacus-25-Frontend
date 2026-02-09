@@ -2,7 +2,13 @@ import React from "react";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 import { motion } from "framer-motion";
-import { FaHotel, FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaHotel,
+  FaCalendarAlt,
+  FaMapMarkerAlt,
+  FaPhone,
+  FaUser,
+} from "react-icons/fa";
 
 function Accommodation() {
   const { isLoading } = LoaderData();
@@ -283,6 +289,70 @@ function Accommodation() {
           </a>
         </motion.div>
 
+        {/* Contact Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.0, duration: 0.6 }}
+          className="border-t-2 border-[#c0a068]/30 pt-4 sm:pt-6"
+        >
+          <motion.h3
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              delay: 1.1,
+              duration: 0.5,
+              type: "spring",
+              stiffness: 150,
+            }}
+            className="text-base sm:text-lg md:text-xl font-semibold text-center text-[#c0a068] mb-3 sm:mb-4"
+          >
+            For Further Details, Contact:
+          </motion.h3>
+          <div className="grid grid-cols-1 gap-2 sm:gap-3">
+            {[
+              { name: "Dharani", phone: "+91 86680 44172" },
+              { name: "Shivaranjani", phone: "+91 93631 67941" },
+              { name: "Vishaal", phone: "+91 80723 71293" },
+            ].map((contact, index) => (
+              <motion.a
+                key={contact.name}
+                href={`tel:${contact.phone.replace(/\s/g, "")}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: 1.2 + index * 0.1,
+                  duration: 0.4,
+                  type: "spring",
+                  stiffness: 120,
+                }}
+                whileHover={{
+                  scale: 1.03,
+                  boxShadow: "0 4px 15px rgba(192, 160, 104, 0.4)",
+                }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-center gap-3 bg-[#252525] hover:bg-[#2a2a2a] border border-[#c0a068]/20 hover:border-[#c0a068]/50 rounded-lg p-3 sm:p-4 transition-colors duration-300 cursor-pointer"
+                style={{
+                  boxShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
+                }}
+              >
+                <div className="flex items-center gap-2 flex-1">
+                  <FaUser className="text-[#c0a068] text-sm sm:text-base" />
+                  <span className="text-gray-300 font-medium text-sm sm:text-base">
+                    {contact.name}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <FaPhone className="text-[#c0a068] text-xs sm:text-sm" />
+                  <span className="text-gray-400 text-xs sm:text-sm font-mono">
+                    {contact.phone}
+                  </span>
+                </div>
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+
         {/* Note */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -290,7 +360,7 @@ function Accommodation() {
             opacity: 1,
             y: 0,
           }}
-          transition={{ delay: 1.3, duration: 0.6 }}
+          transition={{ delay: 1.5, duration: 0.5 }}
           className="text-center text-xs sm:text-sm text-gray-500 italic px-2"
         >
           <motion.p
