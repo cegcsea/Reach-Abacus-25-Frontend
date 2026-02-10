@@ -25,8 +25,8 @@ const Payment = () => {
   const [ambassadorStatus, setAmbassadorStatus] = useState(null);
   const [loadingStatus, setLoadingStatus] = useState(true);
 
-  // Find workshop by 'to' field from URL param
-  const workshop = workshops.find((ws) => ws.to === id);
+  // Find workshop by 'code' field from URL param
+  const workshop = workshops.find((ws) => ws.code === parseInt(id));
 
   // Fetch ambassador status on mount
   useEffect(() => {
