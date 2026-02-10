@@ -59,9 +59,8 @@ const NoviceInit = () => {
     // Otherwise, use the regular event registration
     try {
       await eventRegister({ eventId: Number(selectedEvent.id) });
-      if (user?.id) {
-        await checkCA20Events(user.id);
-      }
+      // Check CA milestone - uses authenticated user from token
+      await checkCA20Events();
       // Success toast already handled in eventRegister
       // Refresh events to update UI
       await getEvents();

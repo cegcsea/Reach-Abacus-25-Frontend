@@ -55,7 +55,7 @@ const Profile = () => {
 
       try {
         const res = await axios.post(
-          `${process.env.REACT_APP_API_BASE_URL}/admin/get-my-referral-code`,
+          `${process.env.REACT_APP_API_BASE_URL}/user/get-my-referral-code`,
           { email: user.email },
           { headers: { token } },
         );
@@ -95,7 +95,7 @@ const Profile = () => {
     setIsRegistering(true);
     try {
       const res = await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/admin/register-ca-from-user`,
+        `${process.env.REACT_APP_API_BASE_URL}/user/register-ca-from-user`,
         { abacusId: user.abacusId },
         { headers: { token } },
       );
