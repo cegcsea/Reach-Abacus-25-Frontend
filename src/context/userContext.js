@@ -538,65 +538,6 @@ export const UserContextProvider = ({ children }) => {
     }
   }
 
-  async function addAccomodationDetails(accomodationData) {
-    const token = localStorage.getItem("abacustoken");
-    try {
-      const response = await axios.post(
-        `${server}/user/accomodation-details`,
-        {
-          day0: accomodationData.day0,
-          day1: accomodationData.day1,
-          day2: accomodationData.day2,
-          day3: accomodationData.day3,
-          food: accomodationData.food,
-          amount: accomodationData.amount,
-        },
-        { headers: { token } },
-      );
-      return { message: response.data.message, id: response.data.id };
-    } catch (err) {
-      if (err.response) throw err.response.data.message;
-      throw err;
-    }
-  }
-
-  const handleAccomodationPayment = (data, navigate) => {
-    const ACCOMMODATION_EVENT_ID = 10;
-    toast.promise(
-      addAccomodationDetails({
-        day0: data.day0,
-        day1: data.day1,
-        day2: data.day2,
-        day3: data.day3,
-        food: data.food,
-        amount: data.amount,
-      }).then((accomodationResponse) => {
-        return new Promise((resolve, reject) => {
-          handleEventPayment(
-            {
-              eventId: ACCOMMODATION_EVENT_ID,
-              paymentMobile: data.paymentMobile,
-              transactionId: data.transactionId,
-              users: data.users,
-              formData: data.formData,
-            },
-            navigate,
-          );
-          setTimeout(() => resolve({ message: "Payment processed" }), 1000);
-        });
-      }),
-      {
-        loading: "Processing accommodation...",
-        success: () => {
-          return "Accommodation and payment submitted successfully!";
-        },
-        error: (err) => {
-          return typeof err === "object" ? err.message : err;
-        },
-      },
-    );
-  };
-
   async function handleLogout() {
     localStorage.removeItem("abacususer");
     localStorage.removeItem("abacustoken");
@@ -678,7 +619,6 @@ export const UserContextProvider = ({ children }) => {
         paymentType,
         setPaymentType,
         handleEventPayment,
-        handleAccomodationPayment,
       }}
     >
       {children}
