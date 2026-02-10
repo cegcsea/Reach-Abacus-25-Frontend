@@ -331,26 +331,18 @@ export const UserContextProvider = ({ children }) => {
   const verifyBulkWorkshopPayment = async (paymentData, navigate) => {
     try {
       const token = localStorage.getItem("abacustoken");
-      //console.log(paymentData);
-      const formData = new FormData();
-      //console.log(
-      //   paymentData.workshopId,
-      //   paymentData.paymentMobile,
-      //   paymentData.transactionId,
-      //   JSON.stringify(paymentData.userIds)
-      // );
-      // Convert workshopId array to JSON (for both workshop IDs: 1 and 2)
-      formData.append("workshopId", JSON.stringify(paymentData.workshopId));
-      //console.log("formData", formData);
-      formData.append("paymentMobile", paymentData.paymentMobile);
-      formData.append("transactionId", paymentData.transactionId);
-      // Convert userIds array to JSON and append it to formData
-      formData.append("userIds", JSON.stringify(paymentData.userIds)); // userIds are now in an array
+
+      const payload = {
+        workshopId: JSON.stringify(paymentData.workshopId),
+        userIds: JSON.stringify(paymentData.userIds),
+        paymentMobile: paymentData.paymentMobile,
+        transactionId: paymentData.transactionId,
+      };
 
       const response = await axios.post(
         `${server}/user/workshop/bulk-payment`,
-        formData,
-        { headers: { token, "Content-Type": "multipart/form-data" } },
+        payload,
+        { headers: { token } }, // Uses application/json by default
       );
       //console.log("response bulk:", response);
       const message = response.data.message;
