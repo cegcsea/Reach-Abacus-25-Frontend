@@ -78,7 +78,7 @@ function RegisterDetails() {
     setBtnLoading(true);
 
     try {
-      await register(
+      const response = await register(
         {
           name: formData.name,
           email,
@@ -92,6 +92,10 @@ function RegisterDetails() {
         },
         navigate,
       );
+
+      if (!response) {
+        return;
+      }
 
       // Show success message and redirect to login
       toast.success("Registration successful! Redirecting to login...");
@@ -109,9 +113,7 @@ function RegisterDetails() {
       });
 
       // Redirect to login page immediately
-      setTimeout(() => {
-        navigate("/auth", { state: { showLogin: true } });
-      }, 500);
+      navigate("/auth", { state: { showLogin: true } });
     } catch (err) {
       // Error toast already handled in context
     } finally {

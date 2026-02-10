@@ -90,8 +90,10 @@ export const UserContextProvider = ({ children }) => {
       const data = response.data;
       // Toast and navigation handled by RegisterDetails component
       localStorage.setItem("activationToken", data.activationToken);
+      return data;
     } catch (error) {
       toast.error(error.response?.data?.message || "Registration failed");
+      throw error;
     } finally {
       setBtnLoading(false);
       setIsLoading(false);
@@ -426,10 +428,10 @@ export const UserContextProvider = ({ children }) => {
     toast.promise(
       verifyBulkWorkshopPayment(
         {
-          workshopId: data.workshopId,
+          workshopId: JSON.stringify(data.workshopId),
           paymentMobile: data.paymentMobile,
           transactionId: data.transactionId,
-          userIds: data.userIds,
+          userIds: JSON.stringify(data.userIds),
         },
         navigate,
       ).then((responsesData) => {
