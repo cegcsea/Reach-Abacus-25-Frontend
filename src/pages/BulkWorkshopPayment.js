@@ -55,6 +55,11 @@ const BulkWorkshopPayment = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!user?.id) {
+      toast.error("Please log in again to continue.");
+      navigate("/auth");
+      return;
+    }
     const formReqData = new FormData();
     formReqData.append("paymentScreenshot", file);
     const userArray = [parseInt(user.id)];
