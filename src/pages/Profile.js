@@ -48,10 +48,11 @@ const Profile = () => {
   useEffect(() => {
     const checkReferral = async () => {
       try {
+        const token = localStorage.getItem("abacustoken");
         const res = await axios.post(
           `${process.env.REACT_APP_API_BASE_URL}/admin/get-my-referral-code`,
           { email: userData.email },
-          { withCredentials: true },
+          { headers: { token } },
         );
 
         if (res.data.hasCode) {
@@ -74,10 +75,11 @@ const Profile = () => {
   const handleRegisterCA = async () => {
     setIsRegistering(true);
     try {
+      const token = localStorage.getItem("abacustoken");
       const res = await axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/admin/register-ca-from-user`,
         { abacusId: userData.abacusId },
-        { withCredentials: true },
+        { headers: { token } },
       );
       setReferralCode(res.data.campusAmbassador.referralCode);
     } catch (err) {
