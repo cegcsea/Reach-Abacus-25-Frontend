@@ -21,7 +21,18 @@ const EventPage = () => {
         <div className="card__container">
           {events.map((event, index) => (
             <article className="card__article" key={index}>
-              <img src={event.image} alt={event.title} className="card__img" />
+              <div className="card__img-wrapper">
+                {event.badge && (
+                  <div className="card__badge">
+                    <span className="badge-text">{event.badge}</span>
+                  </div>
+                )}
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  className="card__img"
+                />
+              </div>
               <div className="card__data">
                 <h1 className="card__title">{event.title}</h1>
                 <Link

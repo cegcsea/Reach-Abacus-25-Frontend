@@ -48,6 +48,46 @@ img {
   align-items: center;
 }
 
+.card__img-wrapper {
+  position: relative;
+  width: max-content;
+  display: flex;
+  justify-content: center;
+}
+
+.card__badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #c0a068 0%, #d4b87a 100%);
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(192, 160, 104, 0.6);
+  animation: pulse-badge 2s ease-in-out infinite;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@keyframes pulse-badge {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(192, 160, 104, 0.6);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(192, 160, 104, 0.9);
+  }
+}
+
+.badge-text {
+  display: inline-block;
+}
+
 .card__img {
   width: 350px;
   max-width: 350px;
@@ -65,7 +105,7 @@ img {
   -webkit-touch-callout: none;
 }
 
-.card__article:hover .card__img {
+.card__article:hover .card__img-wrapper .card__img {
   transform: scale(1.02);
   box-shadow: 0 0 20px rgba(192, 160, 104, 0.9);
 }

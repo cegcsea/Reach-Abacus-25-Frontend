@@ -25,6 +25,8 @@ const NoviceInit = () => {
   }, [userEvents]);
 
   const [activeTab, setActiveTab] = useState("description");
+  const [activeRound, setActiveRound] = useState(0);
+
   if (!selectedEvent) {
     return (
       <h1 style={{ textAlign: "center", color: "#fff" }} className="my-32">
@@ -73,9 +75,12 @@ const NoviceInit = () => {
   }
   return (
     <div>
-      <h1 style={{ textAlign: "center", color: "#fff" }} className="heading">
-        {selectedEvent.title}
-      </h1>
+      <div className="heading-container">
+        <h1 className="heading-title">{selectedEvent.title}</h1>
+        {selectedEvent.subtitle && (
+          <h2 className="heading-subtitle">{selectedEvent.subtitle}</h2>
+        )}
+      </div>
       <div className="middle-section">
         <div className="content-container">
           <img src={selectedEvent.image} alt="Event" className="event-image" />
@@ -87,6 +92,30 @@ const NoviceInit = () => {
               >
                 Description
               </button>
+              {selectedEvent.highlights?.length > 0 && (
+                <button
+                  onClick={() => handleTabClick("highlights")}
+                  className={activeTab === "highlights" ? "active" : ""}
+                >
+                  Highlights
+                </button>
+              )}
+              {selectedEvent.whyShouldYouParticipate?.length > 0 && (
+                <button
+                  onClick={() => handleTabClick("why")}
+                  className={activeTab === "why" ? "active" : ""}
+                >
+                  Why Participate
+                </button>
+              )}
+              {selectedEvent.aboutCongruent && (
+                <button
+                  onClick={() => handleTabClick("about")}
+                  className={activeTab === "about" ? "active" : ""}
+                >
+                  About Partner
+                </button>
+              )}
               {selectedEvent.intern?.length > 0 && (
                 <button
                   onClick={() => handleTabClick("internship")}
@@ -122,8 +151,81 @@ const NoviceInit = () => {
                 ) : (
                   ""
                 )}
+                {selectedEvent.mode && (
+                  <p>
+                    <strong>Mode:</strong> {selectedEvent.mode}
+                  </p>
+                )}
+                {selectedEvent.registrationDeadline && (
+                  <p>
+                    <strong>Registration Deadline:</strong>{" "}
+                    {selectedEvent.registrationDeadline}
+                  </p>
+                )}
+                {selectedEvent.recruitmentPartner && (
+                  <p>
+                    <strong>Recruitment Partner:</strong>{" "}
+                    {selectedEvent.recruitmentPartner}
+                  </p>
+                )}
                 <p>
                   <strong>Prize:</strong> {selectedEvent.prize || "N/A"}
+                </p>
+              </div>
+            )}
+
+            {/* Highlights Tab */}
+            {activeTab === "highlights" &&
+              selectedEvent.highlights?.length > 0 && (
+                <div className="par !mx-8 text-justify">
+                  <h3 className="text-2xl font-bold mb-4 text-[#c0a068]">
+                    Event Highlights
+                  </h3>
+                  <ul className="space-y-3">
+                    {selectedEvent.highlights.map((highlight, index) => (
+                      <li
+                        key={index}
+                        className="flex items-start gap-3 text-white"
+                      >
+                        <span className="text-[#c0a068] text-xl">✓</span>
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+            {/* Why Participate Tab */}
+            {activeTab === "why" &&
+              selectedEvent.whyShouldYouParticipate?.length > 0 && (
+                <div className="par !mx-8 text-justify">
+                  <h3 className="text-2xl font-bold mb-4 text-[#c0a068]">
+                    Why Should You Participate?
+                  </h3>
+                  <ul className="space-y-3">
+                    {selectedEvent.whyShouldYouParticipate.map(
+                      (reason, index) => (
+                        <li
+                          key={index}
+                          className="flex items-start gap-3 text-white"
+                        >
+                          <span className="text-[#c0a068] text-xl">→</span>
+                          <span>{reason}</span>
+                        </li>
+                      ),
+                    )}
+                  </ul>
+                </div>
+              )}
+
+            {/* About Partner Tab */}
+            {activeTab === "about" && selectedEvent.aboutCongruent && (
+              <div className="par !mx-8 text-justify">
+                <h3 className="text-2xl font-bold mb-4 text-[#c0a068]">
+                  About {selectedEvent.recruitmentPartner || "Our Partner"}
+                </h3>
+                <p className="text-white leading-relaxed">
+                  {selectedEvent.aboutCongruent}
                 </p>
               </div>
             )}
@@ -150,24 +252,77 @@ const NoviceInit = () => {
             {/* Rounds Tab */}
             {activeTab === "rounds" && selectedEvent.rounds?.length > 0 && (
               <div className="rounds-content para">
-                {selectedEvent.rounds.map((round, index) => (
-                  <div className="round-card" key={index}>
-                    <h3>{round.title}</h3>
-                    <p>
-                      <strong>Details:</strong> {round.content}
-                    </p>
-                    <p>
-                      <strong>Duration:</strong> {round.duration}
-                    </p>
-
-                    <p>
-                      <strong>Time:</strong> {round.time}
-                    </p>
-                    <p>
-                      <strong>Venue:</strong> {round.venue}
-                    </p>
+                {/* Round Sub-Tabs */}
+                {selectedEvent.rounds.length > 1 && (
+                  <div className="flex justify-center gap-3 mb-6 flex-wrap">
+                    {selectedEvent.rounds.map((round, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setActiveRound(index)}
+                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 border border-[#c0a068] ${
+                          activeRound === index
+                            ? "bg-[#c0a068] text-white shadow-[0_0_10px_rgba(192,160,104,0.4)] transform scale-105"
+                            : "bg-transparent text-[#c0a068] hover:bg-[#c0a06820]"
+                        }`}
+                      >
+                        {round.title.split("–")[0].trim() ||
+                          `Round ${index + 1}`}
+                      </button>
+                    ))}
                   </div>
-                ))}
+                )}
+
+                {/* Active Round Content */}
+                {(() => {
+                  const round =
+                    selectedEvent.rounds[activeRound] ||
+                    selectedEvent.rounds[0];
+                  return (
+                    <div className="round-card text-justify" key={activeRound}>
+                      <h3 className="text-xl font-bold text-[#c0a068] mb-4">
+                        {round.title}
+                      </h3>
+                      <p className="mb-3">
+                        <strong className="text-white">Details:</strong>{" "}
+                        {round.content}
+                      </p>
+                      {round.duration && (
+                        <p className="mb-2">
+                          <strong className="text-white">Duration:</strong>{" "}
+                          {round.duration}
+                        </p>
+                      )}
+                      <p className="mb-2">
+                        <strong className="text-white">Time:</strong>{" "}
+                        {round.time}
+                      </p>
+                      <p className="mb-2">
+                        <strong className="text-white">Venue:</strong>{" "}
+                        {round.venue}
+                      </p>
+                      {round.eligibility && (
+                        <p className="mb-2">
+                          <strong className="text-white">Eligibility:</strong>{" "}
+                          {round.eligibility}
+                        </p>
+                      )}
+                      {round.whatToExpect && (
+                        <p className="mb-2">
+                          <strong className="text-white">
+                            What to Expect:
+                          </strong>{" "}
+                          {round.whatToExpect}
+                        </p>
+                      )}
+                      {round.note && (
+                        <p className="mt-4 p-3 bg-[#c0a06815] border-l-2 border-[#c0a068] rounded text-sm text-gray-200">
+                          <strong className="text-[#c0a068]">📌 Note:</strong>{" "}
+                          {round.note}
+                        </p>
+                      )}
+                    </div>
+                  );
+                })()}
               </div>
             )}
             <div className="flex justify-center">

@@ -20,6 +20,7 @@ import rand3 from "../assets/Events/rand3.png";
 import rand4 from "../assets/Events/rand4.png";
 import rand5 from "../assets/Events/rand5.png";
 import money from "../assets/Events/money.png";
+import recruit from "../assets/Events/recruit.png";
 // Contacts for the EventPage
 
 export const EventContacts = [
@@ -87,11 +88,11 @@ export const events = [
         description:
           "A first-year focused event with an MCQ screening test that evaluates core technical knowledge, logical reasoning, and problem-solving speed. Shortlisted teams advance to the coding challenge.",
         image: rand3,
-        path: "/events/byte-begin",
+        path: "/events/get-set-go",
         team: "2-3 members",
         Date: "19 February 2026",
         prize: "Rs 7k",
-        to: "byte-begin",
+        to: "get-set-go",
         rounds: [
           {
             title: "Round 1 – MCQ Preliminary Round",
@@ -129,11 +130,11 @@ export const events = [
         description:
           "Predictrix – ML Edition is a two-round competitive event designed to evaluate participants' analytical thinking, problem-solving skills, and hands-on machine learning knowledge. The event progresses from concept-based challenges to real-world data-driven problem solving.",
         image: rand2, // Replace with your image path
-        path: "/events/brainwave.ml",
+        path: "/events/predictrix-ml",
         team: "2-3 members",
         Date: "19 February 2026",
         prize: "Rs 5k",
-        to: "brainwave.ml",
+        to: "predictrix-ml",
         rounds: [
           {
             title: "Round 1 - Concept Challenge",
@@ -172,11 +173,11 @@ export const events = [
         description:
           "ALGOBAZAAR is an innovative and engaging algorithm-based competition that combines strategic bidding, logical reasoning, and problem-solving skills. Instead of traditional coding, participants focus on analyzing problems and selecting the most appropriate algorithms to solve them, making the event both intellectually stimulating and highly strategic.",
         image: algob, // Replace with your image path
-        path: "/events/ctrl+escape",
+        path: "/events/algobazzar",
         team: "2 members",
         Date: "19 February 2026",
         prize: "Rs 5k",
-        to: "ctrl+escape",
+        to: "algobazzar",
         rounds: [
           {
             title: "Round 1 – Algorithm Aptitude Round",
@@ -211,14 +212,15 @@ export const events = [
       {
         id: 5,
         title: "Code Catalyst",
+        badge: "Girls Only",
         description:
-          "CodeCatalyst is a 2-round tech challenge designed to test participants' knowledge, logical thinking, and problem-solving skills. Open to all departments, this event encourages creativity and innovation without relying on external resources.",
+          "CodeCatalyst (Girls Only) is a 2-round tech challenge designed to test participants' knowledge, logical thinking, and problem-solving skills. Open to all departments, this event encourages creativity and innovation without relying on external resources.",
         image: bit, // Replace with your image path
-        path: "/events/ready-set-hire",
+        path: "/events/code-catalyst",
         team: "2 members",
         Date: "20 February 2026",
         prize: "Rs 7k",
-        to: "ready-set-hire",
+        to: "code-catalyst",
         rounds: [
           {
             title: "Round 1 - Logic Sprint (Qualifier)",
@@ -256,11 +258,11 @@ export const events = [
         description:
           "This event challenges participants to analyze and debug programs containing syntax, logical, and runtime errors within a limited time. It simulates real-world debugging scenarios, testing participants’ problem-solving ability, logical thinking, and coding proficiency. The event aims to enhance practical debugging skills commonly required in the software industry.",
         image: dbg, // Replace with your image path
-        path: "/events/debug-or-die",
+        path: "/events/bug-busters",
         team: "2 members",
         Date: "21 February 2026",
         prize: "Rs 5k",
-        to: "debug-or-die",
+        to: "bug-busters",
         rounds: [
           {
             title: "Round 1 - Error Spotting ",
@@ -354,8 +356,8 @@ export const events = [
           },
         ],
         contact: [
-          { id: 1, name: "Swarna Karthika", phone: "89034 31508" },
-          { id: 2, name: "Soumya", phone: "98422 28645" },
+          { id: 1, name: "Abharna Shree", phone: "73053 03307" },
+          { id: 2, name: "Deivaraja", phone: "99940 93874" },
         ],
       },
       {
@@ -407,7 +409,7 @@ export const events = [
         description:
           "Teams of 3 participants will take part in an exciting campus exploration challenge. Each team will be given a map to reach the treasure. The task is to identify the place, reach it, and take a group selfie with the location clearly visible in the background. After taking a selfie on each location, upload it on the google form. This process continues until the team successfully completes 6 to 7 locations. The team that explores all locations in the shortest time will be declared the winner.",
         image: th, // Replace with your image path
-        path: "/events/treasure-hunt",
+        path: "/events/campus-quest",
         rules: `• Register at CSE Department registration desk to receive starting materials
               • Each team receives a photograph of a campus location
               • Teams must identify the location, reach it, and take a group selfie
@@ -416,7 +418,7 @@ export const events = [
               • Complete 6-7 locations total
               • Winner determined by shortest completion time
               • All team members must stay together throughout the quest`,
-        to: "treasure-hunt",
+        to: "campus-quest",
         prize: "Rs 3k",
         time: "19 February 2026, 10:00 AM onwards",
         venue: "Campus-wide (Registration: CSE Department)",
@@ -482,9 +484,9 @@ export const events = [
         description:
           "Memory Heist is an interactive, multi-round game designed to test participants' observation, attention, and recall abilities. Open to all departments, the event challenges your cognitive skills through a series of fun and engaging rounds inspired by movies, patterns, and logic. Teams will compete to prove their sharp memory and quick thinking.",
         image: money, // Replace with your image path
-        path: "/events/money-heist",
+        path: "/events/memory-heist",
         rules: `Participants must follow on-screen timings strictly during The Blink Test and are not allowed to take notes or photos while slides are shown. In Rewrite Recall, answers must be based only on memory; discussion with other teams or use of external material is not allowed.`,
-        to: "money-heist",
+        to: "memory-heist",
         prize: "Rs 2.5k",
         rounds: [
           {
@@ -523,9 +525,9 @@ export const events = [
         description:
           "The Secret of Langton Manor is an escape room game. Like all escape room games, you will need to solve a series of puzzles for a certain time. The story is set in a mysterious old mansion, and players must work together to explore the rooms, find hidden objects, and decode cryptic messages. All participating teams enter the room at the same time and are given a sequence of story-linked puzzles. Each puzzle unlocks the next stage of the mission. Teams must analyze clues, solve puzzles, and record their answers on paper within the given time limit. The team that successfully solves all puzzles accurately in the shortest time will be declared the winner. The game tests logical thinking, teamwork, time management, and problem-solving skills under pressure.",
         image: rand4, // Replace with your image path
-        path: "/events/code-red",
+        path: "/events/the-langton-paradox",
         rules: `Mobiles and personal devices are not allowed inside the escape room. Teams must use only the props and clues provided, and must record answers on paper. Time and points are tracked by volunteers; hints may carry penalties. Winners are decided based on total points and time taken.`,
-        to: "code-red",
+        to: "the-langton-paradox",
         prize: "Rs 2.5k",
         rounds: [
           {
@@ -627,8 +629,8 @@ export const events = [
         prize: "Rs 1.5k",
         mode: "Online",
         formLink: "https://forms.gle/KjP8uFaraAs1ej219",
-        path: "/events/lights-camera-reel",
-        to: "lights-camera-reel",
+        path: "/events/clickify",
+        to: "clickify",
         contact: [
           {
             id: 1,
@@ -653,8 +655,8 @@ export const events = [
         prize: "Rs 3k",
         venue: "Badminton Court, Main Gallery",
         formLink: "https://forms.gle/iWSSwwpN4AyESWwB8",
-        path: "/events/war-of-the-rackets",
-        to: "war-of-the-rackets",
+        path: "/events/rally-royale",
+        to: "rally-royale",
         contact: [
           {
             id: 1,
@@ -679,8 +681,8 @@ export const events = [
         prize: "Rs 2k",
         venue: "Ground",
         formLink: "https://forms.gle/8HWbae1NivD33Pd18",
-        path: "/events/gcl",
-        to: "gcl",
+        path: "/events/boundary-bash",
+        to: "boundary-bash",
         contact: [
           {
             id: 1,
@@ -705,8 +707,8 @@ export const events = [
         prize: "Rs 2k",
         venue: "Main Ground",
         formLink: "https://forms.gle/pvuT5e6sRvecakrQ8",
-        path: "/events/au-campus-football-league",
-        to: "au-campus-football-league",
+        path: "/events/kickoff-fiesta",
+        to: "kickoff-fiesta",
         contact: [
           {
             id: 1,
@@ -727,5 +729,83 @@ export const events = [
       },
     ],
     path: "/events/technical-events", // Path to the event page
+  },
+  {
+    title: "Recruitment Event",
+    image: recruit,
+    badge: "Get Placed",
+    event: [
+      {
+        id: 20,
+        title: "Sprint Zero",
+        subtitle: "Inside the Industry Coding & Product Mindset",
+        description:
+          "An exclusive opportunity to kickstart your career with Congruent Solutions - a leading technology recruitment partner. This two-round hiring process is designed to identify top talent through a rigorous online assessment followed by an intensive offline technical evaluation. Selected candidates may receive direct placement opportunities with competitive packages and real-world project exposure.",
+        image: recruit,
+        path: "/events/recruitment-drive",
+        team: "Individual",
+        Date: "Round 1: 16 February 2026, 7:30 PM (Online) | Round 2: 19 February 2026, 11:00 AM - 5:00 PM (Offline)",
+        prize: "Placement Opportunity",
+        mode: "Hybrid (Online + Offline)",
+        to: "recruitment-drive",
+        formLink: "https://forms.gle/FDfScNYcmDUxTjfL6",
+        registrationDeadline: "15 February 2026, 6:00 PM",
+        recruitmentPartner: "Congruent Solutions",
+        rounds: [
+          {
+            title: "Round 1 – Online Prelims (HackerRank Assessment)",
+            content:
+              "Prove your coding prowess in this HackerRank-based online preliminary round. This comprehensive assessment evaluates your problem-solving abilities, algorithmic thinking, and coding efficiency across multiple difficulty levels. Questions will cover data structures, algorithms, logical reasoning, and core programming concepts. Only top performers will advance to the final round. Make sure your HackerRank profile is updated and you have a stable internet connection.",
+            duration: "90-120 minutes",
+            time: "16 February 2026, 7:30 PM",
+            venue: "Online (HackerRank Platform)",
+            eligibility:
+              "Open to all engineering students (Pre-final and Final year preferred)",
+            note: "Registration closes on 15 February 2026 at 6:00 PM. Contest link will be shared via email.",
+          },
+          {
+            title: "Round 2 – Technical Session",
+            content:
+              "Shortlisted candidates from Round 1 will face an offline technical session introducing you to the tech industry, and you may also have to solve coding challenges.",
+            duration: "6 hours (11:00 AM - 5:00 PM)",
+            time: "19 February 2026, 11:00 AM - 5:00 PM",
+            venue: "GFL (Ground Floor Lab, Department of CSE)",
+            note: "Shortlisted candidates will be notified via email after Round 1. Bring your college ID and laptop.",
+            whatToExpect:
+              "Live coding challenges, tech talk and industry exposure sessions.",
+          },
+        ],
+        highlights: [
+          "🎯 Direct Placement Opportunity with Congruent Solutions",
+          "🚀 Work on cutting-edge technology projects",
+          "📈 Career growth and professional development",
+          "🏆 Industry-recognized certification for all participants",
+          "👨‍💼 Mentorship from seasoned industry professionals",
+          "⚡ Fast-track interview process - no multiple rounds of campus placements",
+        ],
+        whyShouldYouParticipate: [
+          "Skip the usual lengthy campus placement process",
+          "Showcase your skills through practical challenges, not just resumes",
+          "Network with industry professionals and fellow talented peers",
+          "Perfect opportunity for pre-final and final year students",
+          "No registration fee - completely free to participate",
+        ],
+        aboutCongruent:
+          "Congruent Solutions is a premier technology services company specializing in innovative software solutions, enterprise consulting, and digital transformation. With a proven track record of nurturing fresh talent and providing hands-on learning experiences, Congruent has placed hundreds of students in fulfilling tech careers across multiple domains including Full Stack Development, Data Engineering, Cloud Computing, AI/ML, and DevOps.",
+        contact: [
+          {
+            id: 1,
+            name: "Kamalesh N",
+            phone: "86103 86055",
+          },
+          {
+            id: 2,
+            name: "Madhubaalika M",
+            phone: "73058 97553",
+          },
+        ],
+      },
+    ],
+    path: "/events/recruitment-drive",
   },
 ];

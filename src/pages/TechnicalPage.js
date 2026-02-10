@@ -35,6 +35,11 @@ const TechnicalPage = () => {
               className={`event-card ${index % 2 !== 0 ? "reverse-layout" : ""}`}
             >
               <div className="card-image-wrapper">
+                {item.badge && (
+                  <div className="technical-card-badge">
+                    <span>{item.badge}</span>
+                  </div>
+                )}
                 <img src={item.image} alt={item.title} />
               </div>
 
