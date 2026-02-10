@@ -45,30 +45,30 @@ const Profile = () => {
 
   // ✅ Check referral code on mount
   // ✅ Check referral code on mount
-useEffect(() => {
-  const checkReferral = async () => {
-    try {
-      const res = await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/admin/my-referral-code`,
+  useEffect(() => {
+    const checkReferral = async () => {
+      try {
+        const res = await axios.post(
+          `${process.env.REACT_APP_API_BASE_URL}/admin/get-my-referral-code`,
           { email: userData.email },
-        { withCredentials: true }
-      );
+          { withCredentials: true },
+        );
 
-      if (res.data.hasCode) {
-        setReferralCode(res.data.referralCode);
-      } else {
+        if (res.data.hasCode) {
+          setReferralCode(res.data.referralCode);
+        } else {
+          setReferralCode(null);
+        }
+      } catch (err) {
+        console.error("Referral check failed", err);
         setReferralCode(null);
+      } finally {
+        setLoadingReferral(false);
       }
-    } catch (err) {
-      console.error("Referral check failed", err);
-      setReferralCode(null);
-    } finally {
-      setLoadingReferral(false);
-    }
-  };
+    };
 
-  checkReferral();
-}, []);
+    checkReferral();
+  }, []);
 
   // ✅ Handle registration
   const handleRegisterCA = async () => {
@@ -77,7 +77,7 @@ useEffect(() => {
       const res = await axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/admin/register-ca-from-user`,
         { abacusId: userData.abacusId },
-        { withCredentials: true }
+        { withCredentials: true },
       );
       setReferralCode(res.data.campusAmbassador.referralCode);
     } catch (err) {
@@ -94,28 +94,38 @@ useEffect(() => {
       <div className="user-card">
         <div className="user-header">
           <h2>Profile</h2>
-        <div className="user-info-bar">
-          <div className="info-text sa-text mb-2">
-             <p><b>Student Ambassadors</b> who achieve <b>25 event</b> registrations will receive a <b>Selection Certificate</b> endorsed by CSEA, CEG – Anna University. Those who secure <b>5 workshop</b> registrations will get <b>free access to one tech workshop</b> at ABACUS’26. The best-performing Student Ambassador will be rewarded with <b>exclusive merchandise and exciting goodies</b>.
-         </p> </div>
-       
-          {/* 1️⃣ Show button or referral code based on state */}
-          {loadingReferral ? (
-            <p>Checking ambassador status...</p>
-          ) : referralCode ? (
-            <p className="referral-code">
-                        Your Referral Code: <strong>{referralCode}</strong>
-            </p>
-           ) : (
-                <button
-                  className="action-btn m-5 ambassador"
-                  onClick={handleRegisterCA}
-                  disabled={isRegistering}
-                >
-                  {isRegistering ? "Registering..." : "Register as Student Ambassador"}
-                </button>
-          )}
- </div>
+          <div className="user-info-bar">
+            <div className="info-text sa-text mb-2">
+              <p>
+                <b>Student Ambassadors</b> who achieve <b>25 event</b>{" "}
+                registrations will receive a <b>Selection Certificate</b>{" "}
+                endorsed by CSEA, CEG – Anna University. Those who secure{" "}
+                <b>5 workshop</b> registrations will get{" "}
+                <b>free access to one tech workshop</b> at ABACUS’26. The
+                best-performing Student Ambassador will be rewarded with{" "}
+                <b>exclusive merchandise and exciting goodies</b>.
+              </p>{" "}
+            </div>
+
+            {/* 1️⃣ Show button or referral code based on state */}
+            {loadingReferral ? (
+              <p>Checking ambassador status...</p>
+            ) : referralCode ? (
+              <p className="referral-code">
+                Your Referral Code: <strong>{referralCode}</strong>
+              </p>
+            ) : (
+              <button
+                className="action-btn m-5 ambassador"
+                onClick={handleRegisterCA}
+                disabled={isRegistering}
+              >
+                {isRegistering
+                  ? "Registering..."
+                  : "Register as Student Ambassador"}
+              </button>
+            )}
+          </div>
           <div className="user-details-grid">
             <p>
               <strong>Name:</strong> {userData.name}
@@ -164,7 +174,7 @@ useEffect(() => {
                   const matchingWorkshop = workshopsReach.find(
                     (ws) =>
                       ws.code === workshop.workshopId &&
-                      workshop.status === "SUCCESS"
+                      workshop.status === "SUCCESS",
                   );
                   return matchingWorkshop ? (
                     <li key={`success-${index}`} className="status-success">
@@ -177,7 +187,7 @@ useEffect(() => {
                   const matchingWorkshop = workshopsReach.find(
                     (ws) =>
                       ws.code === workshop.workshopId &&
-                      workshop.status === "PENDING"
+                      workshop.status === "PENDING",
                   );
                   return matchingWorkshop ? (
                     <li key={`pending-${index}`} className="status-pending">
@@ -189,7 +199,7 @@ useEffect(() => {
                 {session.length > 0 &&
                   user.workshops.map((workshop, index) => {
                     const matchingWorkshop = sessions.find(
-                      (ws) => ws.code === workshop.workshopId
+                      (ws) => ws.code === workshop.workshopId,
                     );
                     return matchingWorkshop ? (
                       <li key={`session-${index}`}>{matchingWorkshop.title}</li>
