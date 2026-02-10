@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserData } from "../context/userContext";
 import { FaLocationDot } from "react-icons/fa6";

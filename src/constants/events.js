@@ -1,6 +1,10 @@
 import img1 from "../assets/images/techevent.png";
 import img2 from "../assets/images/nontech.png"; // Example images
 import img3 from "../assets/images/preevnt.png";
+import zt from "../assets/Events/zt.png";
+import black from "../assets/Events/black.png";
+import mcu from "../assets/Events/mcu.png";
+import neo from "../assets/Events/neo.png";
 import algob from "../assets/Events/algob.png";
 import bit from "../assets/Events/bit.png";
 import bm from "../assets/Events/bm.png";
@@ -288,6 +292,104 @@ export const events = [
           },
         ],
       },
+      {
+        id: 7,
+        title: "Zero Trace",
+        description:
+          "Zero Trace is a DBMS-oriented forensic challenge where participants investigate a high-profile casino database heist by untangling corrupted logs, tracking transactions, and uncovering hidden inconsistencies using pure database logic.",
+        image: zt,
+        path: "/events/zero-trace",
+        team: "2–3 members",
+        Date: "20 February 2026",
+        prize: "Rs 6k",
+        to: "zero-trace",
+        rounds: [
+          {
+            title: "Round 1 – The Heist",
+            content:
+              "Participants are trapped inside a corrupted casino database. By analyzing transaction logs, rollbacks, deadlocks, and pending states, teams must extract three digital keys using accurate DBMS logic. Precision is critical; one wrong assumption breaks the vault code.",
+            time: "20 February 2026, 09:30 AM to 12:30 PM",
+            venue: "R2",
+          },
+          {
+            title: "Round 2 – Silent Sabotage",
+            content:
+              "Participants investigate a subtly sabotaged database. Without being told what to search for, teams must rely on system understanding and complex SQL queries to identify what is missing or altered and prove insider tampering.",
+            time: "20 February 2026, 02:00 PM to 05:00 PM",
+            venue: "GFL",
+          },
+        ],
+        contact: [
+          { id: 1, name: "Neelakandan", phone: "79042 42787" },
+          { id: 1, name: "Anagha", phone: "88257 89933" },
+        ],
+      },
+      {
+        id: 8,
+        title: "Blackout",
+        description:
+          "Blackout is a two-round technical challenge that evaluates participants’ debugging, system analysis, teamwork, and web development skills. Teams first uncover bugs in a broken system and then collaboratively rebuild a failing application under pressure.",
+        image: black,
+        path: "/events/blackout",
+        team: "2 members",
+        Date: "19 February 2026",
+        prize: "Rs 6k",
+        to: "blackout",
+        rounds: [
+          {
+            title: "Round 1 – Bug Hunt",
+            content:
+              "Teams explore a pre-built web application seeded with UI, logic, navigation, and authentication bugs. Without source code access, participants must identify, reproduce, and document defects accurately.",
+            duration: "45 minutes",
+            time: "19 February 2026, 10:00 AM to 01:00 PM",
+            venue: "R1",
+          },
+          {
+            title: "Round 2 – Collaborative Build Challenge",
+            content:
+              "Teams split into Builder and Thinker roles. While one prepares the UI and frontend, the other unlocks system features by solving web-based technical challenges. Each solved challenge activates new functionality, gradually restoring the application.",
+            duration: "60–90 minutes",
+            time: "19 February 2026, 02:00 PM to 05:00 PM",
+            venue: "SFL",
+          },
+        ],
+        contact: [
+          { id: 1, name: "Swarna Karthika", phone: "89034 31508" },
+          { id: 2, name: "Soumya", phone: "98422 28645" },
+        ],
+      },
+      {
+        id: 9,
+        title: "Neonova – Ideathon",
+        description:
+          "Neonova is a two-round ideathon where participants brainstorm and present impactful solutions to real-world problems across multiple domains, emphasizing creativity, feasibility, and clarity of communication.",
+        image: neo,
+        path: "/events/neonova",
+        team: "2–4 members",
+        Date: "20 February 2026",
+        prize: "Rs 6k",
+        to: "neonova",
+        rounds: [
+          {
+            title: "Round 1 – Domain Ideation",
+            content:
+              "Teams select a problem statement from predefined domains such as Healthcare, Cyber Security, Responsible AI, and Sustainability, and prepare a structured presentation evaluated on originality, impact, and feasibility.",
+            time: "20 February 2026, 09:30 AM - 12:30 PM",
+            venue: "Temenos Lab",
+          },
+          {
+            title: "Round 2 – On-Spot Ideation",
+            content:
+              "Teams randomly draw problem statements and are given two hours to design and present a solution under supervision. Originality and independent thinking are strongly emphasized.",
+            time: "20 February 2026, 02:00 PM - 05:00 PM",
+            venue: "Temenos Lab",
+          },
+        ],
+        contact: [
+          { id: 1, name: "Abhishek", phone: "63835 29839 " },
+          { id: 2, name: "Abhinav", phone: "99402 19278" },
+        ],
+      },
     ],
     path: "/events/technical-events", // Path to the event page
   },
@@ -445,6 +547,38 @@ export const events = [
             name: "Sahana",
             phone: "74182 47031",
           },
+        ],
+      },
+      {
+        id: 13,
+        title: "MCU vs DC Quiz",
+        Date: "19 February 2026",
+        team: "1–4 members",
+        description:
+          "An ultimate fandom showdown between Marvel and DC. This quiz spans decades of comic lore, cinematic universes, iconic heroes, villains, timelines, and legendary story arcs.",
+        image: mcu,
+        path: "/events/mcu-vs-dc",
+        to: "mcu-vs-dc",
+        prize: "Rs 3k",
+        rounds: [
+          {
+            title: "Round 1 – Written Quiz",
+            content:
+              "A fast-paced written round testing knowledge across comics, movies, characters, powers, teams, gadgets, and historic moments. Top 6 teams qualify.",
+            time: "19 February 2026, 10:00 AM to 01:00 PM",
+            venue: "Turing Hall",
+          },
+          {
+            title: "Round 2 – Pounce & Bounce",
+            content:
+              "An interactive round featuring visual identification, audio clues, interconnected hints, and rapid-fire questions demanding speed and precision.",
+            time: "19 February 2026, 02:00 PM to 05:00 PM",
+            venue: "Turing Hall",
+          },
+        ],
+        contact: [
+          { id: 1, name: "Jaison", phone: "90256 01119" },
+          { id: 2, name: "Visvam", phone: "63850 50355" },
         ],
       },
     ],
