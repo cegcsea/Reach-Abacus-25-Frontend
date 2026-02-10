@@ -171,14 +171,29 @@ const App = () => {
             {/* <Route path="/events/:id" element={<EventPayment />} /> */}
             <Route path="/workshops" element={<Workshops />} />
             <Route path="/workshops/:id" element={<IndividualWorkshops />} />
-            <Route path="/workshops/:id/payment" element={<Payment />} />
+            <Route
+              path="/workshops/:id/payment"
+              element={
+                <ProtectedRoute>
+                  <Payment />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path="/workshops/bulk/payment"
-              element={<BulkWorkshopPayment />}
+              element={
+                <ProtectedRoute>
+                  <BulkWorkshopPayment />
+                </ProtectedRoute>
+              }
             />
             <Route
               path="/workshops/:id/bulkpayment"
-              element={<BulkWorkshopPayment />}
+              element={
+                <ProtectedRoute>
+                  <BulkWorkshopPayment />
+                </ProtectedRoute>
+              }
             />
             <Route path="/login" element={<HomePage />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />

@@ -233,13 +233,13 @@ const IndividualWorkshops = () => {
             <div className="mt-6 space-y-3">
               {isAuth && !isRegistered && (
                 <>
-                  <Link to={`/workshops/${workshop.code}/payment`}>
+                  <Link to={`/workshops/${workshop.to}/payment`}>
                     <button className="w-full px-6 py-4 bg-gradient-to-r from-[#c0a068] to-[#aa8c2c] text-black text-lg font-bold rounded-lg hover:from-[#aa8c2c] hover:to-[#c0a068] transition-all duration-300 shadow-xl">
                       Register for ₹{workshop.price}
                     </button>
                   </Link>
                   {workshop.bulkBooking && (
-                    <Link to={`/workshops/${workshop.code}/bulkpayment`}>
+                    <Link to={`/workshops/${workshop.to}/bulkpayment`}>
                       <button className="w-full px-6 py-4 border-2 border-[#c0a068] text-[#c0a068] text-lg font-bold rounded-lg hover:bg-[#c0a068] hover:text-black transition-all duration-300">
                         Bulk Register - Save ₹100
                       </button>
@@ -251,7 +251,7 @@ const IndividualWorkshops = () => {
                 isRegistered &&
                 workshop.bulkBooking &&
                 bestPayment?.status === "FAILURE" && (
-                  <Link to={`/workshops/${workshop.code}/bulkpayment`}>
+                  <Link to={`/workshops/${workshop.to}/bulkpayment`}>
                     <button className="w-full px-6 py-4 border-2 border-[#c0a068] text-[#c0a068] text-lg font-bold rounded-lg hover:bg-[#c0a068] hover:text-black transition-all duration-300">
                       Bulk Register - Save ₹100
                     </button>
@@ -311,7 +311,7 @@ const IndividualWorkshops = () => {
 
           {bestPayment?.status === "FAILURE" && (
             <div className="space-y-4 text-center">
-              <Link to={`/workshops/${workshop.code}/payment`}>
+              <Link to={`/workshops/${workshop.to}/payment`}>
                 <button className="px-8 py-3 bg-red-500/20 border-2 border-red-500 text-red-400 rounded-lg hover:bg-red-500/30 transition-all font-semibold">
                   Retry Payment
                 </button>
