@@ -16,7 +16,9 @@ const IndividualWorkshops = () => {
   const [activeTab, setActiveTab] = useState("description");
   const [bestPayment, setBestPayment] = useState(null);
   const isRegistered = (user?.WorkshopPayment || []).some(
-    (ws) => ws.workshopId === workshop.code,
+    (ws) =>
+      ws.workshopId === workshop.code ||
+      (ws.workshopId === 0 && [1, 2].includes(workshop.code)),
   );
 
   const { isLoading } = LoaderData();
@@ -25,7 +27,9 @@ const IndividualWorkshops = () => {
       return null;
     }
     const workshopPayments = user.WorkshopPayment.filter(
-      (payment) => payment.workshopId === workshop.code,
+      (payment) =>
+        payment.workshopId === workshop.code ||
+        (payment.workshopId === 0 && [1, 2].includes(workshop.code)),
     );
 
     let bestPayment = null;

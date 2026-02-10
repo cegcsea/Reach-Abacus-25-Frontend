@@ -19,22 +19,31 @@ const BulkWorkshopPayment = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isLoading } = LoaderData();
 
-  // Check if user already registered for both workshops
-  const registeredWorkshops =
-    user?.WorkshopPayment?.filter(
-      (payment) => payment.status === "SUCCESS",
-    ).map((payment) => payment.workshopId) || [];
-
-  const bothRegistered = workshops.every((w) =>
-    registeredWorkshops.includes(w.code),
+  // Check for existing bulk payment (workshopId: 0)
+  const bulkPayment = user?.WorkshopPayment?.find(
+    (p) => p.workshopId === 0 && ["SUCCESS", "PENDING"].includes(p.status),
   );
 
+  // Check for individual workshop registrations (codes 1 or 2)
+  // Backend blocks bulk payment if registered for ANY of the included workshops
+  const individualRegistrations =
+    user?.workshops?.filter((w) => [1, 2].includes(w.workshopId)) || [];
+
   useEffect(() => {
-    if (bothRegistered) {
-      toast.success("You are already registered for both workshops!");
+    if (bulkPayment) {
+      if (bulkPayment.status === "SUCCESS") {
+        toast.success("You have already purchased the bulk workshop package!");
+      } else {
+        toast.success("Your bulk workshop payment is pending verification.");
+      }
+      navigate("/workshops");
+    } else if (individualRegistrations.length > 0) {
+      toast.error(
+        "You are already registered for one or both workshops individually. Bulk package is not available.",
+      );
       navigate("/workshops");
     }
-  }, [bothRegistered, navigate]);
+  }, [bulkPayment, individualRegistrations, navigate]);
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -76,7 +85,7 @@ const BulkWorkshopPayment = () => {
     );
   };
 
-  if (isLoading || bothRegistered) {
+  if (isLoading || bulkPayment || individualRegistrations.length > 0) {
     return <Loader />;
   }
 
