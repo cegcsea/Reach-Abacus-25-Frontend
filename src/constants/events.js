@@ -359,7 +359,7 @@ export const events = [
         ],
       },
       {
-        id: 9,
+        id: 19,
         title: "Neonova – Ideathon",
         description:
           "Neonova is a two-round ideathon where participants brainstorm and present impactful solutions to real-world problems across multiple domains, emphasizing creativity, feasibility, and clarity of communication.",
