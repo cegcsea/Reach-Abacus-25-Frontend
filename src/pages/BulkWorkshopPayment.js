@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { UserData } from "../context/userContext";
 import { useNavigate } from "react-router-dom";
 import { LoaderData } from "../context/loaderContext";
@@ -26,8 +26,20 @@ const BulkWorkshopPayment = () => {
 
   // Check for individual workshop registrations (codes 1 or 2)
   // Backend blocks bulk payment if registered for ANY of the included workshops
-  const individualRegistrations =
-    user?.workshops?.filter((w) => [1, 2].includes(w.workshopId)) || [];
+  // We must check both confirmed workshops AND pending payments
+  const individualRegistrations = useMemo(
+    () => [
+      // Check confirmed workshops
+      ...(user?.workshops?.filter((w) => [1, 2].includes(w.workshopId)) || []),
+      // Check pending/success payments for individual workshops
+      ...(user?.WorkshopPayment?.filter(
+        (p) =>
+          [1, 2].includes(p.workshopId) &&
+          ["SUCCESS", "PENDING"].includes(p.status),
+      ) || []),
+    ],
+    [user?.workshops, user?.WorkshopPayment],
+  );
 
   useEffect(() => {
     if (bulkPayment) {
