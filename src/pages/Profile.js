@@ -44,14 +44,19 @@ const Profile = () => {
   };
 
   // ✅ Check referral code on mount
-  // ✅ Check referral code on mount
   useEffect(() => {
     const checkReferral = async () => {
+      // Only check if we have a real user (not fallback)
+      if (!user || !user.email) {
+        setLoadingReferral(false);
+        return;
+      }
+
       try {
         const token = localStorage.getItem("abacustoken");
         const res = await axios.post(
           `${process.env.REACT_APP_API_BASE_URL}/admin/get-my-referral-code`,
-          { email: userData.email },
+          { email: user.email },
           { headers: { token } },
         );
 
@@ -69,16 +74,21 @@ const Profile = () => {
     };
 
     checkReferral();
-  }, []);
+  }, [user]);
 
   // ✅ Handle registration
   const handleRegisterCA = async () => {
+    if (!user || !user.abacusId) {
+      alert("User data not loaded. Please refresh the page.");
+      return;
+    }
+
     setIsRegistering(true);
     try {
       const token = localStorage.getItem("abacustoken");
       const res = await axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/admin/register-ca-from-user`,
-        { abacusId: userData.abacusId },
+        { abacusId: user.abacusId },
         { headers: { token } },
       );
       setReferralCode(res.data.campusAmbassador.referralCode);
