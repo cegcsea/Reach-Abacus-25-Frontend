@@ -428,10 +428,10 @@ export const UserContextProvider = ({ children }) => {
     toast.promise(
       verifyBulkWorkshopPayment(
         {
-          workshopId: JSON.stringify(data.workshopId),
+          workshopId: data.workshopId,
           paymentMobile: data.paymentMobile,
           transactionId: data.transactionId,
-          userIds: JSON.stringify(data.userIds),
+          userIds: data.userIds,
         },
         navigate,
       ).then((responsesData) => {
