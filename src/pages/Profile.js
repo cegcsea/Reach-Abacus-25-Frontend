@@ -46,14 +46,14 @@ const Profile = () => {
   // ✅ Check referral code on mount
   useEffect(() => {
     const checkReferral = async () => {
-      // Only check if we have a real user (not fallback)
-      if (!user || !user.email) {
+      // Only check if we have a real user with valid auth
+      const token = localStorage.getItem("abacustoken");
+      if (!user || !user.id || !user.email || !token || user.id === "10001") {
         setLoadingReferral(false);
         return;
       }
 
       try {
-        const token = localStorage.getItem("abacustoken");
         const res = await axios.post(
           `${process.env.REACT_APP_API_BASE_URL}/admin/get-my-referral-code`,
           { email: user.email },
@@ -74,18 +74,26 @@ const Profile = () => {
     };
 
     checkReferral();
-  }, [user]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user?.id]); // Only re-run when user ID changes (not on every user property update)
 
   // ✅ Handle registration
   const handleRegisterCA = async () => {
-    if (!user || !user.abacusId) {
+    const token = localStorage.getItem("abacustoken");
+
+    if (!user || !user.abacusId || !user.id || user.id === "10001") {
       alert("User data not loaded. Please refresh the page.");
+      return;
+    }
+
+    if (!token) {
+      alert("Authentication token missing. Please log in again.");
+      navigate("/auth");
       return;
     }
 
     setIsRegistering(true);
     try {
-      const token = localStorage.getItem("abacustoken");
       const res = await axios.post(
         `${process.env.REACT_APP_API_BASE_URL}/admin/register-ca-from-user`,
         { abacusId: user.abacusId },
@@ -93,6 +101,7 @@ const Profile = () => {
       );
       setReferralCode(res.data.campusAmbassador.referralCode);
     } catch (err) {
+      console.error("Registration error:", err);
       alert(err.response?.data?.message || "Error registering CA");
     } finally {
       setIsRegistering(false);
