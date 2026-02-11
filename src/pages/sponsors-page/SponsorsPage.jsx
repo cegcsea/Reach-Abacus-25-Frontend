@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./SponsorsPage.css";
 import CONGRUENT from "../../assets/Sponsors/Congruet.png";
 import MOTORQ from "../../assets/Sponsors/motoroque.png";
+import GUVI from "../../assets/Sponsors/Guvi.png";
 
 const sponsors = [
   {
@@ -18,6 +19,13 @@ const sponsors = [
       "Headquartered in the San Francisco Bay Area, Motorq is an analytics software platform company that was created for the sole purpose of realizing the potential of connected-car data. The possibilities are virtually endless. They're committed to leveraging this data to help businesses unlock the power of raw data by deciphering and creating actionable insights from a variety of disparate connected-car systems. Their cloud-based system allows them to deliver better, faster and more cost-effective insights so the clients can focus on what they do best.",
     website: "https://motorq.com/",
   },
+  {
+    name: "HCL GUVI - Learning Partner",
+    logo: GUVI,
+    description:
+      "HCL GUVI (Grab Ur Vernacular Imprint) is an HCL Group-acquired EdTech company, originally incubated by IIT Madras and IIM Ahmedabad in 2014, providing multilingual, high-quality technical education and upskilling. It offers over 1,200 courses, including AI, Full Stack Development, and Data Science, catering to 4 million+ learners across Indian languages (Hindi, Tamil, etc.).",
+    website: "https://www.guvi.in/",
+  },
 ];
 
 const SponsorsPage = () => {
@@ -29,8 +37,19 @@ const SponsorsPage = () => {
     <div className="sptotal">
       <svg style={{ position: "absolute", width: 0, height: 0 }}>
         <defs>
-          <filter id="fast-uneven-electric" x="-20%" y="-20%" width="140%" height="140%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="4" result="noise">
+          <filter
+            id="fast-uneven-electric"
+            x="-20%"
+            y="-20%"
+            width="140%"
+            height="140%"
+          >
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.05"
+              numOctaves="4"
+              result="noise"
+            >
               <animate
                 attributeName="seed"
                 values="1;45;12;88;3;150;22"
@@ -44,8 +63,8 @@ const SponsorsPage = () => {
         </defs>
       </svg>
 
-    <br/>
-    <br/>
+      <br />
+      <br />
       <div className="sphead">
         <h1>Sponsors</h1>
       </div>
@@ -54,7 +73,6 @@ const SponsorsPage = () => {
         {sponsors.map((sponsor, index) => (
           <div key={index} className="sp-wrapper">
             <div className="sp-card-container">
-
               <div className="electric-line"></div>
               <div className="sp-overlay-1"></div>
               <div className="sp-overlay-2"></div>
@@ -67,7 +85,11 @@ const SponsorsPage = () => {
                 </div>
 
                 <div className="sp-card-content">
-                  <img src={sponsor.logo} alt={sponsor.name} className="sp-logo" />
+                  <img
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    className="sp-logo"
+                  />
                   <div className="sp-text-container">
                     <div className="sphead">
                       <h4>{sponsor.name}</h4>
@@ -84,7 +106,6 @@ const SponsorsPage = () => {
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         ))}

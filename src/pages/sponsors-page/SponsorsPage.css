@@ -12,17 +12,8 @@
 body {
   margin: 0;
   background:
-    radial-gradient(
-      circle at top,
-      rgba(192,160,104,0.08),
-      transparent 60%
-    ),
-    linear-gradient(
-      180deg,
-      #060606 0%,
-      #040404 50%,
-      #020202 100%
-    );
+    radial-gradient(circle at top, rgba(192, 160, 104, 0.08), transparent 60%),
+    linear-gradient(180deg, #060606 0%, #040404 50%, #020202 100%);
   background-color: var(--simp-black-bg);
 }
 
@@ -43,8 +34,13 @@ body {
 }
 
 @keyframes floatUpDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 /* ================= HEADER TITLE (FIXED SHIMMER) ================= */
@@ -69,12 +65,14 @@ body {
   -webkit-text-fill-color: transparent;
 
   animation: gold-shimmer 8s linear infinite;
-  text-shadow: 0 0 30px rgba(192,160,104,0.35);
+  text-shadow: 0 0 30px rgba(192, 160, 104, 0.35);
 }
 
 /* Title with gold shimmer effect - Desktop Size */
 @keyframes gold-shimmer {
-  to { background-position: 200% center; }
+  to {
+    background-position: 200% center;
+  }
 }
 
 /* ================= CARD ================= */
@@ -99,14 +97,19 @@ body {
   border: 2.5px solid var(--simp-gold-primary);
   filter: url(#fast-uneven-electric);
   box-shadow:
-    0 0 15px rgba(192,160,104,0.6),
-    inset 0 0 10px rgba(192,160,104,0.4);
+    0 0 15px rgba(192, 160, 104, 0.6),
+    inset 0 0 10px rgba(192, 160, 104, 0.4);
   animation: jitterOpacity 0.15s infinite;
 }
 
 @keyframes jitterOpacity {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.85; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
 }
 
 /* ================= SHIMMER OVERLAYS (UNCHANGED) ================= */
@@ -121,7 +124,7 @@ body {
   background: linear-gradient(
     45deg,
     transparent 0%,
-    rgba(255,255,255,0.15) 50%,
+    rgba(255, 255, 255, 0.15) 50%,
     transparent 100%
   );
   pointer-events: none;
@@ -129,12 +132,20 @@ body {
   background-size: 200% 200%;
 }
 
-.sp-overlay-1 { animation: shimmerMove 4s linear infinite; }
-.sp-overlay-2 { animation: shimmerMove 6s linear infinite reverse; }
+.sp-overlay-1 {
+  animation: shimmerMove 4s linear infinite;
+}
+.sp-overlay-2 {
+  animation: shimmerMove 6s linear infinite reverse;
+}
 
 @keyframes shimmerMove {
-  from { background-position: -200% 0; }
-  to { background-position: 200% 0; }
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
 }
 
 /* ================= CONFETTI (EXACT AS REQUESTED) ================= */
@@ -156,26 +167,73 @@ body {
   animation: sp-makeItRain 3000ms infinite linear;
 }
 
-.sp-confetti-piece:nth-child(4n) { background-color: #FFD700; }
-.sp-confetti-piece:nth-child(4n+1) { background-color: #FF6B6B; }
-.sp-confetti-piece:nth-child(4n+2) { background-color: #4ECDC4; }
-.sp-confetti-piece:nth-child(4n+3) { background-color: #A663CC; }
+.sp-confetti-piece:nth-child(4n) {
+  background-color: #ffd700;
+}
+.sp-confetti-piece:nth-child(4n + 1) {
+  background-color: #ff6b6b;
+}
+.sp-confetti-piece:nth-child(4n + 2) {
+  background-color: #4ecdc4;
+}
+.sp-confetti-piece:nth-child(4n + 3) {
+  background-color: #a663cc;
+}
 
-.sp-confetti-piece:nth-child(1) { left: 5%; animation-delay: 0s; }
-.sp-confetti-piece:nth-child(2) { left: 15%; animation-delay: 0.2s; }
-.sp-confetti-piece:nth-child(3) { left: 25%; animation-delay: 0.5s; }
-.sp-confetti-piece:nth-child(4) { left: 35%; animation-delay: 0.1s; }
-.sp-confetti-piece:nth-child(5) { left: 45%; animation-delay: 0.7s; }
-.sp-confetti-piece:nth-child(6) { left: 55%; animation-delay: 0.3s; }
-.sp-confetti-piece:nth-child(7) { left: 65%; animation-delay: 0.9s; }
-.sp-confetti-piece:nth-child(8) { left: 75%; animation-delay: 0.4s; }
-.sp-confetti-piece:nth-child(9) { left: 85%; animation-delay: 0.6s; }
-.sp-confetti-piece:nth-child(10) { left: 95%; animation-delay: 0.2s; }
+.sp-confetti-piece:nth-child(1) {
+  left: 5%;
+  animation-delay: 0s;
+}
+.sp-confetti-piece:nth-child(2) {
+  left: 15%;
+  animation-delay: 0.2s;
+}
+.sp-confetti-piece:nth-child(3) {
+  left: 25%;
+  animation-delay: 0.5s;
+}
+.sp-confetti-piece:nth-child(4) {
+  left: 35%;
+  animation-delay: 0.1s;
+}
+.sp-confetti-piece:nth-child(5) {
+  left: 45%;
+  animation-delay: 0.7s;
+}
+.sp-confetti-piece:nth-child(6) {
+  left: 55%;
+  animation-delay: 0.3s;
+}
+.sp-confetti-piece:nth-child(7) {
+  left: 65%;
+  animation-delay: 0.9s;
+}
+.sp-confetti-piece:nth-child(8) {
+  left: 75%;
+  animation-delay: 0.4s;
+}
+.sp-confetti-piece:nth-child(9) {
+  left: 85%;
+  animation-delay: 0.6s;
+}
+.sp-confetti-piece:nth-child(10) {
+  left: 95%;
+  animation-delay: 0.2s;
+}
 
 @keyframes sp-makeItRain {
-  from { opacity: 0; transform: translateY(-50px) rotate(0); }
-  10%, 90% { opacity: 1; }
-  to { opacity: 0; transform: translateY(600px) rotate(360deg); }
+  from {
+    opacity: 0;
+    transform: translateY(-50px) rotate(0);
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(600px) rotate(360deg);
+  }
 }
 
 /* ================= CONTENT ================= */
@@ -195,9 +253,13 @@ body {
 .sp-logo {
   width: 240px;
   padding: 20px;
-  background: rgba(255,255,255,0.05);
+  background: linear-gradient(135deg, #c0a068 0%, #d4b583 50%, #c0a068 100%);
   border-radius: 12px;
   flex-shrink: 0;
+  box-shadow:
+    0 4px 20px rgba(192, 160, 104, 0.4),
+    inset 0 0 30px rgba(255, 237, 192, 0.2);
+  border: 1px solid rgba(192, 160, 104, 0.5);
 }
 
 .sp-text-container p {
@@ -234,7 +296,7 @@ body {
 /* ===== RESTORE SPONSOR TITLE SHIMMER EFFECT ===== */
 
 .sphead h4 {
-  font-size: 2.0rem;
+  font-size: 2rem;
   margin-bottom: 15px;
   font-weight: 600;
 
@@ -270,7 +332,8 @@ body {
       opacity: 0;
       transform: translateY(-50px) rotate(0);
     }
-    10%, 90% {
+    10%,
+    90% {
       opacity: 1;
     }
     to {
