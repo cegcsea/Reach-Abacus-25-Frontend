@@ -311,14 +311,14 @@ export const events = [
             content:
               "Participants are trapped inside a corrupted casino database. By analyzing transaction logs, rollbacks, deadlocks, and pending states, teams must extract three digital keys using accurate DBMS logic. Precision is critical; one wrong assumption breaks the vault code.",
             time: "20 February 2026, 09:30 AM to 12:30 PM",
-            venue: "R2",
+            venue: "GFL (Ground Floor Lab, DCSE)",
           },
           {
             title: "Round 2 – Silent Sabotage",
             content:
               "Participants investigate a subtly sabotaged database. Without being told what to search for, teams must rely on system understanding and complex SQL queries to identify what is missing or altered and prove insider tampering.",
             time: "20 February 2026, 02:00 PM to 05:00 PM",
-            venue: "GFL",
+            venue: "GFL (Ground Floor Lab, DCSE)",
           },
         ],
         contact: [
@@ -344,15 +344,15 @@ export const events = [
               "Teams explore a pre-built web application seeded with UI, logic, navigation, and authentication bugs. Without source code access, participants must identify, reproduce, and document defects accurately.",
             duration: "45 minutes",
             time: "19 February 2026, 10:00 AM to 01:00 PM",
-            venue: "R1",
+            venue: "SFL (Second Floor Lab, DCSE)",
           },
           {
             title: "Round 2 – Collaborative Build Challenge",
             content:
               "Teams split into Builder and Thinker roles. While one prepares the UI and frontend, the other unlocks system features by solving web-based technical challenges. Each solved challenge activates new functionality, gradually restoring the application.",
-            duration: "60–90 minutes",
+            duration: "90–120 minutes",
             time: "19 February 2026, 02:00 PM to 05:00 PM",
-            venue: "SFL",
+            venue: "SFL (Second Floor Lab, DCSE)",
           },
         ],
         contact: [
@@ -769,7 +769,7 @@ export const events = [
               "Shortlisted candidates from Round 1 will face an offline technical session introducing you to the tech industry, and you may also have to solve coding challenges.",
             duration: "6 hours (11:00 AM - 5:00 PM)",
             time: "19 February 2026, 11:00 AM - 5:00 PM",
-            venue: "GFL (Ground Floor Lab, Department of CSE)",
+            venue: "GFL (Ground Floor Lab, DCSE)",
             note: "Shortlisted candidates will be notified via email after Round 1. Bring your college ID and laptop.",
             whatToExpect:
               "Live coding challenges, tech talk and industry exposure sessions.",
