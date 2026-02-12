@@ -49,16 +49,16 @@ const Navbar = ({ isMenuOpen, setIsMenuOpen }) => {
   const authItems = isAuth
     ? [
         {
-          name: "profile",
-          label: "Profile",
-          icon: <FaInfoCircle />,
-          path: "/profile",
-        },
-        {
           name: "accommodation",
           label: "Accommodation",
           icon: <FaHotel />,
           path: "/accommodation",
+        },
+        {
+          name: "profile",
+          label: "Profile",
+          icon: <FaInfoCircle />,
+          path: "/profile",
         },
         {
           name: "logout",
