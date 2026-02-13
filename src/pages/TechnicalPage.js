@@ -3,8 +3,6 @@ import Navbar from "../components/Navbar";
 import { useLocation } from "react-router-dom";
 import "../styles/TechnicalPage.css";
 import { EventContacts } from "../constants/events";
-import { LoaderData } from "../context/loaderContext";
-import Loader from "../components/Loader/Loader";
 import Contact from "../components/Contact";
 import { Link } from "react-router-dom";
 
@@ -29,35 +27,38 @@ const TechnicalPage = () => {
         </div>
 
         {/* GUVI Free Courses Banner */}
-        <div
-          style={{
-            background:
-              "linear-gradient(135deg, #c0a068 0%, #aa8c2c 50%, #66541a 100%)",
-            padding: "clamp(20px, 4vw, 32px)",
-            margin: "clamp(20px, 4vw, 30px) auto",
-            maxWidth: "1200px",
-            borderRadius: "16px",
-            boxShadow:
-              "0 8px 32px rgba(192, 160, 104, 0.5), 0 0 60px rgba(192, 160, 104, 0.3)",
-            border: "2px solid rgba(192, 160, 104, 0.4)",
-            animation: "goldPulse 2s ease-in-out infinite",
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
+        {location.pathname === "/events/technical-events" && (
           <div
             style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
               background:
-                "linear-gradient(45deg, transparent 30%, rgba(255,237,192,0.2) 50%, transparent 70%)",
-              animation: "goldShimmer 3s infinite",
+                "linear-gradient(135deg, #c0a068 0%, #aa8c2c 50%, #66541a 100%)",
+              padding: "clamp(20px, 4vw, 32px)",
+              margin: "clamp(20px, 4vw, 30px) auto",
+              maxWidth: "1200px",
+              borderRadius: "16px",
+              boxShadow:
+                "0 8px 32px rgba(192, 160, 104, 0.5), 0 0 60px rgba(192, 160, 104, 0.3)",
+              border: "2px solid rgba(192, 160, 104, 0.4)",
+              animation: "goldPulse 2s ease-in-out infinite",
+              position: "relative",
+              overflow: "hidden",
             }}
-          />
-            <div style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
+          >
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                background:
+                  "linear-gradient(45deg, transparent 30%, rgba(255,237,192,0.2) 50%, transparent 70%)",
+                animation: "goldShimmer 3s infinite",
+              }}
+            />
+            <div
+              style={{ position: "relative", zIndex: 1, textAlign: "center" }}
+            >
               <h2
                 style={{
                   color: "#fff",
@@ -73,48 +74,49 @@ const TechnicalPage = () => {
                 🎓 EXCLUSIVE BENEFIT! 🎓
               </h2>
               <p
-              style={{
-                color: "#fff",
-                fontSize: "clamp(1.1rem, 2.5vw, 1.6rem)",
-                fontWeight: "600",
-                lineHeight: "1.6",
-                textShadow: "1px 1px 4px rgba(0,0,0,0.5)",
-                margin: "0 auto",
-                maxWidth: "900px",
-                padding: "0 15px",
-              }}
-            >
-              All Technical Event Participants get{" "}
-              <span
                 style={{
-                  background:
-                    "linear-gradient(90deg, #ffd700, #ffed4e, #ffd700)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  fontWeight: "900",
-                  fontSize: "clamp(1.3em, 3vw, 1.4em)",
-                  textShadow: "none",
-                  filter: "drop-shadow(0 0 8px rgba(255, 215, 0, 0.6))",
+                  color: "#fff",
+                  fontSize: "clamp(1.1rem, 2.5vw, 1.6rem)",
+                  fontWeight: "600",
+                  lineHeight: "1.6",
+                  textShadow: "1px 1px 4px rgba(0,0,0,0.5)",
+                  margin: "0 auto",
+                  maxWidth: "900px",
+                  padding: "0 15px",
                 }}
               >
-                FREE Online Courses
-              </span>{" "}
-              from HCL GUVI!
-            </p>
-            <p
-              style={{
-                color: "rgba(255,237,192,0.95)",
-                fontSize: "clamp(0.9rem, 2vw, 1.1rem)",
-                marginTop: "clamp(8px, 2vw, 12px)",
-                fontWeight: "500",
-                padding: "0 15px",
-              }}
-            >
-              Premium courses in AI, Full Stack Development, Data Science &
-              More! 🚀
-            </p>
+                All Technical Event Participants get{" "}
+                <span
+                  style={{
+                    background:
+                      "linear-gradient(90deg, #ffd700, #ffed4e, #ffd700)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    fontWeight: "900",
+                    fontSize: "clamp(1.3em, 3vw, 1.4em)",
+                    textShadow: "none",
+                    filter: "drop-shadow(0 0 8px rgba(255, 215, 0, 0.6))",
+                  }}
+                >
+                  FREE Online Courses
+                </span>{" "}
+                from HCL GUVI!
+              </p>
+              <p
+                style={{
+                  color: "rgba(255,237,192,0.95)",
+                  fontSize: "clamp(0.9rem, 2vw, 1.1rem)",
+                  marginTop: "clamp(8px, 2vw, 12px)",
+                  fontWeight: "500",
+                  padding: "0 15px",
+                }}
+              >
+                Premium courses in AI, Full Stack Development, Data Science &
+                More! 🚀
+              </p>
+            </div>
           </div>
-        </div>
+        )}
 
         <div className="cards-container">
           {event?.event?.map((item, index) => (
