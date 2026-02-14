@@ -744,7 +744,7 @@ export const events = [
         image: recruit,
         path: "/events/recruitment-drive",
         team: "Individual",
-        Date: "Round 1: 16 February 2026, 7:30 PM (Online) | Round 2: 19 February 2026, 11:00 AM - 5:00 PM (Offline)",
+        Date: "Round 1: 16 February 2026, 7:30 PM (Online) | Round 2: 19 February 2026, 11:00 AM - 5:00 PM (Offline at CEG, Anna University, Chennai)",
         prize: "Placement Opportunity",
         mode: "Hybrid (Online + Offline)",
         to: "recruitment-drive",
