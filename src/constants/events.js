@@ -749,7 +749,7 @@ export const events = [
         mode: "Hybrid (Online + Offline)",
         to: "recruitment-drive",
         formLink: "https://forms.gle/FDfScNYcmDUxTjfL6",
-        registrationDeadline: "15 February 2026, 6:00 PM",
+        registrationDeadline: "16 February 2026, 6:00 PM",
         recruitmentPartner: "Congruent Solutions",
         rounds: [
           {
