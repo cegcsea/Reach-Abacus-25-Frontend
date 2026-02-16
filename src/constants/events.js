@@ -534,7 +534,7 @@ export const events = [
             title: "Escape Room Challenge",
             content:
               "All participating teams enter the room at the same time and are given a sequence of story-linked puzzles. Each puzzle unlocks the next stage of the mission. Teams must analyze clues, solve puzzles, and record their answers on paper within the given time limit.",
-            time: "21 February 2026, 02:00 PM to 05:00 PM",
+            time: "21 February 2026, 9:30 PM to 04:00 PM",
             venue: "R2",
           },
         ],
