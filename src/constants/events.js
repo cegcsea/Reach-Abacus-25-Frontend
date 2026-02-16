@@ -142,7 +142,7 @@ export const events = [
               "Participants must answer 25 questions within 45 minutes. All questions carry equal marks. The round includes a special section titled Add-on Questions: these do not carry marks and are not considered for evaluation. However, solving these questions is highly recommended, as they provide important clues and context for Round 2. Teams that attempt and solve add-on questions will gain an advantage in the next round. Top-performing teams qualify for Round 2.",
             duration: "45 minutes",
             time: "19 February 2026, 10:00 AM to 01:00 PM",
-            venue: "KP-210,211",
+            venue: "R1",
           },
           {
             title: "Round 2 - Analysis & Coding Challenge",
@@ -193,7 +193,7 @@ export const events = [
               "Teams will be given a virtual budget to participate in a live auction. They will bid for algorithm modules related to different themes such as Arrays, Stacks & Queues, Searching, and Sorting. For each theme, teams can only use the algorithms they have purchased and must select the most suitable algorithm for the given problem statements. No coding is involved - only logical analysis and correct algorithm selection. Evaluation based on correctness of algorithm selection, strategic bidding decisions, efficient use of limited resources, and speed and accuracy of responses.",
             duration: "1.5 hours",
             time: "20 February 2026, 02:00 PM to 05:00 PM",
-            venue: "Turing Hall",
+            venue: "SFL (Second Floor Lab, DCSE)",
           },
         ],
         contact: [
@@ -228,7 +228,7 @@ export const events = [
               "Multiple Choice Questions (MCQs) displayed on a projector. Teams write answers on sheets or raise placards. Topics covered include programming fundamentals, data structures & algorithms, computer networks & databases, logical reasoning, and Internet & AI basics. Top teams with the highest scores advance to Round 2.",
             duration: "25-30 minutes",
             time: "20 February 2026, 09:30 AM to 12:30 PM",
-            venue: "KP-210,211",
+            venue: "R2",
           },
           {
             title: "Round 2 - Innovation Arena (Ideathon)",
@@ -236,7 +236,7 @@ export const events = [
               "Each team selects a domain from the given list and a problem statement. Teams prepare a solution and present it via a PowerPoint. Internet usage is not allowed; ideas must come from participants' own knowledge. Teams present and defend their solutions verbally. Evaluation based on creativity and innovation, feasibility and practicality of the solution, and clarity of presentation.",
             duration: "30-40 minutes",
             time: "20 February 2026, 02:00 PM to 05:00 PM",
-            venue: "SFL (Second Floor Lab, DCSE)",
+            venue: "R2",
           },
         ],
         contact: [
