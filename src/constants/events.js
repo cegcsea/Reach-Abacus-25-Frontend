@@ -98,7 +98,7 @@ export const events = [
           {
             title: "Round 1 – MCQ Preliminary Round",
             content:
-              "This round is a screening-based MCQ test designed to evaluate first-year students’ core technical knowledge, logical reasoning, and problem-solving speed. This round shortlists teams for the next stage of the event.",
+              "This round is a screening-based MCQ test designed to evaluate first-year students' core technical knowledge, logical reasoning, and problem-solving speed. This round shortlists teams for the next stage of the event.",
             duration: "30 minutes",
             time: "19 February 2026, 10:00 AM to 01:00 PM",
             venue: "RUSA Gallery",
