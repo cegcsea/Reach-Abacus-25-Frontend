@@ -85,6 +85,7 @@ export const events = [
       {
         id: 2,
         title: "GET SET GO",
+        badge: "First Years Only",
         description:
           "A first-year focused event with an MCQ screening test that evaluates core technical knowledge, logical reasoning, and problem-solving speed. Shortlisted teams advance to the coding challenge.",
         image: rand3,
@@ -371,6 +372,7 @@ export const events = [
         Date: "20 February 2026",
         prize: "Rs 6k",
         to: "neonova",
+        formLink: "https://forms.gle/oNmxsQE3tqVXPnbGA",
         rounds: [
           {
             title: "Round 1 – Domain Ideation",
