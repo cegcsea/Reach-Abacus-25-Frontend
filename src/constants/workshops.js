@@ -14,6 +14,7 @@ export const workshopsReach = [
     code: 1,
     price: 300,
     bulkBooking: true,
+    registrationClosed: true,
     content:
       "Learn core cloud concepts and AI-powered cloud services with hands-on exposure to real-world use cases. This workshop is designed for beginners and is highly relevant to the industry. Participants are required to bring their laptops for practical sessions.",
     prerequisites:

@@ -55,11 +55,14 @@ const Payment = () => {
   );
 
   useEffect(() => {
-    if (isRegistered) {
+    if (workshop?.registrationClosed) {
+      toast.error("Registration for this workshop is closed!");
+      navigate("/workshops");
+    } else if (isRegistered) {
       toast.error("You are already registered for this workshop!");
       navigate("/workshops");
     }
-  }, [isRegistered, navigate]);
+  }, [isRegistered, navigate, workshop]);
 
   const handleFreeRegistration = async () => {
     if (!isFreeEligible) {
@@ -134,6 +137,10 @@ const Payment = () => {
         <p>Workshop not found</p>
       </div>
     );
+  }
+
+  if (workshop.registrationClosed) {
+    return <Loader />; // Will redirect via useEffect
   }
 
   // If user is eligible for free registration, show free registration option

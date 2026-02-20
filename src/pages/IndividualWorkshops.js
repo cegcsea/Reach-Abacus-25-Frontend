@@ -235,38 +235,46 @@ const IndividualWorkshops = () => {
 
             {/* Action Buttons */}
             <div className="mt-6 space-y-3">
-              {isAuth && !isRegistered && (
+              {workshop.registrationClosed ? (
+                <div className="w-full px-6 py-4 bg-red-500/20 border-2 border-red-500 text-red-400 text-lg font-bold rounded-lg text-center">
+                  Registration Closed
+                </div>
+              ) : (
                 <>
-                  <Link to={`/workshops/${workshop.to}/payment`}>
-                    <button className="w-full px-6 py-4 bg-gradient-to-r from-[#c0a068] to-[#aa8c2c] text-black text-lg font-bold rounded-lg hover:from-[#aa8c2c] hover:to-[#c0a068] transition-all duration-300 shadow-xl">
-                      Register for ₹{workshop.price}
-                    </button>
-                  </Link>
-                  {workshop.bulkBooking && (
-                    <Link to={`/workshops/${workshop.to}/bulkpayment`}>
-                      <button className="w-full px-6 py-4 border-2 border-[#c0a068] text-[#c0a068] text-lg font-bold rounded-lg hover:bg-[#c0a068] hover:text-black transition-all duration-300">
-                        Bulk Register - Save ₹100
+                  {isAuth && !isRegistered && (
+                    <>
+                      <Link to={`/workshops/${workshop.to}/payment`}>
+                        <button className="w-full px-6 py-4 bg-gradient-to-r from-[#c0a068] to-[#aa8c2c] text-black text-lg font-bold rounded-lg hover:from-[#aa8c2c] hover:to-[#c0a068] transition-all duration-300 shadow-xl">
+                          Register for ₹{workshop.price}
+                        </button>
+                      </Link>
+                      {workshop.bulkBooking && (
+                        <Link to={`/workshops/${workshop.to}/bulkpayment`}>
+                          <button className="w-full px-6 py-4 border-2 border-[#c0a068] text-[#c0a068] text-lg font-bold rounded-lg hover:bg-[#c0a068] hover:text-black transition-all duration-300">
+                            Bulk Register - Save ₹100
+                          </button>
+                        </Link>
+                      )}
+                    </>
+                  )}
+                  {isAuth &&
+                    isRegistered &&
+                    workshop.bulkBooking &&
+                    bestPayment?.status === "FAILURE" && (
+                      <Link to={`/workshops/${workshop.to}/bulkpayment`}>
+                        <button className="w-full px-6 py-4 border-2 border-[#c0a068] text-[#c0a068] text-lg font-bold rounded-lg hover:bg-[#c0a068] hover:text-black transition-all duration-300">
+                          Bulk Register - Save ₹100
+                        </button>
+                      </Link>
+                    )}
+                  {!isAuth && (
+                    <Link to="/auth">
+                      <button className="w-full px-6 py-4 bg-gradient-to-r from-[#c0a068] to-[#aa8c2c] text-black text-lg font-bold rounded-lg hover:from-[#aa8c2c] hover:to-[#c0a068] transition-all duration-300 shadow-xl">
+                        Login to Register
                       </button>
                     </Link>
                   )}
                 </>
-              )}
-              {isAuth &&
-                isRegistered &&
-                workshop.bulkBooking &&
-                bestPayment?.status === "FAILURE" && (
-                  <Link to={`/workshops/${workshop.to}/bulkpayment`}>
-                    <button className="w-full px-6 py-4 border-2 border-[#c0a068] text-[#c0a068] text-lg font-bold rounded-lg hover:bg-[#c0a068] hover:text-black transition-all duration-300">
-                      Bulk Register - Save ₹100
-                    </button>
-                  </Link>
-                )}
-              {!isAuth && (
-                <Link to="/auth">
-                  <button className="w-full px-6 py-4 bg-gradient-to-r from-[#c0a068] to-[#aa8c2c] text-black text-lg font-bold rounded-lg hover:from-[#aa8c2c] hover:to-[#c0a068] transition-all duration-300 shadow-xl">
-                    Login to Register
-                  </button>
-                </Link>
               )}
             </div>
           </motion.div>

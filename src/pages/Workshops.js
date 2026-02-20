@@ -58,6 +58,11 @@ const Workshops = () => {
       navigate("/auth");
       return;
     }
+    // Check if any workshop has closed registration
+    const isBulkClosed = workshops.some((w) => w.registrationClosed);
+    if (isBulkClosed) {
+      return; // Button will be disabled, so this shouldn't trigger
+    }
     // Navigate to bulk workshop payment page
     navigate("/workshops/bulk/payment");
   };
@@ -133,14 +138,23 @@ const Workshops = () => {
                       className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                     />
                     {/* Price Badge */}
-                    <div className="absolute top-4 right-4 bg-[#c0a068] text-black px-4 py-2 rounded-lg font-bold text-xl shadow-lg">
-                      ₹{workshop.price}
-                    </div>
-                    {isFreeEligible && !isRegistered && (
-                      <div className="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-lg font-bold text-sm shadow-lg animate-pulse">
-                        FREE FOR YOU!
+                    {!workshop.registrationClosed && (
+                      <div className="absolute top-4 right-4 bg-[#c0a068] text-black px-4 py-2 rounded-lg font-bold text-xl shadow-lg">
+                        ₹{workshop.price}
                       </div>
                     )}
+                    {workshop.registrationClosed && (
+                      <div className="absolute top-4 right-4 bg-red-500 text-white px-4 py-2 rounded-lg font-bold text-lg shadow-lg">
+                        CLOSED
+                      </div>
+                    )}
+                    {isFreeEligible &&
+                      !isRegistered &&
+                      !workshop.registrationClosed && (
+                        <div className="absolute top-4 left-4 bg-green-500 text-white px-3 py-1 rounded-lg font-bold text-sm shadow-lg animate-pulse">
+                          FREE FOR YOU!
+                        </div>
+                      )}
                   </div>
 
                   {/* Workshop Info */}
@@ -173,14 +187,20 @@ const Workshops = () => {
                 </motion.div>
 
                 {/* Action Button - Outside Card */}
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => handleReadMore(workshop.to)}
-                  className="w-full mt-4 px-4 py-3 bg-transparent border-2 border-[#c0a068] text-[#c0a068] font-semibold rounded-lg hover:bg-[#c0a068] hover:text-black transition-all duration-300"
-                >
-                  View Details
-                </motion.button>
+                {workshop.registrationClosed ? (
+                  <motion.div className="w-full mt-4 px-4 py-3 bg-red-500/20 border-2 border-red-500 text-red-400 font-semibold rounded-lg text-center">
+                    Registration Closed
+                  </motion.div>
+                ) : (
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => handleReadMore(workshop.to)}
+                    className="w-full mt-4 px-4 py-3 bg-transparent border-2 border-[#c0a068] text-[#c0a068] font-semibold rounded-lg hover:bg-[#c0a068] hover:text-black transition-all duration-300"
+                  >
+                    View Details
+                  </motion.button>
+                )}
               </motion.div>
             );
           })}
@@ -232,12 +252,18 @@ const Workshops = () => {
                   Save ₹100!
                 </div>
               </div>
-              <button
-                onClick={handleBulkRegister}
-                className="px-6 py-3 bg-gradient-to-r from-[#c0a068] to-[#aa8c2c] text-black font-bold rounded-lg hover:from-[#aa8c2c] hover:to-[#c0a068] transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
-                Register Both Workshops
-              </button>
+              {workshops.some((w) => w.registrationClosed) ? (
+                <div className="px-6 py-3 bg-red-500/20 border-2 border-red-500 text-red-400 font-bold rounded-lg text-center">
+                  Registration Closed
+                </div>
+              ) : (
+                <button
+                  onClick={handleBulkRegister}
+                  className="px-6 py-3 bg-gradient-to-r from-[#c0a068] to-[#aa8c2c] text-black font-bold rounded-lg hover:from-[#aa8c2c] hover:to-[#c0a068] transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  Register Both Workshops
+                </button>
+              )}
             </div>
           </div>
         </motion.div>

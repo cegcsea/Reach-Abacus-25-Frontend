@@ -19,6 +19,9 @@ const BulkWorkshopPayment = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { isLoading } = LoaderData();
 
+  // Check if any workshop in the bulk has closed registration
+  const isBulkRegistrationClosed = workshops.some((w) => w.registrationClosed);
+
   // Check for existing bulk payment (workshopId: 0)
   const bulkPayment = user?.WorkshopPayment?.find(
     (p) => p.workshopId === 0 && ["SUCCESS", "PENDING"].includes(p.status),
@@ -42,7 +45,12 @@ const BulkWorkshopPayment = () => {
   );
 
   useEffect(() => {
-    if (bulkPayment) {
+    if (isBulkRegistrationClosed) {
+      toast.error(
+        "Bulk registration is closed as one or more workshops have already started.",
+      );
+      navigate("/workshops");
+    } else if (bulkPayment) {
       if (bulkPayment.status === "SUCCESS") {
         toast.success("You have already purchased the bulk workshop package!");
       } else {
@@ -55,7 +63,12 @@ const BulkWorkshopPayment = () => {
       );
       navigate("/workshops");
     }
-  }, [bulkPayment, individualRegistrations, navigate]);
+  }, [
+    bulkPayment,
+    individualRegistrations,
+    navigate,
+    isBulkRegistrationClosed,
+  ]);
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -97,7 +110,12 @@ const BulkWorkshopPayment = () => {
     );
   };
 
-  if (isLoading || bulkPayment || individualRegistrations.length > 0) {
+  if (
+    isLoading ||
+    bulkPayment ||
+    individualRegistrations.length > 0 ||
+    isBulkRegistrationClosed
+  ) {
     return <Loader />;
   }
 
