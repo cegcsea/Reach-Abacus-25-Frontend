@@ -57,6 +57,7 @@ export const workshopsReach = [
     code: 2,
     price: 300,
     bulkBooking: true,
+    registrationClosed: true,
     content:
       "Understand MCP (Model Context Protocol) and context-aware AI applications through practical sessions with real-time implementation. Learn how modern AI apps manage context and build your own context-aware applications. Laptop is mandatory for hands-on learning.",
     prerequisites:
