@@ -5,6 +5,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
 import { sessions, workshopsReach } from "../constants/workshops";
+import { AMBASSADOR_REGISTRATION_CLOSED } from "../constants/events";
 import "../styles/profile.css";
 import axios from "axios";
 
@@ -135,6 +136,10 @@ const Profile = () => {
               <p className="referral-code">
                 Your Referral Code: <strong>{referralCode}</strong>
               </p>
+            ) : AMBASSADOR_REGISTRATION_CLOSED ? (
+              <div className="bg-red-500/20 border-2 border-red-500 text-red-400 font-semibold py-3 px-6 rounded-lg text-center m-5">
+                Ambassador Registration Closed
+              </div>
             ) : (
               <button
                 className="action-btn m-5 ambassador"

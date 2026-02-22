@@ -5,7 +5,7 @@ import { UserData } from "../context/userContext";
 import Loader from "../components/Loader/Loader";
 import toast from "react-hot-toast";
 import price from "../assets/images/price.png";
-import { events } from "../constants/events";
+import { events, REGISTRATIONS_CLOSED } from "../constants/events";
 function EventPayment() {
   const { isLoading } = LoaderData();
   const { user, handleEventPayment } = UserData();
@@ -36,7 +36,18 @@ function EventPayment() {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
   }, []);
 
+  useEffect(() => {
+    if (REGISTRATIONS_CLOSED) {
+      toast.error("Event registrations are now closed!");
+      navigate("/events");
+    }
+  }, [navigate]);
+
   if (isLoading) return <Loader />;
+
+  if (REGISTRATIONS_CLOSED) {
+    return <Loader />;
+  }
 
   const handleFileChange = (event) => {
     const selectedFile = event.target.files[0];
@@ -69,7 +80,7 @@ function EventPayment() {
         formData: formReqData,
         users: userArray,
       },
-      navigate
+      navigate,
     );
   };
 

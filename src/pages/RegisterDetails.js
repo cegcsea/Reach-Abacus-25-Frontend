@@ -1,10 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { UserData } from "../context/userContext";
 import { LoaderData } from "../context/loaderContext";
 import Loader from "../components/Loader/Loader";
+import { USER_REGISTRATION_CLOSED } from "../constants/events";
 import "../styles/RegisterDetails.css";
 /* Need to ensure that this page has been deployed and changed correctly */
 function RegisterDetails() {
@@ -48,6 +49,13 @@ function RegisterDetails() {
   const handleSelectChange = (name, value) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  useEffect(() => {
+    if (USER_REGISTRATION_CLOSED) {
+      toast.error("User registration is now closed!");
+      navigate("/");
+    }
+  }, [navigate]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -122,7 +130,7 @@ function RegisterDetails() {
   };
   const { isLoading } = LoaderData();
 
-  if (isLoading) {
+  if (isLoading || USER_REGISTRATION_CLOSED) {
     return <Loader />;
   }
   return (

@@ -9,6 +9,7 @@ import {
   FaPhone,
   FaUser,
 } from "react-icons/fa";
+import { ACCOMMODATION_CLOSED } from "../constants/events";
 
 function Accommodation() {
   const { isLoading } = LoaderData();
@@ -246,47 +247,59 @@ function Accommodation() {
           }}
           className="self-center w-full"
         >
-          <a
-            href={GOOGLE_FORM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block"
-          >
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 8px 25px rgba(192, 160, 104, 0.6)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              animate={{
-                boxShadow: [
-                  "0 4px 15px rgba(192, 160, 104, 0.4)",
-                  "0 6px 20px rgba(192, 160, 104, 0.6)",
-                  "0 4px 15px rgba(192, 160, 104, 0.4)",
-                ],
-              }}
-              transition={{
-                boxShadow: { duration: 2, repeat: Infinity },
-              }}
-              className="bg-[#c0a068] hover:bg-[#aa8c2c] duration-300 text-black font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-lg w-full border-2 border-[#c0a068] relative overflow-hidden"
+          {ACCOMMODATION_CLOSED ? (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="bg-red-500/20 border-2 border-red-500 text-red-400 font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-lg w-full text-center"
             >
-              <motion.div
-                animate={{ x: ["-100%", "200%"] }}
-                transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
-                className="absolute inset-0 w-1/4 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
-              />
-              <span className="text-base sm:text-lg relative z-10">
-                Register via Form
+              <span className="text-base sm:text-lg">
+                Accommodation Registration Closed
               </span>
-              <motion.span
-                className="ml-2 relative z-10"
-                animate={{ x: [0, 3, 0] }}
-                transition={{ duration: 1, repeat: Infinity, repeatDelay: 1 }}
+            </motion.div>
+          ) : (
+            <a
+              href={GOOGLE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 8px 25px rgba(192, 160, 104, 0.6)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                animate={{
+                  boxShadow: [
+                    "0 4px 15px rgba(192, 160, 104, 0.4)",
+                    "0 6px 20px rgba(192, 160, 104, 0.6)",
+                    "0 4px 15px rgba(192, 160, 104, 0.4)",
+                  ],
+                }}
+                transition={{
+                  boxShadow: { duration: 2, repeat: Infinity },
+                }}
+                className="bg-[#c0a068] hover:bg-[#aa8c2c] duration-300 text-black font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-lg w-full border-2 border-[#c0a068] relative overflow-hidden"
               >
-                {"<~>"}
-              </motion.span>
-            </motion.button>
-          </a>
+                <motion.div
+                  animate={{ x: ["-100%", "200%"] }}
+                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+                  className="absolute inset-0 w-1/4 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"
+                />
+                <span className="text-base sm:text-lg relative z-10">
+                  Register via Form
+                </span>
+                <motion.span
+                  className="ml-2 relative z-10"
+                  animate={{ x: [0, 3, 0] }}
+                  transition={{ duration: 1, repeat: Infinity, repeatDelay: 1 }}
+                >
+                  {"<~>"}
+                </motion.span>
+              </motion.button>
+            </a>
+          )}
         </motion.div>
 
         {/* Contact Section */}

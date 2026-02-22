@@ -21,6 +21,13 @@ import rand4 from "../assets/Events/rand4.png";
 import rand5 from "../assets/Events/rand5.png";
 import money from "../assets/Events/money.png";
 import recruit from "../assets/Events/recruit.png";
+
+// Global registration status
+export const REGISTRATIONS_CLOSED = true;
+export const ACCOMMODATION_CLOSED = true;
+export const AMBASSADOR_REGISTRATION_CLOSED = true;
+export const USER_REGISTRATION_CLOSED = true;
+
 // Contacts for the EventPage
 
 export const EventContacts = [

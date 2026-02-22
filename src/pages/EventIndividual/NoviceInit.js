@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../styles/Intern.css";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import Contact from "../../components/Contact.js";
-import { events } from "../../constants/events.js";
+import { events, REGISTRATIONS_CLOSED } from "../../constants/events.js";
 import { UserData } from "../../context/userContext.js";
 import { LoaderData } from "../../context/loaderContext.js";
 import Loader from "../../components/Loader/Loader.jsx";
@@ -326,24 +326,34 @@ const NoviceInit = () => {
               </div>
             )}
             <div className="flex justify-center">
-              {isAuth && (!isRegistered || selectedEvent.formLink) && (
-                <button
-                  className="m-3 w-fit border border-[#c0a068] px-4 py-2 text-white duration-150 hover:bg-[#c0a068] "
-                  onClick={handleRegister}
-                >
-                  {selectedEvent.formLink ? "Register via Form" : "Register"}
-                </button>
-              )}
-              {isAuth && isRegistered && !selectedEvent.formLink && (
-                <p className="p-2 w-full sm:w-fit flex justify-center items-center text-white text-lg font-semibold text-gray border rounded-lg border-[#c0a068] bg-[#1a1a1a] mx-auto">
-                  <span className="text-[#c0a068]">/*</span>
-                  &nbsp;Already registered for this event!&nbsp;
-                  <span className="text-[#c0a068]">*/</span>
-                </p>
+              {REGISTRATIONS_CLOSED ? (
+                <div className="p-3 w-full sm:w-fit flex justify-center items-center text-red-400 text-lg font-semibold border-2 rounded-lg border-red-500 bg-red-500/20 mx-auto">
+                  Registration Closed
+                </div>
+              ) : (
+                <>
+                  {isAuth && (!isRegistered || selectedEvent.formLink) && (
+                    <button
+                      className="m-3 w-fit border border-[#c0a068] px-4 py-2 text-white duration-150 hover:bg-[#c0a068] "
+                      onClick={handleRegister}
+                    >
+                      {selectedEvent.formLink
+                        ? "Register via Form"
+                        : "Register"}
+                    </button>
+                  )}
+                  {isAuth && isRegistered && !selectedEvent.formLink && (
+                    <p className="p-2 w-full sm:w-fit flex justify-center items-center text-white text-lg font-semibold text-gray border rounded-lg border-[#c0a068] bg-[#1a1a1a] mx-auto">
+                      <span className="text-[#c0a068]">/*</span>
+                      &nbsp;Already registered for this event!&nbsp;
+                      <span className="text-[#c0a068]">*/</span>
+                    </p>
+                  )}
+                </>
               )}
             </div>
             <div className="flex justify-center">
-              {!isAuth && !selectedEvent.formLink && (
+              {!REGISTRATIONS_CLOSED && !isAuth && !selectedEvent.formLink && (
                 <button
                   className="m-3 w-fit border border-[#c0a068] px-4 py-2 text-white duration-150 hover:bg-[#c0a068]"
                   onClick={() => navigate("/auth")}
@@ -351,7 +361,7 @@ const NoviceInit = () => {
                   Login to Register
                 </button>
               )}
-              {!isAuth && selectedEvent.formLink && (
+              {!REGISTRATIONS_CLOSED && !isAuth && selectedEvent.formLink && (
                 <button
                   className="m-3 w-fit border border-[#c0a068] px-4 py-2 text-white duration-150 hover:bg-[#c0a068]"
                   onClick={() => window.open(selectedEvent.formLink, "_blank")}
